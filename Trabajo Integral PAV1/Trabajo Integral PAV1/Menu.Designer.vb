@@ -23,6 +23,7 @@ Partial Class Menu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Me.cmd_gestor_clientes = New System.Windows.Forms.Button()
         Me.cmd_gestor_empresas = New System.Windows.Forms.Button()
         Me.cmd_gestor_marcas = New System.Windows.Forms.Button()
@@ -79,6 +80,8 @@ Partial Class Menu
         Me.Controls.Add(Me.cmd_gestor_marcas)
         Me.Controls.Add(Me.cmd_gestor_empresas)
         Me.Controls.Add(Me.cmd_gestor_clientes)
+        Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Menu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu"
