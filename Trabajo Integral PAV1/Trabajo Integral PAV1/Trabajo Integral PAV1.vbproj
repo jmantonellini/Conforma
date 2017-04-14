@@ -76,6 +76,12 @@
     <Compile Include="Gestor clientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gestor marcas.Designer.vb">
+      <DependentUpon>Gestor marcas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gestor marcas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -101,6 +107,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Gestor clientes.resx">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestor marcas.resx">
+      <DependentUpon>Gestor marcas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
