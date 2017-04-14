@@ -22,6 +22,7 @@ Partial Class gestor_clientes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.tabla_clientes = New System.Windows.Forms.DataGridView()
         Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -73,6 +74,7 @@ Partial Class gestor_clientes
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.lbl_hora = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -152,7 +154,7 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Location = New System.Drawing.Point(4, 22)
         Me.tab_datos_personales.Margin = New System.Windows.Forms.Padding(0)
         Me.tab_datos_personales.Name = "tab_datos_personales"
-        Me.tab_datos_personales.Size = New System.Drawing.Size(438, 413)
+        Me.tab_datos_personales.Size = New System.Drawing.Size(438, 391)
         Me.tab_datos_personales.TabIndex = 0
         Me.tab_datos_personales.Text = "Datos Personales"
         '
@@ -312,7 +314,7 @@ Partial Class gestor_clientes
         Me.tab_contacto.Location = New System.Drawing.Point(4, 22)
         Me.tab_contacto.Name = "tab_contacto"
         Me.tab_contacto.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_contacto.Size = New System.Drawing.Size(438, 413)
+        Me.tab_contacto.Size = New System.Drawing.Size(438, 391)
         Me.tab_contacto.TabIndex = 1
         Me.tab_contacto.Text = "Contacto"
         Me.tab_contacto.UseVisualStyleBackColor = True
@@ -559,12 +561,15 @@ Partial Class gestor_clientes
         '
         'lbl_hora
         '
-        Me.lbl_hora.AutoSize = True
-        Me.lbl_hora.Location = New System.Drawing.Point(837, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(758, 23)
         Me.lbl_hora.Name = "lbl_hora"
-        Me.lbl_hora.Size = New System.Drawing.Size(45, 13)
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 34
         Me.lbl_hora.Text = "Label22"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
         '
         'gestor_clientes
         '
@@ -649,4 +654,5 @@ Partial Class gestor_clientes
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

@@ -64,12 +64,11 @@ Partial Class Menu
         '
         'lbl_hora
         '
-        Me.lbl_hora.AutoSize = True
-        Me.lbl_hora.Location = New System.Drawing.Point(450, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(356, 9)
         Me.lbl_hora.Name = "lbl_hora"
-        Me.lbl_hora.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_hora.TabIndex = 4
-        Me.lbl_hora.Text = "Label1"
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
+        Me.lbl_hora.TabIndex = 35
+        Me.lbl_hora.Text = "Label22"
         '
         'Menu
         '
@@ -80,13 +79,12 @@ Partial Class Menu
         Me.Controls.Add(Me.cmd_gestor_marcas)
         Me.Controls.Add(Me.cmd_gestor_empresas)
         Me.Controls.Add(Me.cmd_gestor_clientes)
-        Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Menu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents cmd_gestor_clientes As System.Windows.Forms.Button

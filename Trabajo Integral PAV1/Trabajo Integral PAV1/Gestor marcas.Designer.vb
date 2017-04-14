@@ -22,6 +22,7 @@ Partial Class gestor_marcas_modelos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lbl_nombre_marca = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -34,6 +35,8 @@ Partial Class gestor_marcas_modelos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lbl_hora = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -150,11 +153,24 @@ Partial Class gestor_marcas_modelos
         Me.Panel2.Size = New System.Drawing.Size(262, 476)
         Me.Panel2.TabIndex = 5
         '
+        'lbl_hora
+        '
+        Me.lbl_hora.Location = New System.Drawing.Point(443, 9)
+        Me.lbl_hora.Name = "lbl_hora"
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
+        Me.lbl_hora.TabIndex = 35
+        Me.lbl_hora.Text = "Label22"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
         'gestor_marcas_modelos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(586, 527)
+        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "gestor_marcas_modelos"
@@ -180,4 +196,6 @@ Partial Class gestor_marcas_modelos
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents lbl_hora As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

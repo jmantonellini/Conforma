@@ -22,6 +22,7 @@ Partial Class gestor_empresas
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txt_email = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_telefono_fijo = New System.Windows.Forms.TextBox()
@@ -44,12 +45,14 @@ Partial Class gestor_empresas
         Me.lbl_nombre = New System.Windows.Forms.Label()
         Me.lbl_razon_social = New System.Windows.Forms.Label()
         Me.lbl_cuit = New System.Windows.Forms.Label()
+        Me.lbl_hora = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_email
         '
-        Me.txt_email.Location = New System.Drawing.Point(174, 184)
+        Me.txt_email.Location = New System.Drawing.Point(188, 202)
         Me.txt_email.Name = "txt_email"
         Me.txt_email.Size = New System.Drawing.Size(232, 20)
         Me.txt_email.TabIndex = 33
@@ -57,7 +60,7 @@ Partial Class gestor_empresas
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(116, 187)
+        Me.Label7.Location = New System.Drawing.Point(130, 205)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(32, 13)
         Me.Label7.TabIndex = 32
@@ -65,7 +68,7 @@ Partial Class gestor_empresas
         '
         'txt_telefono_fijo
         '
-        Me.txt_telefono_fijo.Location = New System.Drawing.Point(174, 146)
+        Me.txt_telefono_fijo.Location = New System.Drawing.Point(188, 164)
         Me.txt_telefono_fijo.Name = "txt_telefono_fijo"
         Me.txt_telefono_fijo.Size = New System.Drawing.Size(232, 20)
         Me.txt_telefono_fijo.TabIndex = 31
@@ -73,7 +76,7 @@ Partial Class gestor_empresas
         'lbl_telefono_fijo
         '
         Me.lbl_telefono_fijo.AutoSize = True
-        Me.lbl_telefono_fijo.Location = New System.Drawing.Point(80, 149)
+        Me.lbl_telefono_fijo.Location = New System.Drawing.Point(94, 167)
         Me.lbl_telefono_fijo.Name = "lbl_telefono_fijo"
         Me.lbl_telefono_fijo.Size = New System.Drawing.Size(68, 13)
         Me.lbl_telefono_fijo.TabIndex = 30
@@ -82,7 +85,7 @@ Partial Class gestor_empresas
         'lbl_datos_empresa
         '
         Me.lbl_datos_empresa.AutoSize = True
-        Me.lbl_datos_empresa.Location = New System.Drawing.Point(40, 11)
+        Me.lbl_datos_empresa.Location = New System.Drawing.Point(54, 27)
         Me.lbl_datos_empresa.Name = "lbl_datos_empresa"
         Me.lbl_datos_empresa.Size = New System.Drawing.Size(108, 13)
         Me.lbl_datos_empresa.TabIndex = 29
@@ -104,7 +107,7 @@ Partial Class gestor_empresas
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Red
-        Me.Label8.Location = New System.Drawing.Point(412, 179)
+        Me.Label8.Location = New System.Drawing.Point(426, 197)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(17, 24)
         Me.Label8.TabIndex = 26
@@ -115,7 +118,7 @@ Partial Class gestor_empresas
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(412, 141)
+        Me.Label5.Location = New System.Drawing.Point(426, 159)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(17, 24)
         Me.Label5.TabIndex = 25
@@ -126,7 +129,7 @@ Partial Class gestor_empresas
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(412, 100)
+        Me.Label4.Location = New System.Drawing.Point(426, 118)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(17, 24)
         Me.Label4.TabIndex = 24
@@ -137,7 +140,7 @@ Partial Class gestor_empresas
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(412, 64)
+        Me.Label3.Location = New System.Drawing.Point(426, 82)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(17, 24)
         Me.Label3.TabIndex = 28
@@ -148,7 +151,7 @@ Partial Class gestor_empresas
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(412, 30)
+        Me.Label2.Location = New System.Drawing.Point(426, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(17, 24)
         Me.Label2.TabIndex = 23
@@ -200,21 +203,21 @@ Partial Class gestor_empresas
         '
         'txt_razon_social
         '
-        Me.txt_razon_social.Location = New System.Drawing.Point(174, 105)
+        Me.txt_razon_social.Location = New System.Drawing.Point(188, 123)
         Me.txt_razon_social.Name = "txt_razon_social"
         Me.txt_razon_social.Size = New System.Drawing.Size(232, 20)
         Me.txt_razon_social.TabIndex = 17
         '
         'txt_cuit
         '
-        Me.txt_cuit.Location = New System.Drawing.Point(174, 69)
+        Me.txt_cuit.Location = New System.Drawing.Point(188, 87)
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(232, 20)
         Me.txt_cuit.TabIndex = 16
         '
         'txt_nombre
         '
-        Me.txt_nombre.Location = New System.Drawing.Point(174, 34)
+        Me.txt_nombre.Location = New System.Drawing.Point(188, 52)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(232, 20)
         Me.txt_nombre.TabIndex = 15
@@ -222,7 +225,7 @@ Partial Class gestor_empresas
         'lbl_nombre
         '
         Me.lbl_nombre.AutoSize = True
-        Me.lbl_nombre.Location = New System.Drawing.Point(104, 37)
+        Me.lbl_nombre.Location = New System.Drawing.Point(118, 55)
         Me.lbl_nombre.Name = "lbl_nombre"
         Me.lbl_nombre.Size = New System.Drawing.Size(47, 13)
         Me.lbl_nombre.TabIndex = 14
@@ -231,7 +234,7 @@ Partial Class gestor_empresas
         'lbl_razon_social
         '
         Me.lbl_razon_social.AutoSize = True
-        Me.lbl_razon_social.Location = New System.Drawing.Point(78, 108)
+        Me.lbl_razon_social.Location = New System.Drawing.Point(92, 126)
         Me.lbl_razon_social.Name = "lbl_razon_social"
         Me.lbl_razon_social.Size = New System.Drawing.Size(73, 13)
         Me.lbl_razon_social.TabIndex = 13
@@ -240,17 +243,30 @@ Partial Class gestor_empresas
         'lbl_cuit
         '
         Me.lbl_cuit.AutoSize = True
-        Me.lbl_cuit.Location = New System.Drawing.Point(123, 72)
+        Me.lbl_cuit.Location = New System.Drawing.Point(137, 90)
         Me.lbl_cuit.Name = "lbl_cuit"
         Me.lbl_cuit.Size = New System.Drawing.Size(28, 13)
         Me.lbl_cuit.TabIndex = 12
         Me.lbl_cuit.Text = "Cuit:"
+        '
+        'lbl_hora
+        '
+        Me.lbl_hora.Location = New System.Drawing.Point(367, 9)
+        Me.lbl_hora.Name = "lbl_hora"
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
+        Me.lbl_hora.TabIndex = 35
+        Me.lbl_hora.Text = "Label22"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
         '
         'gestor_empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(535, 484)
+        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.txt_email)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt_telefono_fijo)
@@ -302,4 +318,6 @@ Partial Class gestor_empresas
     Friend WithEvents lbl_nombre As System.Windows.Forms.Label
     Friend WithEvents lbl_razon_social As System.Windows.Forms.Label
     Friend WithEvents lbl_cuit As System.Windows.Forms.Label
+    Friend WithEvents lbl_hora As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

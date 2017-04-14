@@ -22,6 +22,7 @@ Partial Class gestor_tipo_producto_y_categorias
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lbl_area = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.cmd_nueva_area = New System.Windows.Forms.Button()
@@ -34,6 +35,8 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.cmd_nueva_categoria = New System.Windows.Forms.Button()
         Me.cmd_modificar_categoria = New System.Windows.Forms.Button()
+        Me.lbl_hora = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -142,11 +145,24 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_modificar_categoria.Text = "Modificar categoría"
         Me.cmd_modificar_categoria.UseVisualStyleBackColor = True
         '
+        'lbl_hora
+        '
+        Me.lbl_hora.Location = New System.Drawing.Point(322, 9)
+        Me.lbl_hora.Name = "lbl_hora"
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
+        Me.lbl_hora.TabIndex = 35
+        Me.lbl_hora.Text = "Label22"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
         'gestor_tipo_producto_y_categorias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(529, 478)
+        Me.ClientSize = New System.Drawing.Size(481, 478)
+        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_modificar_categoria)
         Me.Controls.Add(Me.cmd_nueva_categoria)
         Me.Controls.Add(Me.DataGridView1)
@@ -178,4 +194,6 @@ Partial Class gestor_tipo_producto_y_categorias
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_nueva_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_categoria As System.Windows.Forms.Button
+    Friend WithEvents lbl_hora As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class
