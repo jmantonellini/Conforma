@@ -31,9 +31,7 @@ Partial Class gestor_clientes
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txt_empresa = New System.Windows.Forms.TextBox()
         Me.txt_cuit = New System.Windows.Forms.MaskedTextBox()
@@ -72,6 +70,9 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.lbl_hora = New System.Windows.Forms.Label()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -81,12 +82,15 @@ Partial Class gestor_clientes
         '
         'tabla_clientes
         '
+        Me.tabla_clientes.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.tabla_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.tabla_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Apellido, Me.Nombre, Me.Empresa, Me.Celular})
-        Me.tabla_clientes.Location = New System.Drawing.Point(443, 1)
+        Me.tabla_clientes.GridColor = System.Drawing.SystemColors.Control
+        Me.tabla_clientes.Location = New System.Drawing.Point(443, 45)
         Me.tabla_clientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tabla_clientes.Name = "tabla_clientes"
-        Me.tabla_clientes.Size = New System.Drawing.Size(446, 435)
+        Me.tabla_clientes.Size = New System.Drawing.Size(446, 391)
         Me.tabla_clientes.TabIndex = 1
         '
         'Apellido
@@ -118,21 +122,20 @@ Partial Class gestor_clientes
         Me.control_tab.Controls.Add(Me.tab_datos_personales)
         Me.control_tab.Controls.Add(Me.tab_contacto)
         Me.control_tab.Controls.Add(Me.tab_domicilios)
-        Me.control_tab.Location = New System.Drawing.Point(1, 1)
+        Me.control_tab.Location = New System.Drawing.Point(1, 23)
         Me.control_tab.Margin = New System.Windows.Forms.Padding(0)
         Me.control_tab.Name = "control_tab"
         Me.control_tab.Padding = New System.Drawing.Point(0, 0)
         Me.control_tab.SelectedIndex = 0
-        Me.control_tab.Size = New System.Drawing.Size(446, 439)
+        Me.control_tab.Size = New System.Drawing.Size(446, 417)
         Me.control_tab.TabIndex = 2
         '
         'tab_datos_personales
         '
+        Me.tab_datos_personales.BackColor = System.Drawing.SystemColors.Control
         Me.tab_datos_personales.Controls.Add(Me.Label19)
         Me.tab_datos_personales.Controls.Add(Me.Label12)
-        Me.tab_datos_personales.Controls.Add(Me.Label20)
         Me.tab_datos_personales.Controls.Add(Me.Label11)
-        Me.tab_datos_personales.Controls.Add(Me.Label21)
         Me.tab_datos_personales.Controls.Add(Me.Label10)
         Me.tab_datos_personales.Controls.Add(Me.txt_empresa)
         Me.tab_datos_personales.Controls.Add(Me.txt_cuit)
@@ -152,7 +155,6 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Size = New System.Drawing.Size(438, 413)
         Me.tab_datos_personales.TabIndex = 0
         Me.tab_datos_personales.Text = "Datos Personales"
-        Me.tab_datos_personales.UseVisualStyleBackColor = True
         '
         'Label19
         '
@@ -176,17 +178,6 @@ Partial Class gestor_clientes
         Me.Label12.TabIndex = 26
         Me.Label12.Text = "*"
         '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.Red
-        Me.Label20.Location = New System.Drawing.Point(314, 370)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(17, 24)
-        Me.Label20.TabIndex = 31
-        Me.Label20.Text = "*"
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -197,15 +188,6 @@ Partial Class gestor_clientes
         Me.Label11.Size = New System.Drawing.Size(17, 24)
         Me.Label11.TabIndex = 25
         Me.Label11.Text = "*"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(328, 381)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(91, 13)
-        Me.Label21.TabIndex = 30
-        Me.Label21.Text = "Datos obligatorios"
         '
         'Label10
         '
@@ -230,7 +212,7 @@ Partial Class gestor_clientes
         Me.txt_cuit.Location = New System.Drawing.Point(139, 168)
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
-        Me.txt_cuit.Size = New System.Drawing.Size(121, 20)
+        Me.txt_cuit.Size = New System.Drawing.Size(78, 20)
         Me.txt_cuit.TabIndex = 4
         Me.txt_cuit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -239,7 +221,7 @@ Partial Class gestor_clientes
         Me.txt_documento.Location = New System.Drawing.Point(139, 134)
         Me.txt_documento.Mask = "99999999"
         Me.txt_documento.Name = "txt_documento"
-        Me.txt_documento.Size = New System.Drawing.Size(121, 20)
+        Me.txt_documento.Size = New System.Drawing.Size(58, 20)
         Me.txt_documento.TabIndex = 3
         Me.txt_documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -400,7 +382,7 @@ Partial Class gestor_clientes
         Me.tab_domicilios.Location = New System.Drawing.Point(4, 22)
         Me.tab_domicilios.Name = "tab_domicilios"
         Me.tab_domicilios.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_domicilios.Size = New System.Drawing.Size(438, 413)
+        Me.tab_domicilios.Size = New System.Drawing.Size(438, 391)
         Me.tab_domicilios.TabIndex = 2
         Me.tab_domicilios.Text = "Domicilios"
         Me.tab_domicilios.UseVisualStyleBackColor = True
@@ -555,12 +537,44 @@ Partial Class gestor_clientes
         Me.cmd_eliminar.Text = "Eliminar"
         Me.cmd_eliminar.UseVisualStyleBackColor = True
         '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.Red
+        Me.Label20.Location = New System.Drawing.Point(12, 501)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(17, 24)
+        Me.Label20.TabIndex = 33
+        Me.Label20.Text = "*"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(25, 512)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(91, 13)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Datos obligatorios"
+        '
+        'lbl_hora
+        '
+        Me.lbl_hora.AutoSize = True
+        Me.lbl_hora.Location = New System.Drawing.Point(636, 9)
+        Me.lbl_hora.Name = "lbl_hora"
+        Me.lbl_hora.Size = New System.Drawing.Size(45, 13)
+        Me.lbl_hora.TabIndex = 34
+        Me.lbl_hora.Text = "Label22"
+        '
         'gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(894, 560)
+        Me.Controls.Add(Me.lbl_hora)
+        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.cmd_eliminar)
+        Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_guardar)
@@ -571,6 +585,7 @@ Partial Class gestor_clientes
         Me.Name = "gestor_clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
+        Me.TransparencyKey = System.Drawing.SystemColors.ControlDarkDark
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.control_tab.ResumeLayout(False)
         Me.tab_datos_personales.ResumeLayout(False)
@@ -580,6 +595,7 @@ Partial Class gestor_clientes
         Me.tab_domicilios.ResumeLayout(False)
         Me.tab_domicilios.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents control_tab As System.Windows.Forms.TabControl
@@ -625,11 +641,12 @@ Partial Class gestor_clientes
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents lbl_hora As System.Windows.Forms.Label
 End Class
