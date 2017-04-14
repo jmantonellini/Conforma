@@ -26,6 +26,15 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.cmd_nueva_area = New System.Windows.Forms.Button()
         Me.cmd_modificar_area = New System.Windows.Forms.Button()
+        Me.lbl_tipo_producto = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cmd_nuevo_producto = New System.Windows.Forms.Button()
+        Me.cmd_modificar_tipo_producto = New System.Windows.Forms.Button()
+        Me.lbl_categoria = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.cmd_nueva_categoria = New System.Windows.Forms.Button()
+        Me.cmd_modificar_categoria = New System.Windows.Forms.Button()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_area
@@ -63,17 +72,96 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_modificar_area.Text = "Modificar"
         Me.cmd_modificar_area.UseVisualStyleBackColor = True
         '
+        'lbl_tipo_producto
+        '
+        Me.lbl_tipo_producto.AutoSize = True
+        Me.lbl_tipo_producto.Location = New System.Drawing.Point(35, 112)
+        Me.lbl_tipo_producto.Name = "lbl_tipo_producto"
+        Me.lbl_tipo_producto.Size = New System.Drawing.Size(77, 13)
+        Me.lbl_tipo_producto.TabIndex = 3
+        Me.lbl_tipo_producto.Text = "Tipo Producto:"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(115, 109)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox2.TabIndex = 4
+        '
+        'cmd_nuevo_producto
+        '
+        Me.cmd_nuevo_producto.Location = New System.Drawing.Point(277, 107)
+        Me.cmd_nuevo_producto.Name = "cmd_nuevo_producto"
+        Me.cmd_nuevo_producto.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_nuevo_producto.TabIndex = 2
+        Me.cmd_nuevo_producto.Text = "Nuevo"
+        Me.cmd_nuevo_producto.UseVisualStyleBackColor = True
+        '
+        'cmd_modificar_tipo_producto
+        '
+        Me.cmd_modificar_tipo_producto.Location = New System.Drawing.Point(371, 107)
+        Me.cmd_modificar_tipo_producto.Name = "cmd_modificar_tipo_producto"
+        Me.cmd_modificar_tipo_producto.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_modificar_tipo_producto.TabIndex = 2
+        Me.cmd_modificar_tipo_producto.Text = "Modificar"
+        Me.cmd_modificar_tipo_producto.UseVisualStyleBackColor = True
+        '
+        'lbl_categoria
+        '
+        Me.lbl_categoria.AutoSize = True
+        Me.lbl_categoria.Location = New System.Drawing.Point(70, 168)
+        Me.lbl_categoria.Name = "lbl_categoria"
+        Me.lbl_categoria.Size = New System.Drawing.Size(62, 13)
+        Me.lbl_categoria.TabIndex = 5
+        Me.lbl_categoria.Text = "Categorías:"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(73, 207)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(373, 192)
+        Me.DataGridView1.TabIndex = 6
+        '
+        'cmd_nueva_categoria
+        '
+        Me.cmd_nueva_categoria.Location = New System.Drawing.Point(277, 415)
+        Me.cmd_nueva_categoria.Name = "cmd_nueva_categoria"
+        Me.cmd_nueva_categoria.Size = New System.Drawing.Size(75, 41)
+        Me.cmd_nueva_categoria.TabIndex = 7
+        Me.cmd_nueva_categoria.Text = "Nueva categoría"
+        Me.cmd_nueva_categoria.UseVisualStyleBackColor = True
+        '
+        'cmd_modificar_categoria
+        '
+        Me.cmd_modificar_categoria.Location = New System.Drawing.Point(371, 415)
+        Me.cmd_modificar_categoria.Name = "cmd_modificar_categoria"
+        Me.cmd_modificar_categoria.Size = New System.Drawing.Size(75, 41)
+        Me.cmd_modificar_categoria.TabIndex = 7
+        Me.cmd_modificar_categoria.Text = "Modificar categoría"
+        Me.cmd_modificar_categoria.UseVisualStyleBackColor = True
+        '
         'gestor_tipo_producto_y_categorias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(523, 411)
+        Me.ClientSize = New System.Drawing.Size(529, 478)
+        Me.Controls.Add(Me.cmd_modificar_categoria)
+        Me.Controls.Add(Me.cmd_nueva_categoria)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.lbl_categoria)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.lbl_tipo_producto)
+        Me.Controls.Add(Me.cmd_modificar_tipo_producto)
         Me.Controls.Add(Me.cmd_modificar_area)
+        Me.Controls.Add(Me.cmd_nuevo_producto)
         Me.Controls.Add(Me.cmd_nueva_area)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.lbl_area)
         Me.Name = "gestor_tipo_producto_y_categorias"
-        Me.Text = "Gestor de tipo de producto y categorías"
+        Me.Text = "Gestor de tipo de producto, categorías y áreas"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -82,4 +170,12 @@ Partial Class gestor_tipo_producto_y_categorias
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents cmd_nueva_area As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_area As System.Windows.Forms.Button
+    Friend WithEvents lbl_tipo_producto As System.Windows.Forms.Label
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmd_nuevo_producto As System.Windows.Forms.Button
+    Friend WithEvents cmd_modificar_tipo_producto As System.Windows.Forms.Button
+    Friend WithEvents lbl_categoria As System.Windows.Forms.Label
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents cmd_nueva_categoria As System.Windows.Forms.Button
+    Friend WithEvents cmd_modificar_categoria As System.Windows.Forms.Button
 End Class
