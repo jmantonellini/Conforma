@@ -59,7 +59,7 @@ Partial Class gestor_marcas_modelos
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 93)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 74)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(262, 331)
         Me.DataGridView1.TabIndex = 2
@@ -92,7 +92,7 @@ Partial Class gestor_marcas_modelos
         '
         'cmd_modificar_modelo
         '
-        Me.cmd_modificar_modelo.Location = New System.Drawing.Point(82, 440)
+        Me.cmd_modificar_modelo.Location = New System.Drawing.Point(81, 421)
         Me.cmd_modificar_modelo.Name = "cmd_modificar_modelo"
         Me.cmd_modificar_modelo.Size = New System.Drawing.Size(55, 55)
         Me.cmd_modificar_modelo.TabIndex = 3
@@ -101,7 +101,7 @@ Partial Class gestor_marcas_modelos
         '
         'cmd_nuevo_modelo
         '
-        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(0, 440)
+        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(3, 421)
         Me.cmd_nuevo_modelo.Name = "cmd_nuevo_modelo"
         Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(55, 55)
         Me.cmd_nuevo_modelo.TabIndex = 3
@@ -114,15 +114,15 @@ Partial Class gestor_marcas_modelos
         Me.Panel1.Controls.Add(Me.cmd_modificar_modelo)
         Me.Panel1.Controls.Add(Me.cmd_nuevo_modelo)
         Me.Panel1.Controls.Add(Me.DataGridView1)
-        Me.Panel1.Location = New System.Drawing.Point(305, 22)
+        Me.Panel1.Location = New System.Drawing.Point(305, 41)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(262, 495)
+        Me.Panel1.Size = New System.Drawing.Size(262, 476)
         Me.Panel1.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(-3, 67)
+        Me.Label2.Location = New System.Drawing.Point(-3, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(95, 13)
         Me.Label2.TabIndex = 0
