@@ -291,7 +291,7 @@ Partial Class gestor_clientes
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(105, 13)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Numero Documento:"
+        Me.Label4.Text = "Número Documento:"
         '
         'Label3
         '
@@ -366,7 +366,7 @@ Partial Class gestor_clientes
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(87, 13)
         Me.Label8.TabIndex = 2
-        Me.Label8.Text = "Telefono Celular:"
+        Me.Label8.Text = "Teléfono Celular:"
         '
         'txt_fijo
         '
@@ -382,7 +382,7 @@ Partial Class gestor_clientes
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(71, 13)
         Me.Label7.TabIndex = 0
-        Me.Label7.Text = "Telefono Fijo:"
+        Me.Label7.Text = "Teléfono Fijo:"
         '
         'tab_domicilios
         '
@@ -420,9 +420,9 @@ Partial Class gestor_clientes
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(114, 218)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(19, 13)
+        Me.Label18.Size = New System.Drawing.Size(22, 13)
         Me.Label18.TabIndex = 10
-        Me.Label18.Text = "Nº"
+        Me.Label18.Text = "Nº:"
         '
         'txt_calle
         '
@@ -572,6 +572,7 @@ Partial Class gestor_clientes
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "gestor_clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Clientes"
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.control_tab.ResumeLayout(False)
         Me.tab_datos_personales.ResumeLayout(False)
