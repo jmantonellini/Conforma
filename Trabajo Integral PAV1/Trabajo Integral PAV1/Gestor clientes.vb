@@ -27,4 +27,9 @@
 
     End Sub
 
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lbl_hora.Text = DateTime.Now.ToString("HH:mm:ss")
+    End Sub
+
+
 End Class

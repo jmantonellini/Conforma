@@ -560,7 +560,7 @@ Partial Class gestor_clientes
         'lbl_hora
         '
         Me.lbl_hora.AutoSize = True
-        Me.lbl_hora.Location = New System.Drawing.Point(636, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(837, 9)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(45, 13)
         Me.lbl_hora.TabIndex = 34
