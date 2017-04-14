@@ -76,7 +76,7 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_nueva_marca.Location = New System.Drawing.Point(0, 421)
         Me.cmd_nueva_marca.Name = "cmd_nueva_marca"
-        Me.cmd_nueva_marca.Size = New System.Drawing.Size(55, 55)
+        Me.cmd_nueva_marca.Size = New System.Drawing.Size(61, 55)
         Me.cmd_nueva_marca.TabIndex = 3
         Me.cmd_nueva_marca.Text = "Nuevo"
         Me.cmd_nueva_marca.UseVisualStyleBackColor = True
@@ -85,7 +85,7 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_modificar_marca.Location = New System.Drawing.Point(80, 421)
         Me.cmd_modificar_marca.Name = "cmd_modificar_marca"
-        Me.cmd_modificar_marca.Size = New System.Drawing.Size(55, 55)
+        Me.cmd_modificar_marca.Size = New System.Drawing.Size(61, 55)
         Me.cmd_modificar_marca.TabIndex = 3
         Me.cmd_modificar_marca.Text = "Modificar"
         Me.cmd_modificar_marca.UseVisualStyleBackColor = True
@@ -94,7 +94,7 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_modificar_modelo.Location = New System.Drawing.Point(81, 421)
         Me.cmd_modificar_modelo.Name = "cmd_modificar_modelo"
-        Me.cmd_modificar_modelo.Size = New System.Drawing.Size(55, 55)
+        Me.cmd_modificar_modelo.Size = New System.Drawing.Size(61, 55)
         Me.cmd_modificar_modelo.TabIndex = 3
         Me.cmd_modificar_modelo.Text = "Modificar"
         Me.cmd_modificar_modelo.UseVisualStyleBackColor = True
@@ -103,7 +103,7 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(3, 421)
         Me.cmd_nuevo_modelo.Name = "cmd_nuevo_modelo"
-        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(55, 55)
+        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(61, 55)
         Me.cmd_nuevo_modelo.TabIndex = 3
         Me.cmd_nuevo_modelo.Text = "Nuevo"
         Me.cmd_nuevo_modelo.UseVisualStyleBackColor = True
