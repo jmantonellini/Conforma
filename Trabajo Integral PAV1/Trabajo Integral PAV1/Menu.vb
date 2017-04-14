@@ -1,6 +1,7 @@
 ﻿Public Class Menu
 
     Dim nuevo As Form
+
     Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click
 
         Dim ventana As String = sender.Text
@@ -15,4 +16,9 @@
 
         nuevo.Show()
     End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        lbl_hora.Text = DateTime.Now.ToString("HH:mm:ss")
+    End Sub
+
 End Class
