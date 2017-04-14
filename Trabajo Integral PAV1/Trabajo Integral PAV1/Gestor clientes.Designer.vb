@@ -86,7 +86,7 @@ Partial Class gestor_clientes
         Me.tabla_clientes.Location = New System.Drawing.Point(443, 1)
         Me.tabla_clientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tabla_clientes.Name = "tabla_clientes"
-        Me.tabla_clientes.Size = New System.Drawing.Size(446, 435)
+        Me.tabla_clientes.Size = New System.Drawing.Size(446, 439)
         Me.tabla_clientes.TabIndex = 1
         '
         'Apellido
