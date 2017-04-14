@@ -93,7 +93,7 @@ Partial Class gestor_empresas
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Red
-        Me.Label6.Location = New System.Drawing.Point(381, 208)
+        Me.Label6.Location = New System.Drawing.Point(411, 463)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(17, 24)
         Me.Label6.TabIndex = 27
@@ -157,7 +157,7 @@ Partial Class gestor_empresas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(403, 216)
+        Me.Label1.Location = New System.Drawing.Point(433, 471)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(91, 13)
         Me.Label1.TabIndex = 22
@@ -250,7 +250,7 @@ Partial Class gestor_empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 464)
+        Me.ClientSize = New System.Drawing.Size(535, 484)
         Me.Controls.Add(Me.txt_email)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt_telefono_fijo)
