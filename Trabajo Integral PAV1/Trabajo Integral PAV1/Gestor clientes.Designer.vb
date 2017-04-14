@@ -23,68 +23,66 @@ Partial Class gestor_clientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.tabla_clientes = New System.Windows.Forms.DataGridView()
-        Me.Celular = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Celular = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.control_tab = New System.Windows.Forms.TabControl()
-        Me.tab_domicilios = New System.Windows.Forms.TabPage()
-        Me.tab_contacto = New System.Windows.Forms.TabPage()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txt_fijo = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txt_nombre = New System.Windows.Forms.TextBox()
-        Me.txt_apellido = New System.Windows.Forms.TextBox()
-        Me.cmb_tipo_documento = New System.Windows.Forms.ComboBox()
-        Me.txt_documento = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_cuit = New System.Windows.Forms.MaskedTextBox()
         Me.txt_empresa = New System.Windows.Forms.TextBox()
+        Me.txt_cuit = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_documento = New System.Windows.Forms.MaskedTextBox()
+        Me.cmb_tipo_documento = New System.Windows.Forms.ComboBox()
+        Me.txt_apellido = New System.Windows.Forms.TextBox()
+        Me.txt_nombre = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tab_contacto = New System.Windows.Forms.TabPage()
+        Me.txt_mail = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txt_celular = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txt_fijo = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.tab_domicilios = New System.Windows.Forms.TabPage()
+        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmb_ciudad = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.cmb_provincia = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.cmb_pais = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
-        Me.tab_contacto.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.tab_contacto.SuspendLayout()
+        Me.tab_domicilios.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabla_clientes
         '
         Me.tabla_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Apellido, Me.Nombre, Me.Empresa, Me.Celular})
-        Me.tabla_clientes.Location = New System.Drawing.Point(407, 3)
+        Me.tabla_clientes.Location = New System.Drawing.Point(443, 1)
+        Me.tabla_clientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tabla_clientes.Name = "tabla_clientes"
-        Me.tabla_clientes.Size = New System.Drawing.Size(444, 428)
+        Me.tabla_clientes.Size = New System.Drawing.Size(446, 435)
         Me.tabla_clientes.TabIndex = 1
-        '
-        'Celular
-        '
-        Me.Celular.HeaderText = "Celular"
-        Me.Celular.Name = "Celular"
-        Me.Celular.ReadOnly = True
-        '
-        'Empresa
-        '
-        Me.Empresa.HeaderText = "Empresa"
-        Me.Empresa.Name = "Empresa"
-        Me.Empresa.ReadOnly = True
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.ReadOnly = True
         '
         'Apellido
         '
@@ -92,87 +90,44 @@ Partial Class gestor_clientes
         Me.Apellido.Name = "Apellido"
         Me.Apellido.ReadOnly = True
         '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        '
+        'Empresa
+        '
+        Me.Empresa.HeaderText = "Empresa"
+        Me.Empresa.Name = "Empresa"
+        Me.Empresa.ReadOnly = True
+        '
+        'Celular
+        '
+        Me.Celular.HeaderText = "Celular"
+        Me.Celular.Name = "Celular"
+        Me.Celular.ReadOnly = True
+        '
         'control_tab
         '
         Me.control_tab.Controls.Add(Me.tab_datos_personales)
         Me.control_tab.Controls.Add(Me.tab_contacto)
         Me.control_tab.Controls.Add(Me.tab_domicilios)
-        Me.control_tab.Location = New System.Drawing.Point(3, 3)
+        Me.control_tab.Location = New System.Drawing.Point(1, 1)
+        Me.control_tab.Margin = New System.Windows.Forms.Padding(0)
         Me.control_tab.Name = "control_tab"
+        Me.control_tab.Padding = New System.Drawing.Point(0, 0)
         Me.control_tab.SelectedIndex = 0
-        Me.control_tab.Size = New System.Drawing.Size(398, 453)
+        Me.control_tab.Size = New System.Drawing.Size(446, 439)
         Me.control_tab.TabIndex = 0
-        '
-        'tab_domicilios
-        '
-        Me.tab_domicilios.Location = New System.Drawing.Point(4, 22)
-        Me.tab_domicilios.Name = "tab_domicilios"
-        Me.tab_domicilios.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_domicilios.Size = New System.Drawing.Size(390, 427)
-        Me.tab_domicilios.TabIndex = 2
-        Me.tab_domicilios.Text = "Domicilios"
-        Me.tab_domicilios.UseVisualStyleBackColor = True
-        '
-        'tab_contacto
-        '
-        Me.tab_contacto.Controls.Add(Me.Label9)
-        Me.tab_contacto.Controls.Add(Me.TextBox1)
-        Me.tab_contacto.Controls.Add(Me.Label8)
-        Me.tab_contacto.Controls.Add(Me.txt_fijo)
-        Me.tab_contacto.Controls.Add(Me.Label7)
-        Me.tab_contacto.Location = New System.Drawing.Point(4, 22)
-        Me.tab_contacto.Name = "tab_contacto"
-        Me.tab_contacto.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_contacto.Size = New System.Drawing.Size(390, 427)
-        Me.tab_contacto.TabIndex = 1
-        Me.tab_contacto.Text = "Contacto"
-        Me.tab_contacto.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(46, 34)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(71, 13)
-        Me.Label7.TabIndex = 0
-        Me.Label7.Text = "Telefono Fijo:"
-        '
-        'txt_fijo
-        '
-        Me.txt_fijo.Location = New System.Drawing.Point(120, 31)
-        Me.txt_fijo.Name = "txt_fijo"
-        Me.txt_fijo.Size = New System.Drawing.Size(248, 20)
-        Me.txt_fijo.TabIndex = 1
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(30, 67)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(87, 13)
-        Me.Label8.TabIndex = 2
-        Me.Label8.Text = "Telefono Celular:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(120, 64)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(248, 20)
-        Me.TextBox1.TabIndex = 3
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(82, 99)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(35, 13)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "Email:"
         '
         'tab_datos_personales
         '
+        Me.tab_datos_personales.Controls.Add(Me.Label19)
         Me.tab_datos_personales.Controls.Add(Me.Label12)
+        Me.tab_datos_personales.Controls.Add(Me.Label20)
         Me.tab_datos_personales.Controls.Add(Me.Label11)
+        Me.tab_datos_personales.Controls.Add(Me.Label21)
         Me.tab_datos_personales.Controls.Add(Me.Label10)
         Me.tab_datos_personales.Controls.Add(Me.txt_empresa)
         Me.tab_datos_personales.Controls.Add(Me.txt_cuit)
@@ -189,183 +144,388 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Location = New System.Drawing.Point(4, 22)
         Me.tab_datos_personales.Margin = New System.Windows.Forms.Padding(0)
         Me.tab_datos_personales.Name = "tab_datos_personales"
-        Me.tab_datos_personales.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_datos_personales.Size = New System.Drawing.Size(390, 427)
+        Me.tab_datos_personales.Size = New System.Drawing.Size(438, 413)
         Me.tab_datos_personales.TabIndex = 0
         Me.tab_datos_personales.Text = "Datos Personales"
         Me.tab_datos_personales.UseVisualStyleBackColor = True
         '
-        'Label1
+        'txt_empresa
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(66, 34)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Nombre:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(66, 69)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Apellido:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 102)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Tipo Documento:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(8, 137)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(105, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Numero Documento:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(78, 171)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(35, 13)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "CUIT:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(62, 206)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(51, 13)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Empresa:"
-        '
-        'txt_nombre
-        '
-        Me.txt_nombre.Location = New System.Drawing.Point(120, 31)
-        Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(250, 20)
-        Me.txt_nombre.TabIndex = 6
-        '
-        'txt_apellido
-        '
-        Me.txt_apellido.Location = New System.Drawing.Point(120, 66)
-        Me.txt_apellido.Name = "txt_apellido"
-        Me.txt_apellido.Size = New System.Drawing.Size(250, 20)
-        Me.txt_apellido.TabIndex = 7
-        '
-        'cmb_tipo_documento
-        '
-        Me.cmb_tipo_documento.FormattingEnabled = True
-        Me.cmb_tipo_documento.Location = New System.Drawing.Point(120, 99)
-        Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
-        Me.cmb_tipo_documento.Size = New System.Drawing.Size(121, 21)
-        Me.cmb_tipo_documento.TabIndex = 8
-        '
-        'txt_documento
-        '
-        Me.txt_documento.Location = New System.Drawing.Point(120, 134)
-        Me.txt_documento.Mask = "99999999"
-        Me.txt_documento.Name = "txt_documento"
-        Me.txt_documento.Size = New System.Drawing.Size(121, 20)
-        Me.txt_documento.TabIndex = 9
-        Me.txt_documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txt_empresa.Location = New System.Drawing.Point(138, 202)
+        Me.txt_empresa.Name = "txt_empresa"
+        Me.txt_empresa.Size = New System.Drawing.Size(251, 20)
+        Me.txt_empresa.TabIndex = 11
         '
         'txt_cuit
         '
-        Me.txt_cuit.Location = New System.Drawing.Point(120, 168)
+        Me.txt_cuit.Location = New System.Drawing.Point(139, 168)
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(121, 20)
         Me.txt_cuit.TabIndex = 10
         Me.txt_cuit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txt_empresa
+        'txt_documento
         '
-        Me.txt_empresa.Location = New System.Drawing.Point(119, 203)
-        Me.txt_empresa.Name = "txt_empresa"
-        Me.txt_empresa.Size = New System.Drawing.Size(251, 20)
-        Me.txt_empresa.TabIndex = 11
+        Me.txt_documento.Location = New System.Drawing.Point(139, 134)
+        Me.txt_documento.Mask = "99999999"
+        Me.txt_documento.Name = "txt_documento"
+        Me.txt_documento.Size = New System.Drawing.Size(121, 20)
+        Me.txt_documento.TabIndex = 9
+        Me.txt_documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cmb_tipo_documento
+        '
+        Me.cmb_tipo_documento.FormattingEnabled = True
+        Me.cmb_tipo_documento.Location = New System.Drawing.Point(139, 99)
+        Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
+        Me.cmb_tipo_documento.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_tipo_documento.TabIndex = 8
+        '
+        'txt_apellido
+        '
+        Me.txt_apellido.Location = New System.Drawing.Point(139, 65)
+        Me.txt_apellido.Name = "txt_apellido"
+        Me.txt_apellido.Size = New System.Drawing.Size(250, 20)
+        Me.txt_apellido.TabIndex = 7
+        '
+        'txt_nombre
+        '
+        Me.txt_nombre.Location = New System.Drawing.Point(139, 31)
+        Me.txt_nombre.Name = "txt_nombre"
+        Me.txt_nombre.Size = New System.Drawing.Size(250, 20)
+        Me.txt_nombre.TabIndex = 6
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(79, 202)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(51, 13)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "Empresa:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(95, 168)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(35, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "CUIT:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(25, 134)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(105, 13)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Numero Documento:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(41, 99)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Tipo Documento:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(83, 65)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Apellido:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(83, 31)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Nombre:"
+        '
+        'tab_contacto
+        '
+        Me.tab_contacto.Controls.Add(Me.txt_mail)
+        Me.tab_contacto.Controls.Add(Me.Label9)
+        Me.tab_contacto.Controls.Add(Me.txt_celular)
+        Me.tab_contacto.Controls.Add(Me.Label8)
+        Me.tab_contacto.Controls.Add(Me.txt_fijo)
+        Me.tab_contacto.Controls.Add(Me.Label7)
+        Me.tab_contacto.Location = New System.Drawing.Point(4, 22)
+        Me.tab_contacto.Name = "tab_contacto"
+        Me.tab_contacto.Padding = New System.Windows.Forms.Padding(3)
+        Me.tab_contacto.Size = New System.Drawing.Size(439, 413)
+        Me.tab_contacto.TabIndex = 1
+        Me.tab_contacto.Text = "Contacto"
+        Me.tab_contacto.UseVisualStyleBackColor = True
+        '
+        'txt_mail
+        '
+        Me.txt_mail.Location = New System.Drawing.Point(139, 95)
+        Me.txt_mail.Name = "txt_mail"
+        Me.txt_mail.Size = New System.Drawing.Size(248, 20)
+        Me.txt_mail.TabIndex = 5
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(98, 99)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(35, 13)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Email:"
+        '
+        'txt_celular
+        '
+        Me.txt_celular.Location = New System.Drawing.Point(139, 63)
+        Me.txt_celular.Name = "txt_celular"
+        Me.txt_celular.Size = New System.Drawing.Size(248, 20)
+        Me.txt_celular.TabIndex = 3
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(46, 67)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(87, 13)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "Telefono Celular:"
+        '
+        'txt_fijo
+        '
+        Me.txt_fijo.Location = New System.Drawing.Point(139, 31)
+        Me.txt_fijo.Name = "txt_fijo"
+        Me.txt_fijo.Size = New System.Drawing.Size(248, 20)
+        Me.txt_fijo.TabIndex = 1
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(62, 34)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(71, 13)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Text = "Telefono Fijo:"
+        '
+        'tab_domicilios
+        '
+        Me.tab_domicilios.Controls.Add(Me.MaskedTextBox1)
+        Me.tab_domicilios.Controls.Add(Me.Label18)
+        Me.tab_domicilios.Controls.Add(Me.TextBox1)
+        Me.tab_domicilios.Controls.Add(Me.Label17)
+        Me.tab_domicilios.Controls.Add(Me.Label16)
+        Me.tab_domicilios.Controls.Add(Me.ComboBox1)
+        Me.tab_domicilios.Controls.Add(Me.cmb_ciudad)
+        Me.tab_domicilios.Controls.Add(Me.Label15)
+        Me.tab_domicilios.Controls.Add(Me.Label14)
+        Me.tab_domicilios.Controls.Add(Me.cmb_provincia)
+        Me.tab_domicilios.Controls.Add(Me.Label13)
+        Me.tab_domicilios.Controls.Add(Me.cmb_pais)
+        Me.tab_domicilios.Location = New System.Drawing.Point(4, 22)
+        Me.tab_domicilios.Name = "tab_domicilios"
+        Me.tab_domicilios.Padding = New System.Windows.Forms.Padding(3)
+        Me.tab_domicilios.Size = New System.Drawing.Size(439, 413)
+        Me.tab_domicilios.TabIndex = 2
+        Me.tab_domicilios.Text = "Domicilios"
+        Me.tab_domicilios.UseVisualStyleBackColor = True
+        '
+        'MaskedTextBox1
+        '
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(139, 215)
+        Me.MaskedTextBox1.Mask = "999999"
+        Me.MaskedTextBox1.Name = "MaskedTextBox1"
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.MaskedTextBox1.TabIndex = 11
+        Me.MaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(114, 218)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(19, 13)
+        Me.Label18.TabIndex = 10
+        Me.Label18.Text = "Nº"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(139, 179)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(161, 20)
+        Me.TextBox1.TabIndex = 9
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(100, 182)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(33, 13)
+        Me.Label17.TabIndex = 8
+        Me.Label17.Text = "Calle:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(99, 144)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(34, 13)
+        Me.Label16.TabIndex = 7
+        Me.Label16.Text = "Barrio"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(139, 142)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(161, 21)
+        Me.ComboBox1.TabIndex = 6
+        '
+        'cmb_ciudad
+        '
+        Me.cmb_ciudad.FormattingEnabled = True
+        Me.cmb_ciudad.Location = New System.Drawing.Point(139, 105)
+        Me.cmb_ciudad.Name = "cmb_ciudad"
+        Me.cmb_ciudad.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_ciudad.TabIndex = 5
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(90, 106)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(43, 13)
+        Me.Label15.TabIndex = 4
+        Me.Label15.Text = "Ciudad:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(79, 71)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(54, 13)
+        Me.Label14.TabIndex = 3
+        Me.Label14.Text = "Provincia:"
+        '
+        'cmb_provincia
+        '
+        Me.cmb_provincia.FormattingEnabled = True
+        Me.cmb_provincia.Location = New System.Drawing.Point(139, 68)
+        Me.cmb_provincia.Name = "cmb_provincia"
+        Me.cmb_provincia.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_provincia.TabIndex = 2
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(101, 34)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(32, 13)
+        Me.Label13.TabIndex = 1
+        Me.Label13.Text = "País:"
+        '
+        'cmb_pais
+        '
+        Me.cmb_pais.FormattingEnabled = True
+        Me.cmb_pais.Location = New System.Drawing.Point(139, 31)
+        Me.cmb_pais.Name = "cmb_pais"
+        Me.cmb_pais.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_pais.TabIndex = 0
         '
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Red
-        Me.Label10.Location = New System.Drawing.Point(58, 32)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label10.Location = New System.Drawing.Point(69, 28)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(11, 13)
-        Me.Label10.TabIndex = 12
+        Me.Label10.Size = New System.Drawing.Size(17, 24)
+        Me.Label10.TabIndex = 24
         Me.Label10.Text = "*"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Red
-        Me.Label11.Location = New System.Drawing.Point(58, 69)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label11.Location = New System.Drawing.Point(69, 62)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(11, 13)
-        Me.Label11.TabIndex = 13
+        Me.Label11.Size = New System.Drawing.Size(17, 24)
+        Me.Label11.TabIndex = 25
         Me.Label11.Text = "*"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Red
-        Me.Label12.Location = New System.Drawing.Point(0, 134)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label12.Location = New System.Drawing.Point(24, 96)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(11, 13)
-        Me.Label12.TabIndex = 14
+        Me.Label12.Size = New System.Drawing.Size(17, 24)
+        Me.Label12.TabIndex = 26
         Me.Label12.Text = "*"
         '
-        'FlowLayoutPanel1
+        'Label19
         '
-        Me.FlowLayoutPanel1.AutoSize = True
-        Me.FlowLayoutPanel1.Controls.Add(Me.control_tab)
-        Me.FlowLayoutPanel1.Controls.Add(Me.tabla_clientes)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(894, 560)
-        Me.FlowLayoutPanel1.TabIndex = 2
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Red
+        Me.Label19.Location = New System.Drawing.Point(12, 131)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(17, 24)
+        Me.Label19.TabIndex = 27
+        Me.Label19.Text = "*"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.Red
+        Me.Label20.Location = New System.Drawing.Point(314, 370)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(17, 24)
+        Me.Label20.TabIndex = 31
+        Me.Label20.Text = "*"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(328, 381)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(91, 13)
+        Me.Label21.TabIndex = 30
+        Me.Label21.Text = "Datos obligatorios"
         '
         'gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(894, 560)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Controls.Add(Me.control_tab)
+        Me.Controls.Add(Me.tabla_clientes)
         Me.HelpButton = True
         Me.Name = "gestor_clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.control_tab.ResumeLayout(false)
-        Me.tab_contacto.ResumeLayout(false)
-        Me.tab_contacto.PerformLayout
-        Me.tab_datos_personales.ResumeLayout(false)
-        Me.tab_datos_personales.PerformLayout
-        Me.FlowLayoutPanel1.ResumeLayout(false)
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.control_tab.ResumeLayout(False)
+        Me.tab_datos_personales.ResumeLayout(False)
+        Me.tab_datos_personales.PerformLayout()
+        Me.tab_contacto.ResumeLayout(False)
+        Me.tab_contacto.PerformLayout()
+        Me.tab_domicilios.ResumeLayout(False)
+        Me.tab_domicilios.PerformLayout()
+        Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Friend WithEvents control_tab As System.Windows.Forms.TabControl
     Friend WithEvents tab_datos_personales As System.Windows.Forms.TabPage
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txt_empresa As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuit As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txt_documento As System.Windows.Forms.MaskedTextBox
@@ -380,7 +540,7 @@ End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tab_contacto As System.Windows.Forms.TabPage
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txt_celular As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txt_fijo As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -390,5 +550,23 @@ End Sub
     Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Empresa As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Celular As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents txt_mail As System.Windows.Forms.TextBox
+    Friend WithEvents cmb_pais As System.Windows.Forms.ComboBox
+    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmb_ciudad As System.Windows.Forms.ComboBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents cmb_provincia As System.Windows.Forms.ComboBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
 End Class
