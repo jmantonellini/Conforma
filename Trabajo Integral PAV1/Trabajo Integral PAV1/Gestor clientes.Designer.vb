@@ -558,6 +558,7 @@ Partial Class gestor_clientes
         '
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_eliminar.Enabled = False
+        Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
         Me.cmd_eliminar.Location = New System.Drawing.Point(300, 367)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
@@ -568,6 +569,7 @@ Partial Class gestor_clientes
         '
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_modificar.Enabled = False
+        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
         Me.cmd_modificar.Location = New System.Drawing.Point(204, 367)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
@@ -578,6 +580,7 @@ Partial Class gestor_clientes
         '
         Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar.Enabled = False
+        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
         Me.cmd_guardar.Location = New System.Drawing.Point(108, 367)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
@@ -587,6 +590,7 @@ Partial Class gestor_clientes
         'cmd_nuevo
         '
         Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
         Me.cmd_nuevo.Location = New System.Drawing.Point(12, 367)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
