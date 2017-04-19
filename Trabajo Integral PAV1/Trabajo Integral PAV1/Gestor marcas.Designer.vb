@@ -29,15 +29,15 @@ Partial Class gestor_marcas_modelos
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lbl_hora = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.lbl_hora = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_salir = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,10 +48,10 @@ Partial Class gestor_marcas_modelos
         'lbl_nombre_marca
         '
         Me.lbl_nombre_marca.AutoSize = True
-        Me.lbl_nombre_marca.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_nombre_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_nombre_marca.Location = New System.Drawing.Point(10, 12)
         Me.lbl_nombre_marca.Name = "lbl_nombre_marca"
-        Me.lbl_nombre_marca.Size = New System.Drawing.Size(66, 18)
+        Me.lbl_nombre_marca.Size = New System.Drawing.Size(65, 20)
         Me.lbl_nombre_marca.TabIndex = 0
         Me.lbl_nombre_marca.Text = "Marcas:"
         '
@@ -89,23 +89,44 @@ Partial Class gestor_marcas_modelos
         Me.Panel1.Size = New System.Drawing.Size(262, 476)
         Me.Panel1.TabIndex = 4
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Gainsboro
+        Me.Button1.Enabled = False
+        Me.Button1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
+        Me.Button1.Location = New System.Drawing.Point(141, 396)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(80, 80)
+        Me.Button1.TabIndex = 25
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Gainsboro
+        Me.Button2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.Button2.Location = New System.Drawing.Point(44, 396)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(80, 80)
+        Me.Button2.TabIndex = 24
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(153, 18)
+        Me.Label2.Size = New System.Drawing.Size(142, 20)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Datos de modelos:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(10, 48)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(140, 18)
+        Me.Label1.Size = New System.Drawing.Size(134, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Datos de marcas:"
         '
@@ -121,18 +142,6 @@ Partial Class gestor_marcas_modelos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(262, 476)
         Me.Panel2.TabIndex = 5
-        '
-        'lbl_hora
-        '
-        Me.lbl_hora.Location = New System.Drawing.Point(443, 9)
-        Me.lbl_hora.Name = "lbl_hora"
-        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
-        Me.lbl_hora.TabIndex = 35
-        Me.lbl_hora.Text = "Label22"
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
         '
         'cmd_guardar
         '
@@ -155,26 +164,17 @@ Partial Class gestor_marcas_modelos
         Me.cmd_nuevo.TabIndex = 22
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
-        'Button1
+        'lbl_hora
         '
-        Me.Button1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button1.Enabled = False
-        Me.Button1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.Button1.Location = New System.Drawing.Point(141, 396)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 80)
-        Me.Button1.TabIndex = 25
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.lbl_hora.Location = New System.Drawing.Point(443, 9)
+        Me.lbl_hora.Name = "lbl_hora"
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
+        Me.lbl_hora.TabIndex = 35
+        Me.lbl_hora.Text = "Label22"
         '
-        'Button2
+        'Timer1
         '
-        Me.Button2.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.Button2.Location = New System.Drawing.Point(44, 396)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 80)
-        Me.Button2.TabIndex = 24
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.Timer1.Enabled = True
         '
         'cmd_salir
         '
@@ -198,6 +198,7 @@ Partial Class gestor_marcas_modelos
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "gestor_marcas_modelos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestor de marcas y modelos"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
