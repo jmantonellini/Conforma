@@ -131,9 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestor empresas.resx">
       <DependentUpon>Gestor empresas.vb</DependentUpon>
@@ -156,6 +156,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoConforma_Mesc-e1484836503615.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84380-edit-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f02a629827a6-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\554545.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f02a629827a6-245454.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f02a629827a6-4542.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84380-edit-button545.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6184-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61848-delete-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61848-deltton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

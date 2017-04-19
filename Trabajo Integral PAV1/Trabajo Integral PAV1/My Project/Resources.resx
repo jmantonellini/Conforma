@@ -121,7 +121,22 @@
   <data name="LogoConforma_Mesc_e1484836503615" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoConforma_Mesc-e1484836503615.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo_Isologo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo Isologo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="f02a629827a6_4542" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\f02a629827a6-4542.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_554545" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\554545.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_61848_delete_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\61848-delete-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_61848_deltton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\61848-deltton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_6184_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6184-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_84380_edit_button545" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\84380-edit-button545.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

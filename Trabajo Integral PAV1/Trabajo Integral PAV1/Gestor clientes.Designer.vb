@@ -23,6 +23,7 @@ Partial Class gestor_clientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gestor_clientes))
         Me.tabla_clientes = New System.Windows.Forms.DataGridView()
         Me.Apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -31,6 +32,8 @@ Partial Class gestor_clientes
         Me.control_tab = New System.Windows.Forms.TabControl()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -66,15 +69,13 @@ Partial Class gestor_clientes
         Me.cmb_provincia = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmb_pais = New System.Windows.Forms.ComboBox()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.cmd_modificar = New System.Windows.Forms.Button()
-        Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.cmd_modificar = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -84,11 +85,11 @@ Partial Class gestor_clientes
         '
         'tabla_clientes
         '
-        Me.tabla_clientes.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.tabla_clientes.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.tabla_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.tabla_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Apellido, Me.Nombre, Me.Empresa, Me.Celular})
-        Me.tabla_clientes.GridColor = System.Drawing.SystemColors.Control
+        Me.tabla_clientes.GridColor = System.Drawing.Color.Gainsboro
         Me.tabla_clientes.Location = New System.Drawing.Point(443, 45)
         Me.tabla_clientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tabla_clientes.Name = "tabla_clientes"
@@ -171,6 +172,27 @@ Partial Class gestor_clientes
         Me.Label19.Size = New System.Drawing.Size(17, 24)
         Me.Label19.TabIndex = 27
         Me.Label19.Text = "*"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.Red
+        Me.Label20.Location = New System.Drawing.Point(7, 266)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(17, 24)
+        Me.Label20.TabIndex = 33
+        Me.Label20.Text = "*"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(25, 272)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(145, 18)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Datos obligatorios"
         '
         'Label12
         '
@@ -509,27 +531,6 @@ Partial Class gestor_clientes
         Me.cmb_pais.Size = New System.Drawing.Size(161, 29)
         Me.cmb_pais.TabIndex = 0
         '
-        'cmd_nuevo
-        '
-        Me.cmd_nuevo.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_nuevo.Location = New System.Drawing.Point(12, 367)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(64, 55)
-        Me.cmd_nuevo.TabIndex = 20
-        Me.cmd_nuevo.Text = "Nuevo"
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_guardar
-        '
-        Me.cmd_guardar.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Location = New System.Drawing.Point(87, 367)
-        Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(64, 55)
-        Me.cmd_guardar.TabIndex = 21
-        Me.cmd_guardar.Text = "Guardar"
-        Me.cmd_guardar.UseVisualStyleBackColor = False
-        '
         'cmd_salir
         '
         Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -540,49 +541,6 @@ Partial Class gestor_clientes
         Me.cmd_salir.TabIndex = 22
         Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
-        '
-        'cmd_modificar
-        '
-        Me.cmd_modificar.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_modificar.Enabled = False
-        Me.cmd_modificar.Location = New System.Drawing.Point(162, 367)
-        Me.cmd_modificar.Name = "cmd_modificar"
-        Me.cmd_modificar.Size = New System.Drawing.Size(64, 55)
-        Me.cmd_modificar.TabIndex = 23
-        Me.cmd_modificar.Text = "Modificar"
-        Me.cmd_modificar.UseVisualStyleBackColor = False
-        '
-        'cmd_eliminar
-        '
-        Me.cmd_eliminar.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_eliminar.Enabled = False
-        Me.cmd_eliminar.Location = New System.Drawing.Point(237, 367)
-        Me.cmd_eliminar.Name = "cmd_eliminar"
-        Me.cmd_eliminar.Size = New System.Drawing.Size(64, 55)
-        Me.cmd_eliminar.TabIndex = 24
-        Me.cmd_eliminar.Text = "Eliminar"
-        Me.cmd_eliminar.UseVisualStyleBackColor = False
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.Red
-        Me.Label20.Location = New System.Drawing.Point(7, 266)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(17, 24)
-        Me.Label20.TabIndex = 33
-        Me.Label20.Text = "*"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(25, 272)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(145, 18)
-        Me.Label21.TabIndex = 32
-        Me.Label21.Text = "Datos obligatorios"
         '
         'lbl_hora
         '
@@ -596,12 +554,51 @@ Partial Class gestor_clientes
         '
         Me.Timer1.Enabled = True
         '
+        'cmd_eliminar
+        '
+        Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_eliminar.Enabled = False
+        Me.cmd_eliminar.Location = New System.Drawing.Point(300, 367)
+        Me.cmd_eliminar.Name = "cmd_eliminar"
+        Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_eliminar.TabIndex = 24
+        Me.cmd_eliminar.UseVisualStyleBackColor = False
+        '
+        'cmd_modificar
+        '
+        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_modificar.Enabled = False
+        Me.cmd_modificar.Location = New System.Drawing.Point(204, 367)
+        Me.cmd_modificar.Name = "cmd_modificar"
+        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_modificar.TabIndex = 23
+        Me.cmd_modificar.UseVisualStyleBackColor = False
+        '
+        'cmd_guardar
+        '
+        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_guardar.Location = New System.Drawing.Point(108, 367)
+        Me.cmd_guardar.Name = "cmd_guardar"
+        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar.TabIndex = 21
+        Me.cmd_guardar.UseVisualStyleBackColor = False
+        '
+        'cmd_nuevo
+        '
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo.Location = New System.Drawing.Point(12, 367)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo.TabIndex = 20
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
         'gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(894, 434)
+        Me.ClientSize = New System.Drawing.Size(894, 459)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
@@ -611,6 +608,7 @@ Partial Class gestor_clientes
         Me.Controls.Add(Me.control_tab)
         Me.Controls.Add(Me.tabla_clientes)
         Me.HelpButton = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "gestor_clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"

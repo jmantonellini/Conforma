@@ -63,9 +63,59 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Logo_Isologo() As System.Drawing.Bitmap
+        Friend ReadOnly Property _554545() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Logo_Isologo", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("_554545", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _6184_button() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_6184_button", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _61848_delete_button() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_61848_delete_button", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _61848_deltton() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_61848_deltton", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _84380_edit_button545() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_84380_edit_button545", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property f02a629827a6_4542() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("f02a629827a6_4542", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
