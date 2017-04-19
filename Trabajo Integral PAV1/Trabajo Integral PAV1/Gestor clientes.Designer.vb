@@ -426,7 +426,6 @@ Partial Class gestor_clientes
         'txt_altura_calle
         '
         Me.txt_altura_calle.Location = New System.Drawing.Point(158, 225)
-        Me.txt_altura_calle.Mask = "999999"
         Me.txt_altura_calle.Name = "txt_altura_calle"
         Me.txt_altura_calle.Size = New System.Drawing.Size(61, 29)
         Me.txt_altura_calle.TabIndex = 5
