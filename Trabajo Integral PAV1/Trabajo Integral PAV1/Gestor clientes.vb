@@ -40,7 +40,5 @@
 
     End Sub
 
-    Private Sub blanquear_campos(sender As Object, e As EventArgs) Handles cmd_nuevo.Click, cmd_eliminar.Click
 
-    End Sub
 End Class
