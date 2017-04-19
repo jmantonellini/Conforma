@@ -92,7 +92,7 @@ Partial Class gestor_clientes
         Me.tabla_clientes.Location = New System.Drawing.Point(443, 45)
         Me.tabla_clientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tabla_clientes.Name = "tabla_clientes"
-        Me.tabla_clientes.Size = New System.Drawing.Size(446, 391)
+        Me.tabla_clientes.Size = New System.Drawing.Size(446, 304)
         Me.tabla_clientes.TabIndex = 1
         '
         'Apellido
@@ -124,18 +124,21 @@ Partial Class gestor_clientes
         Me.control_tab.Controls.Add(Me.tab_datos_personales)
         Me.control_tab.Controls.Add(Me.tab_contacto)
         Me.control_tab.Controls.Add(Me.tab_domicilios)
+        Me.control_tab.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.control_tab.Location = New System.Drawing.Point(1, 23)
         Me.control_tab.Margin = New System.Windows.Forms.Padding(0)
         Me.control_tab.Name = "control_tab"
         Me.control_tab.Padding = New System.Drawing.Point(0, 0)
         Me.control_tab.SelectedIndex = 0
-        Me.control_tab.Size = New System.Drawing.Size(446, 417)
+        Me.control_tab.Size = New System.Drawing.Size(446, 326)
         Me.control_tab.TabIndex = 2
         '
         'tab_datos_personales
         '
-        Me.tab_datos_personales.BackColor = System.Drawing.SystemColors.Control
+        Me.tab_datos_personales.BackColor = System.Drawing.Color.Gainsboro
         Me.tab_datos_personales.Controls.Add(Me.Label19)
+        Me.tab_datos_personales.Controls.Add(Me.Label20)
+        Me.tab_datos_personales.Controls.Add(Me.Label21)
         Me.tab_datos_personales.Controls.Add(Me.Label12)
         Me.tab_datos_personales.Controls.Add(Me.Label11)
         Me.tab_datos_personales.Controls.Add(Me.Label10)
@@ -151,10 +154,10 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Controls.Add(Me.Label3)
         Me.tab_datos_personales.Controls.Add(Me.Label2)
         Me.tab_datos_personales.Controls.Add(Me.Label1)
-        Me.tab_datos_personales.Location = New System.Drawing.Point(4, 22)
+        Me.tab_datos_personales.Location = New System.Drawing.Point(4, 30)
         Me.tab_datos_personales.Margin = New System.Windows.Forms.Padding(0)
         Me.tab_datos_personales.Name = "tab_datos_personales"
-        Me.tab_datos_personales.Size = New System.Drawing.Size(438, 391)
+        Me.tab_datos_personales.Size = New System.Drawing.Size(438, 292)
         Me.tab_datos_personales.TabIndex = 0
         Me.tab_datos_personales.Text = "Datos Personales"
         '
@@ -163,7 +166,7 @@ Partial Class gestor_clientes
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.Red
-        Me.Label19.Location = New System.Drawing.Point(12, 131)
+        Me.Label19.Location = New System.Drawing.Point(24, 137)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(17, 24)
         Me.Label19.TabIndex = 27
@@ -174,7 +177,7 @@ Partial Class gestor_clientes
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Red
-        Me.Label12.Location = New System.Drawing.Point(24, 96)
+        Me.Label12.Location = New System.Drawing.Point(7, 104)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(17, 24)
         Me.Label12.TabIndex = 26
@@ -185,7 +188,7 @@ Partial Class gestor_clientes
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Red
-        Me.Label11.Location = New System.Drawing.Point(69, 62)
+        Me.Label11.Location = New System.Drawing.Point(72, 67)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(17, 24)
         Me.Label11.TabIndex = 25
@@ -196,7 +199,7 @@ Partial Class gestor_clientes
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Red
-        Me.Label10.Location = New System.Drawing.Point(69, 28)
+        Me.Label10.Location = New System.Drawing.Point(72, 33)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(17, 24)
         Me.Label10.TabIndex = 24
@@ -204,171 +207,181 @@ Partial Class gestor_clientes
         '
         'txt_empresa
         '
-        Me.txt_empresa.Location = New System.Drawing.Point(138, 202)
+        Me.txt_empresa.Location = New System.Drawing.Point(172, 204)
         Me.txt_empresa.Name = "txt_empresa"
-        Me.txt_empresa.Size = New System.Drawing.Size(251, 20)
+        Me.txt_empresa.Size = New System.Drawing.Size(251, 29)
         Me.txt_empresa.TabIndex = 6
         '
         'txt_cuit
         '
-        Me.txt_cuit.Location = New System.Drawing.Point(139, 168)
+        Me.txt_cuit.Location = New System.Drawing.Point(173, 170)
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
-        Me.txt_cuit.Size = New System.Drawing.Size(78, 20)
+        Me.txt_cuit.Size = New System.Drawing.Size(78, 29)
         Me.txt_cuit.TabIndex = 4
         Me.txt_cuit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt_documento
         '
-        Me.txt_documento.Location = New System.Drawing.Point(139, 134)
+        Me.txt_documento.Location = New System.Drawing.Point(173, 136)
         Me.txt_documento.Mask = "99999999"
         Me.txt_documento.Name = "txt_documento"
-        Me.txt_documento.Size = New System.Drawing.Size(58, 20)
+        Me.txt_documento.Size = New System.Drawing.Size(58, 29)
         Me.txt_documento.TabIndex = 3
         Me.txt_documento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmb_tipo_documento
         '
         Me.cmb_tipo_documento.FormattingEnabled = True
-        Me.cmb_tipo_documento.Location = New System.Drawing.Point(139, 99)
+        Me.cmb_tipo_documento.Location = New System.Drawing.Point(173, 101)
         Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
-        Me.cmb_tipo_documento.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_tipo_documento.Size = New System.Drawing.Size(121, 29)
         Me.cmb_tipo_documento.TabIndex = 2
         '
         'txt_apellido
         '
-        Me.txt_apellido.Location = New System.Drawing.Point(139, 65)
+        Me.txt_apellido.Location = New System.Drawing.Point(173, 67)
         Me.txt_apellido.Name = "txt_apellido"
-        Me.txt_apellido.Size = New System.Drawing.Size(250, 20)
+        Me.txt_apellido.Size = New System.Drawing.Size(250, 29)
         Me.txt_apellido.TabIndex = 1
         '
         'txt_nombre
         '
-        Me.txt_nombre.Location = New System.Drawing.Point(139, 31)
+        Me.txt_nombre.Location = New System.Drawing.Point(173, 33)
         Me.txt_nombre.Name = "txt_nombre"
-        Me.txt_nombre.Size = New System.Drawing.Size(250, 20)
+        Me.txt_nombre.Size = New System.Drawing.Size(250, 29)
         Me.txt_nombre.TabIndex = 0
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(79, 202)
+        Me.Label6.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(91, 203)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(51, 13)
+        Me.Label6.Size = New System.Drawing.Size(82, 18)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Empresa:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(95, 168)
+        Me.Label5.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(117, 169)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(35, 13)
+        Me.Label5.Size = New System.Drawing.Size(52, 18)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "CUIT:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(25, 134)
+        Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(43, 137)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(105, 13)
+        Me.Label4.Size = New System.Drawing.Size(133, 18)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Número Documento:"
+        Me.Label4.Text = "Nº Documento:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(41, 99)
+        Me.Label3.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(29, 104)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 13)
+        Me.Label3.Size = New System.Drawing.Size(147, 18)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Tipo Documento:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(83, 65)
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(88, 66)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.Size = New System.Drawing.Size(76, 18)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Apellido:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(83, 31)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(94, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.Size = New System.Drawing.Size(76, 18)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre:"
         '
         'tab_contacto
         '
+        Me.tab_contacto.BackColor = System.Drawing.Color.Gainsboro
         Me.tab_contacto.Controls.Add(Me.txt_mail)
         Me.tab_contacto.Controls.Add(Me.Label9)
         Me.tab_contacto.Controls.Add(Me.txt_celular)
         Me.tab_contacto.Controls.Add(Me.Label8)
         Me.tab_contacto.Controls.Add(Me.txt_fijo)
         Me.tab_contacto.Controls.Add(Me.Label7)
-        Me.tab_contacto.Location = New System.Drawing.Point(4, 22)
+        Me.tab_contacto.Location = New System.Drawing.Point(4, 30)
         Me.tab_contacto.Name = "tab_contacto"
         Me.tab_contacto.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_contacto.Size = New System.Drawing.Size(438, 391)
+        Me.tab_contacto.Size = New System.Drawing.Size(438, 292)
         Me.tab_contacto.TabIndex = 1
         Me.tab_contacto.Text = "Contacto"
-        Me.tab_contacto.UseVisualStyleBackColor = True
         '
         'txt_mail
         '
-        Me.txt_mail.Location = New System.Drawing.Point(139, 95)
+        Me.txt_mail.Location = New System.Drawing.Point(158, 106)
         Me.txt_mail.Name = "txt_mail"
-        Me.txt_mail.Size = New System.Drawing.Size(248, 20)
+        Me.txt_mail.Size = New System.Drawing.Size(248, 29)
         Me.txt_mail.TabIndex = 2
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(98, 99)
+        Me.Label9.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(98, 107)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(35, 13)
+        Me.Label9.Size = New System.Drawing.Size(55, 18)
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Email:"
         '
         'txt_celular
         '
-        Me.txt_celular.Location = New System.Drawing.Point(139, 63)
+        Me.txt_celular.Location = New System.Drawing.Point(158, 74)
         Me.txt_celular.Name = "txt_celular"
-        Me.txt_celular.Size = New System.Drawing.Size(248, 20)
+        Me.txt_celular.Size = New System.Drawing.Size(248, 29)
         Me.txt_celular.TabIndex = 1
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(46, 67)
+        Me.Label8.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(15, 75)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(87, 13)
+        Me.Label8.Size = New System.Drawing.Size(144, 18)
         Me.Label8.TabIndex = 2
         Me.Label8.Text = "Teléfono Celular:"
         '
         'txt_fijo
         '
-        Me.txt_fijo.Location = New System.Drawing.Point(139, 31)
+        Me.txt_fijo.Location = New System.Drawing.Point(158, 42)
         Me.txt_fijo.Name = "txt_fijo"
-        Me.txt_fijo.Size = New System.Drawing.Size(248, 20)
+        Me.txt_fijo.Size = New System.Drawing.Size(248, 29)
         Me.txt_fijo.TabIndex = 0
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(62, 34)
+        Me.Label7.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(39, 42)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(71, 13)
+        Me.Label7.Size = New System.Drawing.Size(117, 18)
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Teléfono Fijo:"
         '
         'tab_domicilios
         '
+        Me.tab_domicilios.BackColor = System.Drawing.Color.Gainsboro
         Me.tab_domicilios.Controls.Add(Me.txt_altura_calle)
         Me.tab_domicilios.Controls.Add(Me.Label18)
         Me.tab_domicilios.Controls.Add(Me.txt_calle)
@@ -381,170 +394,181 @@ Partial Class gestor_clientes
         Me.tab_domicilios.Controls.Add(Me.cmb_provincia)
         Me.tab_domicilios.Controls.Add(Me.Label13)
         Me.tab_domicilios.Controls.Add(Me.cmb_pais)
-        Me.tab_domicilios.Location = New System.Drawing.Point(4, 22)
+        Me.tab_domicilios.Location = New System.Drawing.Point(4, 30)
         Me.tab_domicilios.Name = "tab_domicilios"
         Me.tab_domicilios.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_domicilios.Size = New System.Drawing.Size(438, 391)
+        Me.tab_domicilios.Size = New System.Drawing.Size(438, 292)
         Me.tab_domicilios.TabIndex = 2
         Me.tab_domicilios.Text = "Domicilios"
-        Me.tab_domicilios.UseVisualStyleBackColor = True
         '
         'txt_altura_calle
         '
-        Me.txt_altura_calle.Location = New System.Drawing.Point(139, 215)
+        Me.txt_altura_calle.Location = New System.Drawing.Point(158, 225)
         Me.txt_altura_calle.Mask = "999999"
         Me.txt_altura_calle.Name = "txt_altura_calle"
-        Me.txt_altura_calle.Size = New System.Drawing.Size(61, 20)
+        Me.txt_altura_calle.Size = New System.Drawing.Size(61, 29)
         Me.txt_altura_calle.TabIndex = 5
         Me.txt_altura_calle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(114, 218)
+        Me.Label18.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(119, 225)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(22, 13)
+        Me.Label18.Size = New System.Drawing.Size(33, 18)
         Me.Label18.TabIndex = 10
         Me.Label18.Text = "Nº:"
         '
         'txt_calle
         '
-        Me.txt_calle.Location = New System.Drawing.Point(139, 179)
+        Me.txt_calle.Location = New System.Drawing.Point(158, 189)
         Me.txt_calle.Name = "txt_calle"
-        Me.txt_calle.Size = New System.Drawing.Size(161, 20)
+        Me.txt_calle.Size = New System.Drawing.Size(161, 29)
         Me.txt_calle.TabIndex = 4
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(100, 182)
+        Me.Label17.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(100, 189)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(33, 13)
+        Me.Label17.Size = New System.Drawing.Size(51, 18)
         Me.Label17.TabIndex = 8
         Me.Label17.Text = "Calle:"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(99, 144)
+        Me.Label16.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(95, 151)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(34, 13)
+        Me.Label16.Size = New System.Drawing.Size(60, 18)
         Me.Label16.TabIndex = 7
-        Me.Label16.Text = "Barrio"
+        Me.Label16.Text = "Barrio:"
         '
         'cmb_barrio
         '
         Me.cmb_barrio.FormattingEnabled = True
-        Me.cmb_barrio.Location = New System.Drawing.Point(139, 142)
+        Me.cmb_barrio.Location = New System.Drawing.Point(158, 152)
         Me.cmb_barrio.Name = "cmb_barrio"
-        Me.cmb_barrio.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_barrio.Size = New System.Drawing.Size(161, 29)
         Me.cmb_barrio.TabIndex = 3
         '
         'cmb_ciudad
         '
         Me.cmb_ciudad.FormattingEnabled = True
-        Me.cmb_ciudad.Location = New System.Drawing.Point(139, 105)
+        Me.cmb_ciudad.Location = New System.Drawing.Point(158, 115)
         Me.cmb_ciudad.Name = "cmb_ciudad"
-        Me.cmb_ciudad.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_ciudad.Size = New System.Drawing.Size(161, 29)
         Me.cmb_ciudad.TabIndex = 2
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(90, 106)
+        Me.Label15.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(83, 113)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(43, 13)
+        Me.Label15.Size = New System.Drawing.Size(67, 18)
         Me.Label15.TabIndex = 4
         Me.Label15.Text = "Ciudad:"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(79, 71)
+        Me.Label14.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(69, 78)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(54, 13)
+        Me.Label14.Size = New System.Drawing.Size(86, 18)
         Me.Label14.TabIndex = 3
         Me.Label14.Text = "Provincia:"
         '
         'cmb_provincia
         '
         Me.cmb_provincia.FormattingEnabled = True
-        Me.cmb_provincia.Location = New System.Drawing.Point(139, 68)
+        Me.cmb_provincia.Location = New System.Drawing.Point(158, 78)
         Me.cmb_provincia.Name = "cmb_provincia"
-        Me.cmb_provincia.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_provincia.Size = New System.Drawing.Size(161, 29)
         Me.cmb_provincia.TabIndex = 1
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(101, 34)
+        Me.Label13.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(108, 41)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(32, 13)
+        Me.Label13.Size = New System.Drawing.Size(45, 18)
         Me.Label13.TabIndex = 1
         Me.Label13.Text = "País:"
         '
         'cmb_pais
         '
         Me.cmb_pais.FormattingEnabled = True
-        Me.cmb_pais.Location = New System.Drawing.Point(139, 31)
+        Me.cmb_pais.Location = New System.Drawing.Point(158, 41)
         Me.cmb_pais.Name = "cmb_pais"
-        Me.cmb_pais.Size = New System.Drawing.Size(161, 21)
+        Me.cmb_pais.Size = New System.Drawing.Size(161, 29)
         Me.cmb_pais.TabIndex = 0
         '
         'cmd_nuevo
         '
-        Me.cmd_nuevo.Location = New System.Drawing.Point(12, 443)
+        Me.cmd_nuevo.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_nuevo.Location = New System.Drawing.Point(12, 367)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(64, 55)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.Text = "Nuevo"
-        Me.cmd_nuevo.UseVisualStyleBackColor = True
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
         'cmd_guardar
         '
+        Me.cmd_guardar.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Location = New System.Drawing.Point(81, 443)
+        Me.cmd_guardar.Location = New System.Drawing.Point(87, 367)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(64, 55)
         Me.cmd_guardar.TabIndex = 21
         Me.cmd_guardar.Text = "Guardar"
-        Me.cmd_guardar.UseVisualStyleBackColor = True
+        Me.cmd_guardar.UseVisualStyleBackColor = False
         '
         'cmd_salir
         '
-        Me.cmd_salir.Location = New System.Drawing.Point(827, 443)
+        Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_salir.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_salir.Location = New System.Drawing.Point(798, 367)
         Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(55, 55)
+        Me.cmd_salir.Size = New System.Drawing.Size(84, 55)
         Me.cmd_salir.TabIndex = 22
         Me.cmd_salir.Text = "Salir"
-        Me.cmd_salir.UseVisualStyleBackColor = True
+        Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'cmd_modificar
         '
+        Me.cmd_modificar.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_modificar.Enabled = False
-        Me.cmd_modificar.Location = New System.Drawing.Point(150, 443)
+        Me.cmd_modificar.Location = New System.Drawing.Point(162, 367)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(64, 55)
         Me.cmd_modificar.TabIndex = 23
         Me.cmd_modificar.Text = "Modificar"
-        Me.cmd_modificar.UseVisualStyleBackColor = True
+        Me.cmd_modificar.UseVisualStyleBackColor = False
         '
         'cmd_eliminar
         '
+        Me.cmd_eliminar.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_eliminar.Enabled = False
-        Me.cmd_eliminar.Location = New System.Drawing.Point(220, 443)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(237, 367)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(64, 55)
         Me.cmd_eliminar.TabIndex = 24
         Me.cmd_eliminar.Text = "Eliminar"
-        Me.cmd_eliminar.UseVisualStyleBackColor = True
+        Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
         'Label20
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.Red
-        Me.Label20.Location = New System.Drawing.Point(12, 501)
+        Me.Label20.Location = New System.Drawing.Point(7, 266)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(17, 24)
         Me.Label20.TabIndex = 33
@@ -553,15 +577,16 @@ Partial Class gestor_clientes
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(25, 512)
+        Me.Label21.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(25, 272)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(91, 13)
+        Me.Label21.Size = New System.Drawing.Size(145, 18)
         Me.Label21.TabIndex = 32
         Me.Label21.Text = "Datos obligatorios"
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(758, 23)
+        Me.lbl_hora.Location = New System.Drawing.Point(758, 9)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 34
@@ -575,11 +600,10 @@ Partial Class gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(894, 560)
+        Me.BackColor = System.Drawing.Color.Gainsboro
+        Me.ClientSize = New System.Drawing.Size(894, 434)
         Me.Controls.Add(Me.lbl_hora)
-        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.cmd_eliminar)
-        Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_guardar)
@@ -600,7 +624,6 @@ Partial Class gestor_clientes
         Me.tab_domicilios.ResumeLayout(False)
         Me.tab_domicilios.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents control_tab As System.Windows.Forms.TabControl

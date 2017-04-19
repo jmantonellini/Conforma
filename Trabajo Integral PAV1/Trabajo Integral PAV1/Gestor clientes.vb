@@ -32,4 +32,11 @@
     End Sub
 
 
+    Private Sub tab_datos_personales_Click(sender As Object, e As EventArgs) Handles tab_datos_personales.Click
+
+    End Sub
+
+    Private Sub tabla_clientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellContentClick
+
+    End Sub
 End Class
