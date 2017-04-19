@@ -1,0 +1,4 @@
+Fuente botones: Arial Unicode MS 14,25pts
+Fondos FORMULARIOS: Gainsboro
+Fondos BOTONES: ButtonFace
+Color: #e30016
