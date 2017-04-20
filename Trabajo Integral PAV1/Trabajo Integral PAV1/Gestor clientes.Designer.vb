@@ -76,6 +76,7 @@ Partial Class gestor_clientes
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.Label22 = New System.Windows.Forms.Label()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -90,7 +91,7 @@ Partial Class gestor_clientes
         Me.tabla_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_clientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Apellido, Me.Nombre, Me.Empresa, Me.Celular})
         Me.tabla_clientes.GridColor = System.Drawing.Color.Gainsboro
-        Me.tabla_clientes.Location = New System.Drawing.Point(443, 45)
+        Me.tabla_clientes.Location = New System.Drawing.Point(443, 87)
         Me.tabla_clientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tabla_clientes.Name = "tabla_clientes"
         Me.tabla_clientes.Size = New System.Drawing.Size(446, 304)
@@ -126,7 +127,7 @@ Partial Class gestor_clientes
         Me.control_tab.Controls.Add(Me.tab_contacto)
         Me.control_tab.Controls.Add(Me.tab_domicilios)
         Me.control_tab.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.control_tab.Location = New System.Drawing.Point(1, 23)
+        Me.control_tab.Location = New System.Drawing.Point(1, 65)
         Me.control_tab.Margin = New System.Windows.Forms.Padding(0)
         Me.control_tab.Name = "control_tab"
         Me.control_tab.Padding = New System.Drawing.Point(0, 0)
@@ -534,7 +535,7 @@ Partial Class gestor_clientes
         '
         Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_salir.Location = New System.Drawing.Point(798, 392)
+        Me.cmd_salir.Location = New System.Drawing.Point(798, 434)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(84, 55)
         Me.cmd_salir.TabIndex = 22
@@ -558,7 +559,7 @@ Partial Class gestor_clientes
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_eliminar.Enabled = False
         Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
-        Me.cmd_eliminar.Location = New System.Drawing.Point(327, 367)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(327, 409)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_eliminar.TabIndex = 24
@@ -569,7 +570,7 @@ Partial Class gestor_clientes
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_modificar.Enabled = False
         Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_modificar.Location = New System.Drawing.Point(231, 367)
+        Me.cmd_modificar.Location = New System.Drawing.Point(231, 409)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_modificar.TabIndex = 23
@@ -580,7 +581,7 @@ Partial Class gestor_clientes
         Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar.Enabled = False
         Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_guardar.Location = New System.Drawing.Point(135, 367)
+        Me.cmd_guardar.Location = New System.Drawing.Point(135, 409)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_guardar.TabIndex = 21
@@ -590,18 +591,29 @@ Partial Class gestor_clientes
         '
         Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo.Location = New System.Drawing.Point(39, 367)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(39, 409)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Lucida Sans Unicode", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(351, 21)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(220, 25)
+        Me.Label22.TabIndex = 35
+        Me.Label22.Text = "Gestor de Clientes"
         '
         'gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(894, 459)
+        Me.ClientSize = New System.Drawing.Size(894, 498)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
@@ -625,6 +637,7 @@ Partial Class gestor_clientes
         Me.tab_domicilios.ResumeLayout(False)
         Me.tab_domicilios.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents control_tab As System.Windows.Forms.TabControl
@@ -679,4 +692,5 @@ Partial Class gestor_clientes
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Label22 As System.Windows.Forms.Label
 End Class

@@ -39,6 +39,7 @@ Partial Class gestor_marcas_modelos
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.Label22 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -84,7 +85,7 @@ Partial Class gestor_marcas_modelos
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.DataGridView1)
-        Me.Panel1.Location = New System.Drawing.Point(305, 41)
+        Me.Panel1.Location = New System.Drawing.Point(305, 99)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(262, 476)
         Me.Panel1.TabIndex = 4
@@ -138,7 +139,7 @@ Partial Class gestor_marcas_modelos
         Me.Panel2.Controls.Add(Me.lbl_nombre_marca)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.DataGridView2)
-        Me.Panel2.Location = New System.Drawing.Point(19, 41)
+        Me.Panel2.Location = New System.Drawing.Point(19, 99)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(262, 476)
         Me.Panel2.TabIndex = 5
@@ -180,18 +181,29 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_salir.Location = New System.Drawing.Point(251, 532)
+        Me.cmd_salir.Location = New System.Drawing.Point(251, 576)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(84, 55)
         Me.cmd_salir.TabIndex = 36
         Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Lucida Sans Unicode", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(189, 43)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(208, 25)
+        Me.Label22.TabIndex = 42
+        Me.Label22.Text = "Gestor de Marcas"
+        '
         'gestor_marcas_modelos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(586, 604)
+        Me.ClientSize = New System.Drawing.Size(586, 641)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.Panel2)
@@ -207,6 +219,7 @@ Partial Class gestor_marcas_modelos
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents lbl_nombre_marca As System.Windows.Forms.Label
@@ -224,4 +237,5 @@ Partial Class gestor_marcas_modelos
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
+    Friend WithEvents Label22 As System.Windows.Forms.Label
 End Class

@@ -7,7 +7,7 @@
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
 
     End Sub
-    Private Sub lbl_datos_empresa_Click(sender As Object, e As EventArgs) Handles lbl_datos_empresa.Click
+    Private Sub lbl_datos_empresa_Click(sender As Object, e As EventArgs)
 
     End Sub
     Private Sub lbl_razon_social_Click(sender As Object, e As EventArgs) Handles lbl_razon_social.Click
