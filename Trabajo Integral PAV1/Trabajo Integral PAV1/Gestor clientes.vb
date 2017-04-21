@@ -10,7 +10,7 @@
         _error
     End Enum
 
-    Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=JUANMA-PC\SQLEXPRESS2008;Integrated Security=SSPI;Initial Catalog=Personas"
+    Dim cadena_conexion = "COLOCAR ACA LA NUEVA CADENA DE CONEXION"
    
 
 
@@ -18,19 +18,26 @@
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 
+    Private Sub gestor_clientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
+
 
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'cargar_grilla()
-        'cargar_combo(cmb_tipo_documento, leer_tabla("tipos_documento") _
-        '             , "id_tipo_documento" _
-        '             , "n_tipo_documento")
+        'cargar_combo(cmb_tipo_documento, leer_tabla("TIPOS_DOCUMENTOS") _
+        '             , "ID_TIPO_DOCUMENTO" _
+        '             , "DESCRIPCION")
     End Sub
-    Private Sub tab_datos_personales_Click(sender As Object, e As EventArgs) Handles tab_datos_personales.Click
 
-    End Sub
+    
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
-        Me.Hide()
+        If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
@@ -81,7 +88,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = "Provider=SQLNCLI11;Data Source=JUANMA-PC\SQLEXPRESS2008;Integrated Security=SSPI;Initial Catalog=Personas"
+        conexion.ConnectionString = cadena_conexion
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
