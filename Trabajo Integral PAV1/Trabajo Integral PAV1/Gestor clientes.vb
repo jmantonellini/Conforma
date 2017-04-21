@@ -1,6 +1,5 @@
 ﻿Public Class gestor_clientes
 
-    Public Event cerrar(ByVal e As String)
     Enum tipo_grabacion
         insertar
         modificar
