@@ -20,17 +20,17 @@
 
 
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargar_grilla()
-        cargar_combo(cmb_tipo_documento, leer_tabla("tipos_documento") _
-                     , "id_tipo_documento" _
-                     , "n_tipo_documento")
+        'cargar_grilla()
+        'cargar_combo(cmb_tipo_documento, leer_tabla("tipos_documento") _
+        '             , "id_tipo_documento" _
+        '             , "n_tipo_documento")
     End Sub
     Private Sub tab_datos_personales_Click(sender As Object, e As EventArgs) Handles tab_datos_personales.Click
 
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
-
+        Me.Hide()
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
