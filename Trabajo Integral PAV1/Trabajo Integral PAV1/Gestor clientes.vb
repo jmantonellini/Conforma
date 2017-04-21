@@ -1,5 +1,6 @@
 ﻿Public Class gestor_clientes
 
+    Public Event cerrar(ByVal e As String)
     Enum tipo_grabacion
         insertar
         modificar
@@ -30,14 +31,6 @@
         'cargar_combo(cmb_tipo_documento, leer_tabla("TIPOS_DOCUMENTOS") _
         '             , "ID_TIPO_DOCUMENTO" _
         '             , "DESCRIPCION")
-    End Sub
-
-    
-
-    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
-        If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
-            Me.Close()
-        End If
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
@@ -101,4 +94,8 @@
     Private Function leer_tabla(ByVal nombre_tabla As String) As Data.DataTable
         Return Me.ejecuto_sql("SELECT * " + nombre_tabla)
     End Function
+
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        Me.Close()
+    End Sub
 End Class
