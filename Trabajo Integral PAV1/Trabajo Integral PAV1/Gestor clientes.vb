@@ -46,6 +46,9 @@
                 obj.Text = ""
             End If
         Next
+        Me.cmd_guardar.Enabled = True
+        Me.cmd_modificar.Enabled = True
+        Me.txt_nombre.Focus()
     End Sub
 
     Private Sub cargar_combo(ByRef combo As ComboBox _
