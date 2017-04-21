@@ -28,7 +28,7 @@
         cargar_combo(cmb_tipo_documento, leer_tabla("tipos_documento") _
                      , "id_tipo_documento" _
                      , "n_tipo_documento")
-        cargar_combo(cmb_barrio, leer_tabla(""))
+        cargar_combo(cmb_barrio, leer_tabla("")()
     End Sub
 
 
