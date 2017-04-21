@@ -19,18 +19,15 @@
     End Sub
 
 
-    Private Sub tab_datos_personales_Click(sender As Object, e As EventArgs) Handles tab_datos_personales.Click
-
-    End Sub
-
-    Private Sub tabla_clientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellContentClick
+    Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
         cargar_combo(cmb_tipo_documento, leer_tabla("tipos_documento") _
                      , "id_tipo_documento" _
                      , "n_tipo_documento")
-        cargar_combo(cmb_barrio, leer_tabla("")()
     End Sub
+    Private Sub tab_datos_personales_Click(sender As Object, e As EventArgs) Handles tab_datos_personales.Click
 
+    End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
 
@@ -69,8 +66,7 @@
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
 
-        Dim sql As String = ""
-        sql &= ""
+        Dim sql As String = "SELECT C.NOMBRE, C.APELLIDO, C.CUIL_EMPRESA, C.TELEFONO_CELULAR JOIN CLIENTES C ON C.CUIL_EMPRESA = EMPRESAS.CUIL_EMPRESA"
 
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader())
