@@ -28,7 +28,7 @@ Partial Class Gestor_barrios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(515, 408)
+        Me.ClientSize = New System.Drawing.Size(673, 473)
         Me.Name = "Gestor_barrios"
         Me.Text = "Gestor_barrios"
         Me.ResumeLayout(False)

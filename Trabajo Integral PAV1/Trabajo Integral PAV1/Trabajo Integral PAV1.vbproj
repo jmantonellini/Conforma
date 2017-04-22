@@ -88,6 +88,12 @@
     <Compile Include="Gestor marcas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gestor paises.Designer.vb">
+      <DependentUpon>Gestor paises.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gestor paises.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gestor tipo producto y categoria.Designer.vb">
       <DependentUpon>gestor tipo producto y categoria.vb</DependentUpon>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestor marcas.resx">
       <DependentUpon>Gestor marcas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestor paises.resx">
+      <DependentUpon>Gestor paises.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestor tipo producto y categoria.resx">
       <DependentUpon>gestor tipo producto y categoria.vb</DependentUpon>
