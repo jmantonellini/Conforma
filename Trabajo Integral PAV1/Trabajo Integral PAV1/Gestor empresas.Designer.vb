@@ -150,7 +150,10 @@ Partial Class gestor_empresas
         Me.tablaEmpresas.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.tablaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tablaEmpresas.Location = New System.Drawing.Point(24, 309)
+        Me.tablaEmpresas.MultiSelect = False
         Me.tablaEmpresas.Name = "tablaEmpresas"
+        Me.tablaEmpresas.ReadOnly = True
+        Me.tablaEmpresas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tablaEmpresas.Size = New System.Drawing.Size(468, 182)
         Me.tablaEmpresas.TabIndex = 18
         '

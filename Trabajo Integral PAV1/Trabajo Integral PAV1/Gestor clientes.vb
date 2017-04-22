@@ -75,6 +75,9 @@
 
     Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
         cargar_cliente()
+        cmd_modificar.Enabled = True
+        cmd_eliminar.Enabled = True
+
     End Sub
 
     Private Sub cargar_cliente()

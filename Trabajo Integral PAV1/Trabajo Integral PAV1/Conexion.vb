@@ -57,4 +57,11 @@
 
     End Function
 
+    Public Function buscar_empresa(ByVal cuit As Int64) As Data.DataTable
+        Dim empresa As DataTable = ejecuto_sql("Select * FROM EMPRESAS WHERE CUIT =" & cuit)
+
+        Return empresa
+
+    End Function
+
 End Class
