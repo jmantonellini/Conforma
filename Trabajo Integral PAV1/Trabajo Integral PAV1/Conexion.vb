@@ -1,6 +1,5 @@
 ﻿Public Class Conexion
 
-<<<<<<< HEAD
 =======
     Dim cadena_conexion_mateo = "Provider=SQLNCLI11;Data Source=OCHANPC\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=Conforma"
 
@@ -49,5 +48,4 @@
         Return combo
     End Function
 
->>>>>>> parent of f89051d... grilla empresas
 End Class
