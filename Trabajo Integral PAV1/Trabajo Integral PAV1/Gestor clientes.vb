@@ -28,7 +28,7 @@
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
         cargar_combo(cmb_tipo_documento, leer_tabla("TIPOS_DOCUMENTOS") _
-                     , "ID_TIPO_DOCUMENTO" _
+                    , "ID_TIPO_DOCUMENTO" _
                      , "NOMBRE")
     End Sub
 
@@ -98,4 +98,6 @@
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.Close()
     End Sub
+
+
 End Class
