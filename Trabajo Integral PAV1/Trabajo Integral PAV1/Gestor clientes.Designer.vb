@@ -61,6 +61,8 @@ Partial Class gestor_clientes
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txt_calle = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.cmb_barrio = New System.Windows.Forms.ComboBox()
         Me.cmb_ciudad = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -253,7 +255,7 @@ Partial Class gestor_clientes
         '
         'cmb_tipo_documento
         '
-        Me.cmb_tipo_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_tipo_documento.FormattingEnabled = True
         Me.cmb_tipo_documento.Location = New System.Drawing.Point(173, 101)
         Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
         Me.cmb_tipo_documento.Size = New System.Drawing.Size(121, 28)
@@ -407,6 +409,8 @@ Partial Class gestor_clientes
         Me.tab_domicilios.Controls.Add(Me.Label18)
         Me.tab_domicilios.Controls.Add(Me.txt_calle)
         Me.tab_domicilios.Controls.Add(Me.Label17)
+        Me.tab_domicilios.Controls.Add(Me.Label16)
+        Me.tab_domicilios.Controls.Add(Me.cmb_barrio)
         Me.tab_domicilios.Controls.Add(Me.cmb_ciudad)
         Me.tab_domicilios.Controls.Add(Me.Label15)
         Me.tab_domicilios.Controls.Add(Me.Label14)
@@ -422,7 +426,7 @@ Partial Class gestor_clientes
         '
         'txt_altura_calle
         '
-        Me.txt_altura_calle.Location = New System.Drawing.Point(158, 181)
+        Me.txt_altura_calle.Location = New System.Drawing.Point(158, 225)
         Me.txt_altura_calle.Name = "txt_altura_calle"
         Me.txt_altura_calle.Size = New System.Drawing.Size(61, 26)
         Me.txt_altura_calle.TabIndex = 5
@@ -432,7 +436,7 @@ Partial Class gestor_clientes
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(119, 184)
+        Me.Label18.Location = New System.Drawing.Point(119, 225)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(33, 20)
         Me.Label18.TabIndex = 10
@@ -440,7 +444,7 @@ Partial Class gestor_clientes
         '
         'txt_calle
         '
-        Me.txt_calle.Location = New System.Drawing.Point(158, 149)
+        Me.txt_calle.Location = New System.Drawing.Point(158, 189)
         Me.txt_calle.Name = "txt_calle"
         Me.txt_calle.Size = New System.Drawing.Size(161, 26)
         Me.txt_calle.TabIndex = 4
@@ -449,16 +453,34 @@ Partial Class gestor_clientes
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(98, 152)
+        Me.Label17.Location = New System.Drawing.Point(100, 189)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(54, 20)
         Me.Label17.TabIndex = 8
         Me.Label17.Text = "Calle:"
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(95, 151)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(62, 20)
+        Me.Label16.TabIndex = 7
+        Me.Label16.Text = "Barrio:"
+        '
+        'cmb_barrio
+        '
+        Me.cmb_barrio.FormattingEnabled = True
+        Me.cmb_barrio.Location = New System.Drawing.Point(158, 152)
+        Me.cmb_barrio.Name = "cmb_barrio"
+        Me.cmb_barrio.Size = New System.Drawing.Size(161, 28)
+        Me.cmb_barrio.TabIndex = 3
+        '
         'cmb_ciudad
         '
         Me.cmb_ciudad.FormattingEnabled = True
-        Me.cmb_ciudad.Location = New System.Drawing.Point(158, 113)
+        Me.cmb_ciudad.Location = New System.Drawing.Point(158, 115)
         Me.cmb_ciudad.Name = "cmb_ciudad"
         Me.cmb_ciudad.Size = New System.Drawing.Size(161, 28)
         Me.cmb_ciudad.TabIndex = 2
@@ -467,7 +489,7 @@ Partial Class gestor_clientes
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(85, 116)
+        Me.Label15.Location = New System.Drawing.Point(83, 113)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(70, 20)
         Me.Label15.TabIndex = 4
@@ -477,7 +499,7 @@ Partial Class gestor_clientes
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(70, 80)
+        Me.Label14.Location = New System.Drawing.Point(69, 78)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(86, 20)
         Me.Label14.TabIndex = 3
@@ -486,7 +508,7 @@ Partial Class gestor_clientes
         'cmb_provincia
         '
         Me.cmb_provincia.FormattingEnabled = True
-        Me.cmb_provincia.Location = New System.Drawing.Point(158, 77)
+        Me.cmb_provincia.Location = New System.Drawing.Point(158, 78)
         Me.cmb_provincia.Name = "cmb_provincia"
         Me.cmb_provincia.Size = New System.Drawing.Size(161, 28)
         Me.cmb_provincia.TabIndex = 1
@@ -495,7 +517,7 @@ Partial Class gestor_clientes
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(104, 44)
+        Me.Label13.Location = New System.Drawing.Point(108, 41)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(48, 20)
         Me.Label13.TabIndex = 1
@@ -650,6 +672,8 @@ Partial Class gestor_clientes
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents txt_calle As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents cmb_barrio As System.Windows.Forms.ComboBox
     Friend WithEvents cmb_ciudad As System.Windows.Forms.ComboBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
