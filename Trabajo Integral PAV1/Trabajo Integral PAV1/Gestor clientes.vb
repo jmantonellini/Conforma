@@ -54,10 +54,11 @@
 
     
     Private Sub cargar_grilla()
-        Dim tabla = c.cargar_grilla("clientes")
         Me.tabla_clientes.Rows.Clear()
+        Me.tabla_clientes.Columns.Clear()
+        Dim tabla = c.cargar_grilla("clientes")
         tabla_clientes.DataSource = tabla
-        
+
     End Sub
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click

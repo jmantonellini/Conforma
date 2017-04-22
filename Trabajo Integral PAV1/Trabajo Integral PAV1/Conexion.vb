@@ -7,7 +7,7 @@
 
         Select Case ventana
             Case "clientes"
-                tabla = Me.ejecuto_sql("SELECT C.NOMBRE, C.APELLIDO, E.NOMBRE, C.TEL_CEL FROM CLIENTES C JOIN EMPRESAS E ON E.CUIT = C.CUIT")
+                tabla = Me.ejecuto_sql("SELECT C.APELLIDO as 'Apellido', C.NOMBRE as 'Nombre', E.NOMBRE as 'Empresa', C.TEL_CEL as 'Celular' FROM CLIENTES C LEFT JOIN EMPRESAS E ON E.CUIT = C.CUIT")
             Case "empresas"
                 tabla = Me.ejecuto_sql("SELECT NOMBRE, CUIT FROM EMPRESAS")
 
