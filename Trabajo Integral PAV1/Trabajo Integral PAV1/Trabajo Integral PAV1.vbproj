@@ -70,6 +70,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.vb" />
     <Compile Include="Gestor clientes.Designer.vb">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
     </Compile>

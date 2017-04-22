@@ -18,4 +18,22 @@
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
+        For Each obj As Windows.Forms.Control In Me.gestor_empresas.Controls
+            If obj.GetType().Name = "TextBox" Then
+                obj.Text = ""
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim local As ComboBox = obj
+                local.SelectedIndex = -1
+            End If
+            If obj.GetType().Name = "MaskedTextBox" Then
+                obj.Text = ""
+            End If
+        Next
+
+
+        Me.cmd_guardar.Enabled = True
+        Me.txt_nombre.Focus()
+    End Sub
 End Class

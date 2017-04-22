@@ -42,17 +42,19 @@ Partial Class gestor_empresas
         Me.lbl_cuit = New System.Windows.Forms.Label()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cmd_modificar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.cmd_modificar = New System.Windows.Forms.Button()
         CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_email
         '
+        Me.txt_email.Enabled = False
         Me.txt_email.Location = New System.Drawing.Point(200, 244)
         Me.txt_email.Name = "txt_email"
         Me.txt_email.Size = New System.Drawing.Size(232, 20)
@@ -70,6 +72,7 @@ Partial Class gestor_empresas
         '
         'txt_telefono_fijo
         '
+        Me.txt_telefono_fijo.Enabled = False
         Me.txt_telefono_fijo.Location = New System.Drawing.Point(200, 206)
         Me.txt_telefono_fijo.Name = "txt_telefono_fijo"
         Me.txt_telefono_fijo.Size = New System.Drawing.Size(232, 20)
@@ -153,6 +156,7 @@ Partial Class gestor_empresas
         '
         'txt_razon_social
         '
+        Me.txt_razon_social.Enabled = False
         Me.txt_razon_social.Location = New System.Drawing.Point(200, 167)
         Me.txt_razon_social.Name = "txt_razon_social"
         Me.txt_razon_social.Size = New System.Drawing.Size(232, 20)
@@ -160,6 +164,7 @@ Partial Class gestor_empresas
         '
         'txt_cuit
         '
+        Me.txt_cuit.Enabled = False
         Me.txt_cuit.Location = New System.Drawing.Point(200, 131)
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(232, 20)
@@ -167,6 +172,7 @@ Partial Class gestor_empresas
         '
         'txt_nombre
         '
+        Me.txt_nombre.Enabled = False
         Me.txt_nombre.Location = New System.Drawing.Point(200, 96)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(232, 20)
@@ -214,26 +220,26 @@ Partial Class gestor_empresas
         '
         Me.Timer1.Enabled = True
         '
-        'cmd_modificar
+        'cmd_guardar
         '
-        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_modificar.Enabled = False
-        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_modificar.Location = New System.Drawing.Point(267, 500)
-        Me.cmd_modificar.Name = "cmd_modificar"
-        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_modificar.TabIndex = 37
-        Me.cmd_modificar.UseVisualStyleBackColor = False
+        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar.Location = New System.Drawing.Point(193, 500)
+        Me.cmd_guardar.Name = "cmd_guardar"
+        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar.TabIndex = 37
+        Me.cmd_guardar.UseVisualStyleBackColor = False
         '
-        'Button1
+        'cmd_nuevo
         '
-        Me.Button1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.Button1.Location = New System.Drawing.Point(173, 500)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 80)
-        Me.Button1.TabIndex = 36
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nuevo.Location = New System.Drawing.Point(24, 500)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo.TabIndex = 36
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
         'Label20
         '
@@ -277,18 +283,30 @@ Partial Class gestor_empresas
         Me.Label22.TabIndex = 41
         Me.Label22.Text = "Gestor de Empresas"
         '
+        'cmd_modificar
+        '
+        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_modificar.Enabled = False
+        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
+        Me.cmd_modificar.Location = New System.Drawing.Point(107, 500)
+        Me.cmd_modificar.Name = "cmd_modificar"
+        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_modificar.TabIndex = 42
+        Me.cmd_modificar.UseVisualStyleBackColor = False
+        '
         'gestor_empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(521, 625)
+        Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label21)
-        Me.Controls.Add(Me.cmd_modificar)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmd_guardar)
+        Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.txt_email)
         Me.Controls.Add(Me.Label7)
@@ -333,10 +351,11 @@ Partial Class gestor_empresas
     Friend WithEvents lbl_cuit As System.Windows.Forms.Label
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents cmd_modificar As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
+    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents cmd_modificar As System.Windows.Forms.Button
 End Class

@@ -73,8 +73,8 @@ Partial Class gestor_clientes
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -255,6 +255,7 @@ Partial Class gestor_clientes
         '
         'cmb_tipo_documento
         '
+        Me.cmb_tipo_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_tipo_documento.FormattingEnabled = True
         Me.cmb_tipo_documento.Location = New System.Drawing.Point(173, 101)
         Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
@@ -565,27 +566,27 @@ Partial Class gestor_clientes
         Me.cmd_eliminar.TabIndex = 24
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
-        'cmd_modificar
-        '
-        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_modificar.Enabled = False
-        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_modificar.Location = New System.Drawing.Point(231, 409)
-        Me.cmd_modificar.Name = "cmd_modificar"
-        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_modificar.TabIndex = 23
-        Me.cmd_modificar.UseVisualStyleBackColor = False
-        '
         'cmd_guardar
         '
         Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_guardar.Location = New System.Drawing.Point(135, 409)
+        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar.Location = New System.Drawing.Point(231, 409)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar.TabIndex = 21
+        Me.cmd_guardar.TabIndex = 23
         Me.cmd_guardar.UseVisualStyleBackColor = False
+        '
+        'cmd_modificar
+        '
+        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_modificar.Enabled = False
+        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
+        Me.cmd_modificar.Location = New System.Drawing.Point(135, 409)
+        Me.cmd_modificar.Name = "cmd_modificar"
+        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_modificar.TabIndex = 21
+        Me.cmd_modificar.UseVisualStyleBackColor = False
         '
         'cmd_nuevo
         '
@@ -616,9 +617,9 @@ Partial Class gestor_clientes
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_eliminar)
-        Me.Controls.Add(Me.cmd_modificar)
-        Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_guardar)
+        Me.Controls.Add(Me.cmd_salir)
+        Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.control_tab)
         Me.Controls.Add(Me.tabla_clientes)
@@ -684,9 +685,9 @@ Partial Class gestor_clientes
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
-    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
-    Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
+    Friend WithEvents cmd_salir As System.Windows.Forms.Button
+    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
