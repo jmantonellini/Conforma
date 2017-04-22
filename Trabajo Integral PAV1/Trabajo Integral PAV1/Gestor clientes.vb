@@ -11,7 +11,8 @@
     End Enum
 
     Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
-   
+    Dim c As Conexion = New Conexion
+
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -26,8 +27,9 @@
 
 
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargar_grilla()
-        cargar_combo(cmb_tipo_documento, leer_tabla("TIPOS_DOCUMENTOS") _
+
+        Me.cargar_grilla()
+        cargar_combo(cmb_tipo_documento, c.leer_tabla("TIPOS_DOCUMENTOS") _
                     , "ID_TIPO_DOCUMENTO" _
                      , "NOMBRE")
     End Sub
@@ -60,40 +62,11 @@
         combo.ValueMember = pk
     End Sub
     Private Sub cargar_grilla()
-        Dim tabla As New Data.DataTable
-        tabla = Me.ejecuto_sql("SELECT C.NOMBRE, C.APELLIDO, C.CUIT, C.TEL_CEL FROM CLIENTES C")
-
-        Dim index As Integer
+        Dim tabla = c.cargar_grilla("clientes")
         Me.tabla_clientes.Rows.Clear()
-
-        For index = 0 To tabla.Rows.Count - 1
-
-            Me.tabla_clientes.Rows.Add()
-            Me.tabla_clientes.Rows(index).Cells(0).Value = tabla.Rows(index)("APELLIDO")
-            Me.tabla_clientes.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
-            Me.tabla_clientes.Rows(index).Cells(2).Value = tabla.Rows(index)("CUIT") 'HAY QUE MODIFICAR EL CUIT POR EL NOMBRE DE LA EMPRESA
-            Me.tabla_clientes.Rows(index).Cells(3).Value = tabla.Rows(index)("TEL_CEL")
-        Next
+        tabla_clientes.DataSource = tabla
+        
     End Sub
-
-    Private Function ejecuto_sql(ByVal sql As String) As Data.DataTable
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
-
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = sql
-        tabla.Load(cmd.ExecuteReader)
-
-        Return tabla
-    End Function
-
-    Private Function leer_tabla(ByVal nombre_tabla As String) As Data.DataTable
-        Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
-    End Function
 
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.Close()
