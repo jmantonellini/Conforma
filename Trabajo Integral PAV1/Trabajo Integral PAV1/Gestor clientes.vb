@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        For Each obj As Windows.Forms.Control In Me.Controls
+        For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
             End If
