@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        For Each obj As Windows.Forms.Control In Me.gestor_empresas.Controls
+        For Each obj As Windows.Forms.Control In Me.Controls
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
             End If

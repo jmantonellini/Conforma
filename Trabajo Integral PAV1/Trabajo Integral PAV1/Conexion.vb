@@ -27,7 +27,7 @@
         cmd.CommandType = CommandType.Text
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader)
-        conexion.Close()
+        'conexion.Close()
         Return tabla
     End Function
 
@@ -44,6 +44,17 @@
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
         Return combo
+    End Function
+
+    Public Function buscar_datos_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
+        Dim cliente As DataTable = ejecuto_sql("SELECT C.* FROM CLIENTES  C LEFT JOIN EMPRESAS E ON C.CUIT = E.CUIT where C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+        Return cliente
+    End Function
+
+    Public Function buscar_domicilios_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
+        Dim domicilios As DataTable = ejecuto_sql("Select D.* from DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+        Return domicilios
+
     End Function
 
 End Class

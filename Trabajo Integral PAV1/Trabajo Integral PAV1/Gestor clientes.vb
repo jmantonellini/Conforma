@@ -10,8 +10,9 @@
         _error
     End Enum
 
+    Dim cliente As Data.DataTable = New DataTable
     Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
-
+    Dim domicilios As DataTable = New DataTable
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
 
@@ -32,23 +33,29 @@
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS" _
                     , "ID_TIPO_DOCUMENTO" _
                      , "NOMBRE")
+        tabla_clientes.Rows(0).Selected = True
+        'Me.cargar_cliente()
+        domicilios = c.buscar_domicilios_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
+        For Each obj As Windows.Forms.Control In Me.Controls
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
+                obj.Enabled = True
             End If
             If obj.GetType().Name = "ComboBox" Then
                 Dim local As ComboBox = obj
                 local.SelectedIndex = -1
+                obj.Enabled = True
             End If
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
+                obj.Enabled = True
             End If
         Next
         Me.accion = tipo_grabacion.insertar
-        Me.cmd_modificar.Enabled = True
+        Me.cmd_modificar.Enabled = False
         Me.cmd_guardar.Enabled = True
         Me.txt_nombre.Focus()
     End Sub
@@ -66,4 +73,24 @@
 
     End Sub
 
+    Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
+        cargar_cliente()
+    End Sub
+
+    Private Sub cargar_cliente()
+        
+        cliente = c.buscar_datos_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
+        domicilios = c.buscar_domicilios_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
+
+
+        txt_nombre.Text = cliente.Rows(0).Item(3).ToString
+        txt_apellido.Text = cliente.Rows(0).Item(4).ToString
+        txt_documento.Text = cliente.Rows(0).Item(2).ToString
+        txt_cuit.Text = cliente.Rows(0).Item(8).ToString
+        txt_celular.Text = cliente.Rows(0).Item(6).ToString
+        txt_fijo.Text = cliente.Rows(0).Item(7).ToString
+
+
+
+    End Sub
 End Class
