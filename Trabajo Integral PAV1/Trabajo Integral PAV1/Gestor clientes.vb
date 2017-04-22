@@ -12,9 +12,9 @@
 
 <<<<<<< HEAD
     Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
-   
+
 =======
-   Dim c As Conexion = New Conexion
+    Dim c As Conexion = New Conexion
 
 >>>>>>> parent of f89051d... grilla empresas
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
@@ -112,7 +112,7 @@
         Me.Close()
     End Sub
 =======
-    
+
     Private Sub cargar_grilla()
         Me.tabla_clientes.Rows.Clear()
         Me.tabla_clientes.Columns.Clear()

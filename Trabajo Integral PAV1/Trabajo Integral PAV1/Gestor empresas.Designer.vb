@@ -90,7 +90,7 @@ Partial Class gestor_empresas
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Red
-        Me.Label8.Location = New System.Drawing.Point(113, 243)
+        Me.Label8.Location = New System.Drawing.Point(438, 239)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(17, 24)
         Me.Label8.TabIndex = 26
@@ -101,7 +101,7 @@ Partial Class gestor_empresas
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(59, 201)
+        Me.Label5.Location = New System.Drawing.Point(438, 201)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(17, 24)
         Me.Label5.TabIndex = 25
@@ -112,7 +112,7 @@ Partial Class gestor_empresas
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(59, 162)
+        Me.Label4.Location = New System.Drawing.Point(438, 162)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(17, 24)
         Me.Label4.TabIndex = 24
@@ -123,7 +123,7 @@ Partial Class gestor_empresas
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(128, 130)
+        Me.Label3.Location = New System.Drawing.Point(438, 126)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(17, 24)
         Me.Label3.TabIndex = 28
@@ -134,7 +134,7 @@ Partial Class gestor_empresas
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(100, 92)
+        Me.Label2.Location = New System.Drawing.Point(438, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(17, 24)
         Me.Label2.TabIndex = 23
@@ -146,7 +146,7 @@ Partial Class gestor_empresas
         Me.tablaEmpresas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tablaEmpresas.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.tablaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tablaEmpresas.Location = New System.Drawing.Point(23, 309)
+        Me.tablaEmpresas.Location = New System.Drawing.Point(24, 309)
         Me.tablaEmpresas.Name = "tablaEmpresas"
         Me.tablaEmpresas.Size = New System.Drawing.Size(468, 182)
         Me.tablaEmpresas.TabIndex = 18
@@ -204,7 +204,7 @@ Partial Class gestor_empresas
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(367, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(385, 587)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -282,7 +282,7 @@ Partial Class gestor_empresas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(520, 588)
+        Me.ClientSize = New System.Drawing.Size(521, 625)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.Label20)

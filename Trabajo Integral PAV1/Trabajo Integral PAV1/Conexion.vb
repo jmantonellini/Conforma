@@ -1,6 +1,4 @@
 ﻿Public Class Conexion
-
-=======
     Dim cadena_conexion_mateo = "Provider=SQLNCLI11;Data Source=OCHANPC\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=Conforma"
 
     Public Function cargar_grilla(ByVal ventana As String) As Data.DataTable
