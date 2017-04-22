@@ -38,7 +38,7 @@ Partial Class Menu
         Me.cmd_gestor_clientes.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_gestor_clientes.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_clientes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_clientes.Location = New System.Drawing.Point(107, 121)
+        Me.cmd_gestor_clientes.Location = New System.Drawing.Point(106, 95)
         Me.cmd_gestor_clientes.Name = "cmd_gestor_clientes"
         Me.cmd_gestor_clientes.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_clientes.TabIndex = 0
@@ -50,7 +50,7 @@ Partial Class Menu
         Me.cmd_gestor_empresas.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_gestor_empresas.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_empresas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_empresas.Location = New System.Drawing.Point(107, 52)
+        Me.cmd_gestor_empresas.Location = New System.Drawing.Point(106, 26)
         Me.cmd_gestor_empresas.Name = "cmd_gestor_empresas"
         Me.cmd_gestor_empresas.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_empresas.TabIndex = 1
@@ -62,7 +62,7 @@ Partial Class Menu
         Me.cmd_gestor_marcas.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_gestor_marcas.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_marcas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_marcas.Location = New System.Drawing.Point(107, 190)
+        Me.cmd_gestor_marcas.Location = New System.Drawing.Point(106, 164)
         Me.cmd_gestor_marcas.Name = "cmd_gestor_marcas"
         Me.cmd_gestor_marcas.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_marcas.TabIndex = 2
@@ -75,7 +75,7 @@ Partial Class Menu
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(248, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(257, 324)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -84,7 +84,7 @@ Partial Class Menu
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
-        Me.PictureBox1.Location = New System.Drawing.Point(101, 272)
+        Me.PictureBox1.Location = New System.Drawing.Point(100, 246)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(183, 63)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

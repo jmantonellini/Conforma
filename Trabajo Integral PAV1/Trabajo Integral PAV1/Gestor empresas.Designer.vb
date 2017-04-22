@@ -33,7 +33,7 @@ Partial Class gestor_empresas
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tablaEmpresas = New System.Windows.Forms.DataGridView()
         Me.txt_razon_social = New System.Windows.Forms.TextBox()
         Me.txt_cuit = New System.Windows.Forms.TextBox()
         Me.txt_nombre = New System.Windows.Forms.TextBox()
@@ -48,7 +48,7 @@ Partial Class gestor_empresas
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_email
@@ -140,14 +140,16 @@ Partial Class gestor_empresas
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "*"
         '
-        'DataGridView1
+        'tablaEmpresas
         '
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 309)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(468, 182)
-        Me.DataGridView1.TabIndex = 18
+        Me.tablaEmpresas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tablaEmpresas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tablaEmpresas.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.tablaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tablaEmpresas.Location = New System.Drawing.Point(23, 309)
+        Me.tablaEmpresas.Name = "tablaEmpresas"
+        Me.tablaEmpresas.Size = New System.Drawing.Size(468, 182)
+        Me.tablaEmpresas.TabIndex = 18
         '
         'txt_razon_social
         '
@@ -297,7 +299,7 @@ Partial Class gestor_empresas
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.tablaEmpresas)
         Me.Controls.Add(Me.txt_razon_social)
         Me.Controls.Add(Me.txt_cuit)
         Me.Controls.Add(Me.txt_nombre)
@@ -308,7 +310,7 @@ Partial Class gestor_empresas
         Me.Name = "gestor_empresas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestor empresas"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -322,7 +324,7 @@ Partial Class gestor_empresas
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents tablaEmpresas As System.Windows.Forms.DataGridView
     Friend WithEvents txt_razon_social As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuit As System.Windows.Forms.TextBox
     Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
