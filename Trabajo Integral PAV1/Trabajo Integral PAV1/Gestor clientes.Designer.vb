@@ -253,7 +253,7 @@ Partial Class gestor_clientes
         '
         'cmb_tipo_documento
         '
-        Me.cmb_tipo_documento.FormattingEnabled = True
+        Me.cmb_tipo_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_tipo_documento.Location = New System.Drawing.Point(173, 101)
         Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
         Me.cmb_tipo_documento.Size = New System.Drawing.Size(121, 28)

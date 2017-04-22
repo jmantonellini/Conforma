@@ -10,8 +10,7 @@
         _error
     End Enum
 
-    Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
-    Dim c As Conexion = New Conexion
+   Dim c As Conexion = New Conexion
 
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
 
@@ -29,7 +28,7 @@
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.cargar_grilla()
-        cargar_combo(cmb_tipo_documento, c.leer_tabla("TIPOS_DOCUMENTOS") _
+        cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS" _
                     , "ID_TIPO_DOCUMENTO" _
                      , "NOMBRE")
     End Sub
@@ -53,14 +52,7 @@
         Me.txt_nombre.Focus()
     End Sub
 
-    Private Sub cargar_combo(ByRef combo As ComboBox _
-                             , tabla As Data.DataTable _
-                             , pk As String _
-                             , descriptor As String)
-        combo.DataSource = tabla
-        combo.DisplayMember = descriptor
-        combo.ValueMember = pk
-    End Sub
+    
     Private Sub cargar_grilla()
         Dim tabla = c.cargar_grilla("clientes")
         Me.tabla_clientes.Rows.Clear()
