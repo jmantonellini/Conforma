@@ -70,6 +70,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestor barrios.Designer.vb">
+      <DependentUpon>Gestor barrios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gestor barrios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gestor clientes.Designer.vb">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
     </Compile>
@@ -117,6 +123,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Gestor barrios.resx">
+      <DependentUpon>Gestor barrios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestor clientes.resx">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
     </EmbeddedResource>
