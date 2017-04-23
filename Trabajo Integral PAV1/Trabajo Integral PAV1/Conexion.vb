@@ -25,7 +25,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma
+        conexion.ConnectionString = cadena_conexion_gaston
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -96,4 +96,13 @@
         Me.ejecuto_sql("UPDATE PAISES SET NOMBRE = " & "'" & nombre_nuevo & "'" & "WHERE ID_PAIS = " & "'" & id_pais & "'")
     End Sub
 
+    Public Function buscar_paises_expRegular(ByRef patron As String) As Data.DataTable
+        Dim paises As Data.DataTable = Me.ejecuto_sql("SELECT * FROM PAISES WHERE NOMBRE LIKE " & "'" & patron & "%" & "'")
+
+        Return paises
+    End Function
+
+    Public Sub eliminar_pais(ByRef nombre As String)
+        Me.ejecuto_sql("DELETE FROM PAISES WHERE NOMBRE = " & "'" & nombre & "'")
+    End Sub
 End Class
