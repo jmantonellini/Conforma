@@ -42,20 +42,8 @@
         Next
     End Sub
 
-    Private Sub cargar_grilla()
-        Dim conexion As New Data.OleDb.OleDbConnection
-        Dim cmd As New Data.OleDb.OleDbCommand
+    Private Sub cargar_clientes()
         Dim tabla As New DataTable
-
-        conexion.ConnectionString = Me.cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-
-        Dim sql As String = "SELECT C.NOMBRE, C.APELLIDO, C.TELEFONO_CELULAR, C.CUIL_EMPRESA FROM CLIENTES C"
-        cmd.CommandText = sql
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
 
         Dim index As Integer
         Me.tabla_clientes.Rows.Clear()
@@ -73,27 +61,12 @@
 
     End Sub
 
-    Private Function ejecuto_sql(ByVal sql As String) As Data.DataTable
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
-
-        conexion.ConnectionString = "Provider=SQLNCLI11;Data Source=JUANMA-PC\SQLEXPRESS2008;Integrated Security=SSPI;Initial Catalog=Personas"
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = sql
-        tabla.Load(cmd.ExecuteReader)
-
-        Return tabla
-    End Function
-
     Private Function leer_tabla(ByVal nombre_tabla As String) As Data.DataTable
-        Return Me.ejecuto_sql("SELECT * " + nombre_tabla)
+        Return Conexion.ejecuto_sql("SELECT * " + nombre_tabla)
     End Function
 
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargar_grilla()
+        cargar_clientes()
 
     End Sub
 End Class
