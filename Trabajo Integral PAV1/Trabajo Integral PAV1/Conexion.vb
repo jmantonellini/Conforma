@@ -1,5 +1,6 @@
 ﻿Public Class Conexion
     Dim cadena_conexion_mateo = "Provider=SQLNCLI11;Data Source=OCHANPC\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=Conforma"
+    Dim cadena_conexion_gaston = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
 
     Public Function cargar_grilla(ByVal ventana As String) As Data.DataTable
         Dim tabla As New Data.DataTable
@@ -9,6 +10,8 @@
                 tabla = Me.ejecuto_sql("SELECT C.APELLIDO as 'Apellido', C.NOMBRE as 'Nombre', E.NOMBRE as 'Empresa', C.TEL_CEL as 'Celular' FROM CLIENTES C LEFT JOIN EMPRESAS E ON E.CUIT = C.CUIT")
             Case "empresas"
                 tabla = Me.ejecuto_sql("SELECT NOMBRE as 'Nombre' , CUIT as 'CUIT' FROM EMPRESAS")
+            Case "paises"
+                tabla = Me.ejecuto_sql("SELECT P.ID_PAIS, P.NOMBRE FROM PAISES P")
 
         End Select
 
@@ -21,7 +24,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_gaston
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -78,5 +81,18 @@
 
     End Sub
 
+    Public Function buscar_paises(ByVal nombre As String) As Data.DataTable
+        Dim pais As Data.DataTable = Me.ejecuto_sql("SELECT P.NOMBRE FROM PAISES P")
+
+        Return pais
+    End Function
+
+    Public Sub insertar_pais(ByVal nombre As String)
+        Me.ejecuto_sql("INSERT INTO PAISES(NOMBRE) VALUES(" & nombre & ")")
+    End Sub
+
+    Public Sub modificar_pais(ByVal nombre)
+        Me.ejecuto_sql("UPDATE PAISES SET NOMBRE = " & "'" & nombre & "'")
+    End Sub
 
 End Class
