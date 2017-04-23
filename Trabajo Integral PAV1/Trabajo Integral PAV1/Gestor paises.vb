@@ -8,6 +8,7 @@
     Dim paises As New Data.DataTable
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim conexion As New Conexion
+    Dim buscando As Boolean = False
 
     Private Sub gestor_paises_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If accion = tipo_grabacion.insertar Or accion = tipo_grabacion.modificar Then
@@ -34,6 +35,7 @@
         Me.cmd_modificar.Enabled = True
         Me.txt_nombre.Enabled = True
         Me.txt_nombre.Focus()
+        Me.buscando = False
         Me.accion = tipo_grabacion.insertar
     End Sub
 
@@ -53,7 +55,6 @@
 
     Private Sub tabla_paises_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellClick
         paises = conexion.buscar_paises(tabla_paises.CurrentRow.Cells(1).Value)
-
         Me.txt_nombre.Text = paises.Rows(0).Item(1).ToString
 
         Me.cmd_editar.Enabled = True
@@ -64,6 +65,7 @@
         Me.txt_nombre.Enabled = True
         Me.txt_nombre.Focus()
         Me.cmd_modificar.Enabled = True
+        Me.buscando = False
         Me.accion = tipo_grabacion.modificar
     End Sub
 
@@ -88,5 +90,29 @@
                 MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
             End Try
         End If
+    End Sub
+
+
+    Private Sub txt_nombre_TextChanged(sender As Object, e As EventArgs) Handles txt_nombre.TextChanged
+        If Me.buscando <> False Then
+            Dim tabla As Data.DataTable = Me.conexion.buscar_paises_expRegular(txt_nombre.Text.ToString)
+
+            tabla_paises.Rows.Clear()
+
+            Dim index As Integer
+            For index = 0 To tabla.Rows.Count - 1
+
+                Me.tabla_paises.Rows.Add()
+                Me.tabla_paises.Rows(index).Cells(0).Value = tabla.Rows(index)("ID_PAIS")
+                Me.tabla_paises.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
+            Next
+        End If
+    End Sub
+
+    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+        Me.txt_nombre.Enabled = True
+        Me.txt_nombre.Text = ""
+        Me.txt_nombre.Focus()
+        Me.buscando = True
     End Sub
 End Class

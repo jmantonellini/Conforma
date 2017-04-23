@@ -32,9 +32,8 @@ Partial Class gestor_paises
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_editar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.lbl_buscar = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.btn_buscar = New System.Windows.Forms.Button()
         CType(Me.tabla_paises, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -52,7 +51,7 @@ Partial Class gestor_paises
         '
         Me.lbl_nombre.AutoSize = True
         Me.lbl_nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_nombre.Location = New System.Drawing.Point(21, 77)
+        Me.lbl_nombre.Location = New System.Drawing.Point(21, 109)
         Me.lbl_nombre.Name = "lbl_nombre"
         Me.lbl_nombre.Size = New System.Drawing.Size(76, 20)
         Me.lbl_nombre.TabIndex = 37
@@ -61,7 +60,7 @@ Partial Class gestor_paises
         'txt_nombre
         '
         Me.txt_nombre.Enabled = False
-        Me.txt_nombre.Location = New System.Drawing.Point(103, 79)
+        Me.txt_nombre.Location = New System.Drawing.Point(103, 111)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(121, 20)
         Me.txt_nombre.TabIndex = 0
@@ -134,23 +133,6 @@ Partial Class gestor_paises
         Me.cmd_nuevo.TabIndex = 40
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
-        'lbl_buscar
-        '
-        Me.lbl_buscar.AutoSize = True
-        Me.lbl_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_buscar.Location = New System.Drawing.Point(21, 113)
-        Me.lbl_buscar.Name = "lbl_buscar"
-        Me.lbl_buscar.Size = New System.Drawing.Size(70, 20)
-        Me.lbl_buscar.TabIndex = 37
-        Me.lbl_buscar.Text = "Buscar:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(103, 115)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox1.TabIndex = 1
-        '
         'cmd_salir
         '
         Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -162,20 +144,28 @@ Partial Class gestor_paises
         Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
+        'btn_buscar
+        '
+        Me.btn_buscar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.BUSCAR01
+        Me.btn_buscar.Location = New System.Drawing.Point(440, 100)
+        Me.btn_buscar.Name = "btn_buscar"
+        Me.btn_buscar.Size = New System.Drawing.Size(40, 40)
+        Me.btn_buscar.TabIndex = 45
+        Me.btn_buscar.UseVisualStyleBackColor = True
+        '
         'gestor_paises
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(544, 430)
+        Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_editar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.tabla_paises)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.txt_nombre)
-        Me.Controls.Add(Me.lbl_buscar)
         Me.Controls.Add(Me.lbl_nombre)
         Me.Controls.Add(Me.Label22)
         Me.Name = "gestor_paises"
@@ -193,9 +183,8 @@ Partial Class gestor_paises
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
     Friend WithEvents cmd_editar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
-    Friend WithEvents lbl_buscar As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
+    Friend WithEvents btn_buscar As System.Windows.Forms.Button
 End Class
