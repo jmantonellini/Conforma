@@ -36,7 +36,7 @@ Partial Class Menu
         'cmd_gestor_clientes
         '
         Me.cmd_gestor_clientes.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_gestor_clientes.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_clientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_clientes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.cmd_gestor_clientes.Location = New System.Drawing.Point(107, 121)
         Me.cmd_gestor_clientes.Name = "cmd_gestor_clientes"
@@ -48,7 +48,7 @@ Partial Class Menu
         'cmd_gestor_empresas
         '
         Me.cmd_gestor_empresas.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_gestor_empresas.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_empresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_empresas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.cmd_gestor_empresas.Location = New System.Drawing.Point(107, 52)
         Me.cmd_gestor_empresas.Name = "cmd_gestor_empresas"
@@ -60,7 +60,7 @@ Partial Class Menu
         'cmd_gestor_marcas
         '
         Me.cmd_gestor_marcas.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_gestor_marcas.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_marcas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_marcas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.cmd_gestor_marcas.Location = New System.Drawing.Point(107, 190)
         Me.cmd_gestor_marcas.Name = "cmd_gestor_marcas"

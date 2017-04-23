@@ -10,7 +10,7 @@
         _error
     End Enum
 
-    Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=JUANMA-PC\SQLEXPRESS2008;Integrated Security=SSPI;Initial Catalog=Personas"
+    Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=JUANMA-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
    
 
 
@@ -23,17 +23,8 @@
 
     End Sub
 
-    Private Sub tabla_clientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellContentClick
-        cargar_grilla()
-        cargar_combo(cmb_tipo_documento, leer_tabla("tipos_documento") _
-                     , "id_tipo_documento" _
-                     , "n_tipo_documento")
-        cargar_combo(cmb_barrio, leer_tabla(""))
-    End Sub
-
-
     Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
-
+        Me.Close()
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
@@ -51,14 +42,6 @@
         Next
     End Sub
 
-    Private Sub cargar_combo(ByRef combo As ComboBox _
-                             , tabla As Data.DataTable _
-                             , pk As String _
-                             , descriptor As String)
-        combo.DataSource = tabla
-        combo.DisplayMember = descriptor
-        combo.ValueMember = pk
-    End Sub
     Private Sub cargar_grilla()
         Dim conexion As New Data.OleDb.OleDbConnection
         Dim cmd As New Data.OleDb.OleDbCommand
@@ -69,12 +52,25 @@
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
 
-        Dim sql As String = ""
-        sql &= ""
-
+        Dim sql As String = "SELECT C.NOMBRE, C.APELLIDO, C.TELEFONO_CELULAR, C.CUIL_EMPRESA FROM CLIENTES C"
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader())
         conexion.Close()
+
+        Dim index As Integer
+        Me.tabla_clientes.Rows.Clear()
+
+        For index = 0 To tabla.Rows.Count - 1
+            Me.tabla_clientes.Rows.Add()
+            Me.tabla_clientes.Rows(index).Cells(0).Value = tabla.Rows(index)("APELLIDO")
+            Me.tabla_clientes.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
+            Me.tabla_clientes.Rows(index).Cells(2).Value = tabla.Rows(index)("CUIL_EMPRESA")
+            Me.tabla_clientes.Rows(index).Cells(3).Value = tabla.Rows(index)("TELEFONO_CELULAR")
+        Next
+
+
+
+
     End Sub
 
     Private Function ejecuto_sql(ByVal sql As String) As Data.DataTable
@@ -95,4 +91,9 @@
     Private Function leer_tabla(ByVal nombre_tabla As String) As Data.DataTable
         Return Me.ejecuto_sql("SELECT * " + nombre_tabla)
     End Function
+
+    Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargar_grilla()
+
+    End Sub
 End Class
