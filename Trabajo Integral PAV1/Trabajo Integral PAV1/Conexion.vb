@@ -27,7 +27,7 @@
         cmd.CommandType = CommandType.Text
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader)
-        'conexion.Close()
+        conexion.Close()
         Return tabla
     End Function
 
@@ -63,5 +63,20 @@
         Return empresa
 
     End Function
+
+    Public Sub modificar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
+
+        Me.ejecuto_sql("UPDATE EMPRESAS SET NOMBRE = '" & nombre & "' ,RAZON_SOCIAL = '" & razon_social & "', TELEFONO = " & telefono & ", EMAIL = '" & email & "' where CUIT = " & cuit)
+
+
+    End Sub
+
+    Public Sub insertar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
+
+        Me.ejecuto_sql("INSERT INTO EMPRESAS VALUES (" & cuit & ", '" & nombre & "', '" & razon_social & "', " & telefono & ", '" & email & "')")
+
+
+    End Sub
+
 
 End Class

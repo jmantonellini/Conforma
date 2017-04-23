@@ -49,6 +49,9 @@ Partial Class gestor_empresas
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cmd_modificar = New System.Windows.Forms.Button()
+        Me.tt_guardar = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tt_modificar = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tt_nuevo = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -361,4 +364,7 @@ Partial Class gestor_empresas
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
+    Friend WithEvents tt_guardar As System.Windows.Forms.ToolTip
+    Friend WithEvents tt_modificar As System.Windows.Forms.ToolTip
+    Friend WithEvents tt_nuevo As System.Windows.Forms.ToolTip
 End Class
