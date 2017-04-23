@@ -82,17 +82,17 @@
     End Sub
 
     Public Function buscar_paises(ByVal nombre As String) As Data.DataTable
-        Dim pais As Data.DataTable = Me.ejecuto_sql("SELECT P.NOMBRE FROM PAISES P")
+        Dim pais As Data.DataTable = Me.ejecuto_sql("SELECT P.* FROM PAISES P WHERE P.NOMBRE = " & "'" & nombre & "'")
 
         Return pais
     End Function
 
-    Public Sub insertar_pais(ByVal nombre As String)
-        Me.ejecuto_sql("INSERT INTO PAISES(NOMBRE) VALUES(" & nombre & ")")
+    Public Sub insertar_pais(ByRef nombre As String)
+        Me.ejecuto_sql("INSERT INTO PAISES VALUES(" & "'" & nombre & "'" & ")")
     End Sub
 
-    Public Sub modificar_pais(ByVal nombre)
-        Me.ejecuto_sql("UPDATE PAISES SET NOMBRE = " & "'" & nombre & "'")
+    Public Sub modificar_pais(ByRef nombre_nuevo As String, ByRef id_pais As Integer)
+        Me.ejecuto_sql("UPDATE PAISES SET NOMBRE = " & "'" & nombre_nuevo & "'" & "WHERE ID_PAIS = " & "'" & id_pais & "'")
     End Sub
 
 End Class
