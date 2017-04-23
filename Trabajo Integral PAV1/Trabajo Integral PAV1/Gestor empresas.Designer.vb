@@ -33,7 +33,7 @@ Partial Class gestor_empresas
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tablaEmpresas = New System.Windows.Forms.DataGridView()
         Me.txt_razon_social = New System.Windows.Forms.TextBox()
         Me.txt_cuit = New System.Windows.Forms.TextBox()
         Me.txt_nombre = New System.Windows.Forms.TextBox()
@@ -42,17 +42,22 @@ Partial Class gestor_empresas
         Me.lbl_cuit = New System.Windows.Forms.Label()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cmd_modificar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmd_modificar = New System.Windows.Forms.Button()
+        Me.tt_guardar = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tt_modificar = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tt_nuevo = New System.Windows.Forms.ToolTip(Me.components)
+        CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_email
         '
+        Me.txt_email.Enabled = False
         Me.txt_email.Location = New System.Drawing.Point(200, 244)
         Me.txt_email.Name = "txt_email"
         Me.txt_email.Size = New System.Drawing.Size(232, 20)
@@ -70,6 +75,7 @@ Partial Class gestor_empresas
         '
         'txt_telefono_fijo
         '
+        Me.txt_telefono_fijo.Enabled = False
         Me.txt_telefono_fijo.Location = New System.Drawing.Point(200, 206)
         Me.txt_telefono_fijo.Name = "txt_telefono_fijo"
         Me.txt_telefono_fijo.Size = New System.Drawing.Size(232, 20)
@@ -90,7 +96,7 @@ Partial Class gestor_empresas
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Red
-        Me.Label8.Location = New System.Drawing.Point(113, 243)
+        Me.Label8.Location = New System.Drawing.Point(438, 239)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(17, 24)
         Me.Label8.TabIndex = 26
@@ -101,7 +107,7 @@ Partial Class gestor_empresas
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(59, 201)
+        Me.Label5.Location = New System.Drawing.Point(438, 201)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(17, 24)
         Me.Label5.TabIndex = 25
@@ -112,7 +118,7 @@ Partial Class gestor_empresas
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(59, 162)
+        Me.Label4.Location = New System.Drawing.Point(438, 162)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(17, 24)
         Me.Label4.TabIndex = 24
@@ -123,7 +129,7 @@ Partial Class gestor_empresas
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(128, 130)
+        Me.Label3.Location = New System.Drawing.Point(438, 126)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(17, 24)
         Me.Label3.TabIndex = 28
@@ -134,23 +140,29 @@ Partial Class gestor_empresas
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(100, 92)
+        Me.Label2.Location = New System.Drawing.Point(438, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(17, 24)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "*"
         '
-        'DataGridView1
+        'tablaEmpresas
         '
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 309)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(468, 182)
-        Me.DataGridView1.TabIndex = 18
+        Me.tablaEmpresas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tablaEmpresas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tablaEmpresas.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.tablaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tablaEmpresas.Location = New System.Drawing.Point(24, 309)
+        Me.tablaEmpresas.MultiSelect = False
+        Me.tablaEmpresas.Name = "tablaEmpresas"
+        Me.tablaEmpresas.ReadOnly = True
+        Me.tablaEmpresas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tablaEmpresas.Size = New System.Drawing.Size(468, 182)
+        Me.tablaEmpresas.TabIndex = 18
         '
         'txt_razon_social
         '
+        Me.txt_razon_social.Enabled = False
         Me.txt_razon_social.Location = New System.Drawing.Point(200, 167)
         Me.txt_razon_social.Name = "txt_razon_social"
         Me.txt_razon_social.Size = New System.Drawing.Size(232, 20)
@@ -158,6 +170,7 @@ Partial Class gestor_empresas
         '
         'txt_cuit
         '
+        Me.txt_cuit.Enabled = False
         Me.txt_cuit.Location = New System.Drawing.Point(200, 131)
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(232, 20)
@@ -165,6 +178,7 @@ Partial Class gestor_empresas
         '
         'txt_nombre
         '
+        Me.txt_nombre.Enabled = False
         Me.txt_nombre.Location = New System.Drawing.Point(200, 96)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(232, 20)
@@ -202,7 +216,7 @@ Partial Class gestor_empresas
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(367, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(385, 587)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -212,26 +226,26 @@ Partial Class gestor_empresas
         '
         Me.Timer1.Enabled = True
         '
-        'cmd_modificar
+        'cmd_guardar
         '
-        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_modificar.Enabled = False
-        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_modificar.Location = New System.Drawing.Point(267, 500)
-        Me.cmd_modificar.Name = "cmd_modificar"
-        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_modificar.TabIndex = 37
-        Me.cmd_modificar.UseVisualStyleBackColor = False
+        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar.Location = New System.Drawing.Point(193, 500)
+        Me.cmd_guardar.Name = "cmd_guardar"
+        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar.TabIndex = 37
+        Me.cmd_guardar.UseVisualStyleBackColor = False
         '
-        'Button1
+        'cmd_nuevo
         '
-        Me.Button1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.Button1.Location = New System.Drawing.Point(173, 500)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 80)
-        Me.Button1.TabIndex = 36
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nuevo.Location = New System.Drawing.Point(24, 500)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo.TabIndex = 36
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
         'Label20
         '
@@ -275,18 +289,30 @@ Partial Class gestor_empresas
         Me.Label22.TabIndex = 41
         Me.Label22.Text = "Gestor de Empresas"
         '
+        'cmd_modificar
+        '
+        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_modificar.Enabled = False
+        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
+        Me.cmd_modificar.Location = New System.Drawing.Point(107, 500)
+        Me.cmd_modificar.Name = "cmd_modificar"
+        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_modificar.TabIndex = 42
+        Me.cmd_modificar.UseVisualStyleBackColor = False
+        '
         'gestor_empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(520, 588)
+        Me.ClientSize = New System.Drawing.Size(521, 625)
+        Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.Label21)
-        Me.Controls.Add(Me.cmd_modificar)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmd_guardar)
+        Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.txt_email)
         Me.Controls.Add(Me.Label7)
@@ -297,7 +323,7 @@ Partial Class gestor_empresas
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.tablaEmpresas)
         Me.Controls.Add(Me.txt_razon_social)
         Me.Controls.Add(Me.txt_cuit)
         Me.Controls.Add(Me.txt_nombre)
@@ -308,7 +334,7 @@ Partial Class gestor_empresas
         Me.Name = "gestor_empresas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestor empresas"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -322,7 +348,7 @@ Partial Class gestor_empresas
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents tablaEmpresas As System.Windows.Forms.DataGridView
     Friend WithEvents txt_razon_social As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuit As System.Windows.Forms.TextBox
     Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
@@ -331,10 +357,14 @@ Partial Class gestor_empresas
     Friend WithEvents lbl_cuit As System.Windows.Forms.Label
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents cmd_modificar As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
+    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents cmd_modificar As System.Windows.Forms.Button
+    Friend WithEvents tt_guardar As System.Windows.Forms.ToolTip
+    Friend WithEvents tt_modificar As System.Windows.Forms.ToolTip
+    Friend WithEvents tt_nuevo As System.Windows.Forms.ToolTip
 End Class
