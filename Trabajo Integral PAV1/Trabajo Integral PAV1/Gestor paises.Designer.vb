@@ -30,7 +30,7 @@ Partial Class gestor_paises
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_editar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.lbl_buscar = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -60,6 +60,7 @@ Partial Class gestor_paises
         '
         'txt_nombre
         '
+        Me.txt_nombre.Enabled = False
         Me.txt_nombre.Location = New System.Drawing.Point(103, 79)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(121, 20)
@@ -67,10 +68,15 @@ Partial Class gestor_paises
         '
         'tabla_paises
         '
+        Me.tabla_paises.AllowUserToAddRows = False
+        Me.tabla_paises.AllowUserToDeleteRows = False
+        Me.tabla_paises.AllowUserToResizeColumns = False
+        Me.tabla_paises.AllowUserToResizeRows = False
         Me.tabla_paises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_paises.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre})
         Me.tabla_paises.Location = New System.Drawing.Point(27, 160)
         Me.tabla_paises.Name = "tabla_paises"
+        Me.tabla_paises.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tabla_paises.Size = New System.Drawing.Size(497, 150)
         Me.tabla_paises.TabIndex = 39
         '
@@ -107,16 +113,16 @@ Partial Class gestor_paises
         Me.cmd_modificar.TabIndex = 42
         Me.cmd_modificar.UseVisualStyleBackColor = False
         '
-        'cmd_guardar
+        'cmd_editar
         '
-        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_guardar.Location = New System.Drawing.Point(121, 338)
-        Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar.TabIndex = 41
-        Me.cmd_guardar.UseVisualStyleBackColor = False
+        Me.cmd_editar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_editar.Enabled = False
+        Me.cmd_editar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
+        Me.cmd_editar.Location = New System.Drawing.Point(121, 338)
+        Me.cmd_editar.Name = "cmd_editar"
+        Me.cmd_editar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_editar.TabIndex = 41
+        Me.cmd_editar.UseVisualStyleBackColor = False
         '
         'cmd_nuevo
         '
@@ -164,7 +170,7 @@ Partial Class gestor_paises
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
-        Me.Controls.Add(Me.cmd_guardar)
+        Me.Controls.Add(Me.cmd_editar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.tabla_paises)
         Me.Controls.Add(Me.TextBox1)
@@ -185,7 +191,7 @@ Partial Class gestor_paises
     Friend WithEvents tabla_paises As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
-    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
+    Friend WithEvents cmd_editar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents lbl_buscar As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
