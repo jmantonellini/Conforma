@@ -81,7 +81,7 @@
     End Sub
 
     Private Sub cargar_cliente()
-        
+
         cliente = c.buscar_datos_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
         domicilios = c.buscar_domicilios_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
 
