@@ -11,7 +11,6 @@
     End Enum
 
     Dim cliente As Data.DataTable = New DataTable
-    Dim cadena_conexion = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
     Dim domicilios As DataTable = New DataTable
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
@@ -39,21 +38,7 @@
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        For Each obj As Windows.Forms.Control In Me.tabla_clientes.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-                obj.Enabled = True
-            End If
-            If obj.GetType().Name = "ComboBox" Then
-                Dim local As ComboBox = obj
-                local.SelectedIndex = -1
-                obj.Enabled = True
-            End If
-            If obj.GetType().Name = "MaskedTextBox" Then
-                obj.Text = ""
-                obj.Enabled = True
-            End If
-        Next
+        limpiar_campos()
         Me.accion = tipo_grabacion.insertar
         Me.cmd_modificar.Enabled = False
         Me.cmd_guardar.Enabled = True
@@ -72,6 +57,54 @@
         tabla_clientes.DataSource = tabla
 
     End Sub
+    Private Sub limpiar_campos()
+        For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
+            If obj.GetType().Name = "TextBox" Then
+                obj.Text = ""
+                obj.Enabled = True
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim local As ComboBox = obj
+                local.SelectedIndex = -1
+                obj.Enabled = True
+            End If
+            If obj.GetType().Name = "MaskedTextBox" Then
+                obj.Text = ""
+                obj.Enabled = True
+            End If
+        Next
+        For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
+            If obj.GetType().Name = "TextBox" Then
+                obj.Text = ""
+                obj.Enabled = True
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim local As ComboBox = obj
+                local.SelectedIndex = -1
+                obj.Enabled = True
+            End If
+            If obj.GetType().Name = "MaskedTextBox" Then
+                obj.Text = ""
+                obj.Enabled = True
+            End If
+        Next
+        For Each obj As Windows.Forms.Control In Me.tab_contacto.Controls
+            If obj.GetType().Name = "TextBox" Then
+                obj.Text = ""
+                obj.Enabled = True
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim local As ComboBox = obj
+                local.SelectedIndex = -1
+                obj.Enabled = True
+            End If
+            If obj.GetType().Name = "MaskedTextBox" Then
+                obj.Text = ""
+                obj.Enabled = True
+            End If
+        Next
+    End Sub
+
 
     Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
         cargar_cliente()
