@@ -101,4 +101,8 @@
 
         Return paises
     End Function
+
+    Public Sub eliminar_pais(ByRef nombre As String)
+        Me.ejecuto_sql("DELETE FROM PAISES WHERE NOMBRE = " & "'" & nombre & "'")
+    End Sub
 End Class

@@ -56,39 +56,34 @@
     Private Sub tabla_paises_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellClick
         paises = conexion.buscar_paises(tabla_paises.CurrentRow.Cells(1).Value)
         Me.txt_nombre.Text = paises.Rows(0).Item(1).ToString
-
-        Me.cmd_editar.Enabled = True
-        Me.cmd_eliminar.Enabled = True
-    End Sub
-
-    Private Sub cmd_editar_Click(sender As Object, e As EventArgs) Handles cmd_editar.Click
-        Me.txt_nombre.Enabled = True
-        Me.txt_nombre.Focus()
-        Me.cmd_modificar.Enabled = True
-        Me.buscando = False
         Me.accion = tipo_grabacion.modificar
+        Me.cmd_eliminar.Enabled = True
+        Me.txt_nombre.Enabled = True
     End Sub
-
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
-        If accion = tipo_grabacion.insertar Then
-            Try
-                Me.conexion.insertar_pais(Me.txt_nombre.Text.ToString)
-                MessageBox.Show("Se grabo correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.cargar_grilla()
-
-            Catch ex As OleDb.OleDbException
-                MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-            End Try
+        If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 1 Then
+            MessageBox.Show("El pais ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            Try
-                Me.conexion.modificar_pais(Me.txt_nombre.Text.ToString, Me.tabla_paises.CurrentRow.Cells(0).Value)
-                MessageBox.Show("Se grabo correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.cargar_grilla()
+            If Me.accion = tipo_grabacion.insertar Then
+                Try
+                    Me.conexion.insertar_pais(Me.txt_nombre.Text.ToString)
+                    MessageBox.Show("Se grabo correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Me.cargar_grilla()
 
-            Catch ex As OleDb.OleDbException
-                MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-            End Try
+                Catch ex As OleDb.OleDbException
+                    MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                End Try
+            Else
+                Try
+                    Me.conexion.modificar_pais(Me.txt_nombre.Text.ToString, Me.tabla_paises.CurrentRow.Cells(0).Value)
+                    MessageBox.Show("Se modifico correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Me.cargar_grilla()
+
+                Catch ex As OleDb.OleDbException
+                    MessageBox.Show("No se modifico correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                End Try
+            End If
         End If
     End Sub
 
@@ -114,5 +109,24 @@
         Me.txt_nombre.Text = ""
         Me.txt_nombre.Focus()
         Me.buscando = True
+    End Sub
+
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+
+        If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 1 Then
+            Try
+                Me.conexion.eliminar_pais(txt_nombre.Text.ToString)
+                MessageBox.Show("Se elimino correctamente", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.cargar_grilla()
+            Catch ex As OleDb.OleDbException
+                MessageBox.Show("No se elimino correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("No se puede eliminar debido ya que no existe el pais", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 End Class
