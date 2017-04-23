@@ -89,6 +89,7 @@
 
 
     Private Sub txt_nombre_TextChanged(sender As Object, e As EventArgs) Handles txt_nombre.TextChanged
+        Me.cmd_modificar.Enabled = True
         If Me.buscando <> False Then
             Dim tabla As Data.DataTable = Me.conexion.buscar_paises_expRegular(txt_nombre.Text.ToString)
 
