@@ -69,6 +69,7 @@
         txt_razon_social.Text = empresa.Rows(0).Item(2).ToString
         txt_telefono_fijo.Text = empresa.Rows(0).Item(3).ToString
         txt_email.Text = empresa.Rows(0).Item(4).ToString
+        cmd_eliminar.Enabled = True
 
         cmd_modificar.Enabled = True
     End Sub
@@ -96,19 +97,40 @@
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+        
+        Dim b As Boolean = False
+        For Each obj As Windows.Forms.Control In Me.Controls
+            If obj.Text = "" And obj.GetType.Name = "TextBox" Then
+                b = True
+                obj.BackColor = Color.PaleVioletRed
 
-        If (tipo_accion = tipo_operacion.modificar) Then
-            c.modificar_empresa(Me.txt_cuit.Text, Me.txt_nombre.Text, Me.txt_razon_social.Text, Me.txt_email.Text, Me.txt_telefono_fijo.Text)
+            End If
+        Next
+
+
+        If b Then
+            MsgBox("Debes completar todos los campos para aceptar", MsgBoxStyle.OkOnly, "Advertencia")
+            For Each obj As Windows.Forms.Control In Me.Controls
+                If obj.Text = "" And obj.GetType.Name = "TextBox" Then
+                    b = True
+                    obj.BackColor = Color.White
+
+                End If
+            Next
         Else
-            c.insertar_empresa(Me.txt_cuit.Text, Me.txt_nombre.Text, Me.txt_razon_social.Text, Me.txt_email.Text, Me.txt_telefono_fijo.Text)
-        End If
+            If (tipo_accion = tipo_operacion.modificar) Then
+                c.modificar_empresa(Me.txt_cuit.Text, Me.txt_nombre.Text, Me.txt_razon_social.Text, Me.txt_email.Text, Me.txt_telefono_fijo.Text)
+            Else
+                c.insertar_empresa(Me.txt_cuit.Text, Me.txt_nombre.Text, Me.txt_razon_social.Text, Me.txt_email.Text, Me.txt_telefono_fijo.Text)
+            End If
 
-        tablaEmpresas.DataSource = c.cargar_grilla("empresas")
-        cmd_nuevo.Enabled = True
-        cmd_modificar.Enabled = False
-        cmd_guardar.Enabled = False
-        Me.deshabilitar_campos()
-        accion = operacion.sin_modificar
+            tablaEmpresas.DataSource = c.cargar_grilla("empresas")
+            cmd_nuevo.Enabled = True
+            cmd_modificar.Enabled = False
+            cmd_guardar.Enabled = False
+            Me.deshabilitar_campos()
+            accion = operacion.sin_modificar
+        End If
 
 
 
@@ -143,4 +165,29 @@
         Next
     End Sub
 
+    Private Sub blanquear_campos()
+        For Each obj As Windows.Forms.Control In Me.Controls
+            If obj.GetType().Name = "TextBox" Then
+                obj.Text = ""
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim ccmb As ComboBox = obj
+                ccmb.SelectedIndex = -1
+            End If
+            If obj.GetType().Name = "MaskedTextBox" Then
+                obj.Text = ""
+            End If
+        Next
+    End Sub
+
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+        If MessageBox.Show("¿Seguro que desea eliminar la empresa seleccionada? ", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) = Windows.Forms.DialogResult.Yes Then
+            c.eliminar_empresa(tablaEmpresas.CurrentRow.Cells(1).Value)
+            tablaEmpresas.DataSource = c.cargar_grilla("empresas")
+            Me.blanquear_campos()
+        End If
+
+
+
+    End Sub
 End Class

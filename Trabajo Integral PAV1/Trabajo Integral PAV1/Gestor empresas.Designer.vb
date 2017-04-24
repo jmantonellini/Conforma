@@ -52,6 +52,7 @@ Partial Class gestor_empresas
         Me.tt_guardar = New System.Windows.Forms.ToolTip(Me.components)
         Me.tt_modificar = New System.Windows.Forms.ToolTip(Me.components)
         Me.tt_nuevo = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cmd_eliminar = New System.Windows.Forms.Button()
         CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -178,6 +179,7 @@ Partial Class gestor_empresas
         '
         'txt_nombre
         '
+        Me.txt_nombre.BackColor = System.Drawing.SystemColors.Window
         Me.txt_nombre.Enabled = False
         Me.txt_nombre.Location = New System.Drawing.Point(200, 96)
         Me.txt_nombre.Name = "txt_nombre"
@@ -231,7 +233,7 @@ Partial Class gestor_empresas
         Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar.Enabled = False
         Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar.Location = New System.Drawing.Point(193, 500)
+        Me.cmd_guardar.Location = New System.Drawing.Point(194, 500)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_guardar.TabIndex = 37
@@ -294,11 +296,22 @@ Partial Class gestor_empresas
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_modificar.Enabled = False
         Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_modificar.Location = New System.Drawing.Point(107, 500)
+        Me.cmd_modificar.Location = New System.Drawing.Point(109, 500)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_modificar.TabIndex = 42
         Me.cmd_modificar.UseVisualStyleBackColor = False
+        '
+        'cmd_eliminar
+        '
+        Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_eliminar.Enabled = False
+        Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
+        Me.cmd_eliminar.Location = New System.Drawing.Point(279, 500)
+        Me.cmd_eliminar.Name = "cmd_eliminar"
+        Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_eliminar.TabIndex = 43
+        Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
         'gestor_empresas
         '
@@ -306,6 +319,7 @@ Partial Class gestor_empresas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(521, 625)
+        Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
@@ -367,4 +381,5 @@ Partial Class gestor_empresas
     Friend WithEvents tt_guardar As System.Windows.Forms.ToolTip
     Friend WithEvents tt_modificar As System.Windows.Forms.ToolTip
     Friend WithEvents tt_nuevo As System.Windows.Forms.ToolTip
+    Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
 End Class

@@ -30,7 +30,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma1
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -165,9 +165,14 @@
         Me.ejecuto_sql("UPDATE MODELOS SET NOMBRE = " & "'" & nombre_nuevo & "'" & "WHERE ID_MODELO = " & "'" & id_modelo & "'")
     End Sub
 
-    Public Function modelos_de_una_marca(ByRef marca As String)
+    Public Function modelos_de_una_marca(ByRef marca As String) As Data.DataTable
         Dim modelos As Data.DataTable = Me.ejecuto_sql("SELECT MO.ID_MODELO, MO.NOMBRE FROM MARCAS MA JOIN MODELOS MO ON MO.ID_MARCA = MA.ID_MARCA WHERE MA.NOMBRE = '" & marca & "'")
 
         Return modelos
     End Function
+
+    Public Sub eliminar_empresa(ByRef empresa As String)
+        Me.ejecuto_sql("DELETE FROM EMPRESAS WHERE CUIT = " & empresa)
+
+    End Sub
 End Class
