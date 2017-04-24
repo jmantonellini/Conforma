@@ -45,6 +45,10 @@
         Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
     End Function
 
+    Public Function leer_areas_filtrada(ByVal nombre_tabla As String, descriptor As String, tabla2 As String) As Data.DataTable
+        Return Me.ejecuto_sql("SELECT TP.ID_TIPO_PRODUCTO, TP.NOMBRE FROM AREAS A JOIN TIPOS_PRODUCTOS TP ON A.ID_AREA = TP.ID_AREA WHERE A.NOMBRE LIKE '" & descriptor & "'")
+    End Function
+
     Public Function cargar_combo(ByRef combo As ComboBox _
                              , tabla As String _
                              , pk As String _
@@ -55,6 +59,18 @@
         combo.ValueMember = pk
         Return combo
     End Function
+
+    Public Function cargar_combo_flitrado(ByRef combo As ComboBox _
+                             , tabla As String _
+                             , pk As String _
+                             , descriptor As String, filtro As String, tabla2 As String) As ComboBox
+        Dim tablaFuente As Data.DataTable = leer_areas_filtrada(tabla, filtro, tabla2)
+        combo.DataSource = tablaFuente
+        combo.DisplayMember = descriptor
+        combo.ValueMember = pk
+        Return combo
+    End Function
+
 
     Public Function buscar_datos_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
         Dim cliente As DataTable = ejecuto_sql("SELECT C.* FROM CLIENTES  C LEFT JOIN EMPRESAS E ON C.CUIT = E.CUIT where C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")

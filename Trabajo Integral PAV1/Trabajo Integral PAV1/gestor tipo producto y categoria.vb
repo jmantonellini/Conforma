@@ -9,8 +9,17 @@
     Private Sub gestor_tipo_producto_y_categorias_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         cmb_area = C.cargar_combo(cmb_area, "AREAS", "ID_AREA", "NOMBRE")
-        cmb_tipo_producto = C.cargar_combo(cmb_area, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE")
+        cmb_tipo_producto = C.cargar_combo(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE")
         tabla_categorias.DataSource = C.cargar_grilla("categorias")
+
+
+
+    End Sub
+
+    Private Sub cmb_area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedValueChanged
+        If (cmb_area.Items.Count <> 0) Then
+            cmb_tipo_producto = C.cargar_combo_flitrado(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", cmb_area.Text, "AREAS")
+        End If
 
 
 
