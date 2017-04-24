@@ -12,7 +12,7 @@
             Case "empresas"
                 tabla = Me.ejecuto_sql("SELECT NOMBRE as 'Nombre' , CUIT as 'CUIT' FROM EMPRESAS")
             Case "paises"
-                tabla = Me.ejecuto_sql("SELECT P.ID_PAIS, P.NOMBRE FROM PAISES P")
+                tabla = Me.ejecuto_sql("SELECT P.NOMBRE FROM PAISES P")
 
         End Select
 
