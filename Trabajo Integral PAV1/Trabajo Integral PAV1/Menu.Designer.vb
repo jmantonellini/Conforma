@@ -30,15 +30,16 @@ Partial Class Menu
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cmd_gestor_paises = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmd_gestor_clientes
         '
         Me.cmd_gestor_clientes.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_gestor_clientes.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_clientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_clientes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_clientes.Location = New System.Drawing.Point(107, 121)
+        Me.cmd_gestor_clientes.Location = New System.Drawing.Point(106, 95)
         Me.cmd_gestor_clientes.Name = "cmd_gestor_clientes"
         Me.cmd_gestor_clientes.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_clientes.TabIndex = 0
@@ -48,9 +49,9 @@ Partial Class Menu
         'cmd_gestor_empresas
         '
         Me.cmd_gestor_empresas.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_gestor_empresas.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_empresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_empresas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_empresas.Location = New System.Drawing.Point(107, 52)
+        Me.cmd_gestor_empresas.Location = New System.Drawing.Point(106, 26)
         Me.cmd_gestor_empresas.Name = "cmd_gestor_empresas"
         Me.cmd_gestor_empresas.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_empresas.TabIndex = 1
@@ -60,9 +61,9 @@ Partial Class Menu
         'cmd_gestor_marcas
         '
         Me.cmd_gestor_marcas.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_gestor_marcas.Font = New System.Drawing.Font("Arial Unicode MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_marcas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_marcas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_marcas.Location = New System.Drawing.Point(107, 190)
+        Me.cmd_gestor_marcas.Location = New System.Drawing.Point(106, 164)
         Me.cmd_gestor_marcas.Name = "cmd_gestor_marcas"
         Me.cmd_gestor_marcas.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_marcas.TabIndex = 2
@@ -75,7 +76,7 @@ Partial Class Menu
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(248, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(251, 403)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -84,21 +85,34 @@ Partial Class Menu
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
-        Me.PictureBox1.Location = New System.Drawing.Point(101, 272)
+        Me.PictureBox1.Location = New System.Drawing.Point(94, 325)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(183, 63)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 36
         Me.PictureBox1.TabStop = False
         '
+        'cmd_gestor_paises
+        '
+        Me.cmd_gestor_paises.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_gestor_paises.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_paises.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.cmd_gestor_paises.Location = New System.Drawing.Point(106, 237)
+        Me.cmd_gestor_paises.Name = "cmd_gestor_paises"
+        Me.cmd_gestor_paises.Size = New System.Drawing.Size(171, 58)
+        Me.cmd_gestor_paises.TabIndex = 2
+        Me.cmd_gestor_paises.Text = "Gestor paises"
+        Me.cmd_gestor_paises.UseVisualStyleBackColor = False
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(384, 347)
+        Me.ClientSize = New System.Drawing.Size(384, 476)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lbl_hora)
+        Me.Controls.Add(Me.cmd_gestor_paises)
         Me.Controls.Add(Me.cmd_gestor_marcas)
         Me.Controls.Add(Me.cmd_gestor_empresas)
         Me.Controls.Add(Me.cmd_gestor_clientes)
@@ -117,4 +131,5 @@ Partial Class Menu
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents cmd_gestor_paises As System.Windows.Forms.Button
 End Class

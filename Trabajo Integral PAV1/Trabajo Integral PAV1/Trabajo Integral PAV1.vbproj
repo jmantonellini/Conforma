@@ -70,6 +70,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.vb" />
     <Compile Include="Gestor clientes.Designer.vb">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
     </Compile>
@@ -80,6 +81,12 @@
       <DependentUpon>Gestor marcas.vb</DependentUpon>
     </Compile>
     <Compile Include="Gestor marcas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestor paises.Designer.vb">
+      <DependentUpon>Gestor paises.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Gestor paises.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gestor tipo producto y categoria.Designer.vb">
@@ -122,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestor marcas.resx">
       <DependentUpon>Gestor marcas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestor paises.resx">
+      <DependentUpon>Gestor paises.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestor tipo producto y categoria.resx">
       <DependentUpon>gestor tipo producto y categoria.vb</DependentUpon>
@@ -186,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\61848-deltton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUSCAR01.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
