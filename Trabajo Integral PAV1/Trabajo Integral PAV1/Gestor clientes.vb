@@ -33,9 +33,9 @@
         cmb_pais = c.cargar_combo(cmb_pais, "PAISES", "ID_PAIS", "NOMBRE")
         cmb_provincia = c.cargar_combo(cmb_provincia, "PROVINCIAS", "ID_PROVINCIA", "NOMBRE")
         cmb_ciudad = c.cargar_combo(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE")
-        cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS" _
-                    , "ID_TIPO_DOCUMENTO" _
-                     , "NOMBRE")
+        cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS", "ID_TIPO_DOCUMENTO", "NOMBRE")
+        cmb_empresa = c.cargar_combo(cmb_empresa, "EMPRESAS", "CUIT", "NOMBRE")
+        cmb_empresa.SelectedIndex() = -1
         tabla_clientes.Rows(0).Selected = True
 
         domicilios = c.buscar_domicilios_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
@@ -178,5 +178,27 @@
         End If
     End Function
 
+    Private Sub cmd_siguiente_Click(sender As Object, e As EventArgs) Handles cmd_siguiente.Click
 
+        control_tab.SelectedTab = tab_contacto
+    End Sub
+
+    Private Sub cmd_anterior_Click(sender As Object, e As EventArgs) Handles cmd_anterior.Click
+        control_tab.SelectedTab = tab_datos_personales
+    End Sub
+
+    Private Sub cmd_siguiente2_Click(sender As Object, e As EventArgs) Handles cmd_siguiente2.Click
+        control_tab.SelectedTab = tab_domicilios
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        control_tab.SelectedTab = tab_contacto
+    End Sub
+
+    Private Sub cmb_empresa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_empresa.SelectedIndexChanged
+        If Me.cmb_empresa.SelectedIndex > -1 Then
+            Dim d As String = c.buscar_empresa_cuit(Me.cmb_empresa.SelectedValue).Rows(0).Item(0).ToString
+            Me.txt_cuit.Text = d
+        End If
+    End Sub
 End Class
