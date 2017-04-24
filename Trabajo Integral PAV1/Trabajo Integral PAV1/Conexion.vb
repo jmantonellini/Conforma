@@ -25,7 +25,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_juanma
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -75,6 +75,12 @@
 
     End Sub
 
+    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Int64, telefono_celular As Int64, email As String)
+
+        Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & telefono_celular & ", " & telefono_fijo & ")")
+
+    End Sub
+
     Public Sub insertar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
 
         Me.ejecuto_sql("INSERT INTO EMPRESAS VALUES (" & cuit & ", '" & nombre & "', '" & razon_social & "', " & telefono & ", '" & email & "')")
@@ -89,7 +95,7 @@
     End Function
 
     Public Sub insertar_pais(ByRef nombre As String)
-        Me.ejecuto_sql("INSERT INTO PAISES VALUES(" & "'" & nombre & "'" & ")")
+        Me.ejecuto_sql("INSERT INTO PAISES VALUES('" & nombre & "')")
     End Sub
 
     Public Sub modificar_pais(ByRef nombre_nuevo As String, ByRef id_pais As Integer)

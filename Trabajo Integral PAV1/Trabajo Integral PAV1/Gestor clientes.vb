@@ -29,11 +29,14 @@
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.cargar_grilla()
+        cmb_pais = c.cargar_combo(cmb_pais, "PAISES", "ID_PAIS", "NOMBRE")
+        cmb_provincia = c.cargar_combo(cmb_provincia, "PROVINCIAS", "ID_PROVINCIA", "NOMBRE")
+        cmb_ciudad = c.cargar_combo(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE")
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS" _
                     , "ID_TIPO_DOCUMENTO" _
                      , "NOMBRE")
         tabla_clientes.Rows(0).Selected = True
-        'Me.cargar_cliente()
+
         domicilios = c.buscar_domicilios_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
     End Sub
 
@@ -129,4 +132,49 @@
 
 
     End Sub
+
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+        If validar_datos() = respuesta_validacion._ok Then
+            If accion = tipo_grabacion.insertar Then
+                If validar_cliente() = respuesta_validacion._ok Then
+                    c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, Me.cmb_tipo_documento.SelectedValue, Me.txt_documento.Text, Me.txt_fijo.Text, Me.txt_celular.Text, Me.txt_mail.Text)
+                    MsgBox("Se guardó correctamente")
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Function validar_datos()
+        For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls()
+            If obj.GetType().Name = "TextBox" And obj.GetType().Name = "MaskedTextBox" And obj.Name <> "txt_cuit" And obj.Name <> "txt_empresa" Then
+                If obj.Text = "" Then
+                    MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
+                    obj.Focus()
+                    Return respuesta_validacion._error
+                End If
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim o As ComboBox = obj
+                If o.SelectedIndex = -1 Then
+                    MsgBox("El campo " + obj.Name + " está sin selección", MsgBoxStyle.OkOnly, "Error")
+                    obj.Focus()
+                    Return respuesta_validacion._error
+                End If
+            End If
+        Next
+        Return respuesta_validacion._ok
+    End Function
+
+
+    Private Function validar_cliente() As respuesta_validacion
+        Dim tabla As New DataTable
+        tabla = c.buscar_datos_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text)
+
+        If tabla.Rows.Count = 0 Then
+            Return respuesta_validacion._ok
+        Else
+            Return respuesta_validacion._error
+        End If
+    End Function
+
 End Class
