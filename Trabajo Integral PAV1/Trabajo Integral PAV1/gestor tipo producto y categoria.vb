@@ -21,7 +21,5 @@
             cmb_tipo_producto = C.cargar_combo_flitrado(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", cmb_area.Text, "AREAS")
         End If
 
-
-
     End Sub
 End Class

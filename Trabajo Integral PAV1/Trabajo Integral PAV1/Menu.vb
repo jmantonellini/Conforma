@@ -26,10 +26,4 @@
     End Sub
 
 
-    Private Sub cmd_gestor_categoria_Click(sender As Object, e As EventArgs) Handles cmd_gestor_categoria.Click
-
-    End Sub
-    Private Sub cmd_gestor_Click(sender As Object, e As EventArgs) Handles cmd_gestor_paises.Click, cmd_gestor_marcas.Click, cmd_gestor_empresas.Click, cmd_gestor_clientes.Click
-
-    End Sub
 End Class

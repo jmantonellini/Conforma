@@ -184,7 +184,7 @@ Partial Class gestor_clientes
         Me.cmb_empresa.Location = New System.Drawing.Point(164, 163)
         Me.cmb_empresa.Name = "cmb_empresa"
         Me.cmb_empresa.Size = New System.Drawing.Size(161, 28)
-        Me.cmb_empresa.TabIndex = 35
+        Me.cmb_empresa.TabIndex = 4
         '
         'cmd_siguiente
         '
@@ -267,7 +267,7 @@ Partial Class gestor_clientes
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(121, 26)
-        Me.txt_cuit.TabIndex = 4
+        Me.txt_cuit.TabIndex = 5
         Me.txt_cuit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txt_documento

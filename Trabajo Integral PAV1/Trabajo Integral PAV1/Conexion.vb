@@ -57,7 +57,6 @@
         combo.DataSource = tablaFuente
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
-        combo.SelectedIndex = -1
         Return combo
     End Function
 
