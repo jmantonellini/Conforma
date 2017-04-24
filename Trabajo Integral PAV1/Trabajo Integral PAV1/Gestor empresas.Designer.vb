@@ -24,9 +24,7 @@ Partial Class gestor_empresas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gestor_empresas))
-        Me.txt_email = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txt_telefono_fijo = New System.Windows.Forms.TextBox()
         Me.lbl_telefono_fijo = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -53,16 +51,10 @@ Partial Class gestor_empresas
         Me.tt_modificar = New System.Windows.Forms.ToolTip(Me.components)
         Me.tt_nuevo = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmd_eliminar = New System.Windows.Forms.Button()
+        Me.txt_telefono_fijo = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_email = New System.Windows.Forms.TextBox()
         CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'txt_email
-        '
-        Me.txt_email.Enabled = False
-        Me.txt_email.Location = New System.Drawing.Point(200, 244)
-        Me.txt_email.Name = "txt_email"
-        Me.txt_email.Size = New System.Drawing.Size(232, 20)
-        Me.txt_email.TabIndex = 33
         '
         'Label7
         '
@@ -73,14 +65,6 @@ Partial Class gestor_empresas
         Me.Label7.Size = New System.Drawing.Size(57, 20)
         Me.Label7.TabIndex = 32
         Me.Label7.Text = "E-mail:"
-        '
-        'txt_telefono_fijo
-        '
-        Me.txt_telefono_fijo.Enabled = False
-        Me.txt_telefono_fijo.Location = New System.Drawing.Point(200, 206)
-        Me.txt_telefono_fijo.Name = "txt_telefono_fijo"
-        Me.txt_telefono_fijo.Size = New System.Drawing.Size(232, 20)
-        Me.txt_telefono_fijo.TabIndex = 31
         '
         'lbl_telefono_fijo
         '
@@ -313,12 +297,31 @@ Partial Class gestor_empresas
         Me.cmd_eliminar.TabIndex = 43
         Me.cmd_eliminar.UseVisualStyleBackColor = False
         '
+        'txt_telefono_fijo
+        '
+        Me.txt_telefono_fijo.Enabled = False
+        Me.txt_telefono_fijo.Location = New System.Drawing.Point(200, 207)
+        Me.txt_telefono_fijo.Mask = "9999999999"
+        Me.txt_telefono_fijo.Name = "txt_telefono_fijo"
+        Me.txt_telefono_fijo.Size = New System.Drawing.Size(232, 20)
+        Me.txt_telefono_fijo.TabIndex = 44
+        '
+        'txt_email
+        '
+        Me.txt_email.Enabled = False
+        Me.txt_email.Location = New System.Drawing.Point(200, 245)
+        Me.txt_email.Name = "txt_email"
+        Me.txt_email.Size = New System.Drawing.Size(232, 20)
+        Me.txt_email.TabIndex = 45
+        '
         'gestor_empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(521, 625)
+        Me.Controls.Add(Me.txt_email)
+        Me.Controls.Add(Me.txt_telefono_fijo)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.Label22)
@@ -328,9 +331,7 @@ Partial Class gestor_empresas
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.lbl_hora)
-        Me.Controls.Add(Me.txt_email)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txt_telefono_fijo)
         Me.Controls.Add(Me.lbl_telefono_fijo)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label5)
@@ -353,9 +354,7 @@ Partial Class gestor_empresas
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txt_email As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents txt_telefono_fijo As System.Windows.Forms.TextBox
     Friend WithEvents lbl_telefono_fijo As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -382,4 +381,6 @@ Partial Class gestor_empresas
     Friend WithEvents tt_modificar As System.Windows.Forms.ToolTip
     Friend WithEvents tt_nuevo As System.Windows.Forms.ToolTip
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
+    Friend WithEvents txt_telefono_fijo As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_email As System.Windows.Forms.TextBox
 End Class

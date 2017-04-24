@@ -6,16 +6,18 @@
 
         Dim ventana As String = sender.Text
 
-        If ventana = "Gestor empresas" Then
-            nuevo = New gestor_empresas
-        ElseIf ventana = "Gestor marcas" Then
-            nuevo = New gestor_marcas_modelos
-        ElseIf ventana = "Gestor clientes" Then
-            nuevo = New gestor_clientes
-        Else
-            nuevo = New gestor_paises
-        End If
-
+        Select Case ventana
+            Case "Gestor Empresas"
+                nuevo = New gestor_empresas
+            Case "Gestor Marcas"
+                nuevo = New gestor_marcas_modelos
+            Case "Gestor Clientes"
+                nuevo = New gestor_clientes
+            Case "Gestor Paises"
+                nuevo = New gestor_paises
+            Case "Gestor Categorias"
+                nuevo = New gestor_tipo_producto_y_categorias
+        End Select
         nuevo.Show()
     End Sub
 
@@ -23,7 +25,5 @@
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 
-    Private Sub cmd_gestor_Click(sender As Object, e As EventArgs) Handles cmd_gestor_paises.Click, cmd_gestor_marcas.Click, cmd_gestor_empresas.Click, cmd_gestor_clientes.Click
-
-    End Sub
+    
 End Class

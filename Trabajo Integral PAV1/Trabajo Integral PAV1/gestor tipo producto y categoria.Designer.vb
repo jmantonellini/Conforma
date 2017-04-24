@@ -24,20 +24,20 @@ Partial Class gestor_tipo_producto_y_categorias
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.lbl_area = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmb_area = New System.Windows.Forms.ComboBox()
         Me.cmd_nueva_area = New System.Windows.Forms.Button()
         Me.cmd_modificar_area = New System.Windows.Forms.Button()
         Me.lbl_tipo_producto = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cmb_tipo_producto = New System.Windows.Forms.ComboBox()
         Me.cmd_nuevo_producto = New System.Windows.Forms.Button()
         Me.cmd_modificar_tipo_producto = New System.Windows.Forms.Button()
         Me.lbl_categoria = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tabla_categorias = New System.Windows.Forms.DataGridView()
         Me.cmd_nueva_categoria = New System.Windows.Forms.Button()
         Me.cmd_modificar_categoria = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabla_categorias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_area
@@ -49,13 +49,14 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.lbl_area.TabIndex = 0
         Me.lbl_area.Text = "Área:"
         '
-        'ComboBox1
+        'cmb_area
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(115, 46)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.cmb_area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_area.FormattingEnabled = True
+        Me.cmb_area.Location = New System.Drawing.Point(115, 46)
+        Me.cmb_area.Name = "cmb_area"
+        Me.cmb_area.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_area.TabIndex = 1
         '
         'cmd_nueva_area
         '
@@ -84,13 +85,14 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.lbl_tipo_producto.TabIndex = 3
         Me.lbl_tipo_producto.Text = "Tipo Producto:"
         '
-        'ComboBox2
+        'cmb_tipo_producto
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(115, 109)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 4
+        Me.cmb_tipo_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_tipo_producto.FormattingEnabled = True
+        Me.cmb_tipo_producto.Location = New System.Drawing.Point(115, 109)
+        Me.cmb_tipo_producto.Name = "cmb_tipo_producto"
+        Me.cmb_tipo_producto.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_tipo_producto.TabIndex = 4
         '
         'cmd_nuevo_producto
         '
@@ -113,23 +115,23 @@ Partial Class gestor_tipo_producto_y_categorias
         'lbl_categoria
         '
         Me.lbl_categoria.AutoSize = True
-        Me.lbl_categoria.Location = New System.Drawing.Point(70, 168)
+        Me.lbl_categoria.Location = New System.Drawing.Point(35, 186)
         Me.lbl_categoria.Name = "lbl_categoria"
         Me.lbl_categoria.Size = New System.Drawing.Size(62, 13)
         Me.lbl_categoria.TabIndex = 5
         Me.lbl_categoria.Text = "Categorías:"
         '
-        'DataGridView1
+        'tabla_categorias
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(73, 207)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(373, 192)
-        Me.DataGridView1.TabIndex = 6
+        Me.tabla_categorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tabla_categorias.Location = New System.Drawing.Point(38, 217)
+        Me.tabla_categorias.Name = "tabla_categorias"
+        Me.tabla_categorias.Size = New System.Drawing.Size(373, 192)
+        Me.tabla_categorias.TabIndex = 6
         '
         'cmd_nueva_categoria
         '
-        Me.cmd_nueva_categoria.Location = New System.Drawing.Point(277, 415)
+        Me.cmd_nueva_categoria.Location = New System.Drawing.Point(38, 415)
         Me.cmd_nueva_categoria.Name = "cmd_nueva_categoria"
         Me.cmd_nueva_categoria.Size = New System.Drawing.Size(75, 41)
         Me.cmd_nueva_categoria.TabIndex = 7
@@ -138,7 +140,7 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         'cmd_modificar_categoria
         '
-        Me.cmd_modificar_categoria.Location = New System.Drawing.Point(371, 415)
+        Me.cmd_modificar_categoria.Location = New System.Drawing.Point(119, 415)
         Me.cmd_modificar_categoria.Name = "cmd_modificar_categoria"
         Me.cmd_modificar_categoria.Size = New System.Drawing.Size(75, 41)
         Me.cmd_modificar_categoria.TabIndex = 7
@@ -147,7 +149,7 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(322, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(313, 459)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -165,33 +167,33 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_modificar_categoria)
         Me.Controls.Add(Me.cmd_nueva_categoria)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.tabla_categorias)
         Me.Controls.Add(Me.lbl_categoria)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cmb_tipo_producto)
         Me.Controls.Add(Me.lbl_tipo_producto)
         Me.Controls.Add(Me.cmd_modificar_tipo_producto)
         Me.Controls.Add(Me.cmd_modificar_area)
         Me.Controls.Add(Me.cmd_nuevo_producto)
         Me.Controls.Add(Me.cmd_nueva_area)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmb_area)
         Me.Controls.Add(Me.lbl_area)
         Me.Name = "gestor_tipo_producto_y_categorias"
         Me.Text = "Gestor de tipo de producto, categorías y áreas"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabla_categorias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents lbl_area As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmb_area As System.Windows.Forms.ComboBox
     Friend WithEvents cmd_nueva_area As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_area As System.Windows.Forms.Button
     Friend WithEvents lbl_tipo_producto As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmb_tipo_producto As System.Windows.Forms.ComboBox
     Friend WithEvents cmd_nuevo_producto As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_tipo_producto As System.Windows.Forms.Button
     Friend WithEvents lbl_categoria As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents tabla_categorias As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_nueva_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_categoria As System.Windows.Forms.Button
     Friend WithEvents lbl_hora As System.Windows.Forms.Label

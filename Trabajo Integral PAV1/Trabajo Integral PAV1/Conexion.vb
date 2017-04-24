@@ -18,7 +18,8 @@
                 tabla = Me.ejecuto_sql("SELECT M.ID_MARCA, M.NOMBRE FROM MARCAS M")
             Case "modelos"
                 tabla = Me.ejecuto_sql("SELECT M.ID_MODELO, M.NOMBRE FROM MODELOS M")
-
+            Case "categorias"
+                tabla = Me.ejecuto_sql("SELECT NOMBRE FROM CATEGORIAS")
         End Select
 
 
