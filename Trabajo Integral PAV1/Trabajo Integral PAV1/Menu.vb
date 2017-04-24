@@ -22,4 +22,8 @@
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
+
+    Private Sub cmd_gestor_Click(sender As Object, e As EventArgs) Handles cmd_gestor_paises.Click, cmd_gestor_marcas.Click, cmd_gestor_empresas.Click, cmd_gestor_clientes.Click
+
+    End Sub
 End Class

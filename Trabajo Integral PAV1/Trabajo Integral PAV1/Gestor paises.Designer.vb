@@ -34,6 +34,7 @@ Partial Class gestor_paises
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.tabla_paises, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,7 +74,7 @@ Partial Class gestor_paises
         Me.tabla_paises.AllowUserToResizeColumns = False
         Me.tabla_paises.AllowUserToResizeRows = False
         Me.tabla_paises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tabla_paises.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre})
+        Me.tabla_paises.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre})
         Me.tabla_paises.Location = New System.Drawing.Point(21, 160)
         Me.tabla_paises.Name = "tabla_paises"
         Me.tabla_paises.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -144,6 +145,11 @@ Partial Class gestor_paises
         '
         Me.Timer1.Enabled = True
         '
+        'id
+        '
+        Me.id.HeaderText = "Id"
+        Me.id.Name = "id"
+        '
         'nombre
         '
         Me.nombre.HeaderText = "Nombre"
@@ -183,5 +189,6 @@ Partial Class gestor_paises
     Friend WithEvents btn_buscar As System.Windows.Forms.Button
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
