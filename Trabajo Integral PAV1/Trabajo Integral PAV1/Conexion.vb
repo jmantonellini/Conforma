@@ -13,6 +13,8 @@
                 tabla = Me.ejecuto_sql("SELECT NOMBRE as 'Nombre' , CUIT as 'CUIT' FROM EMPRESAS")
             Case "paises"
                 tabla = Me.ejecuto_sql("SELECT P.ID_PAIS, P.NOMBRE FROM PAISES P")
+            Case "marcas"
+                tabla = Me.ejecuto_sql("SELECT M.ID_MARCA, M.NOMBRE FROM MARCAS M")
 
         End Select
 
@@ -110,5 +112,29 @@
 
     Public Sub eliminar_pais(ByRef nombre As String)
         Me.ejecuto_sql("DELETE FROM PAISES WHERE NOMBRE = " & "'" & nombre & "'")
+    End Sub
+
+    Public Function buscar_marcas(ByVal nombre As String) As Data.DataTable
+        Dim marca As Data.DataTable = Me.ejecuto_sql("SELECT M.* FROM MARCAS M WHERE M.NOMBRE = " & "'" & nombre & "'")
+
+        Return marca
+    End Function
+
+    Public Sub insertar_marca(ByRef nombre As String)
+        Me.ejecuto_sql("INSERT INTO MARCAS VALUES(" & "'" & nombre & "'" & ")")
+    End Sub
+
+    Public Sub modificar_marca(ByRef nombre_nuevo As String, ByRef id_marca As Integer)
+        Me.ejecuto_sql("UPDATE MARCAS SET NOMBRE = " & "'" & nombre_nuevo & "'" & "WHERE ID_MARCA = " & "'" & id_marca & "'")
+    End Sub
+
+    Public Function buscar_marcas_expRegular(ByRef patron As String) As Data.DataTable
+        Dim paises As Data.DataTable = Me.ejecuto_sql("SELECT * FROM MARCAS WHERE NOMBRE LIKE " & "'" & patron & "%" & "'")
+
+        Return paises
+    End Function
+
+    Public Sub eliminar_marca(ByRef nombre As String)
+        Me.ejecuto_sql("DELETE FROM MARCAS WHERE NOMBRE = " & "'" & nombre & "'")
     End Sub
 End Class
