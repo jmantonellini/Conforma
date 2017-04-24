@@ -110,13 +110,6 @@
 
         If b Then
             MsgBox("Debes completar todos los campos para aceptar", MsgBoxStyle.OkOnly, "Advertencia")
-            For Each obj As Windows.Forms.Control In Me.Controls
-                If obj.Text = "" And obj.GetType.Name = "TextBox" Then
-                    b = True
-                    obj.BackColor = Color.White
-
-                End If
-            Next
         Else
             If (tipo_accion = tipo_operacion.modificar) Then
                 c.modificar_empresa(Me.txt_cuit.Text, Me.txt_nombre.Text, Me.txt_razon_social.Text, Me.txt_email.Text, Me.txt_telefono_fijo.Text)
@@ -130,6 +123,14 @@
             cmd_guardar.Enabled = False
             Me.deshabilitar_campos()
             accion = operacion.sin_modificar
+            For Each obj As Windows.Forms.Control In Me.Controls
+                If obj.Text = "" And obj.GetType.Name = "TextBox" Then
+                    b = True
+                    obj.BackColor = Color.White
+                End If
+            Next
+            Me.deshabilitar_campos()
+
         End If
 
 
