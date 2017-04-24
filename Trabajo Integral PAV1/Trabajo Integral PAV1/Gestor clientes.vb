@@ -32,6 +32,7 @@
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS" _
                     , "ID_TIPO_DOCUMENTO" _
                      , "NOMBRE")
+        cmb_pais = c.cargar_combo(cmb_pais, "PAISES", "ID_PAIS", "NOMBRE")
         tabla_clientes.Rows(0).Selected = True
         'Me.cargar_cliente()
         domicilios = c.buscar_domicilios_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
