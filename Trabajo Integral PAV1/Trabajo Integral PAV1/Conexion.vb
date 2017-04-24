@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_juanma1
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -76,9 +76,9 @@
     End Function
 
     Public Function buscar_empresa_cuit(ByVal nombre As String) As Data.DataTable
-        Dim empresa As DataTable = ejecuto_sql("Select CUIT FROM EMPRESAS WHERE NOMBRE like '" & nombre & "'")
+        Dim empresa1 As DataTable = ejecuto_sql("Select CUIT FROM EMPRESAS WHERE NOMBRE LIKE '" & nombre & "'")
 
-        Return empresa
+        Return empresa1
 
     End Function
     Public Sub modificar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)

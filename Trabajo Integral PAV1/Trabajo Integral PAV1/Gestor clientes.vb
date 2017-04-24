@@ -35,7 +35,6 @@
         cmb_ciudad = c.cargar_combo(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE")
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS", "ID_TIPO_DOCUMENTO", "NOMBRE")
         cmb_empresa = c.cargar_combo(cmb_empresa, "EMPRESAS", "CUIT", "NOMBRE")
-        cmb_empresa.SelectedIndex() = -1
         tabla_clientes.Rows(0).Selected = True
 
         domicilios = c.buscar_domicilios_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
@@ -195,10 +194,11 @@
         control_tab.SelectedTab = tab_contacto
     End Sub
 
-    Private Sub cmb_empresa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_empresa.SelectedIndexChanged
-        If Me.cmb_empresa.SelectedIndex > -1 Then
-            Dim d As String = c.buscar_empresa_cuit(Me.cmb_empresa.SelectedValue).Rows(0).Item(0).ToString
-            Me.txt_cuit.Text = d
+
+    Private Sub cmb_empresa_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_empresa.SelectionChangeCommitted
+        If (cmb_empresa.SelectedIndex > -1) Then
+            Dim d As Data.DataTable = c.buscar_empresa_cuit(Me.cmb_empresa.Text)
+            Me.txt_cuit.Text = d.Rows(0)("CUIT").ToString
         End If
     End Sub
 End Class
