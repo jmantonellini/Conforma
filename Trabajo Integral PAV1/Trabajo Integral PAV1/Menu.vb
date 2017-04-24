@@ -2,7 +2,7 @@
 
     Dim nuevo As Form
 
-    Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click, cmd_gestor_paises.Click
+    Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click, cmd_gestor_paises.Click, cmd_gestor_categoria.Click
 
         Dim ventana As String = sender.Text
 
@@ -25,5 +25,11 @@
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 
-    
+
+    Private Sub cmd_gestor_categoria_Click(sender As Object, e As EventArgs) Handles cmd_gestor_categoria.Click
+
+    End Sub
+    Private Sub cmd_gestor_Click(sender As Object, e As EventArgs) Handles cmd_gestor_paises.Click, cmd_gestor_marcas.Click, cmd_gestor_empresas.Click, cmd_gestor_clientes.Click
+
+    End Sub
 End Class

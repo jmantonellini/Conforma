@@ -123,9 +123,11 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         'tabla_categorias
         '
+        Me.tabla_categorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tabla_categorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_categorias.Location = New System.Drawing.Point(38, 217)
         Me.tabla_categorias.Name = "tabla_categorias"
+        Me.tabla_categorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tabla_categorias.Size = New System.Drawing.Size(373, 192)
         Me.tabla_categorias.TabIndex = 6
         '
