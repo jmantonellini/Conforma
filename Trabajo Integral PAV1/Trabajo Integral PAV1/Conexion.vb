@@ -142,7 +142,7 @@
     End Sub
 
     Public Function buscar_modelo(ByVal nombre As String) As Data.DataTable
-        Dim modelo As Data.DataTable = Me.ejecuto_sql("SELECT M.* FROM MODELOS M WHERE M.NOMBRE = " & "'" & nombre & "'")
+        Dim modelo As Data.DataTable = Me.ejecuto_sql("SELECT M.* FROM MODELOS M WHERE M.NOMBRE LIKE " & "'" & nombre & "'")
 
         Return modelo
     End Function
