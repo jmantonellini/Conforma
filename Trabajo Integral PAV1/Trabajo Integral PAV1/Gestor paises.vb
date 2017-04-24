@@ -113,18 +113,35 @@
     End Sub
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
-
-        If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 1 Then
-            Try
-                Me.conexion.eliminar_pais(txt_nombre.Text.ToString)
-                MessageBox.Show("Se elimino correctamente", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.cargar_grilla()
-            Catch ex As OleDb.OleDbException
-                MessageBox.Show("No se elimino correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-            End Try
+        Dim index As Integer
+        Dim celdas_seleccionadas = Me.tabla_paises.SelectedRows.Count
+        If Me.tabla_paises.SelectedRows.Count > 1 Then
+            For index = 0 To celdas_seleccionadas - 1
+                Try
+                    Me.conexion.eliminar_pais(Me.tabla_paises.SelectedRows(index).Cells(1).Value.ToString())
+                Catch ex As OleDb.OleDbException
+                    MessageBox.Show("No se elimino correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            Next
+            MessageBox.Show("Se elimino correctamente", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.cargar_grilla()
+            Exit Sub
         Else
-            MessageBox.Show("No se puede eliminar debido ya que no existe el pais", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 1 Then
+                Try
+                    Me.conexion.eliminar_pais(txt_nombre.Text.ToString)
+                    Me.cargar_grilla()
+                    MessageBox.Show("Se elimino correctamente", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Catch ex As OleDb.OleDbException
+                    MessageBox.Show("No se elimino correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                End Try
+            Else
+                MessageBox.Show("No se puede eliminar debido ya que no existe el pais", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
         End If
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
