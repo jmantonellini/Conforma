@@ -31,6 +31,7 @@ Partial Class gestor_clientes
         Me.Celular = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.control_tab = New System.Windows.Forms.TabControl()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
+        Me.cmb_empresa = New System.Windows.Forms.ComboBox()
         Me.cmd_siguiente = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -38,7 +39,6 @@ Partial Class gestor_clientes
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txt_empresa = New System.Windows.Forms.TextBox()
         Me.txt_cuit = New System.Windows.Forms.MaskedTextBox()
         Me.txt_documento = New System.Windows.Forms.MaskedTextBox()
         Me.cmb_tipo_documento = New System.Windows.Forms.ComboBox()
@@ -149,6 +149,7 @@ Partial Class gestor_clientes
         'tab_datos_personales
         '
         Me.tab_datos_personales.BackColor = System.Drawing.Color.Gainsboro
+        Me.tab_datos_personales.Controls.Add(Me.cmb_empresa)
         Me.tab_datos_personales.Controls.Add(Me.cmd_siguiente)
         Me.tab_datos_personales.Controls.Add(Me.Label19)
         Me.tab_datos_personales.Controls.Add(Me.Label20)
@@ -156,7 +157,6 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Controls.Add(Me.Label12)
         Me.tab_datos_personales.Controls.Add(Me.Label11)
         Me.tab_datos_personales.Controls.Add(Me.Label10)
-        Me.tab_datos_personales.Controls.Add(Me.txt_empresa)
         Me.tab_datos_personales.Controls.Add(Me.txt_cuit)
         Me.tab_datos_personales.Controls.Add(Me.txt_documento)
         Me.tab_datos_personales.Controls.Add(Me.cmb_tipo_documento)
@@ -174,6 +174,17 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Size = New System.Drawing.Size(438, 293)
         Me.tab_datos_personales.TabIndex = 0
         Me.tab_datos_personales.Text = "Datos Personales"
+        '
+        'cmb_empresa
+        '
+        Me.cmb_empresa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmb_empresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmb_empresa.Enabled = False
+        Me.cmb_empresa.FormattingEnabled = True
+        Me.cmb_empresa.Location = New System.Drawing.Point(164, 163)
+        Me.cmb_empresa.Name = "cmb_empresa"
+        Me.cmb_empresa.Size = New System.Drawing.Size(161, 28)
+        Me.cmb_empresa.TabIndex = 35
         '
         'cmd_siguiente
         '
@@ -249,18 +260,10 @@ Partial Class gestor_clientes
         Me.Label10.TabIndex = 24
         Me.Label10.Text = "*"
         '
-        'txt_empresa
-        '
-        Me.txt_empresa.Enabled = False
-        Me.txt_empresa.Location = New System.Drawing.Point(163, 200)
-        Me.txt_empresa.Name = "txt_empresa"
-        Me.txt_empresa.Size = New System.Drawing.Size(251, 26)
-        Me.txt_empresa.TabIndex = 6
-        '
         'txt_cuit
         '
         Me.txt_cuit.Enabled = False
-        Me.txt_cuit.Location = New System.Drawing.Point(164, 166)
+        Me.txt_cuit.Location = New System.Drawing.Point(164, 197)
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(121, 26)
@@ -279,7 +282,7 @@ Partial Class gestor_clientes
         '
         'cmb_tipo_documento
         '
-        Me.cmb_tipo_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_tipo_documento.Enabled = False
         Me.cmb_tipo_documento.FormattingEnabled = True
         Me.cmb_tipo_documento.Location = New System.Drawing.Point(164, 97)
         Me.cmb_tipo_documento.Name = "cmb_tipo_documento"
@@ -306,7 +309,7 @@ Partial Class gestor_clientes
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(70, 199)
+        Me.Label6.Location = New System.Drawing.Point(70, 165)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(85, 20)
         Me.Label6.TabIndex = 5
@@ -316,7 +319,7 @@ Partial Class gestor_clientes
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(96, 165)
+        Me.Label5.Location = New System.Drawing.Point(96, 196)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(55, 20)
         Me.Label5.TabIndex = 4
@@ -533,6 +536,7 @@ Partial Class gestor_clientes
         'cmb_ciudad
         '
         Me.cmb_ciudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_ciudad.Enabled = False
         Me.cmb_ciudad.FormattingEnabled = True
         Me.cmb_ciudad.Location = New System.Drawing.Point(157, 114)
         Me.cmb_ciudad.Name = "cmb_ciudad"
@@ -562,6 +566,7 @@ Partial Class gestor_clientes
         'cmb_provincia
         '
         Me.cmb_provincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_provincia.Enabled = False
         Me.cmb_provincia.FormattingEnabled = True
         Me.cmb_provincia.Location = New System.Drawing.Point(157, 79)
         Me.cmb_provincia.Name = "cmb_provincia"
@@ -581,6 +586,7 @@ Partial Class gestor_clientes
         'cmb_pais
         '
         Me.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_pais.Enabled = False
         Me.cmb_pais.FormattingEnabled = True
         Me.cmb_pais.Location = New System.Drawing.Point(157, 44)
         Me.cmb_pais.Name = "cmb_pais"
@@ -698,7 +704,6 @@ Partial Class gestor_clientes
     End Sub
     Friend WithEvents control_tab As System.Windows.Forms.TabControl
     Friend WithEvents tab_datos_personales As System.Windows.Forms.TabPage
-    Friend WithEvents txt_empresa As System.Windows.Forms.TextBox
     Friend WithEvents txt_cuit As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txt_documento As System.Windows.Forms.MaskedTextBox
     Friend WithEvents cmb_tipo_documento As System.Windows.Forms.ComboBox
@@ -752,4 +757,5 @@ Partial Class gestor_clientes
     Friend WithEvents cmd_anterior As System.Windows.Forms.Button
     Friend WithEvents cmd_siguiente2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmb_empresa As System.Windows.Forms.ComboBox
 End Class

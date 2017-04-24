@@ -53,6 +53,7 @@
         combo.DataSource = tablaFuente
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
+        combo.SelectedIndex = -1
         Return combo
     End Function
 
@@ -74,6 +75,12 @@
 
     End Function
 
+    Public Function buscar_empresa_cuit(ByVal nombre As String) As Data.DataTable
+        Dim empresa As DataTable = ejecuto_sql("Select CUIT FROM EMPRESAS WHERE NOMBRE like '" & nombre & "'")
+
+        Return empresa
+
+    End Function
     Public Sub modificar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
 
         Me.ejecuto_sql("UPDATE EMPRESAS SET NOMBRE = '" & nombre & "' ,RAZON_SOCIAL = '" & razon_social & "', TELEFONO = " & telefono & ", EMAIL = '" & email & "' where CUIT = " & cuit)
