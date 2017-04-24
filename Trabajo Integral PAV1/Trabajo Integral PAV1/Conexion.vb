@@ -16,6 +16,8 @@
                 tabla = Me.ejecuto_sql("SELECT P.ID_PAIS, P.NOMBRE FROM PAISES P")
             Case "marcas"
                 tabla = Me.ejecuto_sql("SELECT M.ID_MARCA, M.NOMBRE FROM MARCAS M")
+            Case "modelos"
+                tabla = Me.ejecuto_sql("SELECT M.ID_MODELO, M.NOMBRE FROM MODELOS M")
 
         End Select
 
@@ -28,7 +30,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma2
+        conexion.ConnectionString = cadena_conexion_gaston
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -115,7 +117,7 @@
         Me.ejecuto_sql("DELETE FROM PAISES WHERE NOMBRE = " & "'" & nombre & "'")
     End Sub
 
-    Public Function buscar_marcas(ByVal nombre As String) As Data.DataTable
+    Public Function buscar_marca(ByVal nombre As String) As Data.DataTable
         Dim marca As Data.DataTable = Me.ejecuto_sql("SELECT M.* FROM MARCAS M WHERE M.NOMBRE = " & "'" & nombre & "'")
 
         Return marca
@@ -130,12 +132,42 @@
     End Sub
 
     Public Function buscar_marcas_expRegular(ByRef patron As String) As Data.DataTable
-        Dim paises As Data.DataTable = Me.ejecuto_sql("SELECT * FROM MARCAS WHERE NOMBRE LIKE " & "'" & patron & "%" & "'")
+        Dim marcas As Data.DataTable = Me.ejecuto_sql("SELECT * FROM MARCAS WHERE NOMBRE LIKE " & "'" & patron & "%" & "'")
 
-        Return paises
+        Return marcas
     End Function
 
     Public Sub eliminar_marca(ByRef nombre As String)
         Me.ejecuto_sql("DELETE FROM MARCAS WHERE NOMBRE = " & "'" & nombre & "'")
     End Sub
+
+    Public Function buscar_modelo(ByVal nombre As String) As Data.DataTable
+        Dim modelo As Data.DataTable = Me.ejecuto_sql("SELECT M.* FROM MODELOS M WHERE M.NOMBRE = " & "'" & nombre & "'")
+
+        Return modelo
+    End Function
+
+    Public Sub insertar_modelo(ByRef nombre As String)
+        Me.ejecuto_sql("INSERT INTO MODELOS VALUES(" & "'" & nombre & "'" & ")")
+    End Sub
+
+    Public Function buscar_modelos_expRegular(ByRef patron As String) As Data.DataTable
+        Dim modelos As Data.DataTable = Me.ejecuto_sql("SELECT * FROM MODELOS WHERE NOMBRE LIKE " & "'" & patron & "%" & "'")
+
+        Return modelos
+    End Function
+
+    Public Sub eliminar_modelo(ByRef nombre As String)
+        Me.ejecuto_sql("DELETE FROM MODELOS WHERE NOMBRE = " & "'" & nombre & "'")
+    End Sub
+
+    Public Sub modificar_modelo(ByRef nombre_nuevo As String, ByRef id_modelo As Integer)
+        Me.ejecuto_sql("UPDATE MODELOS SET NOMBRE = " & "'" & nombre_nuevo & "'" & "WHERE ID_MODELO = " & "'" & id_modelo & "'")
+    End Sub
+
+    Public Function modelos_de_una_marca(ByRef marca As String)
+        Dim modelos As Data.DataTable = Me.ejecuto_sql("SELECT MO.ID_MODELO, MO.NOMBRE FROM MARCAS MA JOIN MODELOS MO ON MO.ID_MARCA = MA.ID_MARCA WHERE MA.NOMBRE = '" & marca & "'")
+
+        Return modelos
+    End Function
 End Class

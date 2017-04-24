@@ -26,27 +26,29 @@ Partial Class gestor_marcas_modelos
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gestor_marcas_modelos))
         Me.lbl_nombre_marca = New System.Windows.Forms.Label()
         Me.txt_marcas = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tabla_modelos = New System.Windows.Forms.DataGridView()
+        Me.id_modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabla_marcas = New System.Windows.Forms.DataGridView()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cmd_buscar_modelos = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.cmd_guardar_modelo = New System.Windows.Forms.Button()
+        Me.cmd_nuevo_modelo = New System.Windows.Forms.Button()
         Me.txt_modelos = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_modelos = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btn_buscar_marcas = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_guardar_marca = New System.Windows.Forms.Button()
+        Me.cmd_nueva_marca = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabla_modelos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabla_marcas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -70,13 +72,31 @@ Partial Class gestor_marcas_modelos
         Me.txt_marcas.Size = New System.Drawing.Size(113, 20)
         Me.txt_marcas.TabIndex = 1
         '
-        'DataGridView1
+        'tabla_modelos
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 74)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(262, 316)
-        Me.DataGridView1.TabIndex = 2
+        Me.tabla_modelos.AllowUserToAddRows = False
+        Me.tabla_modelos.AllowUserToDeleteRows = False
+        Me.tabla_modelos.AllowUserToResizeColumns = False
+        Me.tabla_modelos.AllowUserToResizeRows = False
+        Me.tabla_modelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tabla_modelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_modelo, Me.nombre_modelo})
+        Me.tabla_modelos.Location = New System.Drawing.Point(0, 74)
+        Me.tabla_modelos.Name = "tabla_modelos"
+        Me.tabla_modelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tabla_modelos.Size = New System.Drawing.Size(262, 316)
+        Me.tabla_modelos.TabIndex = 2
+        '
+        'id_modelo
+        '
+        Me.id_modelo.HeaderText = "Id"
+        Me.id_modelo.Name = "id_modelo"
+        Me.id_modelo.Visible = False
+        '
+        'nombre_modelo
+        '
+        Me.nombre_modelo.HeaderText = "Nombre"
+        Me.nombre_modelo.Name = "nombre_modelo"
+        Me.nombre_modelo.Width = 219
         '
         'tabla_marcas
         '
@@ -92,15 +112,27 @@ Partial Class gestor_marcas_modelos
         Me.tabla_marcas.Size = New System.Drawing.Size(262, 316)
         Me.tabla_marcas.TabIndex = 2
         '
+        'id
+        '
+        Me.id.HeaderText = "Id"
+        Me.id.Name = "id"
+        Me.id.Visible = False
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.Width = 219
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.cmd_buscar_modelos)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.cmd_guardar_modelo)
+        Me.Panel1.Controls.Add(Me.cmd_nuevo_modelo)
         Me.Panel1.Controls.Add(Me.txt_modelos)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.lbl_modelos)
-        Me.Panel1.Controls.Add(Me.DataGridView1)
+        Me.Panel1.Controls.Add(Me.tabla_modelos)
         Me.Panel1.Location = New System.Drawing.Point(305, 99)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(262, 476)
@@ -115,26 +147,26 @@ Partial Class gestor_marcas_modelos
         Me.cmd_buscar_modelos.TabIndex = 47
         Me.cmd_buscar_modelos.UseVisualStyleBackColor = True
         '
-        'Button1
+        'cmd_guardar_modelo
         '
-        Me.Button1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button1.Enabled = False
-        Me.Button1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.Button1.Location = New System.Drawing.Point(115, 396)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 80)
-        Me.Button1.TabIndex = 25
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.cmd_guardar_modelo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar_modelo.Enabled = False
+        Me.cmd_guardar_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar_modelo.Location = New System.Drawing.Point(115, 396)
+        Me.cmd_guardar_modelo.Name = "cmd_guardar_modelo"
+        Me.cmd_guardar_modelo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar_modelo.TabIndex = 25
+        Me.cmd_guardar_modelo.UseVisualStyleBackColor = False
         '
-        'Button2
+        'cmd_nuevo_modelo
         '
-        Me.Button2.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.Button2.Location = New System.Drawing.Point(16, 396)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 80)
-        Me.Button2.TabIndex = 24
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.cmd_nuevo_modelo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(16, 396)
+        Me.cmd_nuevo_modelo.Name = "cmd_nuevo_modelo"
+        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo_modelo.TabIndex = 24
+        Me.cmd_nuevo_modelo.UseVisualStyleBackColor = False
         '
         'txt_modelos
         '
@@ -177,8 +209,8 @@ Partial Class gestor_marcas_modelos
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.btn_buscar_marcas)
-        Me.Panel2.Controls.Add(Me.cmd_guardar)
-        Me.Panel2.Controls.Add(Me.cmd_nuevo)
+        Me.Panel2.Controls.Add(Me.cmd_guardar_marca)
+        Me.Panel2.Controls.Add(Me.cmd_nueva_marca)
         Me.Panel2.Controls.Add(Me.txt_marcas)
         Me.Panel2.Controls.Add(Me.lbl_nombre_marca)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -197,26 +229,26 @@ Partial Class gestor_marcas_modelos
         Me.btn_buscar_marcas.TabIndex = 46
         Me.btn_buscar_marcas.UseVisualStyleBackColor = True
         '
-        'cmd_guardar
+        'cmd_guardar_marca
         '
-        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar.Location = New System.Drawing.Point(115, 396)
-        Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar.TabIndex = 23
-        Me.cmd_guardar.UseVisualStyleBackColor = False
+        Me.cmd_guardar_marca.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar_marca.Enabled = False
+        Me.cmd_guardar_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar_marca.Location = New System.Drawing.Point(115, 396)
+        Me.cmd_guardar_marca.Name = "cmd_guardar_marca"
+        Me.cmd_guardar_marca.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar_marca.TabIndex = 23
+        Me.cmd_guardar_marca.UseVisualStyleBackColor = False
         '
-        'cmd_nuevo
+        'cmd_nueva_marca
         '
-        Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo.Location = New System.Drawing.Point(14, 396)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_nuevo.TabIndex = 22
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        Me.cmd_nueva_marca.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nueva_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nueva_marca.Location = New System.Drawing.Point(14, 396)
+        Me.cmd_nueva_marca.Name = "cmd_nueva_marca"
+        Me.cmd_nueva_marca.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nueva_marca.TabIndex = 22
+        Me.cmd_nueva_marca.UseVisualStyleBackColor = False
         '
         'lbl_hora
         '
@@ -251,18 +283,6 @@ Partial Class gestor_marcas_modelos
         Me.Label22.TabIndex = 42
         Me.Label22.Text = "Gestor de Marcas y Modelos"
         '
-        'id
-        '
-        Me.id.HeaderText = "Id"
-        Me.id.Name = "id"
-        Me.id.Visible = False
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.Width = 219
-        '
         'gestor_marcas_modelos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -277,7 +297,7 @@ Partial Class gestor_marcas_modelos
         Me.Name = "gestor_marcas_modelos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestor de marcas y modelos"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabla_modelos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tabla_marcas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -289,7 +309,7 @@ Partial Class gestor_marcas_modelos
     End Sub
     Friend WithEvents lbl_nombre_marca As System.Windows.Forms.Label
     Friend WithEvents txt_marcas As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents tabla_modelos As System.Windows.Forms.DataGridView
     Friend WithEvents tabla_marcas As System.Windows.Forms.DataGridView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -297,10 +317,10 @@ Partial Class gestor_marcas_modelos
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
-    Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
+    Friend WithEvents cmd_guardar_modelo As System.Windows.Forms.Button
+    Friend WithEvents cmd_nuevo_modelo As System.Windows.Forms.Button
+    Friend WithEvents cmd_guardar_marca As System.Windows.Forms.Button
+    Friend WithEvents cmd_nueva_marca As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents txt_modelos As System.Windows.Forms.TextBox
@@ -309,4 +329,6 @@ Partial Class gestor_marcas_modelos
     Friend WithEvents btn_buscar_marcas As System.Windows.Forms.Button
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_modelo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombre_modelo As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
