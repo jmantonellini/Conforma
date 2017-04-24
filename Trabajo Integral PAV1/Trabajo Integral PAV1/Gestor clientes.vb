@@ -17,6 +17,7 @@
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
+
     End Sub
 
     Private Sub gestor_clientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -108,7 +109,6 @@
         Next
     End Sub
 
-
     Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
         cargar_cliente()
         cmd_modificar.Enabled = True
@@ -137,7 +137,8 @@
         If validar_datos() = respuesta_validacion._ok Then
             If accion = tipo_grabacion.insertar Then
                 If validar_cliente() = respuesta_validacion._ok Then
-                    c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, Me.cmb_tipo_documento.SelectedValue, Me.txt_documento.Text, Me.txt_fijo.Text, Me.txt_celular.Text, Me.txt_mail.Text)
+                    Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
+                    c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, Me.txt_documento.Text, Me.txt_fijo.Text, Me.txt_celular.Text, Me.txt_mail.Text, Me.txt_cuit.Text)
                     MsgBox("Se guardó correctamente")
                 End If
             End If
@@ -176,5 +177,6 @@
             Return respuesta_validacion._error
         End If
     End Function
+
 
 End Class
