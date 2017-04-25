@@ -33,23 +33,34 @@
 
     Private Sub cmd_nueva_area_Click(sender As Object, e As EventArgs) Handles cmd_nueva_area.Click
         Dim area_nueva As String = InputBox("Ingrese el nombre de la nueva área", "Nueva Área")
-
-        Do
-            area_nueva = InputBox("Ingrese CORRECTAMENTE el nombre de la nueva área", "Nueva Área")
-        Loop While area_nueva = ""
-        C.insertar_area(area_nueva)
-        MsgBox("La nueva área se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+        If (area_nueva <> "" And comprobar_linea(area_nueva)) Then
+            C.insertar_area(area_nueva)
+            MsgBox("La nueva área se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+        Else : MsgBox("No se pueden ingresar campos vacíos", MsgBoxStyle.Critical, "AVISO")
+        End If
 
     End Sub
 
     Private Sub cmd_nuevo_producto_Click(sender As Object, e As EventArgs) Handles cmd_nuevo_producto.Click
         Dim tipo_nuevo As String = InputBox("Ingrese el nombre del nuevo tipo de producto", "Nuevo Tipo de Producto")
 
-        If (tipo_nuevo <> "") Then
+        If (tipo_nuevo <> "" And comprobar_linea(tipo_nuevo)) Then
             C.insertar_tipo_producto(tipo_nuevo, cmb_area.Text)
             MsgBox("El nuevo tipo de producto se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
-        Else : MsgBox("No se pueden ingresar campos vacíos", MsgBoxStyle.Critical)
+        Else : MsgBox("No se pueden ingresar campos vacíos", MsgBoxStyle.Critical, "AVISO")
         End If
 
     End Sub
+
+    Private Function comprobar_linea(ByVal cadena As String) As Boolean
+        Dim b As Boolean = False
+        For index = 0 To cadena.Length - 1
+            b = Char.IsLetter(cadena, index)
+            If (b = False) Then
+                Return b
+            End If
+
+        Next
+        Return b
+    End Function
 End Class
