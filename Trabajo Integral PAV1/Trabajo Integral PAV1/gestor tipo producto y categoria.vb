@@ -73,4 +73,37 @@
         Else : MsgBox("No se pueden ingresar campos vacíos o numerales", MsgBoxStyle.Critical, "AVISO")
         End If
     End Sub
+
+    Private Sub cmd_modificar_area_Click(sender As Object, e As EventArgs) Handles cmd_modificar_area.Click, cmd_modificar_categoria.Click, cmd_modificar_tipo_producto.Click
+        Dim nombre_nuevo As String = InputBox("Ingrese el nombre nuevo", "Cambiar Nombre")
+        Dim tabla As String = ""
+        Dim seleccion As String = ""
+        Select Case sender.Name
+            Case "cmd_modificar_area"
+                tabla = " AREAS "
+                seleccion = cmb_area.Text
+            Case "cmd_modificar_tipo_producto"
+                tabla = " TIPOS_PRODUCTOS "
+                seleccion = cmb_tipo_producto.Text
+            Case "cmd_modificar_categoria"
+                tabla = " CATEGORIAS "
+                seleccion = tabla_categorias.SelectedRows.Item(0).Cells(0).Value.ToString
+        End Select
+
+        MsgBox(tabla)
+        If (tabla = " AREAS " And comprobar_linea(tabla) = True) Then
+            Return
+        End If
+        If (tabla = " TIPOS_PRODUCTOS " And comprobar_linea(tabla) = True) Then
+            Return
+        Else
+        End If
+        If (nombre_nuevo <> "") Then
+            C.cambiar_nombre(tabla, nombre_nuevo, seleccion)
+            MsgBox("Se ha modificado el nombre satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+        Else : MsgBox("No se pueden ingresar campos vacíos o erróneos", MsgBoxStyle.Critical, "AVISO")
+        End If
+
+
+    End Sub
 End Class

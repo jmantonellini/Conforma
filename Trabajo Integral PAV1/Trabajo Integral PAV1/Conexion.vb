@@ -229,4 +229,22 @@
         Dim id_tipo As Int16 = CInt(Me.ejecuto_sql("SELECT ID_TIPO_PRODUCTO FROM TIPOS_PRODUCTOS WHERE NOMBRE LIKE '" & tipo_producto & "'").Rows(0).Item(0).ToString)
         Me.ejecuto_sql("INSERT INTO CATEGORIAS VALUES('" & nueva_categoria & "', " & id_tipo & ")")
     End Sub
+
+    Public Sub cambiar_nombre(ByVal tabla As String, nuevo_nombre As String, nombre_viejo As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        MsgBox("tabla:" + tabla + " id_cadena" + id_cadena + " nombre_viejo:" + nombre_viejo + " ")
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_" & id_cadena & " FROM " & tabla & " WHERE NOMBRE LIKE '" & nombre_viejo & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("UPDATE " & tabla & " SET NOMBRE = '" & nuevo_nombre & "' WHERE ID_" & id_cadena & " = " & id)
+        MsgBox("ANDUVO")
+    End Sub
 End Class
