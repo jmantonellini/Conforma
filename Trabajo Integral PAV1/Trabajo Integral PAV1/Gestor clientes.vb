@@ -9,9 +9,9 @@
         _ok
         _error
     End Enum
-
+    Dim empresa1 As Data.DataTable = New DataTable
     Dim cliente As Data.DataTable = New DataTable
-    Dim domicilios As DataTable = New DataTable
+    Dim domicilio As DataTable = New DataTable
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
 
@@ -36,8 +36,9 @@
         cmb_ciudad = c.cargar_combo(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE")
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS", "ID_TIPO_DOCUMENTO", "NOMBRE")
         tabla_clientes.Rows(0).Selected = True
-
-        domicilios = c.buscar_domicilios_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
+        domicilio = c.buscar_domicilio_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
+        cmb_empresa.SelectedIndex = -1
+        txt_cuit.Text = ""
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
@@ -73,7 +74,9 @@
             End If
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
-                obj.Enabled = True
+                If obj.Name <> "txt_cuit" Then
+                    obj.Enabled = True
+                End If
             End If
         Next
         For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
@@ -118,8 +121,8 @@
     Private Sub cargar_cliente()
 
         cliente = c.buscar_datos_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
-        domicilios = c.buscar_domicilios_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
-
+        domicilio = c.buscar_domicilio_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
+        empresa1 = c.buscar_empresa_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
 
         txt_nombre.Text = cliente.Rows(0).Item(3).ToString
         txt_apellido.Text = cliente.Rows(0).Item(4).ToString
@@ -127,7 +130,7 @@
         txt_cuit.Text = cliente.Rows(0).Item(8).ToString
         txt_celular.Text = cliente.Rows(0).Item(6).ToString
         txt_fijo.Text = cliente.Rows(0).Item(7).ToString
-
+        cmb_empresa.Text = empresa1.Rows(0).Item(1).ToString
 
 
     End Sub
@@ -190,7 +193,7 @@
         control_tab.SelectedTab = tab_domicilios
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_anterior2.Click
         control_tab.SelectedTab = tab_contacto
     End Sub
 
