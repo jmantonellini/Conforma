@@ -224,4 +224,9 @@
 
         Me.ejecuto_sql("INSERT INTO TIPOS_PRODUCTOS VALUES(" & id_area & ",'" & nuevo_tipo & "')")
     End Sub
+
+    Public Sub insertar_categoria(ByVal nueva_categoria As String, tipo_producto As String)
+        Dim id_tipo As Int16 = CInt(Me.ejecuto_sql("SELECT ID_TIPO_PRODUCTO FROM TIPOS_PRODUCTOS WHERE NOMBRE LIKE '" & tipo_producto & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("INSERT INTO CATEGORIAS VALUES('" & nueva_categoria & "', " & id_tipo & ")")
+    End Sub
 End Class

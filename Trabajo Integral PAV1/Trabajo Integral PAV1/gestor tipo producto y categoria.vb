@@ -36,7 +36,7 @@
         If (area_nueva <> "" And comprobar_linea(area_nueva)) Then
             C.insertar_area(area_nueva)
             MsgBox("La nueva área se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
-        Else : MsgBox("No se pueden ingresar campos vacíos", MsgBoxStyle.Critical, "AVISO")
+        Else : MsgBox("No se pueden ingresar campos vacíos o numerales", MsgBoxStyle.Critical, "AVISO")
         End If
 
     End Sub
@@ -47,7 +47,7 @@
         If (tipo_nuevo <> "" And comprobar_linea(tipo_nuevo)) Then
             C.insertar_tipo_producto(tipo_nuevo, cmb_area.Text)
             MsgBox("El nuevo tipo de producto se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
-        Else : MsgBox("No se pueden ingresar campos vacíos", MsgBoxStyle.Critical, "AVISO")
+        Else : MsgBox("No se pueden ingresar campos vacíos o numerales", MsgBoxStyle.Critical, "AVISO")
         End If
 
     End Sub
@@ -63,4 +63,14 @@
         Next
         Return b
     End Function
+
+    Private Sub cmd_nueva_categoria_Click(sender As Object, e As EventArgs) Handles cmd_nueva_categoria.Click
+        Dim categoria_nuevo As String = InputBox("Ingrese el nombre de la nueva categoría", "Nueva Categoría")
+
+        If (categoria_nuevo <> "") Then
+            C.insertar_categoria(categoria_nuevo, cmb_tipo_producto.Text)
+            MsgBox("El nuevo tipo de producto se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+        Else : MsgBox("No se pueden ingresar campos vacíos o numerales", MsgBoxStyle.Critical, "AVISO")
+        End If
+    End Sub
 End Class
