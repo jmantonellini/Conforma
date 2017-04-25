@@ -37,13 +37,12 @@
         cmb_ciudad = c.cargar_combo(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE")
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS", "ID_TIPO_DOCUMENTO", "NOMBRE")
         tabla_clientes.Rows(0).Selected = True
-        domicilio = c.buscar_domicilio_cliente(tabla_clientes.Item(0, 1).Value, tabla_clientes.Item(0, 0).Value)
-        cmb_empresa.SelectedIndex = -1
-        txt_cuit.Text = ""
+        limpiar_campos()
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         limpiar_campos()
+        habilitar_campos()
         Me.accion = tipo_grabacion.insertar
         Me.cmd_modificar.Enabled = False
         Me.cmd_guardar.Enabled = True
@@ -66,51 +65,57 @@
         For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
-                obj.Enabled = True
             End If
             If obj.GetType().Name = "ComboBox" Then
                 Dim local As ComboBox = obj
                 local.SelectedIndex = -1
-                obj.Enabled = True
             End If
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
-                If obj.Name <> "txt_cuit" Then
-                    obj.Enabled = True
                 End If
-            End If
         Next
         For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
-                obj.Enabled = True
             End If
             If obj.GetType().Name = "ComboBox" Then
                 Dim local As ComboBox = obj
                 local.SelectedIndex = -1
-                obj.Enabled = True
             End If
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
-                obj.Enabled = True
             End If
         Next
         For Each obj As Windows.Forms.Control In Me.tab_contacto.Controls
             If obj.GetType().Name = "TextBox" Then
                 obj.Text = ""
-                obj.Enabled = True
             End If
             If obj.GetType().Name = "ComboBox" Then
                 Dim local As ComboBox = obj
                 local.SelectedIndex = -1
-                obj.Enabled = True
             End If
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
-                obj.Enabled = True
             End If
         Next
     End Sub
+
+
+    Private Sub habilitar_campos()
+        For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
+            If obj.Name <> "txt_cuit" Then
+                obj.Enabled = True
+            End If
+        Next
+        For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
+            obj.Enabled = True
+        Next
+        For Each obj As Windows.Forms.Control In Me.tab_contacto.Controls
+            obj.Enabled = True
+        Next
+
+    End Sub
+
 
     Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
         cargar_cliente()
@@ -135,11 +140,12 @@
         txt_mail.Text = cliente.Rows(0).Item(5).ToString
         cmb_empresa.Text = empresa1.Rows(0).Item(1).ToString
         cmb_tipo_documento.Text = documento.Rows(0).Item(1).ToString
-        txt_calle.Text = domicilio.Rows(0).Item(1).ToString
-        txt_altura_calle.Text = domicilio.Rows(0).Item(2).ToString
-        'cmb_pais
-        'cmb_provincia
-        'cmb_ciudad
+        txt_calle.Text = domicilio.Rows(0).Item(0).ToString
+        txt_altura_calle.Text = domicilio.Rows(0).Item(1).ToString
+        cmb_ciudad.Text = domicilio.Rows(0).Item(2).ToString
+        cmb_pais.Text = domicilio.Rows(0).Item(3).ToString
+        cmb_provincia.Text = domicilio.Rows(0).Item(4).ToString
+
 
 
     End Sub

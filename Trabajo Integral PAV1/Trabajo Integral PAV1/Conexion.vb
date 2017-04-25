@@ -78,7 +78,7 @@
     End Function
 
     Public Function buscar_domicilio_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
-        Dim domicilio As DataTable = ejecuto_sql("Select D.* from DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+        Dim domicilio As DataTable = ejecuto_sql("Select D.CALLE, D.NUMERO, CI.NOMBRE, PA.NOMBRE, PR.NOMBRE from DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE LEFT JOIN CIUDADES CI ON D.ID_CIUDAD = CI.ID_CIUDAD LEFT JOIN PROVINCIAS PR ON CI.ID_PROVINCIA = PR.ID_PROVINCIA LEFT JOIN PAISES PA ON PR.ID_PAIS = PA.ID_PAIS WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
         Return domicilio
 
     End Function
