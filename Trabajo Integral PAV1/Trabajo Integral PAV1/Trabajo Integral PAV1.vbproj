@@ -71,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.vb" />
+    <Compile Include="Formulario auxiliar de gestor marcas.Designer.vb">
+      <DependentUpon>Formulario auxiliar de gestor marcas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario auxiliar de gestor marcas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gestor clientes.Designer.vb">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formulario auxiliar de gestor marcas.resx">
+      <DependentUpon>Formulario auxiliar de gestor marcas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestor clientes.resx">
       <DependentUpon>Gestor clientes.vb</DependentUpon>
     </EmbeddedResource>

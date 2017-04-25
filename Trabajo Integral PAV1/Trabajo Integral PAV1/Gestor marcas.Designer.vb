@@ -80,6 +80,7 @@ Partial Class gestor_marcas_modelos
         Me.tabla_modelos.AllowUserToResizeRows = False
         Me.tabla_modelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_modelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_modelo, Me.nombre_modelo})
+        Me.tabla_modelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.tabla_modelos.Location = New System.Drawing.Point(0, 74)
         Me.tabla_modelos.Name = "tabla_modelos"
         Me.tabla_modelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -106,6 +107,7 @@ Partial Class gestor_marcas_modelos
         Me.tabla_marcas.AllowUserToResizeRows = False
         Me.tabla_marcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_marcas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre})
+        Me.tabla_marcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.tabla_marcas.Location = New System.Drawing.Point(0, 74)
         Me.tabla_marcas.Name = "tabla_marcas"
         Me.tabla_marcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

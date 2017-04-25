@@ -9,7 +9,9 @@
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim marca As New Data.DataTable
     Dim modelo As New Data.DataTable
-    Dim buscando As Boolean = False
+    Dim buscando_marcas As Boolean = False
+    Dim buscando_modelos As Boolean = False
+    Dim auxiliar As New Formulario_auxiliar_de_gestor_marcas
 
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -69,11 +71,17 @@
         Me.cmd_guardar_marca.Enabled = True
         Me.txt_marcas.Enabled = True
         Me.txt_marcas.Focus()
-        Me.buscando = False
+        Me.buscando_marcas = False
         Me.accion = tipo_grabacion.insertar
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar_marca.Click
+        For Each obj As Char In Me.txt_marcas.Text.ToCharArray
+            If Char.IsLetter(obj) = False Then
+                MessageBox.Show("No se permiten numeros o simbolos ni espacios en blanco, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        Next
         If Me.conexion.buscar_marca(txt_marcas.Text.ToString).Rows.Count = 1 Then
             MessageBox.Show("La marca ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
@@ -124,7 +132,7 @@
     End Sub
 
     Private Sub tabla_modelos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_modelos.CellClick
-        Me.modelo = conexion.buscar_modelo(tabla_marcas.CurrentRow.Cells(1).Value)
+        Me.modelo = conexion.buscar_modelo(tabla_modelos.CurrentRow.Cells(1).Value)
         Me.txt_modelos.Text = Me.modelo.Rows(0).Item(1).ToString
         Me.accion = tipo_grabacion.modificar
         'Me.cmd_eliminar.Enabled = True
@@ -132,20 +140,20 @@
     End Sub
 
     Private Sub btn_buscar_marcas_Click(sender As Object, e As EventArgs) Handles btn_buscar_marcas.Click
-        If Me.buscando = True Then
-            Me.buscando = False
+        If Me.buscando_marcas = True Then
+            Me.buscando_marcas = False
             cargar_grilla_marcas()
         Else
-            Me.buscando = True
+            Me.buscando_marcas = True
             Me.txt_marcas.Text = ""
             Me.txt_marcas.Enabled = True
             Me.txt_marcas.Focus()
         End If
     End Sub
 
-    Private Sub txt_nombre_TextChanged(sender As Object, e As EventArgs) Handles txt_marcas.TextChanged
+    Private Sub txt_marcas_TextChanged(sender As Object, e As EventArgs) Handles txt_marcas.TextChanged
         Me.cmd_guardar_marca.Enabled = True
-        If Me.buscando <> False Then
+        If Me.buscando_marcas <> False Then
             Dim tabla As Data.DataTable = Me.conexion.buscar_marcas_expRegular(txt_marcas.Text.ToString)
 
             tabla_marcas.Rows.Clear()
@@ -160,6 +168,23 @@
         End If
     End Sub
 
+    Private Sub txt_modelos_TextChanged(sender As Object, e As EventArgs) Handles txt_modelos.TextChanged
+        Me.cmd_guardar_modelo.Enabled = True
+        If Me.buscando_modelos <> False Then
+            Dim tabla As Data.DataTable = Me.conexion.buscar_modelos_expRegular(txt_modelos.Text.ToString)
+
+            tabla_modelos.Rows.Clear()
+
+            Dim index As Integer
+            For index = 0 To tabla.Rows.Count - 1
+
+                Me.tabla_modelos.Rows.Add()
+                Me.tabla_modelos.Rows(index).Cells(0).Value = tabla.Rows(index)("ID_MODELO")
+                Me.tabla_modelos.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
+            Next
+        End If
+    End Sub
+
     Private Sub cmd_nuevo_modelo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo_modelo.Click
         For Each obj As Windows.Forms.Control In Me.Controls
             If obj.GetType().Name = "TextBox" Then
@@ -169,50 +194,57 @@
         Me.cmd_guardar_modelo.Enabled = True
         Me.txt_modelos.Enabled = True
         Me.txt_modelos.Focus()
-        Me.buscando = False
+        Me.buscando_marcas = False
         Me.accion = tipo_grabacion.insertar
     End Sub
 
     Private Sub cmd_guardar_modelo_Click(sender As Object, e As EventArgs) Handles cmd_guardar_modelo.Click
-        If Me.conexion.buscar_modelo(txt_modelos.Text.ToString).Rows.Count = 1 Then
-            MessageBox.Show("La marca ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        Else
-            If Me.accion = tipo_grabacion.insertar Then
-                Try
-                    Me.conexion.insertar_modelo(Me.txt_modelos.Text.ToString)
-                    MessageBox.Show("Se grabo correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Me.cargar_grilla_modelos()
-
-                Catch ex As OleDb.OleDbException
-                    MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-                End Try
-            Else
-                If Me.conexion.buscar_modelo(txt_modelos.Text.ToString).Rows.Count = 0 Then
-                    Try
-                        Me.conexion.modificar_modelo(Me.txt_modelos.Text.ToString, Me.tabla_modelos.CurrentRow.Cells(0).Value)
-                        MessageBox.Show("Se modifico correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Me.cargar_grilla_modelos()
-
-                    Catch ex As OleDb.OleDbException
-                        MessageBox.Show("No se modifico correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-                    End Try
-                Else
-                    MessageBox.Show("La marca ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                End If
+        For Each obj As Char In Me.txt_modelos.Text.ToCharArray
+            If Char.IsLetter(obj) = False Then
+                MessageBox.Show("No se permiten numeros o simbolos ni espacios en blanco, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
             End If
-        End If
+        Next
+        Me.auxiliar.Show()
+        'If Me.conexion.buscar_modelo(txt_modelos.Text.ToString).Rows.Count = 1 Then
+        '    MessageBox.Show("El modelo ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        'Else
+        '    If Me.accion = tipo_grabacion.insertar Then
+        '        Try
+        '            Me.conexion.insertar_modelo(Me.txt_modelos.Text.ToString)
+        '            MessageBox.Show("Se grabo correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '            Me.cargar_grilla_modelos()
+
+        '        Catch ex As OleDb.OleDbException
+        '            MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+        '        End Try
+        '    Else
+        '        If Me.conexion.buscar_modelo(txt_modelos.Text.ToString).Rows.Count = 0 Then
+        '            Try
+        '                Me.conexion.modificar_modelo(Me.txt_modelos.Text.ToString, Me.tabla_modelos.CurrentRow.Cells(0).Value)
+        '                MessageBox.Show("Se modifico correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '                Me.cargar_grilla_modelos()
+
+        '            Catch ex As OleDb.OleDbException
+        '                MessageBox.Show("No se modifico correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+        '            End Try
+        '        Else
+        '            MessageBox.Show("El modelo ya existe ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '        End If
+        '    End If
+        'End If
     End Sub
 
     Private Sub cmd_buscar_modelos_Click(sender As Object, e As EventArgs) Handles cmd_buscar_modelos.Click
 
-        If Me.buscando = True Then
-            Me.buscando = False
-            cargar_grilla_modelos()
+        If Me.buscando_modelos = True Then
+            Me.buscando_modelos = False
+            Me.cargar_grilla_modelos()
         Else
-            Me.buscando = True
+            Me.buscando_modelos = True
             Me.txt_modelos.Text = ""
             Me.txt_modelos.Enabled = True
             Me.txt_modelos.Focus()
-        End If     
+        End If
     End Sub
 End Class
