@@ -11,7 +11,7 @@
     Dim modelo As New Data.DataTable
     Dim buscando_marcas As Boolean = False
     Dim buscando_modelos As Boolean = False
-    Dim auxiliar As New Formulario_auxiliar_de_gestor_marcas
+    Dim auxiliar As Formulario_auxiliar_de_gestor_marcas
 
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -205,7 +205,7 @@
                 Exit Sub
             End If
         Next
-        Me.auxiliar.Show()
+        Me.auxiliar = New Formulario_auxiliar_de_gestor_marcas(Me.txt_marcas.Text)
         'If Me.conexion.buscar_modelo(txt_modelos.Text.ToString).Rows.Count = 1 Then
         '    MessageBox.Show("El modelo ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         'Else

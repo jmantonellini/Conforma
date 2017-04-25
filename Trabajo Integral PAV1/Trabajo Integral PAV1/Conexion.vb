@@ -181,8 +181,8 @@
         Return modelo
     End Function
 
-    Public Sub insertar_modelo(ByRef nombre As String)
-        Me.ejecuto_sql("INSERT INTO MODELOS VALUES(" & "'" & nombre & "'" & ")")
+    Public Sub insertar_modelo(ByRef nombre As String, ByRef id_marca As Integer)
+        Me.ejecuto_sql("INSERT INTO MODELOS(NOMBRE, ID_MARCA) VALUES('" & nombre & "','" & id_marca & "')")
     End Sub
 
     Public Function buscar_modelos_expRegular(ByRef patron As String) As Data.DataTable
