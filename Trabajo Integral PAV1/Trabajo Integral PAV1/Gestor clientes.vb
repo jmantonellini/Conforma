@@ -10,6 +10,7 @@
         _error
     End Enum
     Dim empresa1 As Data.DataTable = New DataTable
+    Dim documento As Data.DataTable = New DataTable
     Dim cliente As Data.DataTable = New DataTable
     Dim domicilio As DataTable = New DataTable
     Dim c As Conexion = New Conexion
@@ -123,6 +124,7 @@
         cliente = c.buscar_datos_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
         domicilio = c.buscar_domicilio_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
         empresa1 = c.buscar_empresa_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
+        documento = c.buscar_documento_cliente(tabla_clientes.CurrentRow.Cells(1).Value, tabla_clientes.CurrentRow.Cells(0).Value)
 
         txt_nombre.Text = cliente.Rows(0).Item(3).ToString
         txt_apellido.Text = cliente.Rows(0).Item(4).ToString
@@ -130,7 +132,14 @@
         txt_cuit.Text = cliente.Rows(0).Item(8).ToString
         txt_celular.Text = cliente.Rows(0).Item(6).ToString
         txt_fijo.Text = cliente.Rows(0).Item(7).ToString
+        txt_mail.Text = cliente.Rows(0).Item(5).ToString
         cmb_empresa.Text = empresa1.Rows(0).Item(1).ToString
+        cmb_tipo_documento.Text = documento.Rows(0).Item(1).ToString
+        txt_calle.Text = domicilio.Rows(0).Item(1).ToString
+        txt_altura_calle.Text = domicilio.Rows(0).Item(2).ToString
+        'cmb_pais
+        'cmb_provincia
+        'cmb_ciudad
 
 
     End Sub

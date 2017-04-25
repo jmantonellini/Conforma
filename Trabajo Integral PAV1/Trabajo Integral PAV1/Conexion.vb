@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_juanma2
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -82,9 +82,15 @@
         Return domicilio
 
     End Function
+    Public Function buscar_documento_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
+        Dim documento As DataTable = ejecuto_sql("Select T_D.* from TIPOS_DOCUMENTOS T_D RIGHT JOIN CLIENTES C ON C.ID_TIPO_DOCUMENTO = T_D.ID_TIPO_DOCUMENTO WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+        Return documento
+
+    End Function
+
     Public Function buscar_empresa_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
-        Dim empresas As DataTable = ejecuto_sql("Select E.* from EMPRESAS E RIGHT JOIN CLIENTES C ON C.CUIT = E.CUIT WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
-        Return empresas
+        Dim empresa As DataTable = ejecuto_sql("Select E.* from EMPRESAS E RIGHT JOIN CLIENTES C ON C.CUIT = E.CUIT WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+        Return empresa
 
     End Function
 
