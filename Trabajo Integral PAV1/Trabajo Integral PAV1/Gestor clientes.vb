@@ -194,10 +194,7 @@
         control_tab.SelectedTab = tab_contacto
     End Sub
 
-    Private Sub cmb_empresa_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_empresa.SelectedValueChanged
-
-            Me.txt_cuit.Text = cmb_empresa.SelectedValue.ToString
-
+    Private Sub cmb_empresa_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmb_empresa.SelectionChangeCommitted
+        Me.txt_cuit.Text = Me.cmb_empresa.SelectedValue.ToString
     End Sub
-
 End Class
