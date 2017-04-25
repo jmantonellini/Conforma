@@ -38,7 +38,7 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_eliminar_area = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_eliminar_tipo = New System.Windows.Forms.Button()
         Me.cmd_eliminar_categoria = New System.Windows.Forms.Button()
         CType(Me.tabla_categorias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -174,14 +174,14 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_eliminar_area.Text = "Eliminar"
         Me.cmd_eliminar_area.UseVisualStyleBackColor = True
         '
-        'Button1
+        'cmd_eliminar_tipo
         '
-        Me.Button1.Location = New System.Drawing.Point(326, 153)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 37
-        Me.Button1.Text = "Eliminar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmd_eliminar_tipo.Location = New System.Drawing.Point(326, 153)
+        Me.cmd_eliminar_tipo.Name = "cmd_eliminar_tipo"
+        Me.cmd_eliminar_tipo.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_eliminar_tipo.TabIndex = 37
+        Me.cmd_eliminar_tipo.Text = "Eliminar"
+        Me.cmd_eliminar_tipo.UseVisualStyleBackColor = True
         '
         'cmd_eliminar_categoria
         '
@@ -198,7 +198,7 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(481, 478)
         Me.Controls.Add(Me.cmd_eliminar_categoria)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmd_eliminar_tipo)
         Me.Controls.Add(Me.cmd_eliminar_area)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_modificar_categoria)
@@ -235,6 +235,6 @@ Partial Class gestor_tipo_producto_y_categorias
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents cmd_eliminar_area As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmd_eliminar_tipo As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_categoria As System.Windows.Forms.Button
 End Class
