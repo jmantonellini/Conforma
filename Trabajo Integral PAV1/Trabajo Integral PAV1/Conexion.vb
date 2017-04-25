@@ -47,7 +47,7 @@
 
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
-        Return ejecuto_sql("SELECT C.NOMBRE FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
+        Return ejecuto_sql("SELECT C.NOMBRE AS 'Nombre' FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
 
     End Function
 
@@ -213,6 +213,15 @@
 
     Public Sub eliminar_empresa(ByRef empresa As String)
         Me.ejecuto_sql("DELETE FROM EMPRESAS WHERE CUIT = " & empresa)
+    End Sub
 
+    Public Sub insertar_area(ByVal nueva_area As String)
+        Me.ejecuto_sql("INSERT INTO AREAS VALUES( '" & nueva_area & "')")
+    End Sub
+
+    Public Sub insertar_tipo_producto(ByVal nuevo_tipo As String, area As String)
+        Dim id_area As Int16 = CInt(Me.ejecuto_sql("SELECT ID_AREA FROM AREAS WHERE NOMBRE LIKE '" & area & "'").Rows(0).Item(0).ToString)
+
+        Me.ejecuto_sql("INSERT INTO TIPOS_PRODUCTOS VALUES(" & id_area & ",'" & nuevo_tipo & "')")
     End Sub
 End Class

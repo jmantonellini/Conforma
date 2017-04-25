@@ -30,4 +30,26 @@
             tabla_categorias.DataSource = C.cargar_categorias_filtrada("CATEGORIAS", cmb_tipo_producto.Text)
         End If
     End Sub
+
+    Private Sub cmd_nueva_area_Click(sender As Object, e As EventArgs) Handles cmd_nueva_area.Click
+        Dim area_nueva As String = InputBox("Ingrese el nombre de la nueva área", "Nueva Área")
+
+        Do
+            area_nueva = InputBox("Ingrese CORRECTAMENTE el nombre de la nueva área", "Nueva Área")
+        Loop While area_nueva = ""
+        C.insertar_area(area_nueva)
+        MsgBox("La nueva área se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+
+    End Sub
+
+    Private Sub cmd_nuevo_producto_Click(sender As Object, e As EventArgs) Handles cmd_nuevo_producto.Click
+        Dim tipo_nuevo As String = InputBox("Ingrese el nombre del nuevo tipo de producto", "Nuevo Tipo de Producto")
+
+        If (tipo_nuevo <> "") Then
+            C.insertar_tipo_producto(tipo_nuevo, cmb_area.Text)
+            MsgBox("El nuevo tipo de producto se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+        Else : MsgBox("No se pueden ingresar campos vacíos", MsgBoxStyle.Critical)
+        End If
+
+    End Sub
 End Class
