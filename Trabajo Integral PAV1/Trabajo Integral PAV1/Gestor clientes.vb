@@ -195,10 +195,8 @@
     End Sub
 
     Private Sub cmb_empresa_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_empresa.SelectedValueChanged
-        If (Me.cmb_empresa.SelectedIndex > 0) Then
-            Dim d As Data.DataTable = c.buscar_empresa_cuit(Me.cmb_empresa.Text)
-            Me.txt_cuit.Text = d.Rows(0)("CUIT").ToString
-        End If
+
+            Me.txt_cuit.Text = cmb_empresa.SelectedValue.ToString
 
     End Sub
 
