@@ -90,7 +90,7 @@
                 seleccion = tabla_categorias.SelectedRows.Item(0).Cells(0).Value.ToString
         End Select
 
-        MsgBox(tabla)
+
         If (tabla = " AREAS " And comprobar_linea(tabla) = True) Then
             Return
         End If
@@ -101,9 +101,38 @@
         If (nombre_nuevo <> "") Then
             C.cambiar_nombre(tabla, nombre_nuevo, seleccion)
             MsgBox("Se ha modificado el nombre satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+            cmb_area = C.cargar_combo(cmb_area, "AREAS", "ID_AREA", "NOMBRE")
+            cmb_tipo_producto = C.cargar_combo(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE")
+            tabla_categorias.DataSource = C.cargar_grilla("categorias")
         Else : MsgBox("No se pueden ingresar campos vacíos o erróneos", MsgBoxStyle.Critical, "AVISO")
         End If
 
+
+    End Sub
+
+    Private Sub cmd_eliminar_area_Click(sender As Object, e As EventArgs) Handles cmd_eliminar_area.Click, cmd_eliminar_categoria.Click, cmd_modificar_tipo_producto.Click
+        Dim tabla As String = ""
+        Dim seleccion As String = ""
+        Select Case sender.Name
+            Case "cmd_eliminar_area"
+                tabla = " AREAS "
+                seleccion = cmb_area.Text
+            Case "cmd_eliminar_tipo_producto"
+                tabla = " TIPOS_PRODUCTOS "
+                seleccion = cmb_tipo_producto.Text
+            Case "cmd_eliminar_categoria"
+                tabla = " CATEGORIAS "
+                seleccion = tabla_categorias.SelectedRows.Item(0).Cells(0).Value.ToString
+        End Select
+
+        If (seleccion <> "") Then
+            C.eliminar_nombre(tabla, seleccion)
+            MsgBox("Se ha eliminado el elemento satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+            cmb_area = C.cargar_combo(cmb_area, "AREAS", "ID_AREA", "NOMBRE")
+            cmb_tipo_producto = C.cargar_combo(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE")
+            tabla_categorias.DataSource = C.cargar_grilla("categorias")
+        Else : MsgBox("No se pueden ingresar campos vacíos o erróneos", MsgBoxStyle.Critical, "AVISO")
+        End If
 
     End Sub
 End Class

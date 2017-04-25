@@ -37,13 +37,16 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_modificar_categoria = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.cmd_eliminar_area = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_eliminar_categoria = New System.Windows.Forms.Button()
         CType(Me.tabla_categorias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_area
         '
         Me.lbl_area.AutoSize = True
-        Me.lbl_area.Location = New System.Drawing.Point(77, 49)
+        Me.lbl_area.Location = New System.Drawing.Point(77, 43)
         Me.lbl_area.Name = "lbl_area"
         Me.lbl_area.Size = New System.Drawing.Size(32, 13)
         Me.lbl_area.TabIndex = 0
@@ -53,14 +56,15 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         Me.cmb_area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_area.FormattingEnabled = True
-        Me.cmb_area.Location = New System.Drawing.Point(115, 46)
+        Me.cmb_area.Location = New System.Drawing.Point(115, 40)
         Me.cmb_area.Name = "cmb_area"
         Me.cmb_area.Size = New System.Drawing.Size(121, 21)
         Me.cmb_area.TabIndex = 1
         '
         'cmd_nueva_area
         '
-        Me.cmd_nueva_area.Location = New System.Drawing.Point(277, 44)
+        Me.cmd_nueva_area.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nueva_area.Location = New System.Drawing.Point(277, 38)
         Me.cmd_nueva_area.Name = "cmd_nueva_area"
         Me.cmd_nueva_area.Size = New System.Drawing.Size(75, 23)
         Me.cmd_nueva_area.TabIndex = 2
@@ -69,7 +73,7 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         'cmd_modificar_area
         '
-        Me.cmd_modificar_area.Location = New System.Drawing.Point(371, 44)
+        Me.cmd_modificar_area.Location = New System.Drawing.Point(371, 38)
         Me.cmd_modificar_area.Name = "cmd_modificar_area"
         Me.cmd_modificar_area.Size = New System.Drawing.Size(75, 23)
         Me.cmd_modificar_area.TabIndex = 2
@@ -79,7 +83,7 @@ Partial Class gestor_tipo_producto_y_categorias
         'lbl_tipo_producto
         '
         Me.lbl_tipo_producto.AutoSize = True
-        Me.lbl_tipo_producto.Location = New System.Drawing.Point(35, 112)
+        Me.lbl_tipo_producto.Location = New System.Drawing.Point(35, 129)
         Me.lbl_tipo_producto.Name = "lbl_tipo_producto"
         Me.lbl_tipo_producto.Size = New System.Drawing.Size(77, 13)
         Me.lbl_tipo_producto.TabIndex = 3
@@ -89,14 +93,14 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         Me.cmb_tipo_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_tipo_producto.FormattingEnabled = True
-        Me.cmb_tipo_producto.Location = New System.Drawing.Point(115, 109)
+        Me.cmb_tipo_producto.Location = New System.Drawing.Point(115, 126)
         Me.cmb_tipo_producto.Name = "cmb_tipo_producto"
         Me.cmb_tipo_producto.Size = New System.Drawing.Size(121, 21)
         Me.cmb_tipo_producto.TabIndex = 4
         '
         'cmd_nuevo_producto
         '
-        Me.cmd_nuevo_producto.Location = New System.Drawing.Point(277, 107)
+        Me.cmd_nuevo_producto.Location = New System.Drawing.Point(277, 124)
         Me.cmd_nuevo_producto.Name = "cmd_nuevo_producto"
         Me.cmd_nuevo_producto.Size = New System.Drawing.Size(75, 23)
         Me.cmd_nuevo_producto.TabIndex = 2
@@ -105,7 +109,7 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         'cmd_modificar_tipo_producto
         '
-        Me.cmd_modificar_tipo_producto.Location = New System.Drawing.Point(371, 107)
+        Me.cmd_modificar_tipo_producto.Location = New System.Drawing.Point(371, 124)
         Me.cmd_modificar_tipo_producto.Name = "cmd_modificar_tipo_producto"
         Me.cmd_modificar_tipo_producto.Size = New System.Drawing.Size(75, 23)
         Me.cmd_modificar_tipo_producto.TabIndex = 2
@@ -161,11 +165,41 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         Me.Timer1.Enabled = True
         '
+        'cmd_eliminar_area
+        '
+        Me.cmd_eliminar_area.Location = New System.Drawing.Point(326, 67)
+        Me.cmd_eliminar_area.Name = "cmd_eliminar_area"
+        Me.cmd_eliminar_area.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_eliminar_area.TabIndex = 36
+        Me.cmd_eliminar_area.Text = "Eliminar"
+        Me.cmd_eliminar_area.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(326, 153)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 37
+        Me.Button1.Text = "Eliminar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'cmd_eliminar_categoria
+        '
+        Me.cmd_eliminar_categoria.Location = New System.Drawing.Point(200, 415)
+        Me.cmd_eliminar_categoria.Name = "cmd_eliminar_categoria"
+        Me.cmd_eliminar_categoria.Size = New System.Drawing.Size(75, 41)
+        Me.cmd_eliminar_categoria.TabIndex = 38
+        Me.cmd_eliminar_categoria.Text = "Eliminar categoría"
+        Me.cmd_eliminar_categoria.UseVisualStyleBackColor = True
+        '
         'gestor_tipo_producto_y_categorias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(481, 478)
+        Me.Controls.Add(Me.cmd_eliminar_categoria)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmd_eliminar_area)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_modificar_categoria)
         Me.Controls.Add(Me.cmd_nueva_categoria)
@@ -200,4 +234,7 @@ Partial Class gestor_tipo_producto_y_categorias
     Friend WithEvents cmd_modificar_categoria As System.Windows.Forms.Button
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents cmd_eliminar_area As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmd_eliminar_categoria As System.Windows.Forms.Button
 End Class
