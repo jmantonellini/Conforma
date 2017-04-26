@@ -143,13 +143,6 @@
         End If
     End Sub
 
-    'Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
-    '    Me.txt_nombre.Enabled = True
-    '    Me.txt_nombre.Text = ""
-    '    Me.txt_nombre.Focus()
-    '    Me.buscando = True
-    'End Sub
-
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim index As Integer
         Dim celdas_seleccionadas = Me.tabla_paises.SelectedRows.Count

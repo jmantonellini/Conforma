@@ -27,15 +27,11 @@ Partial Class Gestor_localidades
         Me.lbl_gestor_localidades = New System.Windows.Forms.Label()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.lbl_modelos = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmb_provincia = New System.Windows.Forms.ComboBox()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.codigo_postal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.tabla_localidades, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +41,6 @@ Partial Class Gestor_localidades
         Me.tabla_localidades.AllowUserToDeleteRows = False
         Me.tabla_localidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tabla_localidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tabla_localidades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre, Me.codigo_postal})
         Me.tabla_localidades.Location = New System.Drawing.Point(45, 141)
         Me.tabla_localidades.Name = "tabla_localidades"
         Me.tabla_localidades.ReadOnly = True
@@ -87,22 +82,11 @@ Partial Class Gestor_localidades
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_eliminar.Enabled = False
         Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
-        Me.cmd_eliminar.Location = New System.Drawing.Point(333, 347)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(236, 347)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_eliminar.TabIndex = 53
         Me.cmd_eliminar.UseVisualStyleBackColor = False
-        '
-        'cmd_guardar
-        '
-        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar.Location = New System.Drawing.Point(237, 347)
-        Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar.TabIndex = 52
-        Me.cmd_guardar.UseVisualStyleBackColor = False
         '
         'cmd_modificar
         '
@@ -153,25 +137,6 @@ Partial Class Gestor_localidades
         Me.cmb_provincia.Size = New System.Drawing.Size(176, 21)
         Me.cmb_provincia.TabIndex = 47
         '
-        'id
-        '
-        Me.id.HeaderText = "Id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'codigo_postal
-        '
-        Me.codigo_postal.HeaderText = "Código postal"
-        Me.codigo_postal.Name = "codigo_postal"
-        Me.codigo_postal.ReadOnly = True
-        '
         'Gestor_localidades
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -181,7 +146,6 @@ Partial Class Gestor_localidades
         Me.Controls.Add(Me.lbl_modelos)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
-        Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.tabla_localidades)
@@ -197,7 +161,6 @@ Partial Class Gestor_localidades
     End Sub
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
-    Friend WithEvents cmd_guardar As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents tabla_localidades As System.Windows.Forms.DataGridView
@@ -206,7 +169,4 @@ Partial Class Gestor_localidades
     Friend WithEvents lbl_modelos As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmb_provincia As System.Windows.Forms.ComboBox
-    Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents codigo_postal As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

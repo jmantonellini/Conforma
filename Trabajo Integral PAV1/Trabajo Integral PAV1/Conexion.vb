@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma2
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -380,7 +380,35 @@
         Me.ejecuto_sql("DELETE FROM PROVINCIAS WHERE NOMBRE LIKE '" & provincia & "'")
     End Sub
 
+    Public Sub elimnar_localidad(ByVal provincia As String)
+        Me.ejecuto_sql("DELETE FROM CIUDADES WHERE NOMBRE LIKE '" & provincia & "'")
+    End Sub
+
     Public Sub cambiar_nombre_provincia(ByVal provincia As String, nombre_nuevo As String)
         Me.ejecuto_sql("UPDATE PROVINCIAS SET NOMBRE = '" & nombre_nuevo & "' WHERE NOMBRE LIKE '" & provincia & "'")
     End Sub
+
+    Public Sub cambiar_nombre_localidad(ByVal provincia As String, nombre_nuevo As String)
+        Me.ejecuto_sql("UPDATE CIUDADES SET NOMBRE = '" & nombre_nuevo & "' WHERE NOMBRE LIKE '" & provincia & "'")
+    End Sub
+
+    Public Function leer_localidades(ByVal provincia As String) As DataTable
+        Dim id_provincia As Int16 = CInt(ejecuto_sql("SELECT ID_PROVINCIA FROM PROVINCIAS WHERE NOMBRE LIKE '" & provincia & "'").Rows(0).Item(0).ToString)
+        Return Me.ejecuto_sql("SELECT NOMBRE AS 'Nombre', CODIGO_POSTAL AS 'Codigo Postal',ID_CIUDAD AS 'ID' FROM CIUDADES C  WHERE C.ID_PROVINCIA =" & id_provincia)
+    End Function
+
+    Public Function buscar_localidad(ByVal tabla As String, filtro As String)
+        Dim id_cadena As String = ""
+        Dim id_provincia As Int16 = CInt(ejecuto_sql("SELECT ID_PROVINCIA FROM PROVINCIAS WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
+
+        If (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE ID_PROVINCIA = " & id_provincia).Rows.Count = 0) Then
+            Return True
+        End If
+        Return False
+    End Function
+    Public Sub insertar_localidad(ByVal localidad As String, filtro As String, cp As Int16)
+        Dim id_provincia As Int16 = CInt(ejecuto_sql("SELECT ID_PROVINCIA FROM PROVINCIAS WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("INSERT INTO CIUDADES VALUES('" & localidad & "'," & id_provincia & ", " & cp & ")")
+    End Sub
+
 End Class
