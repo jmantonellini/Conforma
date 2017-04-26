@@ -71,7 +71,7 @@ Partial Class Gestor_Provincias
         Me.tabla_provincias.Name = "tabla_provincias"
         Me.tabla_provincias.ReadOnly = True
         Me.tabla_provincias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.tabla_provincias.Size = New System.Drawing.Size(538, 150)
+        Me.tabla_provincias.Size = New System.Drawing.Size(538, 170)
         Me.tabla_provincias.TabIndex = 40
         '
         'cmd_eliminar

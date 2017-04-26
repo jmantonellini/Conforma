@@ -334,12 +334,17 @@
     End Function
 
     Public Function cargar_provincias_filtrada(ByVal pais As String) As Data.DataTable
-        Return Me.ejecuto_sql("SELECT PR.NOMBRE FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
+        Return Me.ejecuto_sql("SELECT PR.NOMBRE AS 'Nombre' FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
     End Function
 
     Public Sub insertar_provincia(ByVal provincia As String, pais As String)
         Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_PAIS FROM PAISES WHERE NOMBRE LIKE '" & pais & "'").Rows(0).Item(0).ToString)
         Me.ejecuto_sql("INSERT INTO PROVINCIAS VALUES ('" & provincia & "'," & id & ")")
 
+    End Sub
+
+    Public Sub elimnar_provincia(ByVal provincia As String)
+
+        Me.ejecuto_sql("DELETE FROM PROVINCIAS WHERE NOMBRE LIKE '" & provincia & "'")
     End Sub
 End Class
