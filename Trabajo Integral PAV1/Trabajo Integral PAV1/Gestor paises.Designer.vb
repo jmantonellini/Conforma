@@ -136,7 +136,7 @@ Partial Class gestor_paises
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(333, 9)
+        Me.lbl_hora.Location = New System.Drawing.Point(331, 433)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 46
@@ -150,7 +150,7 @@ Partial Class gestor_paises
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(473, 430)
+        Me.ClientSize = New System.Drawing.Size(476, 456)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
