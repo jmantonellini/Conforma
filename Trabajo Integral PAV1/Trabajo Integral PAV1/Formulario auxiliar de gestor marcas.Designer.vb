@@ -60,10 +60,11 @@ Partial Class Formulario_auxiliar_de_gestor_marcas
         'cmb_nombre_marca
         '
         Me.cmb_nombre_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_nombre_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_nombre_marca.FormattingEnabled = True
         Me.cmb_nombre_marca.Location = New System.Drawing.Point(89, 54)
         Me.cmb_nombre_marca.Name = "cmb_nombre_marca"
-        Me.cmb_nombre_marca.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_nombre_marca.Size = New System.Drawing.Size(121, 24)
         Me.cmb_nombre_marca.TabIndex = 4
         '
         'Formulario_auxiliar_de_gestor_marcas
