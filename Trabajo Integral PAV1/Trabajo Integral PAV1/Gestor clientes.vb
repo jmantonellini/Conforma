@@ -16,6 +16,7 @@
     Dim domicilio As DataTable = New DataTable
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
+    Dim agrear_business As gestor_empresas
 
     Private Sub gestor_clientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
@@ -42,6 +43,8 @@
         Me.accion = tipo_grabacion.insertar
         Me.cmd_modificar.Enabled = False
         Me.cmd_guardar.Enabled = True
+        cmb_provincia.Enabled = False
+        cmb_ciudad.Enabled = False
         control_tab.SelectedTab = tab_datos_personales
         Me.txt_nombre.Focus()
     End Sub
@@ -340,7 +343,10 @@
         cmb_ciudad.Enabled = False
         If (cmb_pais.Items.Count <> 0) Then
             c.cargar_combo_flitrado_provincia(cmb_provincia, "PROVINCIAS", "ID_PROVINCIA", "NOMBRE", cmb_pais.Text, "PAISES")
-            cmb_provincia.Enabled = True
+            If cmb_pais.Text = "" Then
+                cmb_provincia.Enabled = False
+            Else : cmb_provincia.Enabled = True
+            End If
         End If
     End Sub
 
@@ -356,6 +362,7 @@
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         If MessageBox.Show("¿Seguro que desea eliminar el cliente seleccionado? ", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) = Windows.Forms.DialogResult.Yes Then
+            c.eliminar_domicilio(tabla_clientes.CurrentRow.Cells(4).Value)
             c.eliminar_cliente(tabla_clientes.CurrentRow.Cells(4).Value)
             tabla_clientes.DataSource = c.cargar_grilla("clientes")
             Me.limpiar_campos()
@@ -390,5 +397,10 @@
             cmb_ciudad.SelectedIndex = -1
             cmb_ciudad.Enabled = False
         End If
+    End Sub
+
+    Private Sub cmd_agregar_empresa_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empresa.Click
+        agrear_business = New gestor_empresas
+        agrear_business.Show()
     End Sub
 End Class

@@ -191,6 +191,10 @@
         Me.ejecuto_sql("DELETE FROM CLIENTES WHERE ID_CLIENTE = " & id_cliente)
     End Sub
 
+    Public Sub eliminar_domicilio(ByVal id_cliente As Int64)
+        Me.ejecuto_sql("DELETE FROM DOMICILIOS WHERE ID_CLIENTE = " & id_cliente)
+    End Sub
+
     Public Sub modificar_cliente(ByVal id_cliente As Int64, nombre_nuevo As String, apellido_nuevo As String, nvo_tipo_doc As Int64, nuevo_documento As Int64, nuevo_cuit As Int64?, nuevo_celular As Int64?, nuevo_fijo As Int64?, nuevo_mail As String, nueva_ciudad As Int64?, nueva_calle As String, nuevo_nro As Int64?)
         Dim celular_nulo As String = "NULL"
         Dim fijo_nulo As String = "NULL"

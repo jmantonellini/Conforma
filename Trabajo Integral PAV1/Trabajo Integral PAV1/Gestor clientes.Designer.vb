@@ -79,6 +79,7 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_agregar_empresa = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -148,6 +149,7 @@ Partial Class gestor_clientes
         'tab_datos_personales
         '
         Me.tab_datos_personales.BackColor = System.Drawing.Color.Gainsboro
+        Me.tab_datos_personales.Controls.Add(Me.cmd_agregar_empresa)
         Me.tab_datos_personales.Controls.Add(Me.cmb_empresa)
         Me.tab_datos_personales.Controls.Add(Me.cmd_siguiente)
         Me.tab_datos_personales.Controls.Add(Me.Label19)
@@ -666,6 +668,15 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
+        'cmd_agregar_empresa
+        '
+        Me.cmd_agregar_empresa.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
+        Me.cmd_agregar_empresa.Location = New System.Drawing.Point(342, 157)
+        Me.cmd_agregar_empresa.Name = "cmd_agregar_empresa"
+        Me.cmd_agregar_empresa.Size = New System.Drawing.Size(38, 38)
+        Me.cmd_agregar_empresa.TabIndex = 35
+        Me.cmd_agregar_empresa.UseVisualStyleBackColor = True
+        '
         'gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -753,4 +764,5 @@ Partial Class gestor_clientes
     Friend WithEvents cmd_anterior2 As System.Windows.Forms.Button
     Friend WithEvents cmb_empresa As System.Windows.Forms.ComboBox
     Friend WithEvents cmd_siguiente2 As System.Windows.Forms.Button
+    Friend WithEvents cmd_agregar_empresa As System.Windows.Forms.Button
 End Class
