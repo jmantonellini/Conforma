@@ -32,7 +32,6 @@ Partial Class gestor_clientes
         Me.control_tab = New System.Windows.Forms.TabControl()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
-        Me.cmd_siguiente = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -51,8 +50,6 @@ Partial Class gestor_clientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tab_contacto = New System.Windows.Forms.TabPage()
-        Me.cmd_anterior = New System.Windows.Forms.Button()
-        Me.cmd_siguiente2 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_mail = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -61,7 +58,6 @@ Partial Class gestor_clientes
         Me.txt_fijo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tab_domicilios = New System.Windows.Forms.TabPage()
-        Me.cmd_anterior2 = New System.Windows.Forms.Button()
         Me.txt_altura_calle = New System.Windows.Forms.MaskedTextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txt_calle = New System.Windows.Forms.TextBox()
@@ -72,14 +68,18 @@ Partial Class gestor_clientes
         Me.cmb_provincia = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmb_pais = New System.Windows.Forms.ComboBox()
-        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.cmd_siguiente = New System.Windows.Forms.Button()
+        Me.cmd_anterior = New System.Windows.Forms.Button()
+        Me.cmd_siguiente2 = New System.Windows.Forms.Button()
+        Me.cmd_anterior2 = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -185,15 +185,6 @@ Partial Class gestor_clientes
         Me.cmb_empresa.Name = "cmb_empresa"
         Me.cmb_empresa.Size = New System.Drawing.Size(161, 28)
         Me.cmb_empresa.TabIndex = 4
-        '
-        'cmd_siguiente
-        '
-        Me.cmd_siguiente.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
-        Me.cmd_siguiente.Location = New System.Drawing.Point(374, 229)
-        Me.cmd_siguiente.Name = "cmd_siguiente"
-        Me.cmd_siguiente.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_siguiente.TabIndex = 34
-        Me.cmd_siguiente.UseVisualStyleBackColor = True
         '
         'Label19
         '
@@ -384,24 +375,6 @@ Partial Class gestor_clientes
         Me.tab_contacto.TabIndex = 1
         Me.tab_contacto.Text = "Contacto"
         '
-        'cmd_anterior
-        '
-        Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
-        Me.cmd_anterior.Location = New System.Drawing.Point(310, 229)
-        Me.cmd_anterior.Name = "cmd_anterior"
-        Me.cmd_anterior.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_anterior.TabIndex = 36
-        Me.cmd_anterior.UseVisualStyleBackColor = True
-        '
-        'cmd_siguiente2
-        '
-        Me.cmd_siguiente2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
-        Me.cmd_siguiente2.Location = New System.Drawing.Point(374, 229)
-        Me.cmd_siguiente2.Name = "cmd_siguiente2"
-        Me.cmd_siguiente2.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_siguiente2.TabIndex = 35
-        Me.cmd_siguiente2.UseVisualStyleBackColor = True
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -486,15 +459,6 @@ Partial Class gestor_clientes
         Me.tab_domicilios.Size = New System.Drawing.Size(438, 293)
         Me.tab_domicilios.TabIndex = 2
         Me.tab_domicilios.Text = "Domicilio"
-        '
-        'cmd_anterior2
-        '
-        Me.cmd_anterior2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
-        Me.cmd_anterior2.Location = New System.Drawing.Point(310, 229)
-        Me.cmd_anterior2.Name = "cmd_anterior2"
-        Me.cmd_anterior2.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_anterior2.TabIndex = 37
-        Me.cmd_anterior2.UseVisualStyleBackColor = True
         '
         'txt_altura_calle
         '
@@ -599,17 +563,6 @@ Partial Class gestor_clientes
         Me.cmb_pais.Size = New System.Drawing.Size(161, 28)
         Me.cmb_pais.TabIndex = 0
         '
-        'cmd_salir
-        '
-        Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_salir.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
-        Me.cmd_salir.Location = New System.Drawing.Point(802, 409)
-        Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_salir.TabIndex = 22
-        Me.cmd_salir.UseVisualStyleBackColor = False
-        '
         'lbl_hora
         '
         Me.lbl_hora.Location = New System.Drawing.Point(758, 9)
@@ -654,6 +607,17 @@ Partial Class gestor_clientes
         Me.cmd_guardar.TabIndex = 23
         Me.cmd_guardar.UseVisualStyleBackColor = False
         '
+        'cmd_salir
+        '
+        Me.cmd_salir.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_salir.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
+        Me.cmd_salir.Location = New System.Drawing.Point(802, 409)
+        Me.cmd_salir.Name = "cmd_salir"
+        Me.cmd_salir.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_salir.TabIndex = 22
+        Me.cmd_salir.UseVisualStyleBackColor = False
+        '
         'cmd_modificar
         '
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
@@ -674,6 +638,42 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
+        '
+        'cmd_siguiente
+        '
+        Me.cmd_siguiente.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
+        Me.cmd_siguiente.Location = New System.Drawing.Point(374, 229)
+        Me.cmd_siguiente.Name = "cmd_siguiente"
+        Me.cmd_siguiente.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_siguiente.TabIndex = 34
+        Me.cmd_siguiente.UseVisualStyleBackColor = True
+        '
+        'cmd_anterior
+        '
+        Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
+        Me.cmd_anterior.Location = New System.Drawing.Point(310, 229)
+        Me.cmd_anterior.Name = "cmd_anterior"
+        Me.cmd_anterior.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_anterior.TabIndex = 36
+        Me.cmd_anterior.UseVisualStyleBackColor = True
+        '
+        'cmd_siguiente2
+        '
+        Me.cmd_siguiente2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
+        Me.cmd_siguiente2.Location = New System.Drawing.Point(374, 229)
+        Me.cmd_siguiente2.Name = "cmd_siguiente2"
+        Me.cmd_siguiente2.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_siguiente2.TabIndex = 35
+        Me.cmd_siguiente2.UseVisualStyleBackColor = True
+        '
+        'cmd_anterior2
+        '
+        Me.cmd_anterior2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
+        Me.cmd_anterior2.Location = New System.Drawing.Point(310, 229)
+        Me.cmd_anterior2.Name = "cmd_anterior2"
+        Me.cmd_anterior2.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_anterior2.TabIndex = 37
+        Me.cmd_anterior2.UseVisualStyleBackColor = True
         '
         'gestor_clientes
         '

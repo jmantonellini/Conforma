@@ -46,6 +46,7 @@
         Me.accion = tipo_grabacion.insertar
         Me.cmd_modificar.Enabled = False
         Me.cmd_guardar.Enabled = True
+        control_tab.SelectedTab = tab_datos_personales
         Me.txt_nombre.Focus()
     End Sub
 
@@ -55,7 +56,6 @@
 
 
     Private Sub cargar_grilla()
-        Me.tabla_clientes.Rows.Clear()
         Me.tabla_clientes.Columns.Clear()
         Dim tabla = c.cargar_grilla("clientes")
         tabla_clientes.DataSource = tabla
@@ -116,6 +116,19 @@
 
     End Sub
 
+    Private Sub deshabilitar_campos()
+        For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
+            obj.Enabled = False
+        Next
+        For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
+            obj.Enabled = False
+        Next
+        For Each obj As Windows.Forms.Control In Me.tab_contacto.Controls
+            obj.Enabled = False
+        Next
+
+    End Sub
+
 
     Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
         cargar_cliente()
@@ -156,9 +169,9 @@
                 If validar_cliente() = respuesta_validacion._ok Then
                     Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
                     Dim documento As Int64 = CLng(Me.txt_documento.Text)
-                    Dim fijo As Nullable(Of Integer)
-                    Dim celular As Nullable(Of Integer)
-                    Dim cuit As Nullable(Of Integer)
+                    Dim fijo As Nullable(Of Int64)
+                    Dim celular As Nullable(Of Int64)
+                    Dim cuit As Nullable(Of Int64)
                     If txt_fijo.Text = "" Then
                         fijo = Nothing
                     Else : fijo = CLng(txt_fijo.Text)
@@ -173,9 +186,11 @@
                     End If
                     c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, documento, fijo, celular, Me.txt_mail.Text, cuit)
                     MsgBox("Se guardó correctamente")
+                    deshabilitar_campos()
                 End If
             End If
         End If
+        cargar_grilla()
     End Sub
 
     Private Function validar_datos()
@@ -257,4 +272,7 @@
     End Sub
 
 
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+
+    End Sub
 End Class

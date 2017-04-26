@@ -29,9 +29,9 @@ Partial Class Menu
         Me.cmd_gestor_marcas = New System.Windows.Forms.Button()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.lbl_hora = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmd_gestor_paises = New System.Windows.Forms.Button()
         Me.cmd_gestor_categoria = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,21 +77,11 @@ Partial Class Menu
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(251, 403)
+        Me.lbl_hora.Location = New System.Drawing.Point(196, 424)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
-        Me.lbl_hora.Text = "Label22"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
-        Me.PictureBox1.Location = New System.Drawing.Point(167, 325)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(183, 63)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 36
-        Me.PictureBox1.TabStop = False
+        Me.lbl_hora.Text = "Hora"
         '
         'cmd_gestor_paises
         '
@@ -116,6 +106,16 @@ Partial Class Menu
         Me.cmd_gestor_categoria.TabIndex = 37
         Me.cmd_gestor_categoria.Text = "Gestor Categorias"
         Me.cmd_gestor_categoria.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
+        Me.PictureBox1.Location = New System.Drawing.Point(129, 316)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(259, 92)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 36
+        Me.PictureBox1.TabStop = False
         '
         'Menu
         '

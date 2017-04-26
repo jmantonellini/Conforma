@@ -216,6 +216,10 @@
     <None Include="Resources\izquierda.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\X.png" />
+    <None Include="Resources\16909.png" />
+    <None Include="Resources\126483.png" />
+    <None Include="Resources\32178.png" />
     <Content Include="Resources\exit-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
