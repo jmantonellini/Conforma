@@ -32,6 +32,7 @@ Partial Class Menu
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmd_gestor_paises = New System.Windows.Forms.Button()
         Me.cmd_gestor_categoria = New System.Windows.Forms.Button()
+        Me.cmd_provincias = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -110,12 +111,24 @@ Partial Class Menu
         Me.cmd_gestor_categoria.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_gestor_categoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_categoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_categoria.Location = New System.Drawing.Point(173, 236)
+        Me.cmd_gestor_categoria.Location = New System.Drawing.Point(79, 238)
         Me.cmd_gestor_categoria.Name = "cmd_gestor_categoria"
         Me.cmd_gestor_categoria.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_categoria.TabIndex = 37
         Me.cmd_gestor_categoria.Text = "Gestor Categorias"
         Me.cmd_gestor_categoria.UseVisualStyleBackColor = False
+        '
+        'cmd_provincias
+        '
+        Me.cmd_provincias.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_provincias.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_provincias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.cmd_provincias.Location = New System.Drawing.Point(266, 238)
+        Me.cmd_provincias.Name = "cmd_provincias"
+        Me.cmd_provincias.Size = New System.Drawing.Size(171, 58)
+        Me.cmd_provincias.TabIndex = 38
+        Me.cmd_provincias.Text = "Gestor Provincias"
+        Me.cmd_provincias.UseVisualStyleBackColor = False
         '
         'Menu
         '
@@ -123,6 +136,7 @@ Partial Class Menu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(516, 476)
+        Me.Controls.Add(Me.cmd_provincias)
         Me.Controls.Add(Me.cmd_gestor_categoria)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lbl_hora)
@@ -147,4 +161,5 @@ Partial Class Menu
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents cmd_gestor_paises As System.Windows.Forms.Button
     Friend WithEvents cmd_gestor_categoria As System.Windows.Forms.Button
+    Friend WithEvents cmd_provincias As System.Windows.Forms.Button
 End Class

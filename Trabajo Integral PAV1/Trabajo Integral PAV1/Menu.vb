@@ -2,7 +2,7 @@
 
     Dim nuevo As Form
 
-    Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click, cmd_gestor_paises.Click, cmd_gestor_categoria.Click
+    Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click, cmd_gestor_paises.Click, cmd_gestor_categoria.Click, cmd_provincias.Click
 
         Dim ventana As String = sender.Text
 
@@ -17,6 +17,8 @@
                 nuevo = New gestor_paises
             Case "Gestor Categorias"
                 nuevo = New gestor_tipo_producto_y_categorias
+            Case "Gestor Provincias"
+                nuevo = New Gestor_Provincias
         End Select
         nuevo.Show()
     End Sub
@@ -26,4 +28,5 @@
     End Sub
 
 
+    
 End Class

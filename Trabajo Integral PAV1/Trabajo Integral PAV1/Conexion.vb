@@ -339,4 +339,8 @@
         Return False
     End Function
 
+    Public Function cargar_provincias_filtrada(ByVal pais As String) As Data.DataTable
+        Return Me.ejecuto_sql("SELECT PR.NOMBRE FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
+
+    End Function
 End Class

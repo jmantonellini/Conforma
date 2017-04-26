@@ -134,7 +134,7 @@
                     C.eliminar_nombre(tabla, seleccion)
                     MsgBox("Se ha eliminado el elemento satisfactoriamente", MsgBoxStyle.Information, "Aviso")
                 Catch ex As Exception
-                    MsgBox("No se pudo realizar la consulta por problemas de dependencia")
+                    MsgBox("No se pudo realizar el borrado por problemas de referencia")
                 End Try
 
                 cmb_area = C.cargar_combo(cmb_area, "AREAS", "ID_AREA", "NOMBRE")
