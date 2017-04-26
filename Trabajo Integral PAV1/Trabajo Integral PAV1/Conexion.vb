@@ -206,7 +206,7 @@
                     Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & cuit_nulo & ", TEL_CEL=" & nuevo_celular & ", TEL_FIJO=" & nuevo_fijo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
                 Else
                     If IsNothing(nuevo_celular) And IsNothing(nuevo_fijo) Then
-                        Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & nuevo_cuit & ", TEL_CEL=" & celular_nulo & ", TEL_FIJO=" & fijo_nulo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+                        Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO = '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO = " & nvo_tipo_doc & ", NRO_DOC = " & nuevo_documento & ", CUIT = " & nuevo_cuit & ", TEL_CEL= " & celular_nulo & ", TEL_FIJO=" & fijo_nulo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
                     Else
                         If IsNothing(nuevo_fijo) And IsNothing(nuevo_cuit) Then
                             Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & cuit_nulo & ", TEL_CEL=" & nuevo_celular & ", TEL_FIJO=" & fijo_nulo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
