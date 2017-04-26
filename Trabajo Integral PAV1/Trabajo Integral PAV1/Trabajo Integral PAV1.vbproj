@@ -220,10 +220,10 @@
     <None Include="Resources\16909.png" />
     <None Include="Resources\126483.png" />
     <None Include="Resources\32178.png" />
-    <None Include="Resources\149111.png" />
     <None Include="Resources\55.png" />
     <None Include="Resources\6184-button.png" />
     <None Include="Resources\84380-edit-button.png" />
+    <None Include="Resources\149111.png" />
     <Content Include="Resources\exit-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
