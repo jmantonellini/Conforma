@@ -344,7 +344,10 @@
     End Sub
 
     Public Sub elimnar_provincia(ByVal provincia As String)
-
         Me.ejecuto_sql("DELETE FROM PROVINCIAS WHERE NOMBRE LIKE '" & provincia & "'")
+    End Sub
+
+    Public Sub cambiar_nombre_provincia(ByVal provincia As String, nombre_nuevo As String)
+        Me.ejecuto_sql("UPDATE PROVINCIAS SET NOMBRE = '" & nombre_nuevo & "' WHERE NOMBRE LIKE '" & provincia & "'")
     End Sub
 End Class
