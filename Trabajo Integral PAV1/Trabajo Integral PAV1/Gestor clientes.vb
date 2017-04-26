@@ -16,11 +16,6 @@
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
-
-    End Sub
-
     Private Sub gestor_clientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
             e.Cancel = True
