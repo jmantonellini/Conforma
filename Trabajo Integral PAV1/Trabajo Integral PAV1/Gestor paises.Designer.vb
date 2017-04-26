@@ -33,7 +33,6 @@ Partial Class gestor_paises
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.tabla_paises, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -134,14 +133,6 @@ Partial Class gestor_paises
         Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
-        'lbl_hora
-        '
-        Me.lbl_hora.Location = New System.Drawing.Point(331, 433)
-        Me.lbl_hora.Name = "lbl_hora"
-        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
-        Me.lbl_hora.TabIndex = 46
-        Me.lbl_hora.Text = "Label22"
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -151,7 +142,6 @@ Partial Class gestor_paises
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(476, 456)
-        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
@@ -175,7 +165,6 @@ Partial Class gestor_paises
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
-    Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
