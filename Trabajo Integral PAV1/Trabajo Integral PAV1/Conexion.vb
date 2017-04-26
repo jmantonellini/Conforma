@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma1
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -333,7 +333,7 @@
                 id_cadena = "CATEGORIA"
         End Select
 
-        If (Me.ejecuto_sql("SELECT * FROM " & id_cadena & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
+        If (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
             Return True
         End If
         Return False
