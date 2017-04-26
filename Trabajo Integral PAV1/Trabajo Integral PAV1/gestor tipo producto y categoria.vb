@@ -18,7 +18,7 @@
 
     Private Sub cmb_area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedValueChanged
         If (cmb_area.Items.Count <> 0) Then
-            cmb_tipo_producto = C.cargar_combo_flitrado(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", cmb_area.Text, "AREAS")
+            C.cargar_combo_flitrado(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", cmb_area.Text, "AREAS")
             tabla_categorias.DataSource = C.cargar_categorias_filtrada("CATEGORIAS", cmb_tipo_producto.Text)
         End If
 

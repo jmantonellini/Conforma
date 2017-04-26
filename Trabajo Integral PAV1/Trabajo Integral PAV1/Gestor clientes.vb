@@ -155,7 +155,23 @@
             If accion = tipo_grabacion.insertar Then
                 If validar_cliente() = respuesta_validacion._ok Then
                     Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
-                    c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, Me.txt_documento.Text, Me.txt_fijo.Text, Me.txt_celular.Text, Me.txt_mail.Text, Me.txt_cuit.Text)
+                    Dim documento As Int64 = CLng(Me.txt_documento.Text)
+                    Dim fijo As Nullable(Of Integer)
+                    Dim celular As Nullable(Of Integer)
+                    Dim cuit As Nullable(Of Integer)
+                    If txt_fijo.Text = "" Then
+                        fijo = Nothing
+                    Else : fijo = CLng(txt_fijo.Text)
+                    End If
+                    If txt_celular.Text = "" Then
+                        celular = Nothing
+                    Else : celular = CLng(txt_celular.Text)
+                    End If
+                    If txt_cuit.Text = "" Then
+                        cuit = Nothing
+                    Else : cuit = CLng(txt_cuit.Text)
+                    End If
+                    c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, documento, fijo, celular, Me.txt_mail.Text, cuit)
                     MsgBox("Se guardó correctamente")
                 End If
             End If
@@ -164,14 +180,14 @@
 
     Private Function validar_datos()
         For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls()
-            If obj.GetType().Name = "TextBox" And obj.GetType().Name = "MaskedTextBox" And obj.Name <> "txt_cuit" And obj.Name <> "txt_empresa" Then
+            If obj.GetType().Name = "TextBox" And obj.GetType().Name = "MaskedTextBox" And obj.Name <> "txt_cuit" Then
                 If obj.Text = "" Then
                     MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
                     obj.Focus()
                     Return respuesta_validacion._error
                 End If
             End If
-            If obj.GetType().Name = "ComboBox" Then
+            If obj.GetType().Name = "ComboBox" And obj.Name <> "cmb_empresa" Then
                 Dim o As ComboBox = obj
                 If o.SelectedIndex = -1 Then
                     MsgBox("El campo " + obj.Name + " está sin selección", MsgBoxStyle.OkOnly, "Error")
@@ -180,6 +196,13 @@
                 End If
             End If
         Next
+        If txt_fijo.Text = "" And txt_celular.Text = "" And txt_mail.Text = "" Then
+            control_tab.SelectedTab = tab_contacto
+            txt_fijo.Focus()
+            MsgBox("Debe cargar al menos un dato de contacto", MsgBoxStyle.OkOnly, "Faltan datos")
+            
+            Return respuesta_validacion._error
+        End If
         Return respuesta_validacion._ok
     End Function
 
@@ -208,7 +231,7 @@
         control_tab.SelectedTab = tab_domicilios
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_anterior2.Click
+    Private Sub cmd_anterior2_Click(sender As Object, e As EventArgs) Handles cmd_anterior2.Click
         control_tab.SelectedTab = tab_contacto
     End Sub
 
@@ -217,5 +240,21 @@
             Me.txt_cuit.Text = Me.cmb_empresa.SelectedValue.ToString
         End If
     End Sub
+
+    Private Sub cmb_pais_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_pais.SelectedValueChanged
+        cmb_provincia.SelectedIndex = -1
+        cmb_ciudad.SelectedIndex = -1
+        If (cmb_pais.Items.Count <> 0) Then
+            c.cargar_combo_flitrado_provincia(cmb_provincia, "PROVINCIAS", "ID_PROVINCIA", "NOMBRE", cmb_pais.Text, "PAISES")
+        End If
+    End Sub
+
+    Private Sub cmb_provincia_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_provincia.SelectedValueChanged
+        cmb_ciudad.SelectedIndex = -1
+        If (cmb_provincia.Items.Count <> 0) Then
+            c.cargar_combo_flitrado_ciudad(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE", cmb_provincia.Text, "PROVINCIAS")
+        End If
+    End Sub
+
 
 End Class
