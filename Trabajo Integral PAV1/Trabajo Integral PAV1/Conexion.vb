@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_juanma2
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -110,13 +110,18 @@
         Return combo
     End Function
 
-    Public Function buscar_datos_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
-        Dim cliente As DataTable = ejecuto_sql("SELECT C.* FROM CLIENTES  C LEFT JOIN EMPRESAS E ON C.CUIT = E.CUIT where C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+    Public Function buscar_datos_cliente_id(ByVal id_cliente As Int64) As Data.DataTable
+        Dim cliente As DataTable = ejecuto_sql("SELECT * FROM CLIENTES WHERE ID_CLIENTE =" & id_cliente)
         Return cliente
     End Function
 
-    Public Function buscar_domicilio_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
-        Dim domicilio As DataTable = ejecuto_sql("Select D.CALLE, D.NUMERO, CI.NOMBRE, PA.NOMBRE, PR.NOMBRE from DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE LEFT JOIN CIUDADES CI ON D.ID_CIUDAD = CI.ID_CIUDAD LEFT JOIN PROVINCIAS PR ON CI.ID_PROVINCIA = PR.ID_PROVINCIA LEFT JOIN PAISES PA ON PR.ID_PAIS = PA.ID_PAIS WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
+    Public Function buscar_datos_cliente_doc(ByVal tipo_doc As Int64, nro_doc As Int64) As Data.DataTable
+        Dim cliente As DataTable = ejecuto_sql("SELECT * FROM CLIENTES WHERE ID_TIPO_DOCUMENTO = " & tipo_doc & " AND NRO_DOC = " & nro_doc)
+        Return cliente
+    End Function
+
+    Public Function buscar_domicilio_cliente(ByVal id_cliente As Int64) As Data.DataTable
+        Dim domicilio As DataTable = ejecuto_sql("Select D.CALLE, D.NUMERO, CI.NOMBRE, PA.NOMBRE, PR.NOMBRE from DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE LEFT JOIN CIUDADES CI ON D.ID_CIUDAD = CI.ID_CIUDAD LEFT JOIN PROVINCIAS PR ON CI.ID_PROVINCIA = PR.ID_PROVINCIA LEFT JOIN PAISES PA ON PR.ID_PAIS = PA.ID_PAIS WHERE C.ID_CLIENTE =" & id_cliente)
         Return domicilio
 
     End Function
@@ -190,6 +195,7 @@
         Dim celular_nulo As String = "NULL"
         Dim fijo_nulo As String = "NULL"
         Dim cuit_nulo As String = "NULL"
+        Dim numero_nulo As String = "NULL"
         If IsNothing(nuevo_celular) And nuevo_fijo IsNot Nothing And nuevo_cuit IsNot Nothing Then
             Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & nuevo_cuit & ", TEL_CEL=" & celular_nulo & ", TEL_FIJO=" & nuevo_fijo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
         Else
@@ -215,7 +221,14 @@
             End If
         End If
 
-        'Me.ejecuto_sql("UPDATE DOMICILIOS SET ID_CIUDAD =" & nueva_ciudad & ", CALLE='" & nueva_calle & "', NUMERO=" & nuevo_nro & " WHERE ID_CLIENTE= " & id_cliente)
+        If IsNothing(nueva_ciudad) Then
+            Me.ejecuto_sql("DELETE FROM DOMICILIOS WHERE ID_CLIENTE =" & id_cliente)
+        Else
+            If IsNothing(nuevo_nro) Then
+                Me.ejecuto_sql("UPDATE DOMICILIOS SET ID_CIUDAD =" & nueva_ciudad & ", CALLE='" & nueva_calle & "', NUMERO='" & numero_nulo & "' WHERE ID_CLIENTE= " & id_cliente)
+            Else : Me.ejecuto_sql("UPDATE DOMICILIOS SET ID_CIUDAD =" & nueva_ciudad & ", CALLE='" & nueva_calle & "', NUMERO=" & nuevo_nro & " WHERE ID_CLIENTE= " & id_cliente)
+            End If
+        End If
 
     End Sub
 
@@ -224,8 +237,20 @@
 
         Me.ejecuto_sql("INSERT INTO EMPRESAS VALUES (" & cuit & ", '" & nombre & "', '" & razon_social & "', " & telefono & ", '" & email & "')")
 
-
     End Sub
+
+    Public Sub insertar_domicilio(ByVal id_cliente As Int64, calle As String, numero As Int64?, id_ciudad As Int64)
+        Me.ejecuto_sql("INSERT INTO DOMICILIOS(ID_CLIENTE, CALLE, NUMERO, ID_CIUDAD) VALUES(" & id_cliente & ", '" & calle & "', " & numero & ", " & id_ciudad & ")")
+    End Sub
+
+
+    Public Function dame_id_cliente(ByVal tipo_doc As Int64, nro_doc As Int64) As Data.DataTable
+
+        Dim id_cli As Data.DataTable = Me.ejecuto_sql("SELECT ID_CLIENTE FROM CLIENTES WHERE ID_TIPO_DOCUMENTO = " & tipo_doc & " AND NRO_DOC= " & nro_doc)
+
+        Return id_cli
+    End Function
+
 
     Public Function buscar_paises(ByVal nombre As String) As Data.DataTable
         Dim pais As Data.DataTable = Me.ejecuto_sql("SELECT P.* FROM PAISES P WHERE P.NOMBRE = " & "'" & nombre & "'")
