@@ -16,11 +16,6 @@
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
-
-    End Sub
-
     Private Sub gestor_clientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
             e.Cancel = True
@@ -59,7 +54,7 @@
         Me.tabla_clientes.Columns.Clear()
         Dim tabla = c.cargar_grilla("clientes")
         tabla_clientes.DataSource = tabla
-
+        tabla_clientes.Columns(4).Visible = False
     End Sub
     Private Sub limpiar_campos()
         For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
@@ -131,6 +126,8 @@
 
 
     Private Sub tabla_clientes_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_clientes.CellClick
+        deshabilitar_campos()
+        cmd_guardar.Enabled = False
         cargar_cliente()
         cmd_modificar.Enabled = True
         cmd_eliminar.Enabled = True
@@ -273,6 +270,12 @@
 
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
-
+        If MessageBox.Show("¿Seguro que desea eliminar el cliente seleccionado? ", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) = Windows.Forms.DialogResult.Yes Then
+            c.eliminar_cliente(tabla_clientes.CurrentRow.Cells(4).Value)
+            tabla_clientes.DataSource = c.cargar_grilla("clientes")
+            Me.limpiar_campos()
+            cmd_modificar.Enabled = False
+        End If
     End Sub
+
 End Class

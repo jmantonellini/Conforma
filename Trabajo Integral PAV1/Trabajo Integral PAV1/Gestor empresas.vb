@@ -187,8 +187,5 @@
             tablaEmpresas.DataSource = c.cargar_grilla("empresas")
             Me.blanquear_campos()
         End If
-
-
-
     End Sub
 End Class

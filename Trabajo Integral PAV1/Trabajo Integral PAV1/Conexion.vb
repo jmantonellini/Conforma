@@ -9,7 +9,7 @@
 
         Select Case ventana
             Case "clientes"
-                tabla = Me.ejecuto_sql("SELECT C.APELLIDO as 'Apellido', C.NOMBRE as 'Nombre', E.NOMBRE as 'Empresa', C.TEL_CEL as 'Celular' FROM CLIENTES C LEFT JOIN EMPRESAS E ON E.CUIT = C.CUIT")
+                tabla = Me.ejecuto_sql("SELECT C.APELLIDO as 'Apellido', C.NOMBRE as 'Nombre', E.NOMBRE as 'Empresa', C.TEL_CEL as 'Celular', C.ID_CLIENTE as 'ID' FROM CLIENTES C LEFT JOIN EMPRESAS E ON E.CUIT = C.CUIT")
             Case "empresas"
                 tabla = Me.ejecuto_sql("SELECT NOMBRE as 'Nombre' , CUIT as 'CUIT' FROM EMPRESAS")
             Case "paises"
@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_juanma2
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -65,9 +65,6 @@
         Return Me.ejecuto_sql("SELECT C.ID_CIUDAD, C.NOMBRE FROM CIUDADES C JOIN PROVINCIAS P ON C.ID_PROVINCIA = P.ID_PROVINCIA WHERE P.NOMBRE LIKE '" & descriptor & "'")
     End Function
 
-    Public Function leer_localidades(ByVal nombre_tabla As String, descriptor As String, tabla2 As String) As Data.DataTable
-        Return Me.ejecuto_sql("SELECT C.ID_CIUDAD, C.NOMBRE, C.CODIGO_POSTAL FROM CIUDADES C JOIN PROVINCIAS P ON C.ID_PROVINCIA = P.ID_PROVINCIA WHERE P.NOMBRE LIKE '" & descriptor & "'")
-    End Function
     Public Function cargar_combo(ByRef combo As ComboBox _
                              , tabla As String _
                              , pk As String _
@@ -183,12 +180,12 @@
                 End If
             End If
         End If
-
-
-
-
-
     End Sub
+
+    Public Sub eliminar_cliente(ByVal id_cliente As Int64)
+        Me.ejecuto_sql("DELETE FROM CLIENTES WHERE ID_CLIENTE = " & id_cliente)
+    End Sub
+
 
     Public Sub insertar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
 
@@ -337,12 +334,20 @@
     End Function
 
     Public Function cargar_provincias_filtrada(ByVal pais As String) As Data.DataTable
-        Return Me.ejecuto_sql("SELECT PR.NOMBRE FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
+        Return Me.ejecuto_sql("SELECT PR.NOMBRE AS 'Nombre' FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
     End Function
 
     Public Sub insertar_provincia(ByVal provincia As String, pais As String)
         Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_PAIS FROM PAISES WHERE NOMBRE LIKE '" & pais & "'").Rows(0).Item(0).ToString)
         Me.ejecuto_sql("INSERT INTO PROVINCIAS VALUES ('" & provincia & "'," & id & ")")
 
+    End Sub
+
+    Public Sub elimnar_provincia(ByVal provincia As String)
+        Me.ejecuto_sql("DELETE FROM PROVINCIAS WHERE NOMBRE LIKE '" & provincia & "'")
+    End Sub
+
+    Public Sub cambiar_nombre_provincia(ByVal provincia As String, nombre_nuevo As String)
+        Me.ejecuto_sql("UPDATE PROVINCIAS SET NOMBRE = '" & nombre_nuevo & "' WHERE NOMBRE LIKE '" & provincia & "'")
     End Sub
 End Class
