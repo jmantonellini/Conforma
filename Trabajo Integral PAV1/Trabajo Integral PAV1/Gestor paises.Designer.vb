@@ -33,7 +33,6 @@ Partial Class gestor_paises
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.btn_buscar = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.tabla_paises, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,15 +134,6 @@ Partial Class gestor_paises
         Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
-        'btn_buscar
-        '
-        Me.btn_buscar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.BUSCAR01
-        Me.btn_buscar.Location = New System.Drawing.Point(371, 100)
-        Me.btn_buscar.Name = "btn_buscar"
-        Me.btn_buscar.Size = New System.Drawing.Size(40, 40)
-        Me.btn_buscar.TabIndex = 45
-        Me.btn_buscar.UseVisualStyleBackColor = True
-        '
         'lbl_hora
         '
         Me.lbl_hora.Location = New System.Drawing.Point(333, 9)
@@ -162,7 +152,6 @@ Partial Class gestor_paises
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(473, 430)
         Me.Controls.Add(Me.lbl_hora)
-        Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
@@ -186,7 +175,6 @@ Partial Class gestor_paises
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
-    Friend WithEvents btn_buscar As System.Windows.Forms.Button
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn

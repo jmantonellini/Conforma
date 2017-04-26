@@ -33,7 +33,6 @@ Partial Class gestor_marcas_modelos
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.cmd_buscar_modelos = New System.Windows.Forms.Button()
         Me.cmd_guardar_modelo = New System.Windows.Forms.Button()
         Me.cmd_nuevo_modelo = New System.Windows.Forms.Button()
         Me.txt_modelos = New System.Windows.Forms.TextBox()
@@ -41,7 +40,6 @@ Partial Class gestor_marcas_modelos
         Me.lbl_modelos = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btn_buscar_marcas = New System.Windows.Forms.Button()
         Me.cmd_guardar_marca = New System.Windows.Forms.Button()
         Me.cmd_nueva_marca = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
@@ -128,7 +126,6 @@ Partial Class gestor_marcas_modelos
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.cmd_buscar_modelos)
         Me.Panel1.Controls.Add(Me.cmd_guardar_modelo)
         Me.Panel1.Controls.Add(Me.cmd_nuevo_modelo)
         Me.Panel1.Controls.Add(Me.txt_modelos)
@@ -139,15 +136,6 @@ Partial Class gestor_marcas_modelos
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(262, 476)
         Me.Panel1.TabIndex = 4
-        '
-        'cmd_buscar_modelos
-        '
-        Me.cmd_buscar_modelos.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.BUSCAR01
-        Me.cmd_buscar_modelos.Location = New System.Drawing.Point(210, 416)
-        Me.cmd_buscar_modelos.Name = "cmd_buscar_modelos"
-        Me.cmd_buscar_modelos.Size = New System.Drawing.Size(40, 40)
-        Me.cmd_buscar_modelos.TabIndex = 47
-        Me.cmd_buscar_modelos.UseVisualStyleBackColor = True
         '
         'cmd_guardar_modelo
         '
@@ -210,7 +198,6 @@ Partial Class gestor_marcas_modelos
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.btn_buscar_marcas)
         Me.Panel2.Controls.Add(Me.cmd_guardar_marca)
         Me.Panel2.Controls.Add(Me.cmd_nueva_marca)
         Me.Panel2.Controls.Add(Me.txt_marcas)
@@ -221,15 +208,6 @@ Partial Class gestor_marcas_modelos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(262, 476)
         Me.Panel2.TabIndex = 5
-        '
-        'btn_buscar_marcas
-        '
-        Me.btn_buscar_marcas.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.BUSCAR01
-        Me.btn_buscar_marcas.Location = New System.Drawing.Point(210, 416)
-        Me.btn_buscar_marcas.Name = "btn_buscar_marcas"
-        Me.btn_buscar_marcas.Size = New System.Drawing.Size(40, 40)
-        Me.btn_buscar_marcas.TabIndex = 46
-        Me.btn_buscar_marcas.UseVisualStyleBackColor = True
         '
         'cmd_guardar_marca
         '
@@ -327,8 +305,6 @@ Partial Class gestor_marcas_modelos
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents txt_modelos As System.Windows.Forms.TextBox
     Friend WithEvents lbl_modelos As System.Windows.Forms.Label
-    Friend WithEvents cmd_buscar_modelos As System.Windows.Forms.Button
-    Friend WithEvents btn_buscar_marcas As System.Windows.Forms.Button
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id_modelo As System.Windows.Forms.DataGridViewTextBoxColumn
