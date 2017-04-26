@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_juanma1
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -47,12 +47,20 @@
 
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
-        Return ejecuto_sql("SELECT C.NOMBRE FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
+        Return ejecuto_sql("SELECT C.NOMBRE AS 'Nombre' FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
 
     End Function
 
     Public Function leer_areas_filtrada(ByVal nombre_tabla As String, descriptor As String, tabla2 As String) As Data.DataTable
         Return Me.ejecuto_sql("SELECT TP.ID_TIPO_PRODUCTO, TP.NOMBRE FROM AREAS A JOIN TIPOS_PRODUCTOS TP ON A.ID_AREA = TP.ID_AREA WHERE A.NOMBRE LIKE '" & descriptor & "'")
+    End Function
+
+    Public Function leer_paises_filtrada(ByVal nombre_tabla As String, descriptor As String, tabla2 As String) As Data.DataTable
+        Return Me.ejecuto_sql("SELECT P.ID_PROVINCIA, P.NOMBRE FROM PROVINCIAS P JOIN PAISES PA ON P.ID_PAIS = PA.ID_PAIS WHERE PA.NOMBRE LIKE '" & descriptor & "'")
+    End Function
+
+    Public Function leer_provincias_filtrada(ByVal nombre_tabla As String, descriptor As String, tabla2 As String) As Data.DataTable
+        Return Me.ejecuto_sql("SELECT C.ID_CIUDAD, C.NOMBRE FROM CIUDADES C JOIN PROVINCIAS P ON C.ID_PROVINCIA = P.ID_PROVINCIA WHERE P.NOMBRE LIKE '" & descriptor & "'")
     End Function
 
     Public Function cargar_combo(ByRef combo As ComboBox _
@@ -77,6 +85,28 @@
         Return combo
     End Function
 
+
+    Public Function cargar_combo_flitrado_provincia(ByRef combo As ComboBox _
+                         , tabla As String _
+                         , pk As String _
+                         , descriptor As String, filtro As String, tabla2 As String) As ComboBox
+        Dim tablaFuente As Data.DataTable = leer_paises_filtrada(tabla, filtro, tabla2)
+        combo.DataSource = tablaFuente
+        combo.DisplayMember = descriptor
+        combo.ValueMember = pk
+        Return combo
+    End Function
+
+    Public Function cargar_combo_flitrado_ciudad(ByRef combo As ComboBox _
+                        , tabla As String _
+                        , pk As String _
+                        , descriptor As String, filtro As String, tabla2 As String) As ComboBox
+        Dim tablaFuente As Data.DataTable = leer_provincias_filtrada(tabla, filtro, tabla2)
+        combo.DataSource = tablaFuente
+        combo.DisplayMember = descriptor
+        combo.ValueMember = pk
+        Return combo
+    End Function
 
     Public Function buscar_datos_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
         Dim cliente As DataTable = ejecuto_sql("SELECT C.* FROM CLIENTES  C LEFT JOIN EMPRESAS E ON C.CUIT = E.CUIT where C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
@@ -120,9 +150,38 @@
 
     End Sub
 
-    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Int64, telefono_celular As Int64, email As String, cuit As Int64)
+    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Integer?, telefono_celular As Integer?, email As String, cuit As Integer?)
+        Dim celular_nulo As String = "NULL"
+        Dim fijo_nulo As String = "NULL"
+        Dim cuit_nulo As String = "NULL"
+        If IsNothing(telefono_celular) And telefono_fijo IsNot Nothing And cuit IsNot Nothing Then
+            Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & celular_nulo & ", " & telefono_fijo & ", " & cuit & ")")
+        Else
+            If IsNothing(telefono_fijo) And telefono_celular IsNot Nothing And cuit IsNot Nothing Then
+                Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & telefono_celular & ", " & fijo_nulo & ", " & cuit & ")")
+            Else
+                If IsNothing(cuit) And telefono_celular IsNot Nothing And telefono_fijo IsNot Nothing Then
+                    Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & telefono_celular & ", " & telefono_fijo & ", " & cuit_nulo & ")")
+                Else
+                    If IsNothing(telefono_celular) And IsNothing(telefono_fijo) Then
+                        Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & celular_nulo & ", " & fijo_nulo & ", " & cuit & ")")
+                    Else
+                        If IsNothing(telefono_celular) And IsNothing(cuit) Then
+                            Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & celular_nulo & ", " & telefono_fijo & ", " & cuit_nulo & ")")
+                        Else
+                            If IsNothing(telefono_fijo) And IsNothing(cuit) Then
+                                Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & telefono_celular & ", " & fijo_nulo & ", " & cuit_nulo & ")")
+                            Else : Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & telefono_celular & ", " & telefono_fijo & ", " & cuit & ")")
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        End If
 
-        Me.ejecuto_sql("INSERT INTO CLIENTES VALUES (" & tipo_documento & ", " & numero_documento & ", '" & nombre & "', '" & apellido & "', '" & email & "', " & telefono_celular & ", " & telefono_fijo & ", " & cuit & ")")
+        
+
+
 
     End Sub
 
@@ -213,6 +272,71 @@
 
     Public Sub eliminar_empresa(ByRef empresa As String)
         Me.ejecuto_sql("DELETE FROM EMPRESAS WHERE CUIT = " & empresa)
-
     End Sub
+
+    Public Sub insertar_area(ByVal nueva_area As String)
+        Me.ejecuto_sql("INSERT INTO AREAS VALUES( '" & nueva_area & "')")
+    End Sub
+
+    Public Sub insertar_tipo_producto(ByVal nuevo_tipo As String, area As String)
+        Dim id_area As Int16 = CInt(Me.ejecuto_sql("SELECT ID_AREA FROM AREAS WHERE NOMBRE LIKE '" & area & "'").Rows(0).Item(0).ToString)
+
+        Me.ejecuto_sql("INSERT INTO TIPOS_PRODUCTOS VALUES(" & id_area & ",'" & nuevo_tipo & "')")
+    End Sub
+
+    Public Sub insertar_categoria(ByVal nueva_categoria As String, tipo_producto As String)
+        Dim id_tipo As Int16 = CInt(Me.ejecuto_sql("SELECT ID_TIPO_PRODUCTO FROM TIPOS_PRODUCTOS WHERE NOMBRE LIKE '" & tipo_producto & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("INSERT INTO CATEGORIAS VALUES('" & nueva_categoria & "', " & id_tipo & ")")
+    End Sub
+
+    Public Sub cambiar_nombre(ByVal tabla As String, nuevo_nombre As String, nombre_viejo As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_" & id_cadena & " FROM " & tabla & " WHERE NOMBRE LIKE '" & nombre_viejo & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("UPDATE " & tabla & " SET NOMBRE = '" & nuevo_nombre & "' WHERE ID_" & id_cadena & " = " & id)
+    End Sub
+
+    Public Sub eliminar_nombre(ByVal tabla As String, filtro As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_" & id_cadena & " FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("DELETE FROM " & tabla & " WHERE ID_" & id_cadena & " = " & id)
+    End Sub
+
+    Public Function buscar_nombre(ByVal tabla As String, filtro As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        If (Me.ejecuto_sql("SELECT * FROM " & id_cadena & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
+            Return True
+        End If
+        Return False
+    End Function
+
 End Class

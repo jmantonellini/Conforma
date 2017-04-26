@@ -32,6 +32,7 @@ Partial Class gestor_clientes
         Me.control_tab = New System.Windows.Forms.TabControl()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
+        Me.cmd_siguiente = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -50,6 +51,8 @@ Partial Class gestor_clientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tab_contacto = New System.Windows.Forms.TabPage()
+        Me.cmd_anterior = New System.Windows.Forms.Button()
+        Me.cmd_siguiente2 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_mail = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -58,6 +61,7 @@ Partial Class gestor_clientes
         Me.txt_fijo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tab_domicilios = New System.Windows.Forms.TabPage()
+        Me.cmd_anterior2 = New System.Windows.Forms.Button()
         Me.txt_altura_calle = New System.Windows.Forms.MaskedTextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txt_calle = New System.Windows.Forms.TextBox()
@@ -76,10 +80,6 @@ Partial Class gestor_clientes
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_siguiente = New System.Windows.Forms.Button()
-        Me.cmd_anterior = New System.Windows.Forms.Button()
-        Me.cmd_siguiente2 = New System.Windows.Forms.Button()
-        Me.cmd_anterior2 = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -185,6 +185,15 @@ Partial Class gestor_clientes
         Me.cmb_empresa.Name = "cmb_empresa"
         Me.cmb_empresa.Size = New System.Drawing.Size(161, 28)
         Me.cmb_empresa.TabIndex = 4
+        '
+        'cmd_siguiente
+        '
+        Me.cmd_siguiente.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
+        Me.cmd_siguiente.Location = New System.Drawing.Point(374, 229)
+        Me.cmd_siguiente.Name = "cmd_siguiente"
+        Me.cmd_siguiente.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_siguiente.TabIndex = 34
+        Me.cmd_siguiente.UseVisualStyleBackColor = True
         '
         'Label19
         '
@@ -375,6 +384,24 @@ Partial Class gestor_clientes
         Me.tab_contacto.TabIndex = 1
         Me.tab_contacto.Text = "Contacto"
         '
+        'cmd_anterior
+        '
+        Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
+        Me.cmd_anterior.Location = New System.Drawing.Point(310, 229)
+        Me.cmd_anterior.Name = "cmd_anterior"
+        Me.cmd_anterior.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_anterior.TabIndex = 36
+        Me.cmd_anterior.UseVisualStyleBackColor = True
+        '
+        'cmd_siguiente2
+        '
+        Me.cmd_siguiente2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
+        Me.cmd_siguiente2.Location = New System.Drawing.Point(374, 229)
+        Me.cmd_siguiente2.Name = "cmd_siguiente2"
+        Me.cmd_siguiente2.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_siguiente2.TabIndex = 35
+        Me.cmd_siguiente2.UseVisualStyleBackColor = True
+        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -460,6 +487,15 @@ Partial Class gestor_clientes
         Me.tab_domicilios.TabIndex = 2
         Me.tab_domicilios.Text = "Domicilio"
         '
+        'cmd_anterior2
+        '
+        Me.cmd_anterior2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
+        Me.cmd_anterior2.Location = New System.Drawing.Point(310, 229)
+        Me.cmd_anterior2.Name = "cmd_anterior2"
+        Me.cmd_anterior2.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_anterior2.TabIndex = 37
+        Me.cmd_anterior2.UseVisualStyleBackColor = True
+        '
         'txt_altura_calle
         '
         Me.txt_altura_calle.Enabled = False
@@ -499,9 +535,11 @@ Partial Class gestor_clientes
         '
         'cmb_ciudad
         '
-        Me.cmb_ciudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_ciudad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmb_ciudad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmb_ciudad.Enabled = False
         Me.cmb_ciudad.FormattingEnabled = True
+        Me.cmb_ciudad.IntegralHeight = False
         Me.cmb_ciudad.Location = New System.Drawing.Point(157, 114)
         Me.cmb_ciudad.Name = "cmb_ciudad"
         Me.cmb_ciudad.Size = New System.Drawing.Size(161, 28)
@@ -529,9 +567,11 @@ Partial Class gestor_clientes
         '
         'cmb_provincia
         '
-        Me.cmb_provincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_provincia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmb_provincia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmb_provincia.Enabled = False
         Me.cmb_provincia.FormattingEnabled = True
+        Me.cmb_provincia.IntegralHeight = False
         Me.cmb_provincia.Location = New System.Drawing.Point(157, 79)
         Me.cmb_provincia.Name = "cmb_provincia"
         Me.cmb_provincia.Size = New System.Drawing.Size(161, 28)
@@ -549,9 +589,11 @@ Partial Class gestor_clientes
         '
         'cmb_pais
         '
-        Me.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_pais.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmb_pais.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmb_pais.Enabled = False
         Me.cmb_pais.FormattingEnabled = True
+        Me.cmb_pais.IntegralHeight = False
         Me.cmb_pais.Location = New System.Drawing.Point(157, 44)
         Me.cmb_pais.Name = "cmb_pais"
         Me.cmb_pais.Size = New System.Drawing.Size(161, 28)
@@ -632,42 +674,6 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_siguiente
-        '
-        Me.cmd_siguiente.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
-        Me.cmd_siguiente.Location = New System.Drawing.Point(374, 229)
-        Me.cmd_siguiente.Name = "cmd_siguiente"
-        Me.cmd_siguiente.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_siguiente.TabIndex = 34
-        Me.cmd_siguiente.UseVisualStyleBackColor = True
-        '
-        'cmd_anterior
-        '
-        Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
-        Me.cmd_anterior.Location = New System.Drawing.Point(310, 229)
-        Me.cmd_anterior.Name = "cmd_anterior"
-        Me.cmd_anterior.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_anterior.TabIndex = 36
-        Me.cmd_anterior.UseVisualStyleBackColor = True
-        '
-        'cmd_siguiente2
-        '
-        Me.cmd_siguiente2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
-        Me.cmd_siguiente2.Location = New System.Drawing.Point(374, 229)
-        Me.cmd_siguiente2.Name = "cmd_siguiente2"
-        Me.cmd_siguiente2.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_siguiente2.TabIndex = 35
-        Me.cmd_siguiente2.UseVisualStyleBackColor = True
-        '
-        'cmd_anterior2
-        '
-        Me.cmd_anterior2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
-        Me.cmd_anterior2.Location = New System.Drawing.Point(310, 229)
-        Me.cmd_anterior2.Name = "cmd_anterior2"
-        Me.cmd_anterior2.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_anterior2.TabIndex = 37
-        Me.cmd_anterior2.UseVisualStyleBackColor = True
         '
         'gestor_clientes
         '
