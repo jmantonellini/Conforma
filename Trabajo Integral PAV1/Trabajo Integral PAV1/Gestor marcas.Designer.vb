@@ -33,19 +33,19 @@ Partial Class gestor_marcas_modelos
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.cmd_guardar_modelo = New System.Windows.Forms.Button()
-        Me.cmd_nuevo_modelo = New System.Windows.Forms.Button()
         Me.txt_modelos = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_modelos = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.cmd_guardar_marca = New System.Windows.Forms.Button()
-        Me.cmd_nueva_marca = New System.Windows.Forms.Button()
         Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.cmd_guardar_marca = New System.Windows.Forms.Button()
+        Me.cmd_nueva_marca = New System.Windows.Forms.Button()
+        Me.cmd_guardar_modelo = New System.Windows.Forms.Button()
+        Me.cmd_nuevo_modelo = New System.Windows.Forms.Button()
         CType(Me.tabla_modelos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabla_marcas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -137,27 +137,6 @@ Partial Class gestor_marcas_modelos
         Me.Panel1.Size = New System.Drawing.Size(262, 476)
         Me.Panel1.TabIndex = 4
         '
-        'cmd_guardar_modelo
-        '
-        Me.cmd_guardar_modelo.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_guardar_modelo.Enabled = False
-        Me.cmd_guardar_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar_modelo.Location = New System.Drawing.Point(115, 396)
-        Me.cmd_guardar_modelo.Name = "cmd_guardar_modelo"
-        Me.cmd_guardar_modelo.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar_modelo.TabIndex = 25
-        Me.cmd_guardar_modelo.UseVisualStyleBackColor = False
-        '
-        'cmd_nuevo_modelo
-        '
-        Me.cmd_nuevo_modelo.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_nuevo_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(16, 396)
-        Me.cmd_nuevo_modelo.Name = "cmd_nuevo_modelo"
-        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_nuevo_modelo.TabIndex = 24
-        Me.cmd_nuevo_modelo.UseVisualStyleBackColor = False
-        '
         'txt_modelos
         '
         Me.txt_modelos.Enabled = False
@@ -209,27 +188,6 @@ Partial Class gestor_marcas_modelos
         Me.Panel2.Size = New System.Drawing.Size(262, 476)
         Me.Panel2.TabIndex = 5
         '
-        'cmd_guardar_marca
-        '
-        Me.cmd_guardar_marca.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_guardar_marca.Enabled = False
-        Me.cmd_guardar_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar_marca.Location = New System.Drawing.Point(115, 396)
-        Me.cmd_guardar_marca.Name = "cmd_guardar_marca"
-        Me.cmd_guardar_marca.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar_marca.TabIndex = 23
-        Me.cmd_guardar_marca.UseVisualStyleBackColor = False
-        '
-        'cmd_nueva_marca
-        '
-        Me.cmd_nueva_marca.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_nueva_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nueva_marca.Location = New System.Drawing.Point(14, 396)
-        Me.cmd_nueva_marca.Name = "cmd_nueva_marca"
-        Me.cmd_nueva_marca.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_nueva_marca.TabIndex = 22
-        Me.cmd_nueva_marca.UseVisualStyleBackColor = False
-        '
         'lbl_hora
         '
         Me.lbl_hora.Location = New System.Drawing.Point(443, 9)
@@ -262,6 +220,48 @@ Partial Class gestor_marcas_modelos
         Me.Label22.Size = New System.Drawing.Size(329, 25)
         Me.Label22.TabIndex = 42
         Me.Label22.Text = "Gestor de Marcas y Modelos"
+        '
+        'cmd_guardar_marca
+        '
+        Me.cmd_guardar_marca.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar_marca.Enabled = False
+        Me.cmd_guardar_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar_marca.Location = New System.Drawing.Point(115, 396)
+        Me.cmd_guardar_marca.Name = "cmd_guardar_marca"
+        Me.cmd_guardar_marca.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar_marca.TabIndex = 23
+        Me.cmd_guardar_marca.UseVisualStyleBackColor = False
+        '
+        'cmd_nueva_marca
+        '
+        Me.cmd_nueva_marca.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nueva_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nueva_marca.Location = New System.Drawing.Point(14, 396)
+        Me.cmd_nueva_marca.Name = "cmd_nueva_marca"
+        Me.cmd_nueva_marca.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nueva_marca.TabIndex = 22
+        Me.cmd_nueva_marca.UseVisualStyleBackColor = False
+        '
+        'cmd_guardar_modelo
+        '
+        Me.cmd_guardar_modelo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar_modelo.Enabled = False
+        Me.cmd_guardar_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar_modelo.Location = New System.Drawing.Point(115, 396)
+        Me.cmd_guardar_modelo.Name = "cmd_guardar_modelo"
+        Me.cmd_guardar_modelo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar_modelo.TabIndex = 25
+        Me.cmd_guardar_modelo.UseVisualStyleBackColor = False
+        '
+        'cmd_nuevo_modelo
+        '
+        Me.cmd_nuevo_modelo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(16, 396)
+        Me.cmd_nuevo_modelo.Name = "cmd_nuevo_modelo"
+        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo_modelo.TabIndex = 24
+        Me.cmd_nuevo_modelo.UseVisualStyleBackColor = False
         '
         'gestor_marcas_modelos
         '

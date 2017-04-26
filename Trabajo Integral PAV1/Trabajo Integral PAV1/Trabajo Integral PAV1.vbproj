@@ -161,7 +161,6 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestor empresas.resx">
       <DependentUpon>Gestor empresas.vb</DependentUpon>
@@ -186,12 +185,6 @@
     <None Include="Resources\LogoConforma_Mesc-e1484836503615.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\55.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\84380-edit-button.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\f02a629827a6-2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -205,9 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\84380-edit-button545.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6184-button.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\61848-delete-button.png" />
@@ -225,10 +215,15 @@
     <None Include="Resources\izquierda.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\exit-icon2.png" />
     <None Include="Resources\X.png" />
     <None Include="Resources\16909.png" />
     <None Include="Resources\126483.png" />
     <None Include="Resources\32178.png" />
+    <None Include="Resources\149111.png" />
+    <None Include="Resources\55.png" />
+    <None Include="Resources\6184-button.png" />
+    <None Include="Resources\84380-edit-button.png" />
     <Content Include="Resources\exit-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -9,7 +9,7 @@
 
         Select Case ventana
             Case "clientes"
-                tabla = Me.ejecuto_sql("SELECT C.APELLIDO as 'Apellido', C.NOMBRE as 'Nombre', E.NOMBRE as 'Empresa', C.TEL_CEL as 'Celular' FROM CLIENTES C LEFT JOIN EMPRESAS E ON E.CUIT = C.CUIT")
+                tabla = Me.ejecuto_sql("SELECT C.APELLIDO as 'Apellido', C.NOMBRE as 'Nombre', E.NOMBRE as 'Empresa', C.TEL_CEL as 'Celular', C.ID_CLIENTE as 'ID' FROM CLIENTES C LEFT JOIN EMPRESAS E ON E.CUIT = C.CUIT")
             Case "empresas"
                 tabla = Me.ejecuto_sql("SELECT NOMBRE as 'Nombre' , CUIT as 'CUIT' FROM EMPRESAS")
             Case "paises"
@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_juanma2
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -180,12 +180,12 @@
                 End If
             End If
         End If
-
-
-
-
-
     End Sub
+
+    Public Sub eliminar_cliente(ByVal id_cliente As Int64)
+        Me.ejecuto_sql("DELETE FROM CLIENTES WHERE ID_CLIENTE = " & id_cliente)
+    End Sub
+
 
     Public Sub insertar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
 
