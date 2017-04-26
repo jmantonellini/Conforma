@@ -45,6 +45,8 @@
         Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
     End Function
 
+    
+
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
         Return ejecuto_sql("SELECT C.NOMBRE AS 'Nombre' FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
@@ -324,14 +326,6 @@
     Public Function buscar_nombre(ByVal tabla As String, filtro As String)
         Dim id_cadena As String = ""
 
-        Select Case tabla
-            Case " AREAS "
-                id_cadena = "AREA"
-            Case " TIPOS_PRODUCTOS "
-                id_cadena = "TIPO_PRODUCTO"
-            Case " CATEGORIAS "
-                id_cadena = "CATEGORIA"
-        End Select
 
         If (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
             Return True
@@ -341,6 +335,11 @@
 
     Public Function cargar_provincias_filtrada(ByVal pais As String) As Data.DataTable
         Return Me.ejecuto_sql("SELECT PR.NOMBRE FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
-
     End Function
+
+    Public Sub insertar_provincia(ByVal provincia As String, pais As String)
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_PAIS FROM PAISES WHERE NOMBRE LIKE '" & pais & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("INSERT INTO PROVINCIAS VALUES ('" & provincia & "'," & id & ")")
+
+    End Sub
 End Class
