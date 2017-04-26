@@ -162,6 +162,7 @@
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
         If validar_datos() = respuesta_validacion._ok Then
+
             If accion = tipo_grabacion.insertar Then
                 If validar_cliente() = respuesta_validacion._ok Then
                     Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
@@ -186,6 +187,43 @@
                     deshabilitar_campos()
                 End If
             End If
+
+            If accion = tipo_grabacion.modificar Then
+                If validar_cliente() = respuesta_validacion._ok Then
+                    Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
+                    Dim documento As Int64 = CLng(Me.txt_documento.Text)
+                    Dim fijo As Nullable(Of Int64)
+                    Dim celular As Nullable(Of Int64)
+                    Dim cuit As Nullable(Of Int64)
+                    Dim id_ciudad As Int64?
+                    Dim numero As Int64?
+                    If txt_fijo.Text = "" Then
+                        fijo = Nothing
+                    Else : fijo = CLng(txt_fijo.Text)
+                    End If
+                    If txt_celular.Text = "" Then
+                        celular = Nothing
+                    Else : celular = CLng(txt_celular.Text)
+                    End If
+                    If txt_cuit.Text = "" Then
+                        cuit = Nothing
+                    Else : cuit = CLng(txt_cuit.Text)
+                    End If
+                    If txt_altura_calle.Text = "" Then
+                        numero = Nothing
+                    Else : numero = CLng(txt_altura_calle.Text)
+                    End If
+                    If cmb_ciudad.Text = "" Then
+                        id_ciudad = Nothing
+                    Else : id_ciudad = CLng(Me.cmb_ciudad.SelectedValue)
+                    End If
+
+                    c.modificar_cliente(tabla_clientes.CurrentRow.Cells(4).Value, txt_nombre.Text, txt_apellido.Text, id_tipodoc, documento, cuit, celular, fijo, txt_mail.Text, id_ciudad, txt_calle.Text, numero)
+                    MsgBox("Se modificó el cliente correctamente")
+                    deshabilitar_campos()
+                End If
+            End If
+
         End If
         cargar_grilla()
     End Sub
@@ -278,4 +316,11 @@
         End If
     End Sub
 
+    Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
+        accion = tipo_grabacion.modificar
+        habilitar_campos()
+        cmd_guardar.Enabled = True
+        control_tab.SelectedTab = tab_datos_personales
+        txt_nombre.Focus()
+    End Sub
 End Class
