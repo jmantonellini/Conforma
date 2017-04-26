@@ -42,7 +42,6 @@ Partial Class gestor_marcas_modelos
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.cmd_guardar_marca = New System.Windows.Forms.Button()
         Me.cmd_nueva_marca = New System.Windows.Forms.Button()
-        Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -230,14 +229,6 @@ Partial Class gestor_marcas_modelos
         Me.cmd_nueva_marca.TabIndex = 22
         Me.cmd_nueva_marca.UseVisualStyleBackColor = False
         '
-        'lbl_hora
-        '
-        Me.lbl_hora.Location = New System.Drawing.Point(443, 9)
-        Me.lbl_hora.Name = "lbl_hora"
-        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
-        Me.lbl_hora.TabIndex = 35
-        Me.lbl_hora.Text = "Label22"
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -270,7 +261,6 @@ Partial Class gestor_marcas_modelos
         Me.ClientSize = New System.Drawing.Size(586, 641)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_salir)
-        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -295,7 +285,6 @@ Partial Class gestor_marcas_modelos
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents cmd_guardar_modelo As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo_modelo As System.Windows.Forms.Button

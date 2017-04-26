@@ -72,7 +72,6 @@ Partial Class gestor_clientes
         Me.cmb_provincia = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmb_pais = New System.Windows.Forms.ComboBox()
-        Me.lbl_hora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
@@ -599,14 +598,6 @@ Partial Class gestor_clientes
         Me.cmb_pais.Size = New System.Drawing.Size(161, 28)
         Me.cmb_pais.TabIndex = 0
         '
-        'lbl_hora
-        '
-        Me.lbl_hora.Location = New System.Drawing.Point(758, 9)
-        Me.lbl_hora.Name = "lbl_hora"
-        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
-        Me.lbl_hora.TabIndex = 34
-        Me.lbl_hora.Text = "Label22"
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -682,7 +673,6 @@ Partial Class gestor_clientes
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(894, 498)
         Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_salir)
@@ -755,7 +745,6 @@ Partial Class gestor_clientes
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents lbl_hora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label

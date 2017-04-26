@@ -22,7 +22,6 @@ Partial Class gestor_tipo_producto_y_categorias
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gestor_tipo_producto_y_categorias))
         Me.lbl_area = New System.Windows.Forms.Label()
         Me.cmb_area = New System.Windows.Forms.ComboBox()
@@ -34,7 +33,6 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.tabla_categorias = New System.Windows.Forms.DataGridView()
         Me.cmd_nueva_categoria = New System.Windows.Forms.Button()
         Me.cmd_modificar_categoria = New System.Windows.Forms.Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cmd_eliminar_tipo = New System.Windows.Forms.Button()
         Me.cmd_eliminar_categoria = New System.Windows.Forms.Button()
         Me.cmd_eliminar_area = New System.Windows.Forms.Button()
@@ -141,10 +139,6 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_modificar_categoria.TabIndex = 7
         Me.cmd_modificar_categoria.UseVisualStyleBackColor = True
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
         'cmd_eliminar_tipo
         '
         Me.cmd_eliminar_tipo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._126483
@@ -243,7 +237,6 @@ Partial Class gestor_tipo_producto_y_categorias
     Friend WithEvents tabla_categorias As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_nueva_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_categoria As System.Windows.Forms.Button
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents cmd_eliminar_area As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_tipo As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_categoria As System.Windows.Forms.Button
