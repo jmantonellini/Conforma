@@ -17,20 +17,7 @@
         End If
     End Sub
 
-<<<<<<< HEAD
-    'Private Sub cargar_grilla()
-    '    Dim tabla As Data.DataTable = conexion.leer_localidades("PROVINCIAS", "NOMBRE", "CIUDADES")
-    '    Me.tabla_localidades.Rows.Clear()
 
-    '    Dim index As Integer
-    '    For index = 0 To tabla.Rows.Count - 1
-
-    '        Me.tabla_localidades.Rows.Add()
-    '        Me.tabla_localidades.Rows(index).Cells(0).Value = tabla.Rows(index)("ID_CIUDAD")
-    '        Me.tabla_localidades.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
-    '        Me.tabla_localidades.Rows(index).Cells(1).Value = tabla.Rows(index)("CODIGO_POSTAL")
-    '    Next
-=======
     Private Sub cargar_grilla()
         If (cmb_provincia.Items.Count <> 0) Then
             Dim tabla As Data.DataTable = conexion.leer_localidades(cmb_provincia.Text)
@@ -77,7 +64,6 @@
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
 
-
         Dim provincia_nueva As String = InputBox("Ingrese el nuevo nombre de " & tabla_localidades.SelectedRows.Item(0).Cells(0).Value, "Modificar Localidad")
         If MessageBox.Show("¿Seguro que desea cambiar " & tabla_localidades.SelectedRows.Item(0).Cells(0).Value & " por " & provincia_nueva & "? ", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) = Windows.Forms.DialogResult.Yes Then
 
@@ -91,9 +77,7 @@
             End If
 
         End If
->>>>>>> origin/master
-
-        'End Sub
+    End Sub
 
     Private Sub tabla_localidades_Click(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_localidades.CellClick
         cmd_modificar.Enabled = True
