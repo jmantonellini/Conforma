@@ -8,7 +8,7 @@
     Dim paises As New Data.DataTable
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim conexion As New Conexion
-    Dim buscando As Boolean = False
+    Dim buscando As Boolean = True
 
     Private Sub gestor_paises_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If accion = tipo_grabacion.insertar Or accion = tipo_grabacion.modificar Then
@@ -35,7 +35,6 @@
         Me.cmd_modificar.Enabled = True
         Me.txt_nombre.Enabled = True
         Me.txt_nombre.Focus()
-        Me.buscando = False
         Me.accion = tipo_grabacion.insertar
     End Sub
 
@@ -53,7 +52,15 @@
 
     End Sub
 
-    Private Sub tabla_paises_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellClick
+    'Private Sub tabla_paises_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellClick
+    '    paises = conexion.buscar_paises(tabla_paises.CurrentRow.Cells(1).Value)
+    '    Me.txt_nombre.Text = paises.Rows(0).Item(1).ToString
+    '    Me.accion = tipo_grabacion.modificar
+    '    Me.cmd_eliminar.Enabled = True
+    '    Me.txt_nombre.Enabled = True
+    'End Sub
+
+    Private Sub tabla_paises_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellDoubleClick
         paises = conexion.buscar_paises(tabla_paises.CurrentRow.Cells(1).Value)
         Me.txt_nombre.Text = paises.Rows(0).Item(1).ToString
         Me.accion = tipo_grabacion.modificar
@@ -62,12 +69,42 @@
     End Sub
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
-        If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 1 Then
+        If Me.validar_cadena(Me.txt_nombre.Text) = True Then
+            Me.grabar_pais(Me.txt_nombre.Text)
+        End If
+    End Sub
+
+    Private Function validar_cadena(ByVal cadena As String) As Boolean
+
+        If cadena = Nothing Then
+            MessageBox.Show("No hay cadena de texto valida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        Else
+            For Each obj As Char In cadena.ToCharArray
+
+                If Char.IsLetter(obj) = False Then
+                    If Char.IsWhiteSpace(obj) = True Then
+                        If cadena.StartsWith(" ") Then
+                            MessageBox.Show("No coloque espacios en blanco al inicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return False
+                        End If
+                    Else
+                        MessageBox.Show("No se permiten numeros ni simbolos, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return False
+                    End If
+                End If
+            Next
+        End If
+        Return True
+    End Function
+
+    Private Sub grabar_pais(ByVal nombre As String)
+        If Me.conexion.buscar_paises(nombre.ToString).Rows.Count = 1 Then
             MessageBox.Show("El pais ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             If Me.accion = tipo_grabacion.insertar Then
                 Try
-                    Me.conexion.insertar_pais(Me.txt_nombre.Text.ToString)
+                    Me.conexion.insertar_pais(nombre.ToString)
                     MessageBox.Show("Se grabo correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.cargar_grilla()
 
@@ -75,9 +112,9 @@
                     MessageBox.Show("No se grabo correctamente", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
                 End Try
             Else
-                If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 0 Then
+                If Me.conexion.buscar_paises(nombre.ToString).Rows.Count = 0 Then
                     Try
-                        Me.conexion.modificar_pais(Me.txt_nombre.Text.ToString, Me.tabla_paises.CurrentRow.Cells(0).Value)
+                        Me.conexion.modificar_pais(nombre.ToString, Me.tabla_paises.CurrentRow.Cells(0).Value)
                         MessageBox.Show("Se modifico correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Me.cargar_grilla()
 
@@ -90,7 +127,6 @@
             End If
         End If
     End Sub
-
 
     Private Sub txt_nombre_TextChanged(sender As Object, e As EventArgs) Handles txt_nombre.TextChanged
         Me.cmd_modificar.Enabled = True
@@ -109,12 +145,12 @@
         End If
     End Sub
 
-    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
-        Me.txt_nombre.Enabled = True
-        Me.txt_nombre.Text = ""
-        Me.txt_nombre.Focus()
-        Me.buscando = True
-    End Sub
+    'Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+    '    Me.txt_nombre.Enabled = True
+    '    Me.txt_nombre.Text = ""
+    '    Me.txt_nombre.Focus()
+    '    Me.buscando = True
+    'End Sub
 
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim index As Integer
@@ -151,4 +187,5 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
+
 End Class
