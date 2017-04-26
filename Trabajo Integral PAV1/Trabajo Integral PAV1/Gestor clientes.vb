@@ -67,7 +67,7 @@
             End If
             If obj.GetType().Name = "MaskedTextBox" Then
                 obj.Text = ""
-                End If
+            End If
         Next
         For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
             If obj.GetType().Name = "TextBox" Then
@@ -212,7 +212,7 @@
             control_tab.SelectedTab = tab_contacto
             txt_fijo.Focus()
             MsgBox("Debe cargar al menos un dato de contacto", MsgBoxStyle.OkOnly, "Faltan datos")
-            
+
             Return respuesta_validacion._error
         End If
         Return respuesta_validacion._ok
