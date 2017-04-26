@@ -33,7 +33,6 @@ Partial Class gestor_empresas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tablaEmpresas = New System.Windows.Forms.DataGridView()
         Me.txt_razon_social = New System.Windows.Forms.TextBox()
-        Me.txt_cuit = New System.Windows.Forms.TextBox()
         Me.txt_nombre = New System.Windows.Forms.TextBox()
         Me.lbl_nombre = New System.Windows.Forms.Label()
         Me.lbl_razon_social = New System.Windows.Forms.Label()
@@ -53,6 +52,7 @@ Partial Class gestor_empresas
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.txt_telefono_fijo = New System.Windows.Forms.MaskedTextBox()
         Me.txt_email = New System.Windows.Forms.TextBox()
+        Me.txt_cuit = New System.Windows.Forms.MaskedTextBox()
         CType(Me.tablaEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
