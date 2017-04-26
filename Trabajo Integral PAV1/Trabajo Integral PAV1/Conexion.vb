@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma2
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -165,7 +165,7 @@
 
     End Sub
 
-    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Integer?, telefono_celular As Integer?, email As String, cuit As Integer?)
+    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Int64?, telefono_celular As Int64?, email As String, cuit As Int64?)
         Dim celular_nulo As String = "NULL"
         Dim fijo_nulo As String = "NULL"
         Dim cuit_nulo As String = "NULL"
