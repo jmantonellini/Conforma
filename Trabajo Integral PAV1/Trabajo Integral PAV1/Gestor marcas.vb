@@ -12,6 +12,8 @@
     Dim buscando_marcas As Boolean = True
     Dim buscando_modelos As Boolean = True
     Dim auxiliar As Formulario_auxiliar_de_gestor_marcas
+    Dim marca_a_modificar As String
+    Dim modelo_a_modificar As String
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
@@ -70,8 +72,8 @@
         Me.cmd_guardar_marca.Enabled = True
         Me.txt_marcas.Enabled = True
         Me.txt_marcas.Focus()
-        Me.buscando_marcas = False
         Me.accion = tipo_grabacion.insertar
+        Me.cargar_grilla_marcas()
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar_marca.Click
@@ -120,7 +122,7 @@
             Else
                 If Me.conexion.buscar_marca(nombre.ToString).Rows.Count = 0 Then
                     Try
-                        Me.conexion.modificar_marca(nombre.ToString, Me.tabla_marcas.CurrentRow.Cells(0).Value)
+                        Me.conexion.modificar_marca(nombre.ToString, Me.marca_a_modificar)
                         MessageBox.Show("Se modifico correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Me.cargar_grilla_marcas()
 
@@ -153,6 +155,8 @@
             Me.tabla_modelos.Rows(index).Cells(0).Value = tabla.Rows(index)("ID_MODELO")
             Me.tabla_modelos.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
         Next
+        Me.marca_a_modificar = ""
+        Me.accion = tipo_grabacion.insertar
     End Sub
 
     Private Sub tabla_modelos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_modelos.CellClick
@@ -161,6 +165,8 @@
         'Me.accion = tipo_grabacion.modificar
         'Me.cmd_eliminar.Enabled = True
         Me.txt_modelos.Enabled = True
+        Me.modelo_a_modificar = ""
+        Me.accion = tipo_grabacion.insertar
     End Sub
 
 
@@ -208,26 +214,48 @@
         Me.cmd_guardar_modelo.Enabled = True
         Me.txt_modelos.Enabled = True
         Me.txt_modelos.Focus()
-        Me.buscando_marcas = False
         Me.accion = tipo_grabacion.insertar
         Me.cargar_grilla_modelos()
     End Sub
 
     Private Sub cmd_guardar_modelo_Click(sender As Object, e As EventArgs) Handles cmd_guardar_modelo.Click
-        Dim marca As String
         Dim id_marca As Integer
-        If Me.validar_cadena(txt_modelos.Text) = True Then
+        If Me.validar_cadena_modelos(txt_modelos.Text) = True Then
             Me.auxiliar = New Formulario_auxiliar_de_gestor_marcas
             Me.auxiliar.ShowDialog()
-            MsgBox("Hola")
-            marca = auxiliar.get_marca()
             id_marca = auxiliar.get_id_marca()
-            'Me.grabar_modelo(auxiliar.get_marca.ToString, auxiliar.get_id_marca)
+            If id_marca = Nothing Then
+                Exit Sub
+            Else
+                Me.grabar_modelo(txt_modelos.Text, auxiliar.get_id_marca)
+            End If
         End If
 
 
     End Sub
 
+    Private Function validar_cadena_modelos(ByVal cadena As String) As Boolean
+        If cadena = Nothing Then
+            MessageBox.Show("No hay cadena de texto valida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        Else
+            For Each obj As Char In cadena.ToCharArray
+
+                If Char.IsLetterOrDigit(obj) = False Then
+                    If Char.IsWhiteSpace(obj) = True Then
+                        If cadena.StartsWith(" ") Then
+                            MessageBox.Show("No coloque espacios en blanco al inicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return False
+                        End If
+                    Else
+                        MessageBox.Show("No se permiten numeros ni simbolos, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return False
+                    End If
+                End If
+            Next
+        End If
+        Return True
+    End Function
     Private Sub grabar_modelo(ByVal nombre As String, ByVal id_marca As Integer)
         If Me.conexion.buscar_modelo(nombre.ToString).Rows.Count = 1 Then
             MessageBox.Show("El modelo ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -244,7 +272,7 @@
             Else
                 If Me.conexion.buscar_modelo(nombre.ToString).Rows.Count = 0 Then
                     Try
-                        Me.conexion.modificar_modelo(nombre.ToString, Me.tabla_modelos.CurrentRow.Cells(0).Value)
+                        Me.conexion.modificar_modelo(nombre.ToString, Me.modelo_a_modificar)
                         MessageBox.Show("Se modifico correctamente", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Me.cargar_grilla_modelos()
 
@@ -261,11 +289,13 @@
         Me.modelo = conexion.buscar_modelo(tabla_modelos.CurrentRow.Cells(1).Value)
         Me.txt_modelos.Text = Me.modelo.Rows(0).Item(1).ToString
         Me.accion = tipo_grabacion.modificar
+        Me.modelo_a_modificar = Me.tabla_modelos.CurrentRow.Cells(0).Value
     End Sub
 
     Private Sub tabla_marcas_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_marcas.CellDoubleClick
         Me.marca = conexion.buscar_marca(tabla_marcas.CurrentRow.Cells(1).Value)
         Me.txt_marcas.Text = Me.marca.Rows(0).Item(1).ToString
         Me.accion = tipo_grabacion.modificar
+        Me.marca_a_modificar = Me.tabla_marcas.CurrentRow.Cells(0).Value
     End Sub
 End Class
