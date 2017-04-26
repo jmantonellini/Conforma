@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_gaston
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -45,7 +45,7 @@
         Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
     End Function
 
-    
+
 
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
@@ -65,6 +65,9 @@
         Return Me.ejecuto_sql("SELECT C.ID_CIUDAD, C.NOMBRE FROM CIUDADES C JOIN PROVINCIAS P ON C.ID_PROVINCIA = P.ID_PROVINCIA WHERE P.NOMBRE LIKE '" & descriptor & "'")
     End Function
 
+    Public Function leer_localidades(ByVal nombre_tabla As String, descriptor As String, tabla2 As String) As Data.DataTable
+        Return Me.ejecuto_sql("SELECT C.ID_CIUDAD, C.NOMBRE, C.CODIGO_POSTAL FROM CIUDADES C JOIN PROVINCIAS P ON C.ID_PROVINCIA = P.ID_PROVINCIA WHERE P.NOMBRE LIKE '" & descriptor & "'")
+    End Function
     Public Function cargar_combo(ByRef combo As ComboBox _
                              , tabla As String _
                              , pk As String _
@@ -181,7 +184,7 @@
             End If
         End If
 
-        
+
 
 
 

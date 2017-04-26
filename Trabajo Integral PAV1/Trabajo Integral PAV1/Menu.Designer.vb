@@ -33,6 +33,7 @@ Partial Class Menu
         Me.cmd_gestor_paises = New System.Windows.Forms.Button()
         Me.cmd_gestor_categoria = New System.Windows.Forms.Button()
         Me.cmd_provincias = New System.Windows.Forms.Button()
+        Me.cmd_gestor_localidades = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,7 +79,7 @@ Partial Class Menu
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(251, 403)
+        Me.lbl_hora.Location = New System.Drawing.Point(238, 470)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -87,7 +88,7 @@ Partial Class Menu
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
-        Me.PictureBox1.Location = New System.Drawing.Point(167, 325)
+        Me.PictureBox1.Location = New System.Drawing.Point(154, 392)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(183, 63)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -130,13 +131,26 @@ Partial Class Menu
         Me.cmd_provincias.Text = "Gestor Provincias"
         Me.cmd_provincias.UseVisualStyleBackColor = False
         '
+        'cmd_gestor_localidades
+        '
+        Me.cmd_gestor_localidades.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_gestor_localidades.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_gestor_localidades.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.cmd_gestor_localidades.Location = New System.Drawing.Point(173, 312)
+        Me.cmd_gestor_localidades.Name = "cmd_gestor_localidades"
+        Me.cmd_gestor_localidades.Size = New System.Drawing.Size(171, 58)
+        Me.cmd_gestor_localidades.TabIndex = 37
+        Me.cmd_gestor_localidades.Text = "Gestor Localidades"
+        Me.cmd_gestor_localidades.UseVisualStyleBackColor = False
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(516, 476)
+        Me.ClientSize = New System.Drawing.Size(516, 516)
         Me.Controls.Add(Me.cmd_provincias)
+        Me.Controls.Add(Me.cmd_gestor_localidades)
         Me.Controls.Add(Me.cmd_gestor_categoria)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lbl_hora)
@@ -162,4 +176,5 @@ Partial Class Menu
     Friend WithEvents cmd_gestor_paises As System.Windows.Forms.Button
     Friend WithEvents cmd_gestor_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_provincias As System.Windows.Forms.Button
+    Friend WithEvents cmd_gestor_localidades As System.Windows.Forms.Button
 End Class

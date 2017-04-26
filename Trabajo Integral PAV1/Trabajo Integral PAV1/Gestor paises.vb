@@ -52,13 +52,11 @@
 
     End Sub
 
-    'Private Sub tabla_paises_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellClick
-    '    paises = conexion.buscar_paises(tabla_paises.CurrentRow.Cells(1).Value)
-    '    Me.txt_nombre.Text = paises.Rows(0).Item(1).ToString
-    '    Me.accion = tipo_grabacion.modificar
-    '    Me.cmd_eliminar.Enabled = True
-    '    Me.txt_nombre.Enabled = True
-    'End Sub
+    Private Sub tabla_paises_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellClick
+        Me.accion = tipo_grabacion.insertar
+        Me.cmd_eliminar.Enabled = True
+        Me.txt_nombre.Enabled = True
+    End Sub
 
     Private Sub tabla_paises_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_paises.CellDoubleClick
         paises = conexion.buscar_paises(tabla_paises.CurrentRow.Cells(1).Value)
@@ -155,7 +153,7 @@
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         Dim index As Integer
         Dim celdas_seleccionadas = Me.tabla_paises.SelectedRows.Count
-        If Me.tabla_paises.SelectedRows.Count > 1 Then
+        If Me.tabla_paises.SelectedRows.Count >= 1 Then
             For index = 0 To celdas_seleccionadas - 1
                 Try
                     Me.conexion.eliminar_pais(Me.tabla_paises.SelectedRows(index).Cells(1).Value.ToString())
@@ -166,6 +164,7 @@
             Next
             MessageBox.Show("Se elimino correctamente", "Eliminacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.cargar_grilla()
+            Me.txt_nombre.Text = ""
             Exit Sub
         Else
             If Me.conexion.buscar_paises(txt_nombre.Text.ToString).Rows.Count = 1 Then

@@ -2,7 +2,7 @@
 
     Dim nuevo As Form
 
-    Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click, cmd_gestor_paises.Click, cmd_gestor_categoria.Click, cmd_provincias.Click
+    Private Sub cmd_gestor_Click(sender As Button, e As EventArgs) Handles cmd_gestor_clientes.Click, cmd_gestor_empresas.Click, cmd_gestor_marcas.Click, cmd_gestor_paises.Click, cmd_gestor_categoria.Click, cmd_provincias.Click, cmd_gestor_localidades.Click
 
         Dim ventana As String = sender.Text
 
@@ -19,6 +19,8 @@
                 nuevo = New gestor_tipo_producto_y_categorias
             Case "Gestor Provincias"
                 nuevo = New Gestor_Provincias
+            Case "Gestor Localidades"
+                nuevo = New Gestor_localidades
         End Select
         nuevo.Show()
     End Sub
@@ -27,6 +29,7 @@
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 
+    Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    
+    End Sub
 End Class
