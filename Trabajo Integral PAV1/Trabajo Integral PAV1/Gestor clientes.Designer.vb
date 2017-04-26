@@ -31,6 +31,7 @@ Partial Class gestor_clientes
         Me.Celular = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.control_tab = New System.Windows.Forms.TabControl()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
+        Me.cmd_agregar_empresa = New System.Windows.Forms.Button()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
         Me.cmd_siguiente = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -79,7 +80,6 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_agregar_empresa = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -175,6 +175,15 @@ Partial Class gestor_clientes
         Me.tab_datos_personales.Size = New System.Drawing.Size(438, 293)
         Me.tab_datos_personales.TabIndex = 0
         Me.tab_datos_personales.Text = "Datos Personales"
+        '
+        'cmd_agregar_empresa
+        '
+        Me.cmd_agregar_empresa.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
+        Me.cmd_agregar_empresa.Location = New System.Drawing.Point(342, 157)
+        Me.cmd_agregar_empresa.Name = "cmd_agregar_empresa"
+        Me.cmd_agregar_empresa.Size = New System.Drawing.Size(38, 38)
+        Me.cmd_agregar_empresa.TabIndex = 35
+        Me.cmd_agregar_empresa.UseVisualStyleBackColor = True
         '
         'cmb_empresa
         '
@@ -667,15 +676,6 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_agregar_empresa
-        '
-        Me.cmd_agregar_empresa.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
-        Me.cmd_agregar_empresa.Location = New System.Drawing.Point(342, 157)
-        Me.cmd_agregar_empresa.Name = "cmd_agregar_empresa"
-        Me.cmd_agregar_empresa.Size = New System.Drawing.Size(38, 38)
-        Me.cmd_agregar_empresa.TabIndex = 35
-        Me.cmd_agregar_empresa.UseVisualStyleBackColor = True
         '
         'gestor_clientes
         '

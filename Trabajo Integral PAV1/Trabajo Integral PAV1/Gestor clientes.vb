@@ -8,6 +8,7 @@
     Enum respuesta_validacion
         _ok
         _error
+        _ok_sin_domicilio
     End Enum
     Dim aidi_cli As Data.DataTable = New DataTable
     Dim empresa1 As Data.DataTable = New DataTable
@@ -166,7 +167,6 @@
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
         If validar_datos() = respuesta_validacion._ok Then
-
             If accion = tipo_grabacion.insertar Then
                 If validar_cliente_insertar() = respuesta_validacion._error Then
                     Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
@@ -199,6 +199,7 @@
                     c.insertar_domicilio(idee, txt_calle.Text, numero, CLng(cmb_ciudad.SelectedValue))
                     MsgBox("Se guardó correctamente")
                     deshabilitar_campos()
+                Else : MsgBox("Cliente cargado ya existe", MsgBoxStyle.OkOnly, "Error")
                 End If
             End If
 
@@ -209,8 +210,7 @@
                     Dim fijo As Nullable(Of Int64)
                     Dim celular As Nullable(Of Int64)
                     Dim cuit As Nullable(Of Int64)
-                    Dim id_ciudad As Int64?
-                    Dim numero As Int64?
+                   
                     If txt_fijo.Text = "" Then
                         fijo = Nothing
                     Else : fijo = CLng(txt_fijo.Text)
@@ -223,24 +223,93 @@
                         cuit = Nothing
                     Else : cuit = CLng(txt_cuit.Text)
                     End If
-                    If txt_altura_calle.Text = "" Then
-                        numero = Nothing
-                    Else : numero = CLng(txt_altura_calle.Text)
-                    End If
-                    If cmb_ciudad.Text = "" Then
-                        id_ciudad = Nothing
-                    Else : id_ciudad = CLng(Me.cmb_ciudad.SelectedValue)
-                    End If
 
-                    c.modificar_cliente(tabla_clientes.CurrentRow.Cells(4).Value, txt_nombre.Text, txt_apellido.Text, id_tipodoc, documento, cuit, celular, fijo, txt_mail.Text, id_ciudad, txt_calle.Text, numero)
-
-                    MsgBox("Se modificó el cliente correctamente")
-                    deshabilitar_campos()
+                    If (c.tiene_domicilio(tabla_clientes.CurrentRow.Cells(4).Value)) = True Then
+                        c.modificar_cliente(tabla_clientes.CurrentRow.Cells(4).Value, txt_nombre.Text, txt_apellido.Text, id_tipodoc, documento, cuit, celular, fijo, txt_mail.Text, CLng(cmb_ciudad.SelectedValue), txt_calle.Text, CLng(txt_altura_calle.Text))
+                    Else
+                        c.modificar_cliente_sin_domicilio(tabla_clientes.CurrentRow.Cells(4).Value, txt_nombre.Text, txt_apellido.Text, id_tipodoc, documento, cuit, celular, fijo, txt_mail.Text)
+                        c.insertar_domicilio(tabla_clientes.CurrentRow.Cells(4).Value, txt_calle.Text, CLng(txt_altura_calle.Text), CLng(cmb_ciudad.SelectedValue))
+                        MsgBox("Se modificó el cliente correctamente")
+                        deshabilitar_campos()
+                    End If
                 End If
             End If
+        Else
+            If validar_datos() = respuesta_validacion._ok_sin_domicilio Then
+                If accion = tipo_grabacion.insertar Then
+                    If validar_cliente_insertar() = respuesta_validacion._error Then
+                        Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
+                        Dim documento As Int64 = CLng(Me.txt_documento.Text)
+                        Dim fijo As Nullable(Of Int64)
+                        Dim celular As Nullable(Of Int64)
+                        Dim cuit As Nullable(Of Int64)
+                        Dim idee As Int64
+                        Dim numero As Int64?
+                        If txt_fijo.Text = "" Then
+                            fijo = Nothing
+                        Else : fijo = CLng(txt_fijo.Text)
+                        End If
+                        If txt_celular.Text = "" Then
+                            celular = Nothing
+                        Else : celular = CLng(txt_celular.Text)
+                        End If
+                        If txt_cuit.Text = "" Then
+                            cuit = Nothing
+                        Else : cuit = CLng(txt_cuit.Text)
+                        End If
+                        If txt_altura_calle.Text = "" Then
+                            numero = Nothing
+                        Else : numero = CLng(txt_altura_calle.Text)
+                        End If
 
-        End If
-        cargar_grilla()
+                        c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, documento, fijo, celular, Me.txt_mail.Text, cuit)
+                        aidi_cli = c.dame_id_cliente(cmb_tipo_documento.SelectedValue, CLng(txt_documento.Text))
+                        idee = CLng(aidi_cli.Rows(0).Item(0).ToString)
+                        MsgBox("Se guardó correctamente")
+                        deshabilitar_campos()
+                    Else : MsgBox("Cliente cargado ya existe", MsgBoxStyle.OkOnly, "Error")
+                    End If
+                End If
+                If accion = tipo_grabacion.modificar Then
+                    If validar_cliente_modificar() = respuesta_validacion._ok Then
+                        Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
+                        Dim documento As Int64 = CLng(Me.txt_documento.Text)
+                        Dim fijo As Nullable(Of Int64)
+                        Dim celular As Nullable(Of Int64)
+                        Dim cuit As Nullable(Of Int64)
+                        Dim id_ciudad As Int64?
+                        Dim numero As Int64?
+                        If txt_fijo.Text = "" Then
+                            fijo = Nothing
+                        Else : fijo = CLng(txt_fijo.Text)
+                        End If
+                        If txt_celular.Text = "" Then
+                            celular = Nothing
+                        Else : celular = CLng(txt_celular.Text)
+                        End If
+                        If txt_cuit.Text = "" Then
+                            cuit = Nothing
+                        Else : cuit = CLng(txt_cuit.Text)
+                        End If
+                        If txt_altura_calle.Text = "" Then
+                            numero = Nothing
+                        Else : numero = CLng(txt_altura_calle.Text)
+                        End If
+                        If cmb_ciudad.Text = "" Then
+                            id_ciudad = Nothing
+                        Else : id_ciudad = CLng(Me.cmb_ciudad.SelectedValue)
+                        End If
+
+                        c.modificar_cliente_sin_domicilio(tabla_clientes.CurrentRow.Cells(4).Value, txt_nombre.Text, txt_apellido.Text, id_tipodoc, documento, cuit, celular, fijo, txt_mail.Text)
+                        c.eliminar_domicilio(tabla_clientes.CurrentRow.Cells(4).Value)
+                        MsgBox("Se modificó el cliente correctamente")
+                        deshabilitar_campos()
+                    End If
+                End If
+                    End If
+
+                End If
+                cargar_grilla()
     End Sub
 
     Private Function validar_datos()
@@ -261,25 +330,6 @@
                 End If
             End If
         Next
-
-        For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls()
-            If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
-                If obj.Text = "" Then
-                    MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
-                    obj.Focus()
-                    Return respuesta_validacion._error
-                End If
-            End If
-            If obj.GetType().Name = "ComboBox" Then
-                Dim o As ComboBox = obj
-                If o.SelectedIndex = -1 Then
-                    MsgBox("El campo " + obj.Name + " está sin selección", MsgBoxStyle.OkOnly, "Error")
-                    obj.Focus()
-                    Return respuesta_validacion._error
-                End If
-            End If
-        Next
-
         If txt_fijo.Text = "" And txt_celular.Text = "" And txt_mail.Text = "" Then
             control_tab.SelectedTab = tab_contacto
             txt_fijo.Focus()
@@ -287,7 +337,30 @@
 
             Return respuesta_validacion._error
         End If
-        Return respuesta_validacion._ok
+
+
+        If cmb_pais.Text = "" Then
+            Return respuesta_validacion._ok_sin_domicilio
+        Else : For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls()
+                If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
+                    If obj.Text = "" Then
+                        MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
+                        obj.Focus()
+                        Return respuesta_validacion._error
+                    End If
+                End If
+                If obj.GetType().Name = "ComboBox" Then
+                    Dim o As ComboBox = obj
+                    If o.SelectedIndex = -1 Then
+                        MsgBox("El campo " + obj.Name + " está sin selección", MsgBoxStyle.OkOnly, "Error")
+                        obj.Focus()
+                        Return respuesta_validacion._error
+                    End If
+                End If
+            Next
+            Return respuesta_validacion._ok
+        End If
+
     End Function
 
 
@@ -387,6 +460,8 @@
             cmb_provincia.Enabled = False
             cmb_ciudad.SelectedIndex = -1
             cmb_ciudad.Enabled = False
+            txt_calle.Text = ""
+            txt_altura_calle.Text = ""
         End If
     End Sub
 
@@ -403,4 +478,17 @@
         agrear_business = New gestor_empresas
         agrear_business.Show()
     End Sub
+
+
+    Private Sub cmb_ciudad_TextChanged(sender As Object, e As EventArgs) Handles cmb_ciudad.TextChanged
+        If cmb_ciudad.Text = "" Then
+            txt_calle.Enabled = False
+        End If
+    End Sub
+    Private Sub txt_calle_TextChanged(sender As Object, e As EventArgs) Handles txt_calle.TextChanged
+        If txt_calle.Text = "" Then
+            txt_altura_calle.Enabled = False
+        End If
+    End Sub
+
 End Class

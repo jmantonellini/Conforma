@@ -125,6 +125,14 @@
         Return domicilio
 
     End Function
+
+    Public Function tiene_domicilio(ByVal id_cliente As Int64) As Boolean
+        Dim domicilio As DataTable = ejecuto_sql("Select D.* FROM DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE WHERE C.ID_CLIENTE =" & id_cliente)
+        If (IsNothing(domicilio.Rows(0).Item(0))) Then
+            Return False
+        Else : Return True
+        End If
+    End Function
     Public Function buscar_documento_cliente(ByVal nombre As String, apellido As String) As Data.DataTable
         Dim documento As DataTable = ejecuto_sql("Select T_D.* from TIPOS_DOCUMENTOS T_D RIGHT JOIN CLIENTES C ON C.ID_TIPO_DOCUMENTO = T_D.ID_TIPO_DOCUMENTO WHERE C.NOMBRE LIKE '" & nombre & "' AND C.APELLIDO LIKE '" & apellido & "' ")
         Return documento
@@ -225,16 +233,44 @@
             End If
         End If
 
-        If IsNothing(nueva_ciudad) Then
-            Me.ejecuto_sql("DELETE FROM DOMICILIOS WHERE ID_CLIENTE =" & id_cliente)
-        Else
-            If IsNothing(nuevo_nro) Then
-                Me.ejecuto_sql("UPDATE DOMICILIOS SET ID_CIUDAD =" & nueva_ciudad & ", CALLE='" & nueva_calle & "', NUMERO='" & numero_nulo & "' WHERE ID_CLIENTE= " & id_cliente)
-            Else : Me.ejecuto_sql("UPDATE DOMICILIOS SET ID_CIUDAD =" & nueva_ciudad & ", CALLE='" & nueva_calle & "', NUMERO=" & nuevo_nro & " WHERE ID_CLIENTE= " & id_cliente)
-            End If
-        End If
+        Me.ejecuto_sql("UPDATE DOMICILIOS SET ID_CIUDAD =" & nueva_ciudad & ", CALLE='" & nueva_calle & "', NUMERO=" & nuevo_nro & " WHERE ID_CLIENTE= " & id_cliente)
+
+
 
     End Sub
+
+
+    Public Sub modificar_cliente_sin_domicilio(ByVal id_cliente As Int64, nombre_nuevo As String, apellido_nuevo As String, nvo_tipo_doc As Int64, nuevo_documento As Int64, nuevo_cuit As Int64?, nuevo_celular As Int64?, nuevo_fijo As Int64?, nuevo_mail As String)
+        Dim celular_nulo As String = "NULL"
+        Dim fijo_nulo As String = "NULL"
+        Dim cuit_nulo As String = "NULL"
+        If IsNothing(nuevo_celular) And nuevo_fijo IsNot Nothing And nuevo_cuit IsNot Nothing Then
+            Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & nuevo_cuit & ", TEL_CEL=" & celular_nulo & ", TEL_FIJO=" & nuevo_fijo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+        Else
+            If IsNothing(nuevo_fijo) And nuevo_celular IsNot Nothing And nuevo_cuit IsNot Nothing Then
+                Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & nuevo_cuit & ", TEL_CEL=" & nuevo_celular & ", TEL_FIJO=" & fijo_nulo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+            Else
+                If IsNothing(nuevo_cuit) And nuevo_celular IsNot Nothing And nuevo_fijo IsNot Nothing Then
+                    Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & cuit_nulo & ", TEL_CEL=" & nuevo_celular & ", TEL_FIJO=" & nuevo_fijo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+                Else
+                    If IsNothing(nuevo_celular) And IsNothing(nuevo_fijo) Then
+                        Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO = '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO = " & nvo_tipo_doc & ", NRO_DOC = " & nuevo_documento & ", CUIT = " & nuevo_cuit & ", TEL_CEL= " & celular_nulo & ", TEL_FIJO=" & fijo_nulo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+                    Else
+                        If IsNothing(nuevo_fijo) And IsNothing(nuevo_cuit) Then
+                            Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & cuit_nulo & ", TEL_CEL=" & nuevo_celular & ", TEL_FIJO=" & fijo_nulo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+                        Else
+                            If IsNothing(nuevo_celular) And IsNothing(nuevo_cuit) Then
+                                Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & cuit_nulo & ", TEL_CEL=" & celular_nulo & ", TEL_FIJO=" & nuevo_fijo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+                            Else : Me.ejecuto_sql("UPDATE CLIENTES SET NOMBRE = '" & nombre_nuevo & "', APELLIDO= '" & apellido_nuevo & "', ID_TIPO_DOCUMENTO= " & nvo_tipo_doc & ", NRO_DOC= " & nuevo_documento & ", CUIT=" & nuevo_cuit & ", TEL_CEL=" & nuevo_celular & ", TEL_FIJO=" & nuevo_fijo & ", EMAIL='" & nuevo_mail & "' WHERE ID_CLIENTE = " & id_cliente)
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        End If
+    End Sub
+
+
 
 
     Public Sub insertar_empresa(ByVal cuit As Int64, nombre As String, razon_social As String, email As String, telefono As Int64)
