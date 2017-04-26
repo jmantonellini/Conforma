@@ -32,6 +32,7 @@ Partial Class gestor_clientes
         Me.control_tab = New System.Windows.Forms.TabControl()
         Me.tab_datos_personales = New System.Windows.Forms.TabPage()
         Me.cmb_empresa = New System.Windows.Forms.ComboBox()
+        Me.cmd_siguiente = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -50,6 +51,8 @@ Partial Class gestor_clientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tab_contacto = New System.Windows.Forms.TabPage()
+        Me.cmd_anterior = New System.Windows.Forms.Button()
+        Me.cmd_siguiente2 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_mail = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -58,6 +61,7 @@ Partial Class gestor_clientes
         Me.txt_fijo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tab_domicilios = New System.Windows.Forms.TabPage()
+        Me.cmd_anterior2 = New System.Windows.Forms.Button()
         Me.txt_altura_calle = New System.Windows.Forms.MaskedTextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txt_calle = New System.Windows.Forms.TextBox()
@@ -76,10 +80,6 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.cmd_siguiente = New System.Windows.Forms.Button()
-        Me.cmd_anterior = New System.Windows.Forms.Button()
-        Me.cmd_siguiente2 = New System.Windows.Forms.Button()
-        Me.cmd_anterior2 = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -185,6 +185,15 @@ Partial Class gestor_clientes
         Me.cmb_empresa.Name = "cmb_empresa"
         Me.cmb_empresa.Size = New System.Drawing.Size(161, 28)
         Me.cmb_empresa.TabIndex = 4
+        '
+        'cmd_siguiente
+        '
+        Me.cmd_siguiente.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
+        Me.cmd_siguiente.Location = New System.Drawing.Point(374, 229)
+        Me.cmd_siguiente.Name = "cmd_siguiente"
+        Me.cmd_siguiente.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_siguiente.TabIndex = 34
+        Me.cmd_siguiente.UseVisualStyleBackColor = True
         '
         'Label19
         '
@@ -375,11 +384,29 @@ Partial Class gestor_clientes
         Me.tab_contacto.TabIndex = 1
         Me.tab_contacto.Text = "Contacto"
         '
+        'cmd_anterior
+        '
+        Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
+        Me.cmd_anterior.Location = New System.Drawing.Point(310, 229)
+        Me.cmd_anterior.Name = "cmd_anterior"
+        Me.cmd_anterior.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_anterior.TabIndex = 36
+        Me.cmd_anterior.UseVisualStyleBackColor = True
+        '
+        'cmd_siguiente2
+        '
+        Me.cmd_siguiente2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
+        Me.cmd_siguiente2.Location = New System.Drawing.Point(374, 229)
+        Me.cmd_siguiente2.Name = "cmd_siguiente2"
+        Me.cmd_siguiente2.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_siguiente2.TabIndex = 35
+        Me.cmd_siguiente2.UseVisualStyleBackColor = True
+        '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(10, 266)
+        Me.Label16.Location = New System.Drawing.Point(3, 3)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(181, 20)
         Me.Label16.TabIndex = 33
@@ -460,6 +487,15 @@ Partial Class gestor_clientes
         Me.tab_domicilios.TabIndex = 2
         Me.tab_domicilios.Text = "Domicilio"
         '
+        'cmd_anterior2
+        '
+        Me.cmd_anterior2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
+        Me.cmd_anterior2.Location = New System.Drawing.Point(310, 229)
+        Me.cmd_anterior2.Name = "cmd_anterior2"
+        Me.cmd_anterior2.Size = New System.Drawing.Size(58, 58)
+        Me.cmd_anterior2.TabIndex = 37
+        Me.cmd_anterior2.UseVisualStyleBackColor = True
+        '
         'txt_altura_calle
         '
         Me.txt_altura_calle.Enabled = False
@@ -473,7 +509,7 @@ Partial Class gestor_clientes
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(118, 188)
+        Me.Label18.Location = New System.Drawing.Point(118, 185)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(33, 20)
         Me.Label18.TabIndex = 10
@@ -491,7 +527,7 @@ Partial Class gestor_clientes
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(98, 155)
+        Me.Label17.Location = New System.Drawing.Point(97, 152)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(54, 20)
         Me.Label17.TabIndex = 8
@@ -513,7 +549,7 @@ Partial Class gestor_clientes
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(82, 122)
+        Me.Label15.Location = New System.Drawing.Point(81, 117)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(70, 20)
         Me.Label15.TabIndex = 4
@@ -523,7 +559,7 @@ Partial Class gestor_clientes
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(66, 87)
+        Me.Label14.Location = New System.Drawing.Point(65, 82)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(86, 20)
         Me.Label14.TabIndex = 3
@@ -545,7 +581,7 @@ Partial Class gestor_clientes
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(103, 52)
+        Me.Label13.Location = New System.Drawing.Point(103, 47)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(48, 20)
         Me.Label13.TabIndex = 1
@@ -590,7 +626,7 @@ Partial Class gestor_clientes
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_eliminar.Enabled = False
         Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
-        Me.cmd_eliminar.Location = New System.Drawing.Point(327, 409)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(293, 411)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_eliminar.TabIndex = 24
@@ -601,7 +637,7 @@ Partial Class gestor_clientes
         Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar.Enabled = False
         Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar.Location = New System.Drawing.Point(231, 409)
+        Me.cmd_guardar.Location = New System.Drawing.Point(197, 411)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_guardar.TabIndex = 23
@@ -623,7 +659,7 @@ Partial Class gestor_clientes
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_modificar.Enabled = False
         Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_modificar.Location = New System.Drawing.Point(135, 409)
+        Me.cmd_modificar.Location = New System.Drawing.Point(101, 411)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_modificar.TabIndex = 21
@@ -633,47 +669,11 @@ Partial Class gestor_clientes
         '
         Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo.Location = New System.Drawing.Point(39, 409)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(5, 411)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'cmd_siguiente
-        '
-        Me.cmd_siguiente.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
-        Me.cmd_siguiente.Location = New System.Drawing.Point(374, 229)
-        Me.cmd_siguiente.Name = "cmd_siguiente"
-        Me.cmd_siguiente.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_siguiente.TabIndex = 34
-        Me.cmd_siguiente.UseVisualStyleBackColor = True
-        '
-        'cmd_anterior
-        '
-        Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
-        Me.cmd_anterior.Location = New System.Drawing.Point(310, 229)
-        Me.cmd_anterior.Name = "cmd_anterior"
-        Me.cmd_anterior.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_anterior.TabIndex = 36
-        Me.cmd_anterior.UseVisualStyleBackColor = True
-        '
-        'cmd_siguiente2
-        '
-        Me.cmd_siguiente2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.derecha
-        Me.cmd_siguiente2.Location = New System.Drawing.Point(374, 229)
-        Me.cmd_siguiente2.Name = "cmd_siguiente2"
-        Me.cmd_siguiente2.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_siguiente2.TabIndex = 35
-        Me.cmd_siguiente2.UseVisualStyleBackColor = True
-        '
-        'cmd_anterior2
-        '
-        Me.cmd_anterior2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
-        Me.cmd_anterior2.Location = New System.Drawing.Point(310, 229)
-        Me.cmd_anterior2.Name = "cmd_anterior2"
-        Me.cmd_anterior2.Size = New System.Drawing.Size(58, 58)
-        Me.cmd_anterior2.TabIndex = 37
-        Me.cmd_anterior2.UseVisualStyleBackColor = True
         '
         'gestor_clientes
         '

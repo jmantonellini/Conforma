@@ -45,7 +45,7 @@
         Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
     End Function
 
-    
+
 
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
@@ -181,7 +181,7 @@
             End If
         End If
 
-        
+
 
 
 
