@@ -1,12 +1,16 @@
 ﻿Public Class Formulario_auxiliar_de_gestor_marcas
 
     Dim conexion As New Conexion
-    Dim marca As String
     Dim id_marca As Integer
+    Dim salir As Boolean
 
     Private Sub Formulario_auxiliar_de_gestor_marcas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If Me.cmb_nombre_marca.SelectedIndex = -1 Then
-            e.Cancel = True
+        If Me.salir = False Then
+            If MessageBox.Show("¿Seguro desea salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
+                e.Cancel = True
+            Else
+                e.Cancel = False
+            End If
         End If
 
     End Sub
@@ -18,17 +22,14 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Me.cmb_nombre_marca.SelectedIndex <> -1 Then
-            Me.marca = Me.cmb_nombre_marca.Text
             Me.id_marca = Me.cmb_nombre_marca.SelectedValue
+            Me.salir = True
             Me.Close()
         Else
             MessageBox.Show("Seleccione una marca", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
     End Sub
-    Public Function get_marca() As String
-        Return Me.marca
-    End Function
 
     Public Function get_id_marca()
         Return Me.id_marca

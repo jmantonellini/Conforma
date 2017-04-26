@@ -52,7 +52,7 @@
         Dim b As Boolean = False
         For index = 0 To cadena.Length - 1
             b = Char.IsLetter(cadena, index)
-            If (b = False) Then
+            If (b = False And Char.IsWhiteSpace(cadena, index) = False) Then
                 Return b
             End If
 

@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma2
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -44,6 +44,8 @@
     Public Function leer_tabla(ByVal nombre_tabla As String) As Data.DataTable
         Return Me.ejecuto_sql("SELECT * FROM " + nombre_tabla)
     End Function
+
+
 
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
@@ -150,7 +152,7 @@
 
     End Sub
 
-    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Int64?, telefono_celular As Int64?, email As String, cuit As Int64?)
+    Public Sub insertar_cliente(ByVal nombre As String, apellido As String, tipo_documento As Int64, numero_documento As Int64, telefono_fijo As Integer?, telefono_celular As Integer?, email As String, cuit As Integer?)
         Dim celular_nulo As String = "NULL"
         Dim fijo_nulo As String = "NULL"
         Dim cuit_nulo As String = "NULL"
@@ -324,19 +326,20 @@
     Public Function buscar_nombre(ByVal tabla As String, filtro As String)
         Dim id_cadena As String = ""
 
-        Select Case tabla
-            Case " AREAS "
-                id_cadena = "AREA"
-            Case " TIPOS_PRODUCTOS "
-                id_cadena = "TIPO_PRODUCTO"
-            Case " CATEGORIAS "
-                id_cadena = "CATEGORIA"
-        End Select
 
-        If (Me.ejecuto_sql("SELECT * FROM " & id_cadena & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
+        If (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
             Return True
         End If
         Return False
     End Function
 
+    Public Function cargar_provincias_filtrada(ByVal pais As String) As Data.DataTable
+        Return Me.ejecuto_sql("SELECT PR.NOMBRE FROM PROVINCIAS PR JOIN PAISES P ON PR.ID_PAIS = P.ID_PAIS WHERE P.NOMBRE LIKE '" & pais & "'")
+    End Function
+
+    Public Sub insertar_provincia(ByVal provincia As String, pais As String)
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_PAIS FROM PAISES WHERE NOMBRE LIKE '" & pais & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("INSERT INTO PROVINCIAS VALUES ('" & provincia & "'," & id & ")")
+
+    End Sub
 End Class
