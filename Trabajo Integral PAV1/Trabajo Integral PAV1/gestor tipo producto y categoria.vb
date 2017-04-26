@@ -128,7 +128,6 @@
         If (seleccion <> "") Then
             Try
                 C.eliminar_nombre(tabla, seleccion)
-
                 MsgBox("Se ha eliminado el elemento satisfactoriamente", MsgBoxStyle.Information, "Aviso")
             Catch ex As Exception
                 MsgBox("No se pudo realizar la consulta por problemas de referencia ")
