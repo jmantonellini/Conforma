@@ -47,7 +47,7 @@
 
     Public Function cargar_categorias_filtrada(ByVal nombre_tabla As String, filtro As String) As Data.DataTable
 
-        Return ejecuto_sql("SELECT C.NOMBRE FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
+        Return ejecuto_sql("SELECT C.NOMBRE AS 'Nombre' FROM CATEGORIAS C JOIN TIPOS_PRODUCTOS TP ON C.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO WHERE TP.NOMBRE LIKE '" & filtro & "' ")
 
     End Function
 
@@ -272,6 +272,71 @@
 
     Public Sub eliminar_empresa(ByRef empresa As String)
         Me.ejecuto_sql("DELETE FROM EMPRESAS WHERE CUIT = " & empresa)
-
     End Sub
+
+    Public Sub insertar_area(ByVal nueva_area As String)
+        Me.ejecuto_sql("INSERT INTO AREAS VALUES( '" & nueva_area & "')")
+    End Sub
+
+    Public Sub insertar_tipo_producto(ByVal nuevo_tipo As String, area As String)
+        Dim id_area As Int16 = CInt(Me.ejecuto_sql("SELECT ID_AREA FROM AREAS WHERE NOMBRE LIKE '" & area & "'").Rows(0).Item(0).ToString)
+
+        Me.ejecuto_sql("INSERT INTO TIPOS_PRODUCTOS VALUES(" & id_area & ",'" & nuevo_tipo & "')")
+    End Sub
+
+    Public Sub insertar_categoria(ByVal nueva_categoria As String, tipo_producto As String)
+        Dim id_tipo As Int16 = CInt(Me.ejecuto_sql("SELECT ID_TIPO_PRODUCTO FROM TIPOS_PRODUCTOS WHERE NOMBRE LIKE '" & tipo_producto & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("INSERT INTO CATEGORIAS VALUES('" & nueva_categoria & "', " & id_tipo & ")")
+    End Sub
+
+    Public Sub cambiar_nombre(ByVal tabla As String, nuevo_nombre As String, nombre_viejo As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_" & id_cadena & " FROM " & tabla & " WHERE NOMBRE LIKE '" & nombre_viejo & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("UPDATE " & tabla & " SET NOMBRE = '" & nuevo_nombre & "' WHERE ID_" & id_cadena & " = " & id)
+    End Sub
+
+    Public Sub eliminar_nombre(ByVal tabla As String, filtro As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        Dim id As Int16 = CInt(Me.ejecuto_sql("SELECT ID_" & id_cadena & " FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
+        Me.ejecuto_sql("DELETE FROM " & tabla & " WHERE ID_" & id_cadena & " = " & id)
+    End Sub
+
+    Public Function buscar_nombre(ByVal tabla As String, filtro As String)
+        Dim id_cadena As String = ""
+
+        Select Case tabla
+            Case " AREAS "
+                id_cadena = "AREA"
+            Case " TIPOS_PRODUCTOS "
+                id_cadena = "TIPO_PRODUCTO"
+            Case " CATEGORIAS "
+                id_cadena = "CATEGORIA"
+        End Select
+
+        If (Me.ejecuto_sql("SELECT * FROM " & id_cadena & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
+            Return True
+        End If
+        Return False
+    End Function
+
 End Class
