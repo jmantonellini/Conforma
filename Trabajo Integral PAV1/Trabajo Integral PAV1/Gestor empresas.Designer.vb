@@ -153,14 +153,6 @@ Partial Class gestor_empresas
         Me.txt_razon_social.Size = New System.Drawing.Size(232, 20)
         Me.txt_razon_social.TabIndex = 17
         '
-        'txt_cuit
-        '
-        Me.txt_cuit.Enabled = False
-        Me.txt_cuit.Location = New System.Drawing.Point(200, 131)
-        Me.txt_cuit.Name = "txt_cuit"
-        Me.txt_cuit.Size = New System.Drawing.Size(232, 20)
-        Me.txt_cuit.TabIndex = 16
-        '
         'txt_nombre
         '
         Me.txt_nombre.BackColor = System.Drawing.SystemColors.Window
@@ -314,12 +306,21 @@ Partial Class gestor_empresas
         Me.txt_email.Size = New System.Drawing.Size(232, 20)
         Me.txt_email.TabIndex = 45
         '
+        'txt_cuit
+        '
+        Me.txt_cuit.Location = New System.Drawing.Point(200, 129)
+        Me.txt_cuit.Mask = "99999999999"
+        Me.txt_cuit.Name = "txt_cuit"
+        Me.txt_cuit.Size = New System.Drawing.Size(232, 20)
+        Me.txt_cuit.TabIndex = 46
+        '
         'gestor_empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(521, 625)
+        Me.Controls.Add(Me.txt_cuit)
         Me.Controls.Add(Me.txt_email)
         Me.Controls.Add(Me.txt_telefono_fijo)
         Me.Controls.Add(Me.cmd_eliminar)
@@ -340,7 +341,6 @@ Partial Class gestor_empresas
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.tablaEmpresas)
         Me.Controls.Add(Me.txt_razon_social)
-        Me.Controls.Add(Me.txt_cuit)
         Me.Controls.Add(Me.txt_nombre)
         Me.Controls.Add(Me.lbl_nombre)
         Me.Controls.Add(Me.lbl_razon_social)
@@ -363,7 +363,6 @@ Partial Class gestor_empresas
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents tablaEmpresas As System.Windows.Forms.DataGridView
     Friend WithEvents txt_razon_social As System.Windows.Forms.TextBox
-    Friend WithEvents txt_cuit As System.Windows.Forms.TextBox
     Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
     Friend WithEvents lbl_nombre As System.Windows.Forms.Label
     Friend WithEvents lbl_razon_social As System.Windows.Forms.Label
@@ -383,4 +382,5 @@ Partial Class gestor_empresas
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents txt_telefono_fijo As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txt_email As System.Windows.Forms.TextBox
+    Friend WithEvents txt_cuit As System.Windows.Forms.MaskedTextBox
 End Class
