@@ -11,19 +11,19 @@
         End If
     End Sub
 
-    Private Sub cargar_grilla()
-        Dim tabla As Data.DataTable = conexion.leer_localidades("PROVINCIAS", "NOMBRE", "CIUDADES")
-        Me.tabla_localidades.Rows.Clear()
+    'Private Sub cargar_grilla()
+    '    Dim tabla As Data.DataTable = conexion.leer_localidades("PROVINCIAS", "NOMBRE", "CIUDADES")
+    '    Me.tabla_localidades.Rows.Clear()
 
-        Dim index As Integer
-        For index = 0 To tabla.Rows.Count - 1
+    '    Dim index As Integer
+    '    For index = 0 To tabla.Rows.Count - 1
 
-            Me.tabla_localidades.Rows.Add()
-            Me.tabla_localidades.Rows(index).Cells(0).Value = tabla.Rows(index)("ID_CIUDAD")
-            Me.tabla_localidades.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
-            Me.tabla_localidades.Rows(index).Cells(1).Value = tabla.Rows(index)("CODIGO_POSTAL")
-        Next
+    '        Me.tabla_localidades.Rows.Add()
+    '        Me.tabla_localidades.Rows(index).Cells(0).Value = tabla.Rows(index)("ID_CIUDAD")
+    '        Me.tabla_localidades.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
+    '        Me.tabla_localidades.Rows(index).Cells(1).Value = tabla.Rows(index)("CODIGO_POSTAL")
+    '    Next
 
-    End Sub
+    'End Sub
 
 End Class
