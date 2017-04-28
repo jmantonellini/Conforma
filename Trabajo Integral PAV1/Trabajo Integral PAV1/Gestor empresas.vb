@@ -29,6 +29,7 @@
 
     Private Sub gestor_empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim tabla As Data.DataTable = New DataTable
+        deshabilitar_campos()
         tablaEmpresas.DataSource = c.cargar_grilla("empresas")
         tt_guardar.SetToolTip(cmd_guardar, "Guardar")
         tt_nuevo.SetToolTip(cmd_nuevo, "Nuevo")
@@ -100,7 +101,7 @@
         
         Dim b As Boolean = False
         For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.Text = "" And obj.GetType.Name = "TextBox" Then
+            If obj.Text = "" And (obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox") Then
                 b = True
                 obj.BackColor = Color.PaleVioletRed
 

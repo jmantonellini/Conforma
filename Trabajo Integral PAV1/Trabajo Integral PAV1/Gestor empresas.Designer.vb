@@ -308,6 +308,7 @@ Partial Class gestor_empresas
         '
         'txt_cuit
         '
+        Me.txt_cuit.Enabled = False
         Me.txt_cuit.Location = New System.Drawing.Point(200, 129)
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
