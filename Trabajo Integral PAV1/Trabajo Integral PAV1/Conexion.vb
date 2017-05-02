@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_juanma1
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -127,8 +127,8 @@
     End Function
 
     Public Function tiene_domicilio(ByVal id_cliente As Int64) As Boolean
-        Dim domicilio As DataTable = ejecuto_sql("Select D.* FROM DOMICILIOS D RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE WHERE C.ID_CLIENTE =" & id_cliente)
-        If (IsNothing(domicilio.Rows(0).Item(0))) Then
+        Dim domicilio As DataTable = ejecuto_sql("Select D.* FROM DOMICILIOS D JOIN CLIENTES C ON C.ID_CLIENTE = D.ID_CLIENTE WHERE C.ID_CLIENTE =" & id_cliente)
+        If domicilio.Rows.Count = 0 Then
             Return False
         Else : Return True
         End If

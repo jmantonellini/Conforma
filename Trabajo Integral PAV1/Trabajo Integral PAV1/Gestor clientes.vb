@@ -35,6 +35,7 @@
         cmb_ciudad = c.cargar_combo(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE")
         cmb_tipo_documento = c.cargar_combo(cmb_tipo_documento, "TIPOS_DOCUMENTOS", "ID_TIPO_DOCUMENTO", "NOMBRE")
         tabla_clientes.Rows(0).Selected = True
+        deshabilitar_campos()
         limpiar_campos()
     End Sub
 
@@ -44,8 +45,6 @@
         Me.accion = tipo_grabacion.insertar
         Me.cmd_modificar.Enabled = False
         Me.cmd_guardar.Enabled = True
-        cmb_provincia.Enabled = False
-        cmb_ciudad.Enabled = False
         control_tab.SelectedTab = tab_datos_personales
         Me.txt_nombre.Focus()
     End Sub
@@ -192,8 +191,15 @@
                         numero = Nothing
                     Else : numero = CLng(txt_altura_calle.Text)
                     End If
+                    Try
+                        c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, documento, fijo, celular, Me.txt_mail.Text, cuit)
+                    Catch ex As Exception
+                        MsgBox("No se pudo cargar el cliente por errores de dependencia")
+                        control_tab.SelectedTab = tab_datos_personales
+                        txt_documento.Focus()
 
-                    c.insertar_cliente(Me.txt_nombre.Text, Me.txt_apellido.Text, id_tipodoc, documento, fijo, celular, Me.txt_mail.Text, cuit)
+                    End Try
+
                     aidi_cli = c.dame_id_cliente(cmb_tipo_documento.SelectedValue, CLng(txt_documento.Text))
                     idee = CLng(aidi_cli.Rows(0).Item(0).ToString)
                     c.insertar_domicilio(idee, txt_calle.Text, numero, CLng(cmb_ciudad.SelectedValue))
@@ -314,7 +320,7 @@
 
     Private Function validar_datos()
         For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls()
-            If obj.GetType().Name = "TextBox" And obj.GetType().Name = "MaskedTextBox" And obj.Name <> "txt_cuit" Then
+            If (obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox") And obj.Name <> "txt_cuit" Then
                 If obj.Text = "" Then
                     MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
                     obj.Focus()
@@ -410,25 +416,17 @@
     End Sub
 
     Private Sub cmb_pais_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_pais.SelectedValueChanged
-        cmb_provincia.SelectedIndex = -1
-        cmb_provincia.Enabled = False
-        cmb_ciudad.SelectedIndex = -1
-        cmb_ciudad.Enabled = False
+        cmb_provincia.Text = ""
         If (cmb_pais.Items.Count <> 0) Then
             c.cargar_combo_flitrado_provincia(cmb_provincia, "PROVINCIAS", "ID_PROVINCIA", "NOMBRE", cmb_pais.Text, "PAISES")
-            If cmb_pais.Text = "" Then
-                cmb_provincia.Enabled = False
-            Else : cmb_provincia.Enabled = True
-            End If
+            cmb_provincia.Text = ""
         End If
     End Sub
 
     Private Sub cmb_provincia_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_provincia.SelectedValueChanged
-        cmb_ciudad.SelectedIndex = -1
-        cmb_ciudad.Enabled = False
+        cmb_ciudad.Text = ""
         If (cmb_provincia.Items.Count <> 0) Then
             c.cargar_combo_flitrado_ciudad(cmb_ciudad, "CIUDADES", "ID_CIUDAD", "NOMBRE", cmb_provincia.Text, "PROVINCIAS")
-            cmb_ciudad.Enabled = True
         End If
     End Sub
 
@@ -453,25 +451,13 @@
         txt_nombre.Focus()
     End Sub
 
-
     Private Sub cmb_pais_TextChanged(sender As Object, e As EventArgs) Handles cmb_pais.TextChanged
-        If cmb_pais.Text = "" Then
-            cmb_provincia.SelectedIndex = -1
-            cmb_provincia.Enabled = False
-            cmb_ciudad.SelectedIndex = -1
-            cmb_ciudad.Enabled = False
-            txt_calle.Text = ""
-            txt_altura_calle.Text = ""
-        End If
+        
     End Sub
 
-
-
     Private Sub cmb_provincia_TextChanged(sender As Object, e As EventArgs) Handles cmb_provincia.TextChanged
-        If cmb_provincia.Text = "" Then
-            cmb_ciudad.SelectedIndex = -1
-            cmb_ciudad.Enabled = False
-        End If
+
+
     End Sub
 
     Private Sub cmd_agregar_empresa_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empresa.Click
@@ -481,14 +467,12 @@
 
 
     Private Sub cmb_ciudad_TextChanged(sender As Object, e As EventArgs) Handles cmb_ciudad.TextChanged
-        If cmb_ciudad.Text = "" Then
-            txt_calle.Enabled = False
-        End If
+
+
     End Sub
     Private Sub txt_calle_TextChanged(sender As Object, e As EventArgs) Handles txt_calle.TextChanged
-        If txt_calle.Text = "" Then
-            txt_altura_calle.Enabled = False
-        End If
+
+
     End Sub
 
 End Class

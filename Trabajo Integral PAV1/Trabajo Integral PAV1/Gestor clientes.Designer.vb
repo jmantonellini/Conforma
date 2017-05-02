@@ -57,9 +57,7 @@ Partial Class gestor_clientes
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txt_mail = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txt_celular = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txt_fijo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tab_domicilios = New System.Windows.Forms.TabPage()
         Me.cmd_anterior2 = New System.Windows.Forms.Button()
@@ -80,6 +78,8 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.txt_fijo = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_celular = New System.Windows.Forms.MaskedTextBox()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -378,14 +378,14 @@ Partial Class gestor_clientes
         'tab_contacto
         '
         Me.tab_contacto.BackColor = System.Drawing.Color.Gainsboro
+        Me.tab_contacto.Controls.Add(Me.txt_celular)
+        Me.tab_contacto.Controls.Add(Me.txt_fijo)
         Me.tab_contacto.Controls.Add(Me.cmd_anterior)
         Me.tab_contacto.Controls.Add(Me.cmd_siguiente2)
         Me.tab_contacto.Controls.Add(Me.Label16)
         Me.tab_contacto.Controls.Add(Me.txt_mail)
         Me.tab_contacto.Controls.Add(Me.Label9)
-        Me.tab_contacto.Controls.Add(Me.txt_celular)
         Me.tab_contacto.Controls.Add(Me.Label8)
-        Me.tab_contacto.Controls.Add(Me.txt_fijo)
         Me.tab_contacto.Controls.Add(Me.Label7)
         Me.tab_contacto.Location = New System.Drawing.Point(4, 29)
         Me.tab_contacto.Name = "tab_contacto"
@@ -440,14 +440,6 @@ Partial Class gestor_clientes
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Email:"
         '
-        'txt_celular
-        '
-        Me.txt_celular.Enabled = False
-        Me.txt_celular.Location = New System.Drawing.Point(158, 74)
-        Me.txt_celular.Name = "txt_celular"
-        Me.txt_celular.Size = New System.Drawing.Size(248, 26)
-        Me.txt_celular.TabIndex = 1
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -457,14 +449,6 @@ Partial Class gestor_clientes
         Me.Label8.Size = New System.Drawing.Size(145, 20)
         Me.Label8.TabIndex = 2
         Me.Label8.Text = "Teléfono Celular:"
-        '
-        'txt_fijo
-        '
-        Me.txt_fijo.Enabled = False
-        Me.txt_fijo.Location = New System.Drawing.Point(158, 42)
-        Me.txt_fijo.Name = "txt_fijo"
-        Me.txt_fijo.Size = New System.Drawing.Size(248, 26)
-        Me.txt_fijo.TabIndex = 0
         '
         'Label7
         '
@@ -677,6 +661,23 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
+        'txt_fijo
+        '
+        Me.txt_fijo.Enabled = False
+        Me.txt_fijo.Location = New System.Drawing.Point(158, 39)
+        Me.txt_fijo.Mask = "9999999999"
+        Me.txt_fijo.Name = "txt_fijo"
+        Me.txt_fijo.Size = New System.Drawing.Size(248, 26)
+        Me.txt_fijo.TabIndex = 37
+        '
+        'txt_celular
+        '
+        Me.txt_celular.Location = New System.Drawing.Point(158, 72)
+        Me.txt_celular.Mask = "999999999"
+        Me.txt_celular.Name = "txt_celular"
+        Me.txt_celular.Size = New System.Drawing.Size(248, 26)
+        Me.txt_celular.TabIndex = 38
+        '
         'gestor_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -724,9 +725,7 @@ Partial Class gestor_clientes
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tab_contacto As System.Windows.Forms.TabPage
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents txt_celular As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txt_fijo As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents tab_domicilios As System.Windows.Forms.TabPage
     Friend WithEvents tabla_clientes As System.Windows.Forms.DataGridView
@@ -765,4 +764,6 @@ Partial Class gestor_clientes
     Friend WithEvents cmb_empresa As System.Windows.Forms.ComboBox
     Friend WithEvents cmd_siguiente2 As System.Windows.Forms.Button
     Friend WithEvents cmd_agregar_empresa As System.Windows.Forms.Button
+    Friend WithEvents txt_celular As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_fijo As System.Windows.Forms.MaskedTextBox
 End Class
