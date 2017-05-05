@@ -59,47 +59,24 @@
         Next
     End Sub
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nueva_marca.Click
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-            End If
-        Next
+        Me.txt_marcas.Text = ""
         Me.cmd_guardar_marca.Enabled = True
         Me.txt_marcas.Enabled = True
         Me.txt_marcas.Focus()
         Me.accion = tipo_grabacion.insertar
         Me.cargar_grilla_marcas()
+        Me.buscando_marcas = False
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar_marca.Click
-        If validar_cadena(txt_marcas.Text) = True Then
+        If Me.buscando_marcas = False Then
             Me.grabar_marca(txt_marcas.Text)
+            Me.buscando_marcas = True
+        Else
+            MessageBox.Show("Seleccione nueva marca antes de guardar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
-    Private Function validar_cadena(ByVal cadena As String) As Boolean
-
-        If cadena = Nothing Then
-            MessageBox.Show("No hay cadena de texto valida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        Else
-            For Each obj As Char In cadena.ToCharArray
-
-                If Char.IsLetter(obj) = False Then
-                    If Char.IsWhiteSpace(obj) = True Then
-                        If cadena.StartsWith(" ") Then
-                            MessageBox.Show("No coloque espacios en blanco al inicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Return False
-                        End If
-                    Else
-                        MessageBox.Show("No se permiten numeros ni simbolos, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Return False
-                    End If
-                End If
-            Next
-        End If
-        Return True
-    End Function
 
     Private Sub grabar_marca(ByVal nombre As String)
         If Me.conexion.buscar_marca(nombre.ToString).Rows.Count = 1 Then
@@ -164,6 +141,14 @@
         Me.accion = tipo_grabacion.insertar
     End Sub
 
+    Private Sub txt_marcas_Click(sender As Object, e As EventArgs) Handles txt_marcas.Click
+        Me.buscando_marcas = True
+    End Sub
+
+    Private Sub txt_marcas_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_marcas.KeyPress
+        e.Handled = Not Char.IsLetterOrDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) And Not Char.IsSeparator(e.KeyChar)
+    End Sub
+
 
 
     Private Sub txt_marcas_TextChanged(sender As Object, e As EventArgs) Handles txt_marcas.TextChanged
@@ -181,6 +166,14 @@
                 Me.tabla_marcas.Rows(index).Cells(1).Value = tabla.Rows(index)("NOMBRE")
             Next
         End If
+    End Sub
+
+    Private Sub txt_modelos_Click(sender As Object, e As EventArgs) Handles txt_modelos.Click
+        Me.buscando_modelos = True
+    End Sub
+
+    Private Sub txt_modelos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_modelos.KeyPress
+        e.Handled = Not Char.IsLetterOrDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) And Not Char.IsSeparator(e.KeyChar)
     End Sub
 
     Private Sub txt_modelos_TextChanged(sender As Object, e As EventArgs) Handles txt_modelos.TextChanged
@@ -201,56 +194,24 @@
     End Sub
 
     Private Sub cmd_nuevo_modelo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo_modelo.Click
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-            End If
-        Next
+        Me.txt_modelos.Text = ""
         Me.cmd_guardar_modelo.Enabled = True
         Me.txt_modelos.Enabled = True
         Me.txt_modelos.Focus()
         Me.accion = tipo_grabacion.insertar
         Me.cargar_grilla_modelos()
+        Me.buscando_modelos = False
     End Sub
 
     Private Sub cmd_guardar_modelo_Click(sender As Object, e As EventArgs) Handles cmd_guardar_modelo.Click
-        Dim id_marca As Integer
-        If Me.validar_cadena_modelos(txt_modelos.Text) = True Then
-            Me.auxiliar = New Formulario_auxiliar_de_gestor_marcas
-            Me.auxiliar.ShowDialog()
-            id_marca = auxiliar.get_id_marca()
-            If id_marca = Nothing Then
-                Exit Sub
-            Else
-                Me.grabar_modelo(txt_modelos.Text, auxiliar.get_id_marca)
-            End If
+        If Me.buscando_modelos = False Then
+            Me.grabar_modelo(txt_modelos.Text, Me.tabla_marcas.CurrentRow.Cells(0).Value)
+            Me.buscando_modelos = True
+        Else
+            MessageBox.Show("Seleccione nuevo modelo antes de guardar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-
-
     End Sub
 
-    Private Function validar_cadena_modelos(ByVal cadena As String) As Boolean
-        If cadena = Nothing Then
-            MessageBox.Show("No hay cadena de texto valida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        Else
-            For Each obj As Char In cadena.ToCharArray
-
-                If Char.IsLetterOrDigit(obj) = False Then
-                    If Char.IsWhiteSpace(obj) = True Then
-                        If cadena.StartsWith(" ") Then
-                            MessageBox.Show("No coloque espacios en blanco al inicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Return False
-                        End If
-                    Else
-                        MessageBox.Show("No se permiten numeros ni simbolos, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Return False
-                    End If
-                End If
-            Next
-        End If
-        Return True
-    End Function
     Private Sub grabar_modelo(ByVal nombre As String, ByVal id_marca As Integer)
         If Me.conexion.buscar_modelo(nombre.ToString).Rows.Count = 1 Then
             MessageBox.Show("El modelo ya existe", "Grabacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -292,5 +253,9 @@
         Me.txt_marcas.Text = Me.marca.Rows(0).Item(1).ToString
         Me.accion = tipo_grabacion.modificar
         Me.marca_a_modificar = Me.tabla_marcas.CurrentRow.Cells(0).Value
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Me.lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 End Class

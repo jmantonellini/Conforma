@@ -27,15 +27,17 @@
     End Sub
 
     Private Sub cmd_nuevo_Click(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        For Each obj As Windows.Forms.Control In Me.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-            End If
-        Next
+        Me.txt_nombre.Text = ""
+        'For Each obj As Windows.Forms.Control In Me.Controls
+        '    If obj.GetType().Name = "TextBox" Then
+        '        obj.Text = ""
+        '    End If
+        'Next
         Me.cmd_modificar.Enabled = True
         Me.txt_nombre.Enabled = True
         Me.txt_nombre.Focus()
         Me.accion = tipo_grabacion.insertar
+        Me.buscando = False
     End Sub
 
     Private Sub cargar_grilla()
@@ -67,34 +69,14 @@
     End Sub
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
-        If Me.validar_cadena(Me.txt_nombre.Text) = True Then
+        If Me.buscando = False Then
             Me.grabar_pais(Me.txt_nombre.Text)
-        End If
-    End Sub
-
-    Private Function validar_cadena(ByVal cadena As String) As Boolean
-
-        If cadena = Nothing Then
-            MessageBox.Show("No hay cadena de texto valida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
+            Me.buscando = True
         Else
-            For Each obj As Char In cadena.ToCharArray
-
-                If Char.IsLetter(obj) = False Then
-                    If Char.IsWhiteSpace(obj) = True Then
-                        If cadena.StartsWith(" ") Then
-                            MessageBox.Show("No coloque espacios en blanco al inicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Return False
-                        End If
-                    Else
-                        MessageBox.Show("No se permiten numeros ni simbolos, por favor intente nuevamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Return False
-                    End If
-                End If
-            Next
+            MessageBox.Show("Seleccione nuevo pais antes de guardar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-        Return True
-    End Function
+
+    End Sub
 
     Private Sub grabar_pais(ByVal nombre As String)
         If Me.conexion.buscar_paises(nombre.ToString).Rows.Count = 1 Then
@@ -124,6 +106,14 @@
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub txt_nombre_Click(sender As Object, e As EventArgs) Handles txt_nombre.Click
+        Me.buscando = True
+    End Sub
+
+    Private Sub txt_nombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_nombre.KeyPress
+        e.Handled = Not Char.IsLetter(e.KeyChar) And Not Char.IsControl(e.KeyChar) And Not Char.IsSeparator(e.KeyChar)
     End Sub
 
     Private Sub txt_nombre_TextChanged(sender As Object, e As EventArgs) Handles txt_nombre.TextChanged
@@ -177,4 +167,7 @@
     End Sub
 
     
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Me.lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
+    End Sub
 End Class

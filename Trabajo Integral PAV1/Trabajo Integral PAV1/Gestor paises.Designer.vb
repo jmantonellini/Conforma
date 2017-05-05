@@ -34,6 +34,7 @@ Partial Class gestor_paises
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.lbl_hora = New System.Windows.Forms.Label()
         CType(Me.tabla_paises, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -59,7 +60,6 @@ Partial Class gestor_paises
         '
         'txt_nombre
         '
-        Me.txt_nombre.Enabled = False
         Me.txt_nombre.Location = New System.Drawing.Point(97, 111)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(121, 20)
@@ -83,6 +83,7 @@ Partial Class gestor_paises
         '
         Me.id.HeaderText = "Id"
         Me.id.Name = "id"
+        Me.id.Visible = False
         '
         'nombre
         '
@@ -137,11 +138,20 @@ Partial Class gestor_paises
         '
         Me.Timer1.Enabled = True
         '
+        'lbl_hora
+        '
+        Me.lbl_hora.Location = New System.Drawing.Point(340, 9)
+        Me.lbl_hora.Name = "lbl_hora"
+        Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
+        Me.lbl_hora.TabIndex = 45
+        Me.lbl_hora.Text = "Label22"
+        '
         'gestor_paises
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(476, 456)
+        Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_modificar)
@@ -168,4 +178,5 @@ Partial Class gestor_paises
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lbl_hora As System.Windows.Forms.Label
 End Class
