@@ -3,15 +3,16 @@
     Enum tipo_grabacion
         insertar
         modificar
+        nulo
     End Enum
 
     Dim paises As New Data.DataTable
-    Dim accion As tipo_grabacion = tipo_grabacion.insertar
+    Dim accion As tipo_grabacion = tipo_grabacion.nulo
     Dim conexion As New Conexion
     Dim buscando As Boolean = True
 
     Private Sub gestor_paises_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If accion = tipo_grabacion.insertar Or accion = tipo_grabacion.modificar Then
+        If accion <> tipo_grabacion.nulo Then
             If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
                 e.Cancel = True
             End If
@@ -75,7 +76,7 @@
         Else
             MessageBox.Show("Seleccione nuevo pais antes de guardar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-
+        accion = tipo_grabacion.nulo
     End Sub
 
     Private Sub grabar_pais(ByVal nombre As String)
@@ -163,6 +164,7 @@
                 Exit Sub
             End If
         End If
+        accion = tipo_grabacion.nulo
 
     End Sub
 

@@ -114,6 +114,9 @@
         'Me.marca = conexion.buscar_marca(tabla_marcas.CurrentRow.Cells(1).Value)
         'Me.txt_marcas.Text = Me.marca.Rows(0).Item(1).ToString
         'Me.accion = tipo_grabacion.modificar
+        If (tabla_marcas.RowCount = 0) Then
+            Exit Sub
+        End If
         Me.txt_marcas.Enabled = True
 
         Dim tabla As Data.DataTable = conexion.modelos_de_una_marca(Me.tabla_marcas.CurrentRow.Cells(1).Value)
