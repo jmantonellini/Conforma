@@ -31,7 +31,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -423,9 +423,7 @@
 
     Public Function buscar_nombre(ByVal tabla As String, filtro As String)
         Dim id_cadena As String = ""
-
-
-        If (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows.Count = 0) Then
+        If (CInt(Me.ejecuto_sql("SELECT COUNT(NOMBRE) FROM " & tabla & " WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString) = 0) Then
             Return True
         End If
         Return False

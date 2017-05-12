@@ -28,12 +28,12 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.lbl_tipo_producto = New System.Windows.Forms.Label()
         Me.cmb_tipo_producto = New System.Windows.Forms.ComboBox()
         Me.cmd_nuevo_producto = New System.Windows.Forms.Button()
-        Me.cmd_modificar_tipo_producto = New System.Windows.Forms.Button()
+        Me.cmd_eliminar_tipo = New System.Windows.Forms.Button()
         Me.lbl_categoria = New System.Windows.Forms.Label()
         Me.tabla_categorias = New System.Windows.Forms.DataGridView()
         Me.cmd_nueva_categoria = New System.Windows.Forms.Button()
         Me.cmd_modificar_categoria = New System.Windows.Forms.Button()
-        Me.cmd_eliminar_tipo = New System.Windows.Forms.Button()
+        Me.cmd_modificar_tipo_producto = New System.Windows.Forms.Button()
         Me.cmd_eliminar_categoria = New System.Windows.Forms.Button()
         Me.cmd_eliminar_area = New System.Windows.Forms.Button()
         Me.cmd_modificar_area = New System.Windows.Forms.Button()
@@ -91,14 +91,14 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_nuevo_producto.TabIndex = 2
         Me.cmd_nuevo_producto.UseVisualStyleBackColor = True
         '
-        'cmd_modificar_tipo_producto
+        'cmd_eliminar_tipo
         '
-        Me.cmd_modificar_tipo_producto.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.X
-        Me.cmd_modificar_tipo_producto.Location = New System.Drawing.Point(412, 80)
-        Me.cmd_modificar_tipo_producto.Name = "cmd_modificar_tipo_producto"
-        Me.cmd_modificar_tipo_producto.Size = New System.Drawing.Size(38, 38)
-        Me.cmd_modificar_tipo_producto.TabIndex = 2
-        Me.cmd_modificar_tipo_producto.UseVisualStyleBackColor = True
+        Me.cmd_eliminar_tipo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.X
+        Me.cmd_eliminar_tipo.Location = New System.Drawing.Point(412, 80)
+        Me.cmd_eliminar_tipo.Name = "cmd_eliminar_tipo"
+        Me.cmd_eliminar_tipo.Size = New System.Drawing.Size(38, 38)
+        Me.cmd_eliminar_tipo.TabIndex = 2
+        Me.cmd_eliminar_tipo.UseVisualStyleBackColor = True
         '
         'lbl_categoria
         '
@@ -112,6 +112,9 @@ Partial Class gestor_tipo_producto_y_categorias
         '
         'tabla_categorias
         '
+        Me.tabla_categorias.AllowUserToAddRows = False
+        Me.tabla_categorias.AllowUserToDeleteRows = False
+        Me.tabla_categorias.AllowUserToResizeColumns = False
         Me.tabla_categorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tabla_categorias.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.tabla_categorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -139,14 +142,14 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.cmd_modificar_categoria.TabIndex = 7
         Me.cmd_modificar_categoria.UseVisualStyleBackColor = True
         '
-        'cmd_eliminar_tipo
+        'cmd_modificar_tipo_producto
         '
-        Me.cmd_eliminar_tipo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._126483
-        Me.cmd_eliminar_tipo.Location = New System.Drawing.Point(368, 80)
-        Me.cmd_eliminar_tipo.Name = "cmd_eliminar_tipo"
-        Me.cmd_eliminar_tipo.Size = New System.Drawing.Size(38, 38)
-        Me.cmd_eliminar_tipo.TabIndex = 37
-        Me.cmd_eliminar_tipo.UseVisualStyleBackColor = True
+        Me.cmd_modificar_tipo_producto.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._126483
+        Me.cmd_modificar_tipo_producto.Location = New System.Drawing.Point(368, 80)
+        Me.cmd_modificar_tipo_producto.Name = "cmd_modificar_tipo_producto"
+        Me.cmd_modificar_tipo_producto.Size = New System.Drawing.Size(38, 38)
+        Me.cmd_modificar_tipo_producto.TabIndex = 37
+        Me.cmd_modificar_tipo_producto.UseVisualStyleBackColor = True
         '
         'cmd_eliminar_categoria
         '
@@ -203,7 +206,7 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.ClientSize = New System.Drawing.Size(486, 462)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar_categoria)
-        Me.Controls.Add(Me.cmd_eliminar_tipo)
+        Me.Controls.Add(Me.cmd_modificar_tipo_producto)
         Me.Controls.Add(Me.cmd_eliminar_area)
         Me.Controls.Add(Me.cmd_modificar_categoria)
         Me.Controls.Add(Me.cmd_nueva_categoria)
@@ -211,7 +214,7 @@ Partial Class gestor_tipo_producto_y_categorias
         Me.Controls.Add(Me.lbl_categoria)
         Me.Controls.Add(Me.cmb_tipo_producto)
         Me.Controls.Add(Me.lbl_tipo_producto)
-        Me.Controls.Add(Me.cmd_modificar_tipo_producto)
+        Me.Controls.Add(Me.cmd_eliminar_tipo)
         Me.Controls.Add(Me.cmd_modificar_area)
         Me.Controls.Add(Me.cmd_nuevo_producto)
         Me.Controls.Add(Me.cmd_nueva_area)
@@ -232,13 +235,13 @@ Partial Class gestor_tipo_producto_y_categorias
     Friend WithEvents lbl_tipo_producto As System.Windows.Forms.Label
     Friend WithEvents cmb_tipo_producto As System.Windows.Forms.ComboBox
     Friend WithEvents cmd_nuevo_producto As System.Windows.Forms.Button
-    Friend WithEvents cmd_modificar_tipo_producto As System.Windows.Forms.Button
+    Friend WithEvents cmd_eliminar_tipo As System.Windows.Forms.Button
     Friend WithEvents lbl_categoria As System.Windows.Forms.Label
     Friend WithEvents tabla_categorias As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_nueva_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_area As System.Windows.Forms.Button
-    Friend WithEvents cmd_eliminar_tipo As System.Windows.Forms.Button
+    Friend WithEvents cmd_modificar_tipo_producto As System.Windows.Forms.Button
     Friend WithEvents cmd_eliminar_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
 End Class
