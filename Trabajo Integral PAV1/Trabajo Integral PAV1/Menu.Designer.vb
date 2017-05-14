@@ -34,6 +34,7 @@ Partial Class Menu
         Me.cmd_gestor_categoria = New System.Windows.Forms.Button()
         Me.cmd_provincias = New System.Windows.Forms.Button()
         Me.cmd_gestor_localidades = New System.Windows.Forms.Button()
+        Me.cmd_pedidos = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -136,12 +137,24 @@ Partial Class Menu
         Me.cmd_gestor_localidades.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_gestor_localidades.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_localidades.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_localidades.Location = New System.Drawing.Point(173, 312)
+        Me.cmd_gestor_localidades.Location = New System.Drawing.Point(79, 316)
         Me.cmd_gestor_localidades.Name = "cmd_gestor_localidades"
         Me.cmd_gestor_localidades.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_localidades.TabIndex = 37
         Me.cmd_gestor_localidades.Text = "Gestor Localidades"
         Me.cmd_gestor_localidades.UseVisualStyleBackColor = False
+        '
+        'cmd_pedidos
+        '
+        Me.cmd_pedidos.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_pedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_pedidos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.cmd_pedidos.Location = New System.Drawing.Point(266, 316)
+        Me.cmd_pedidos.Name = "cmd_pedidos"
+        Me.cmd_pedidos.Size = New System.Drawing.Size(171, 58)
+        Me.cmd_pedidos.TabIndex = 39
+        Me.cmd_pedidos.Text = "Pedidos"
+        Me.cmd_pedidos.UseVisualStyleBackColor = False
         '
         'Menu
         '
@@ -149,6 +162,7 @@ Partial Class Menu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(516, 516)
+        Me.Controls.Add(Me.cmd_pedidos)
         Me.Controls.Add(Me.cmd_provincias)
         Me.Controls.Add(Me.cmd_gestor_localidades)
         Me.Controls.Add(Me.cmd_gestor_categoria)
@@ -177,4 +191,5 @@ Partial Class Menu
     Friend WithEvents cmd_gestor_categoria As System.Windows.Forms.Button
     Friend WithEvents cmd_provincias As System.Windows.Forms.Button
     Friend WithEvents cmd_gestor_localidades As System.Windows.Forms.Button
+    Friend WithEvents cmd_pedidos As System.Windows.Forms.Button
 End Class

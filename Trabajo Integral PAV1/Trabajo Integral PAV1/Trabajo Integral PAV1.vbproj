@@ -71,10 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.vb" />
-    <Compile Include="Nuevos Pedidos.Designer.vb">
-      <DependentUpon>Nuevos Pedidos.vb</DependentUpon>
+    <Compile Include="Pedidos.Designer.vb">
+      <DependentUpon>Pedidos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Nuevos Pedidos.vb">
+    <Compile Include="Pedidos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formulario auxiliar de gestor marcas.Designer.vb">
@@ -119,12 +119,6 @@
     <Compile Include="gestor tipo producto y categoria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestorio pedido.Designer.vb">
-      <DependentUpon>Gestorio pedido.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Gestorio pedido.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Menu.Designer.vb">
       <DependentUpon>Menu.vb</DependentUpon>
     </Compile>
@@ -154,8 +148,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Nuevos Pedidos.resx">
-      <DependentUpon>Nuevos Pedidos.vb</DependentUpon>
+    <EmbeddedResource Include="Pedidos.resx">
+      <DependentUpon>Pedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario auxiliar de gestor marcas.resx">
       <DependentUpon>Formulario auxiliar de gestor marcas.vb</DependentUpon>
@@ -177,9 +171,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestor tipo producto y categoria.resx">
       <DependentUpon>gestor tipo producto y categoria.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gestorio pedido.resx">
-      <DependentUpon>Gestorio pedido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
