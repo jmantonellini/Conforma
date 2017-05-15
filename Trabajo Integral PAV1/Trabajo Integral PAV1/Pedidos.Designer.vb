@@ -44,7 +44,7 @@ Partial Class gestor_pedidos
         Me.cmb_marca = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tabla_detalles = New System.Windows.Forms.DataGridView()
         Me.cmd_agregar_detalle = New System.Windows.Forms.Button()
         Me.txt_observaciones = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -52,8 +52,8 @@ Partial Class gestor_pedidos
         Me.cmd_salir2 = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.tab_nuevo = New System.Windows.Forms.TabPage()
+        Me.tab_listado = New System.Windows.Forms.TabPage()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
@@ -61,11 +61,11 @@ Partial Class gestor_pedidos
         Me.tabla_pedidos = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabla_detalles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
+        Me.tab_nuevo.SuspendLayout()
+        Me.tab_listado.SuspendLayout()
         CType(Me.tabla_pedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -282,18 +282,22 @@ Partial Class gestor_pedidos
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Especificaciones:"
         '
-        'DataGridView1
+        'tabla_detalles
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.GridColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView1.Location = New System.Drawing.Point(22, 376)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(762, 85)
-        Me.DataGridView1.TabIndex = 5
+        Me.tabla_detalles.AllowUserToAddRows = False
+        Me.tabla_detalles.AllowUserToDeleteRows = False
+        Me.tabla_detalles.AllowUserToResizeColumns = False
+        Me.tabla_detalles.AllowUserToResizeRows = False
+        Me.tabla_detalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tabla_detalles.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.tabla_detalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tabla_detalles.GridColor = System.Drawing.Color.Gainsboro
+        Me.tabla_detalles.Location = New System.Drawing.Point(22, 376)
+        Me.tabla_detalles.Name = "tabla_detalles"
+        Me.tabla_detalles.ReadOnly = True
+        Me.tabla_detalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.tabla_detalles.Size = New System.Drawing.Size(762, 85)
+        Me.tabla_detalles.TabIndex = 5
         '
         'cmd_agregar_detalle
         '
@@ -324,13 +328,13 @@ Partial Class gestor_pedidos
         Me.Panel3.Controls.Add(Me.cmb_cliente)
         Me.Panel3.Controls.Add(Me.cmd_agregar_detalle)
         Me.Panel3.Controls.Add(Me.Label22)
-        Me.Panel3.Controls.Add(Me.DataGridView1)
+        Me.Panel3.Controls.Add(Me.tabla_detalles)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.Panel2)
         Me.Panel3.Controls.Add(Me.cmd_nuevo_cliente)
         Me.Panel3.Location = New System.Drawing.Point(-4, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(806, 559)
+        Me.Panel3.Size = New System.Drawing.Size(809, 559)
         Me.Panel3.TabIndex = 0
         '
         'cmd_guardar
@@ -367,39 +371,39 @@ Partial Class gestor_pedidos
         '
         'TabControl1
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.tab_nuevo)
+        Me.TabControl1.Controls.Add(Me.tab_listado)
         Me.TabControl1.Location = New System.Drawing.Point(2, 1)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(813, 576)
         Me.TabControl1.TabIndex = 0
         '
-        'TabPage1
+        'tab_nuevo
         '
-        Me.TabPage1.Controls.Add(Me.Panel3)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(805, 550)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Nuevo "
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.tab_nuevo.Controls.Add(Me.Panel3)
+        Me.tab_nuevo.Location = New System.Drawing.Point(4, 22)
+        Me.tab_nuevo.Name = "tab_nuevo"
+        Me.tab_nuevo.Padding = New System.Windows.Forms.Padding(3)
+        Me.tab_nuevo.Size = New System.Drawing.Size(805, 550)
+        Me.tab_nuevo.TabIndex = 0
+        Me.tab_nuevo.Text = "Nuevo "
+        Me.tab_nuevo.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'tab_listado
         '
-        Me.TabPage2.Controls.Add(Me.Label10)
-        Me.TabPage2.Controls.Add(Me.cmd_eliminar)
-        Me.TabPage2.Controls.Add(Me.cmd_salir)
-        Me.TabPage2.Controls.Add(Me.cmd_modificar)
-        Me.TabPage2.Controls.Add(Me.tabla_pedidos)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(805, 550)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Listado"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.tab_listado.Controls.Add(Me.Label10)
+        Me.tab_listado.Controls.Add(Me.cmd_eliminar)
+        Me.tab_listado.Controls.Add(Me.cmd_salir)
+        Me.tab_listado.Controls.Add(Me.cmd_modificar)
+        Me.tab_listado.Controls.Add(Me.tabla_pedidos)
+        Me.tab_listado.Location = New System.Drawing.Point(4, 22)
+        Me.tab_listado.Name = "tab_listado"
+        Me.tab_listado.Padding = New System.Windows.Forms.Padding(3)
+        Me.tab_listado.Size = New System.Drawing.Size(805, 550)
+        Me.tab_listado.TabIndex = 1
+        Me.tab_listado.Text = "Listado"
+        Me.tab_listado.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -448,12 +452,15 @@ Partial Class gestor_pedidos
         '
         Me.tabla_pedidos.AllowUserToAddRows = False
         Me.tabla_pedidos.AllowUserToDeleteRows = False
+        Me.tabla_pedidos.AllowUserToResizeColumns = False
+        Me.tabla_pedidos.AllowUserToResizeRows = False
         Me.tabla_pedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tabla_pedidos.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.tabla_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.tabla_pedidos.Location = New System.Drawing.Point(21, 43)
         Me.tabla_pedidos.Name = "tabla_pedidos"
         Me.tabla_pedidos.ReadOnly = True
+        Me.tabla_pedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tabla_pedidos.Size = New System.Drawing.Size(762, 349)
         Me.tabla_pedidos.TabIndex = 0
         '
@@ -471,13 +478,13 @@ Partial Class gestor_pedidos
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabla_detalles, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
+        Me.tab_nuevo.ResumeLayout(False)
+        Me.tab_listado.ResumeLayout(False)
+        Me.tab_listado.PerformLayout()
         CType(Me.tabla_pedidos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -502,13 +509,13 @@ Partial Class gestor_pedidos
     Friend WithEvents cmb_marca As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents tabla_detalles As System.Windows.Forms.DataGridView
     Friend WithEvents cmd_agregar_detalle As System.Windows.Forms.Button
     Friend WithEvents txt_observaciones As System.Windows.Forms.TextBox
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents tab_nuevo As System.Windows.Forms.TabPage
+    Friend WithEvents tab_listado As System.Windows.Forms.TabPage
     Friend WithEvents tabla_pedidos As System.Windows.Forms.DataGridView
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button

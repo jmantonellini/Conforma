@@ -103,5 +103,28 @@
     Private Sub salir(sender As Object, e As EventArgs) Handles cmd_salir2.Click, cmd_salir.Click
         Me.Close()
     End Sub
+
+    Private Sub tabla_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_pedidos.CellDoubleClick
+        'cargar todos los detalles pedidos
+        Dim cadena_busqueda As String = " DETALLES_PEDIDOS DP JOIN PRODUCTOS P ON P.ID_PRODUCTO = DP.ID_PRODUCTO " _
+                                        & " JOIN AREAS A ON A.ID_AREA = P.ID_AREA " _
+                                        & " JOIN CATEGORIAS C ON C.ID_CATEGORIA = P.ID_CATEGORIA " _
+                                        & " JOIN MODELOS M ON M.ID_MODELO = P.ID_MODELO " _
+                                        & " JOIN TIPOS_PRODUCTOS TP ON TP.ID_TIPO_PRODUCTO = P.ID_TIPO_PRODUCTO "
+
+        tabla_detalles.DataSource = conexion.leer_tabla_filtrada_generica(cadena_busqueda, _
+                                                                          "NRO_PEDIDO", _
+                                                                          tabla_pedidos.SelectedRows.Item(0).Cells(0).Value, _
+                                                                          " DP.ID_DETALLE_PEDIDO as 'Detalle Nº' , " _
+                                                                          & " A.NOMBRE AS 'Área' ," _
+                                                                          & " C.NOMBRE AS 'Categoría' ," _
+                                                                          & " M.NOMBRE AS 'Modelo' ")
+        'cargar todos los combos desde la tabla detalle ACA TIRA ERROR; DESPUES DE ESTO
+        conexion.cargar_combo_generico_filtrado(cmb_area, "AREAS", "ID_AREA", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
+        conexion.cargar_combo_generico_filtrado(cmb_categoria, " CATEGORIAS ", " ID_CATEGORIA ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        conexion.cargar_combo_generico_filtrado(cmb_categoria, " MODELOS ", " ID_MODELO ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        'conexion.cargar_combo_generico_filtrado(cmb_categoria, " CATEGORIAS ", " ID_CATEGORIA ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        TabControl1.SelectedTab = tab_nuevo
+    End Sub
 End Class
 

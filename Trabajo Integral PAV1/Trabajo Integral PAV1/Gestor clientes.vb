@@ -393,7 +393,6 @@
     End Function
 
     Private Sub cmd_siguiente_Click(sender As Object, e As EventArgs) Handles cmd_siguiente.Click
-
         control_tab.SelectedTab = tab_contacto
     End Sub
 

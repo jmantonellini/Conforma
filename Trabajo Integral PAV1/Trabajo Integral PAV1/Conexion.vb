@@ -93,6 +93,34 @@
         Return combo
     End Function
 
+    Public Function carga_combo_generico_dos_tablas(ByRef combo As ComboBox, tabla1 As String, pk As String _
+                                         , nombre As String, tabla2 As String, atributo_union As String)
+        Dim tabla_fuentes As Data.DataTable = leer_tabla_filtrada_dos_tablas(tabla1, nombre, tabla2, atributo_union)
+        combo.DataSource = tabla_fuentes
+        combo.DisplayMember = nombre
+        combo.ValueMember = pk
+        Return combo
+    End Function
+
+    Public Function cargar_combo_generico_filtrado(ByRef combo As ComboBox, tabla As String, pk As String _
+                                                   , nombre As String, atributo_id As Integer)
+        Dim tabla_fuente As DataTable = leer_tabla_filtrada_generica(tabla, pk, atributo_id, nombre)
+        combo.DataSource = tabla_fuente
+        combo.ValueMember = pk
+        combo.DisplayMember = nombre
+        Return combo
+    End Function
+
+    Public Function leer_tabla_filtrada_generica(ByVal tabla As String, pk As String, atributo_id As Integer _
+                                                 , nombre As String)
+        Dim tabla_fuente As DataTable = Me.ejecuto_sql("SELECT " & nombre & " FROM " & tabla & " WHERE " & pk & " = " & atributo_id)
+        Return tabla_fuente
+    End Function
+
+    Public Function leer_tabla_filtrada_dos_tablas(ByVal tabla1 As String, nombre As String, tabla2 As String, atributo_union As String) As Data.DataTable
+        Dim tabla As DataTable = Me.ejecuto_sql("SELECT " & nombre & " FROM " & tabla1 & " T1 JOIN " & tabla2 & " T2 ON T1." & atributo_union & " = T2." & atributo_union & " WHERE T1.NOMBRE LIKE '" & nombre & "'")
+        Return tabla
+    End Function
 
     Public Function cargar_combo_flitrado_provincia(ByRef combo As ComboBox _
                          , tabla As String _
