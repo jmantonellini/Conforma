@@ -22,6 +22,7 @@ Partial Class gestor_pedidos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cmb_cliente = New System.Windows.Forms.ComboBox()
         Me.cmb_area = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -34,7 +35,9 @@ Partial Class gestor_pedidos
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cmb_categoria = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmd_nuevo_producto = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cmd_nueva_marca = New System.Windows.Forms.Button()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_modelo = New System.Windows.Forms.ComboBox()
@@ -43,9 +46,12 @@ Partial Class gestor_pedidos
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.cmd_agregar_producto = New System.Windows.Forms.Button()
+        Me.cmd_agregar_detalle = New System.Windows.Forms.Button()
         Me.txt_observaciones = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.cmd_guardar = New System.Windows.Forms.Button()
+        Me.cmd_salir2 = New System.Windows.Forms.Button()
+        Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -54,9 +60,7 @@ Partial Class gestor_pedidos
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.cmd_guardar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.cmd_nuevo = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,6 +73,7 @@ Partial Class gestor_pedidos
         '
         'cmb_cliente
         '
+        Me.cmb_cliente.Enabled = False
         Me.cmb_cliente.FormattingEnabled = True
         Me.cmb_cliente.Location = New System.Drawing.Point(129, 37)
         Me.cmb_cliente.Name = "cmb_cliente"
@@ -77,6 +82,7 @@ Partial Class gestor_pedidos
         '
         'cmb_area
         '
+        Me.cmb_area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_area.FormattingEnabled = True
         Me.cmb_area.Location = New System.Drawing.Point(159, 34)
         Me.cmb_area.Name = "cmb_area"
@@ -140,6 +146,7 @@ Partial Class gestor_pedidos
         '
         'cmb_tipo_producto
         '
+        Me.cmb_tipo_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_tipo_producto.FormattingEnabled = True
         Me.cmb_tipo_producto.Location = New System.Drawing.Point(159, 69)
         Me.cmb_tipo_producto.Name = "cmb_tipo_producto"
@@ -157,6 +164,7 @@ Partial Class gestor_pedidos
         '
         'cmb_categoria
         '
+        Me.cmb_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_categoria.FormattingEnabled = True
         Me.cmb_categoria.Location = New System.Drawing.Point(159, 103)
         Me.cmb_categoria.Name = "cmb_categoria"
@@ -166,6 +174,7 @@ Partial Class gestor_pedidos
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cmd_nuevo_producto)
         Me.Panel1.Controls.Add(Me.cmb_area)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.Label2)
@@ -178,9 +187,19 @@ Partial Class gestor_pedidos
         Me.Panel1.Size = New System.Drawing.Size(365, 160)
         Me.Panel1.TabIndex = 1
         '
+        'cmd_nuevo_producto
+        '
+        Me.cmd_nuevo_producto.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
+        Me.cmd_nuevo_producto.Location = New System.Drawing.Point(322, 117)
+        Me.cmd_nuevo_producto.Name = "cmd_nuevo_producto"
+        Me.cmd_nuevo_producto.Size = New System.Drawing.Size(38, 38)
+        Me.cmd_nuevo_producto.TabIndex = 43
+        Me.cmd_nuevo_producto.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.cmd_nueva_marca)
         Me.Panel2.Controls.Add(Me.MaskedTextBox1)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.cmb_modelo)
@@ -192,6 +211,15 @@ Partial Class gestor_pedidos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(365, 160)
         Me.Panel2.TabIndex = 2
+        '
+        'cmd_nueva_marca
+        '
+        Me.cmd_nueva_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
+        Me.cmd_nueva_marca.Location = New System.Drawing.Point(322, 117)
+        Me.cmd_nueva_marca.Name = "cmd_nueva_marca"
+        Me.cmd_nueva_marca.Size = New System.Drawing.Size(38, 38)
+        Me.cmd_nueva_marca.TabIndex = 46
+        Me.cmd_nueva_marca.UseVisualStyleBackColor = True
         '
         'MaskedTextBox1
         '
@@ -213,6 +241,7 @@ Partial Class gestor_pedidos
         '
         'cmb_modelo
         '
+        Me.cmb_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_modelo.FormattingEnabled = True
         Me.cmb_modelo.Location = New System.Drawing.Point(148, 69)
         Me.cmb_modelo.Name = "cmb_modelo"
@@ -230,6 +259,7 @@ Partial Class gestor_pedidos
         '
         'cmb_marca
         '
+        Me.cmb_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_marca.FormattingEnabled = True
         Me.cmb_marca.Location = New System.Drawing.Point(148, 34)
         Me.cmb_marca.Name = "cmb_marca"
@@ -265,14 +295,14 @@ Partial Class gestor_pedidos
         Me.DataGridView1.Size = New System.Drawing.Size(762, 85)
         Me.DataGridView1.TabIndex = 5
         '
-        'cmd_agregar_producto
+        'cmd_agregar_detalle
         '
-        Me.cmd_agregar_producto.Location = New System.Drawing.Point(346, 335)
-        Me.cmd_agregar_producto.Name = "cmd_agregar_producto"
-        Me.cmd_agregar_producto.Size = New System.Drawing.Size(114, 23)
-        Me.cmd_agregar_producto.TabIndex = 4
-        Me.cmd_agregar_producto.Text = "Agregar Producto"
-        Me.cmd_agregar_producto.UseVisualStyleBackColor = True
+        Me.cmd_agregar_detalle.Location = New System.Drawing.Point(346, 335)
+        Me.cmd_agregar_detalle.Name = "cmd_agregar_detalle"
+        Me.cmd_agregar_detalle.Size = New System.Drawing.Size(114, 23)
+        Me.cmd_agregar_detalle.TabIndex = 4
+        Me.cmd_agregar_detalle.Text = "Agregar Producto"
+        Me.cmd_agregar_detalle.UseVisualStyleBackColor = True
         '
         'txt_observaciones
         '
@@ -287,12 +317,12 @@ Partial Class gestor_pedidos
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.cmd_guardar)
-        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Controls.Add(Me.cmd_salir2)
         Me.Panel3.Controls.Add(Me.cmd_nuevo)
         Me.Panel3.Controls.Add(Me.Panel1)
         Me.Panel3.Controls.Add(Me.txt_observaciones)
         Me.Panel3.Controls.Add(Me.cmb_cliente)
-        Me.Panel3.Controls.Add(Me.cmd_agregar_producto)
+        Me.Panel3.Controls.Add(Me.cmd_agregar_detalle)
         Me.Panel3.Controls.Add(Me.Label22)
         Me.Panel3.Controls.Add(Me.DataGridView1)
         Me.Panel3.Controls.Add(Me.Label1)
@@ -302,6 +332,38 @@ Partial Class gestor_pedidos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(806, 559)
         Me.Panel3.TabIndex = 0
+        '
+        'cmd_guardar
+        '
+        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_guardar.Enabled = False
+        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
+        Me.cmd_guardar.Location = New System.Drawing.Point(108, 464)
+        Me.cmd_guardar.Name = "cmd_guardar"
+        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar.TabIndex = 42
+        Me.cmd_guardar.UseVisualStyleBackColor = False
+        '
+        'cmd_salir2
+        '
+        Me.cmd_salir2.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_salir2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_salir2.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
+        Me.cmd_salir2.Location = New System.Drawing.Point(704, 462)
+        Me.cmd_salir2.Name = "cmd_salir2"
+        Me.cmd_salir2.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_salir2.TabIndex = 41
+        Me.cmd_salir2.UseVisualStyleBackColor = False
+        '
+        'cmd_nuevo
+        '
+        Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
+        Me.cmd_nuevo.Location = New System.Drawing.Point(22, 464)
+        Me.cmd_nuevo.Name = "cmd_nuevo"
+        Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo.TabIndex = 40
+        Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
         'TabControl1
         '
@@ -334,7 +396,7 @@ Partial Class gestor_pedidos
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(801, 486)
+        Me.TabPage2.Size = New System.Drawing.Size(805, 550)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Listado"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -354,7 +416,7 @@ Partial Class gestor_pedidos
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_eliminar.Enabled = False
         Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
-        Me.cmd_eliminar.Location = New System.Drawing.Point(115, 398)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(107, 464)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_eliminar.TabIndex = 27
@@ -365,7 +427,7 @@ Partial Class gestor_pedidos
         Me.cmd_salir.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_salir.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
-        Me.cmd_salir.Location = New System.Drawing.Point(691, 396)
+        Me.cmd_salir.Location = New System.Drawing.Point(703, 462)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(80, 80)
         Me.cmd_salir.TabIndex = 26
@@ -376,7 +438,7 @@ Partial Class gestor_pedidos
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_modificar.Enabled = False
         Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_modificar.Location = New System.Drawing.Point(29, 398)
+        Me.cmd_modificar.Location = New System.Drawing.Point(21, 464)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_modificar.TabIndex = 25
@@ -387,43 +449,15 @@ Partial Class gestor_pedidos
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(29, 43)
+        Me.DataGridView2.Location = New System.Drawing.Point(21, 43)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.Size = New System.Drawing.Size(742, 349)
+        Me.DataGridView2.Size = New System.Drawing.Size(762, 349)
         Me.DataGridView2.TabIndex = 0
         '
-        'cmd_guardar
+        'Timer1
         '
-        Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_guardar.Enabled = False
-        Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar.Location = New System.Drawing.Point(108, 464)
-        Me.cmd_guardar.Name = "cmd_guardar"
-        Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_guardar.TabIndex = 42
-        Me.cmd_guardar.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
-        Me.Button1.Location = New System.Drawing.Point(704, 462)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 80)
-        Me.Button1.TabIndex = 41
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'cmd_nuevo
-        '
-        Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo.Location = New System.Drawing.Point(22, 464)
-        Me.cmd_nuevo.Name = "cmd_nuevo"
-        Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_nuevo.TabIndex = 40
-        Me.cmd_nuevo.UseVisualStyleBackColor = False
+        Me.Timer1.Enabled = True
         '
         'gestor_pedidos
         '
@@ -431,6 +465,7 @@ Partial Class gestor_pedidos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(812, 574)
         Me.Controls.Add(Me.TabControl1)
+        Me.IsMdiContainer = True
         Me.Name = "gestor_pedidos"
         Me.Text = "Pedidos"
         Me.Panel1.ResumeLayout(False)
@@ -469,7 +504,7 @@ Partial Class gestor_pedidos
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents cmd_agregar_producto As System.Windows.Forms.Button
+    Friend WithEvents cmd_agregar_detalle As System.Windows.Forms.Button
     Friend WithEvents txt_observaciones As System.Windows.Forms.TextBox
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
@@ -481,6 +516,9 @@ Partial Class gestor_pedidos
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
     Friend WithEvents cmd_modificar As System.Windows.Forms.Button
     Friend WithEvents cmd_guardar As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmd_salir2 As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
+    Friend WithEvents cmd_nuevo_producto As System.Windows.Forms.Button
+    Friend WithEvents cmd_nueva_marca As System.Windows.Forms.Button
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

@@ -46,7 +46,7 @@ Partial Class Menu
         Me.cmd_gestor_clientes.Location = New System.Drawing.Point(266, 56)
         Me.cmd_gestor_clientes.Name = "cmd_gestor_clientes"
         Me.cmd_gestor_clientes.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_gestor_clientes.TabIndex = 0
+        Me.cmd_gestor_clientes.TabIndex = 1
         Me.cmd_gestor_clientes.Text = "Gestor Clientes"
         Me.cmd_gestor_clientes.UseVisualStyleBackColor = False
         '
@@ -58,7 +58,7 @@ Partial Class Menu
         Me.cmd_gestor_empresas.Location = New System.Drawing.Point(79, 56)
         Me.cmd_gestor_empresas.Name = "cmd_gestor_empresas"
         Me.cmd_gestor_empresas.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_gestor_empresas.TabIndex = 1
+        Me.cmd_gestor_empresas.TabIndex = 0
         Me.cmd_gestor_empresas.Text = "Gestor Empresas"
         Me.cmd_gestor_empresas.UseVisualStyleBackColor = False
         '
@@ -104,7 +104,7 @@ Partial Class Menu
         Me.cmd_gestor_paises.Location = New System.Drawing.Point(266, 146)
         Me.cmd_gestor_paises.Name = "cmd_gestor_paises"
         Me.cmd_gestor_paises.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_gestor_paises.TabIndex = 2
+        Me.cmd_gestor_paises.TabIndex = 3
         Me.cmd_gestor_paises.Text = "Gestor Paises"
         Me.cmd_gestor_paises.UseVisualStyleBackColor = False
         '
@@ -116,7 +116,7 @@ Partial Class Menu
         Me.cmd_gestor_categoria.Location = New System.Drawing.Point(79, 238)
         Me.cmd_gestor_categoria.Name = "cmd_gestor_categoria"
         Me.cmd_gestor_categoria.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_gestor_categoria.TabIndex = 37
+        Me.cmd_gestor_categoria.TabIndex = 4
         Me.cmd_gestor_categoria.Text = "Gestor Categorias"
         Me.cmd_gestor_categoria.UseVisualStyleBackColor = False
         '
@@ -128,7 +128,7 @@ Partial Class Menu
         Me.cmd_provincias.Location = New System.Drawing.Point(266, 238)
         Me.cmd_provincias.Name = "cmd_provincias"
         Me.cmd_provincias.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_provincias.TabIndex = 38
+        Me.cmd_provincias.TabIndex = 5
         Me.cmd_provincias.Text = "Gestor Provincias"
         Me.cmd_provincias.UseVisualStyleBackColor = False
         '
@@ -140,7 +140,7 @@ Partial Class Menu
         Me.cmd_gestor_localidades.Location = New System.Drawing.Point(79, 316)
         Me.cmd_gestor_localidades.Name = "cmd_gestor_localidades"
         Me.cmd_gestor_localidades.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_gestor_localidades.TabIndex = 37
+        Me.cmd_gestor_localidades.TabIndex = 6
         Me.cmd_gestor_localidades.Text = "Gestor Localidades"
         Me.cmd_gestor_localidades.UseVisualStyleBackColor = False
         '
@@ -152,7 +152,7 @@ Partial Class Menu
         Me.cmd_pedidos.Location = New System.Drawing.Point(266, 316)
         Me.cmd_pedidos.Name = "cmd_pedidos"
         Me.cmd_pedidos.Size = New System.Drawing.Size(171, 58)
-        Me.cmd_pedidos.TabIndex = 39
+        Me.cmd_pedidos.TabIndex = 7
         Me.cmd_pedidos.Text = "Pedidos"
         Me.cmd_pedidos.UseVisualStyleBackColor = False
         '

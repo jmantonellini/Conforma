@@ -31,8 +31,5 @@
         lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 
-    Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
 End Class

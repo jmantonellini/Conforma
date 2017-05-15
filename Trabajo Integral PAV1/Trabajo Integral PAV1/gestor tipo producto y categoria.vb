@@ -1,11 +1,17 @@
 ﻿Public Class gestor_tipo_producto_y_categorias
 
+    Enum tipo_accion
+        nulo
+        modificar
+        nuevo
+    End Enum
+
     Dim C As Conexion = New Conexion
+    Dim accion As tipo_accion = tipo_accion.nulo
+    Dim parenta As Form
 
     Private Sub gestor_tipo_producto_y_categorias_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Me.cargar_forms()
-
     End Sub
 
     Private Sub cmb_area_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedValueChanged
@@ -23,30 +29,49 @@
         End If
     End Sub
 
-    Private Sub cmd_nueva_area_Click(sender As Object, e As EventArgs) Handles cmd_nueva_area.Click
-        Dim area_nueva As String = InputBox("Ingrese el nombre de la nueva área", "Nueva Área", " ")
-        If (area_nueva <> " ") Then
-            If (area_nueva <> "" And comprobar_linea(area_nueva) And C.buscar_nombre(" AREAS ", area_nueva)) Then
-                C.insertar_area(area_nueva)
+    Private Sub cmd_nueva_area_Click(sender As Button, e As EventArgs) Handles cmd_nueva_area.Click, cmd_nueva_categoria.Click, cmd_nuevo_producto.Click
+        Dim cadena1 As String = ""
+        Dim cadena2 As String = ""
+        Dim tabla_buscada As String = ""
+
+        Select Case sender.Name
+            Case "cmd_nueva_area"
+                cadena1 = "Ingrese el nombre de la nueva área"
+                cadena2 = "Nueva Área"
+                tabla_buscada = " AREAS "
+            Case "cmd_nuevo_producto"
+                cadena1 = "Ingrese el nombre del nuevo tipo de producto"
+                cadena2 = "Nuevo Tipo de Producto"
+                tabla_buscada = " TIPOS_PRODUCTOS"
+            Case "cmd_nueva_categoria"
+                cadena1 = "Ingrese el nombre de la nueva categoría"
+                cadena2 = "Nueva Categroría"
+                tabla_buscada = " CATEGORIAS "
+        End Select
+        Dim nuevo_texto As String = InputBox(cadena1, cadena2, " ")
+        accion = tipo_accion.nuevo
+        If (nuevo_texto <> "") Then
+            If (comprobar_linea(nuevo_texto) And C.buscar_nombre(tabla_buscada, nuevo_texto)) Then
+                Select Case tabla_buscada
+                    Case " CATEGORIAS "
+                        C.insertar_categoria(nuevo_texto, cmb_tipo_producto.Text)
+                    Case " AREAS "
+                        C.insertar_area(nuevo_texto)
+                    Case " TIPOS_PRODUCTOS "
+                        C.insertar_tipo_producto(nuevo_texto, cmb_area.Text)
+                End Select
                 Me.cargar_forms()
-                MsgBox("La nueva área se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+                MsgBox(" " & nuevo_texto & " se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
             Else : MsgBox("No se pueden ingresar campos vacíos, numerales o repetidos", MsgBoxStyle.Critical, "AVISO")
             End If
         End If
-    End Sub
-
-    Private Sub cmd_nuevo_producto_Click(sender As Object, e As EventArgs) Handles cmd_nuevo_producto.Click
-        Dim tipo_nuevo As String = InputBox("Ingrese el nombre del nuevo tipo de producto", "Nuevo Tipo de Producto", " ")
-
-        If (tipo_nuevo <> " ") Then
-            If (tipo_nuevo <> "" And comprobar_linea(tipo_nuevo) And (C.buscar_nombre(" TIPOS_PRODUCTOS ", tipo_nuevo) = True)) Then
-                C.insertar_tipo_producto(tipo_nuevo, cmb_area.Text)
-                Me.cargar_forms()
-                MsgBox("El nuevo tipo de producto se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
-            Else : MsgBox("No se pueden ingresar campos vacíos, numerales o repetidos", MsgBoxStyle.Critical, "AVISO")
-            End If
+        If (Me.IsMdiChild = True) Then
+            Dim gestor As gestor_pedidos = Me.MdiParent
+            gestor.cargar_combos()
         End If
+            accion = tipo_accion.nulo
     End Sub
+
 
     Private Function comprobar_linea(ByVal cadena As String) As Boolean
         Dim b As Boolean = False
@@ -60,24 +85,12 @@
         Return b
     End Function
 
-    Private Sub cmd_nueva_categoria_Click(sender As Object, e As EventArgs) Handles cmd_nueva_categoria.Click
-        Dim categoria_nuevo As String = InputBox("Ingrese el nombre de la nueva categoría", "Nueva Categoría", " ")
-
-        If (categoria_nuevo <> " ") Then
-            If (categoria_nuevo <> "" And C.buscar_nombre(" CATEGORIAS ", cmb_tipo_producto.Text) = True) Then
-                C.insertar_categoria(categoria_nuevo, cmb_tipo_producto.Text)
-                Me.cargar_forms()
-                MsgBox("El nuevo tipo de producto se ha cargado satisfactoriamente", MsgBoxStyle.Information, "Aviso")
-            Else : MsgBox("No se pueden ingresar campos vacíos, numerales o repetidos", MsgBoxStyle.Critical, "AVISO")
-            End If
-        End If
-
-    End Sub
 
     Private Sub cmd_modificar_area_Click(sender As Object, e As EventArgs) Handles cmd_modificar_area.Click, cmd_modificar_categoria.Click, cmd_modificar_tipo_producto.Click
         Dim nombre_nuevo As String = InputBox("Ingrese el nombre nuevo", "Cambiar Nombre", " ")
         Dim tabla As String = ""
         Dim seleccion As String = ""
+        accion = tipo_accion.modificar
         If (nombre_nuevo <> " ") Then
             Select Case sender.Name
                 Case "cmd_modificar_area"
@@ -103,8 +116,10 @@
                 If (nombre_nuevo <> "" And C.buscar_nombre(tabla, nombre_nuevo) = True) Then
                     C.cambiar_nombre(tabla, nombre_nuevo, seleccion)
                     MsgBox("Se ha modificado el nombre satisfactoriamente", MsgBoxStyle.Information, "Aviso")
+                    accion = tipo_accion.nulo
                     Me.cargar_forms()
                 Else : MsgBox("No se pueden ingresar campos vacíos, erróneos o repetidos", MsgBoxStyle.Critical, "AVISO")
+                    accion = tipo_accion.nulo
                 End If
             End If
         End If
@@ -148,5 +163,22 @@
         cmb_tipo_producto = C.cargar_combo(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE")
         tabla_categorias.DataSource = C.cargar_grilla("categorias")
 
+    End Sub
+
+    Private Sub salirCruz(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If (accion <> tipo_accion.nulo) Then
+            If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
+                e.Cancel = True
+            End If
+        Else : e.Cancel = False
+        End If
+    End Sub
+
+    Private Sub cmd_salir_Click(sender As Object, e As EventArgs) Handles cmd_salir.Click
+        Me.Close()
+    End Sub
+
+    Public Sub New()
+        InitializeComponent()
     End Sub
 End Class
