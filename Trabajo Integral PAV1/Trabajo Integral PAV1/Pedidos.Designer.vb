@@ -22,7 +22,6 @@ Partial Class gestor_pedidos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.cmb_cliente = New System.Windows.Forms.ComboBox()
         Me.cmb_area = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -59,8 +58,7 @@ Partial Class gestor_pedidos
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tabla_pedidos = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +66,7 @@ Partial Class gestor_pedidos
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabla_pedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmb_cliente
@@ -288,7 +286,9 @@ Partial Class gestor_pedidos
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.GridColor = System.Drawing.Color.Gainsboro
         Me.DataGridView1.Location = New System.Drawing.Point(22, 376)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -392,7 +392,7 @@ Partial Class gestor_pedidos
         Me.TabPage2.Controls.Add(Me.cmd_eliminar)
         Me.TabPage2.Controls.Add(Me.cmd_salir)
         Me.TabPage2.Controls.Add(Me.cmd_modificar)
-        Me.TabPage2.Controls.Add(Me.DataGridView2)
+        Me.TabPage2.Controls.Add(Me.tabla_pedidos)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -444,25 +444,24 @@ Partial Class gestor_pedidos
         Me.cmd_modificar.TabIndex = 25
         Me.cmd_modificar.UseVisualStyleBackColor = False
         '
-        'DataGridView2
+        'tabla_pedidos
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(21, 43)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.Size = New System.Drawing.Size(762, 349)
-        Me.DataGridView2.TabIndex = 0
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
+        Me.tabla_pedidos.AllowUserToAddRows = False
+        Me.tabla_pedidos.AllowUserToDeleteRows = False
+        Me.tabla_pedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.tabla_pedidos.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.tabla_pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tabla_pedidos.Location = New System.Drawing.Point(21, 43)
+        Me.tabla_pedidos.Name = "tabla_pedidos"
+        Me.tabla_pedidos.ReadOnly = True
+        Me.tabla_pedidos.Size = New System.Drawing.Size(762, 349)
+        Me.tabla_pedidos.TabIndex = 0
         '
         'gestor_pedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(812, 574)
         Me.Controls.Add(Me.TabControl1)
         Me.IsMdiContainer = True
@@ -479,7 +478,7 @@ Partial Class gestor_pedidos
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabla_pedidos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -510,7 +509,7 @@ Partial Class gestor_pedidos
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents tabla_pedidos As System.Windows.Forms.DataGridView
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cmd_eliminar As System.Windows.Forms.Button
     Friend WithEvents cmd_salir As System.Windows.Forms.Button
@@ -520,5 +519,4 @@ Partial Class gestor_pedidos
     Friend WithEvents cmd_nuevo As System.Windows.Forms.Button
     Friend WithEvents cmd_nuevo_producto As System.Windows.Forms.Button
     Friend WithEvents cmd_nueva_marca As System.Windows.Forms.Button
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

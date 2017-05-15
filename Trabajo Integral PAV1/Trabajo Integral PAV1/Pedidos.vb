@@ -28,7 +28,6 @@
 
     Private Sub cmd_nuevo_cliente_Click(sender As Button, e As EventArgs) Handles cmd_nuevo_cliente.Click, cmd_nueva_marca.Click, cmd_nuevo_producto.Click
         Dim nuevo As Form = New Form
-        MsgBox("CLICK NUEVO ALGO")
         Select Case sender.Name
             Case "cmd_nuevo_producto"
                 nuevo = New gestor_tipo_producto_y_categorias
@@ -39,7 +38,7 @@
         End Select
         ventana_hija = True
         nuevo.Show()
-
+        Me.ActivateMdiChild(nuevo)
     End Sub
 
 
@@ -70,6 +69,7 @@
         cmd_nuevo_producto.Enabled = False
         cmd_nuevo_cliente.Enabled = False
         cmd_agregar_detalle.Enabled = False
+        tabla_pedidos.DataSource = conexion.cargar_grilla("pedidos")
     End Sub
 
     Private Sub txt_perder_foco() Handles txt_observaciones.LostFocus
@@ -103,6 +103,5 @@
     Private Sub salir(sender As Object, e As EventArgs) Handles cmd_salir2.Click, cmd_salir.Click
         Me.Close()
     End Sub
-
 End Class
 

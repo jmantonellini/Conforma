@@ -1,0 +1,1 @@
+INSERT INTO PEDIDOS VALUES (2,convert(date,getdate()),convert(date,dateadd(DAY,15, GETDATE())))

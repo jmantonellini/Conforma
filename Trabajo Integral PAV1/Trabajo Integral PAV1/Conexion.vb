@@ -20,6 +20,12 @@
                 tabla = Me.ejecuto_sql("SELECT M.ID_MODELO, M.NOMBRE FROM MODELOS M")
             Case "categorias"
                 tabla = Me.ejecuto_sql("SELECT NOMBRE FROM CATEGORIAS")
+            Case "pedidos"
+                tabla = Me.ejecuto_sql("SELECT P.NRO_PEDIDO AS 'Nro.',C.NOMBRE AS 'Nombre',C.APELLIDO AS 'Apellido', " _
+                                       & "P.FECHA_ENTREGA AS 'Fecha de entrega', COUNT(DP.ID_DETALLE_PEDIDO) AS 'Items' FROM CLIENTES C" _
+                                       & " JOIN PEDIDOS P ON P.ID_CLIENTE = C.ID_CLIENTE" _
+                                       & " JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO" _
+                                       & " GROUP BY P.NRO_PEDIDO,C.NOMBRE,C.APELLIDO,P.FECHA_ENTREGA")
         End Select
 
 
