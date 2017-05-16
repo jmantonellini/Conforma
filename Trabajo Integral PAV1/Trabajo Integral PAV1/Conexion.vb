@@ -93,9 +93,9 @@
         Return combo
     End Function
 
-    Public Function carga_combo_generico_dos_tablas(ByRef combo As ComboBox, tabla_padre As String, pk As String _
-                                         , nombre As String, tabla_hija As String, atributo_union As String, filtro As String)
-        Dim tabla_fuentes As Data.DataTable = leer_tabla_filtrada_dos_tablas(tabla_padre, nombre, tabla_hija, atributo_union, filtro)
+    Public Function carga_combo_generico_dos_tablas(ByRef combo As ComboBox, tabla_hija As String, pk As String _
+                                         , nombre As String, tabla_padre As String, atributo_union As String, filtro As String)
+        Dim tabla_fuentes As Data.DataTable = leer_tabla_filtrada_dos_tablas(tabla_hija, nombre, tabla_padre, atributo_union, filtro)
         combo.DataSource = tabla_fuentes
         combo.DisplayMember = nombre
         'combo.ValueMember = pk

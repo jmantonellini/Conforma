@@ -42,53 +42,17 @@
     End Sub
 
 
-    Private Sub deshabilitar_campos()
-        For Each obj As Windows.Forms.Control In Me.tab_nuevo.Controls
-            If obj.GetType().Name = "TextBox" Then
-                obj.Text = ""
-            End If
-            If obj.GetType().Name = "ComboBox" Then
-                Dim local As ComboBox = obj
-                local.SelectedIndex = -1
-                local.Enabled = False
-            End If
-            If obj.GetType().Name = "MaskedTextBox" Then
-                obj.Text = ""
-            End If
-            If (obj.GetType().Name = "Button") Then
-                If (obj.Name = "cmd_agregar_detalle" Or obj.Name = "cmd_nueva_marca" Or obj.Name = "cmd_nuevo_cliente" Or obj.Name = "cmd_nuevo_producto") Then
-                    obj.Enabled = False
-                End If
-            End If
-
-        Next
-    End Sub
+    
 
     Private Sub actualizar_combo_clientes()
         conexion.cargar_combo(cmb_cliente, " CLIENTES ", "ID_CLIENTE", "NOMBRE")
     End Sub
 
     Private Sub gestor_pedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cmd_nuevo.Enabled = True
-        cmd_guardar.Enabled = False
-        cmd_salir.Enabled = True
-        cmd_nueva_marca.Enabled = False
-        cmd_nuevo_producto.Enabled = False
-        cmd_nuevo_cliente.Enabled = False
-        cmd_agregar_detalle.Enabled = False
+        
         tabla_pedidos.DataSource = conexion.cargar_grilla("pedidos")
-        cmd_agregar_detalle.Enabled = False
-        cmd_nueva_marca.Enabled = False
-        cmd_nuevo_cliente.Enabled = False
-        cmd_nuevo_producto.Enabled = False
-        txt_observaciones.Enabled = False
-        txt_cantidad.Enabled = False
-        cmb_area.Enabled = False
-        cmb_categoria.Enabled = False
-        cmb_cliente.Enabled = False
-        cmb_marca.Enabled = False
-        cmb_modelo.Enabled = False
-        cmb_tipo_producto.Enabled = False
+        deshabilitar_campos()
+
     End Sub
 
     Private Sub txt_perder_foco() Handles txt_observaciones.LostFocus
@@ -105,21 +69,51 @@
         conexion.cargar_combo(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE")
         conexion.cargar_combo(cmb_modelo, "MODELOS", "ID_MODELO", "NOMBRE")
         conexion.cargar_combo(cmb_cliente, "CLIENTES", "ID_CLIENTE", "NRO_DOC")
-        MsgBox("Combos cargados")
+    End Sub
+
+    Private Sub habilitar_campos()
+        For Each obj As Windows.Forms.Control In Me.panel_nuevo.Controls
+            obj.Enabled = True
+        Next
+
+        For Each obj As Windows.Forms.Control In Me.panel_producto.Controls
+            obj.Enabled = True
+        Next
+
+        For Each obj As Windows.Forms.Control In Me.panel_especificaciones.Controls
+            obj.Enabled = True
+        Next
+    End Sub
+
+    Private Sub deshabilitar_campos()
+
+        For Each obj As Windows.Forms.Control In Me.panel_nuevo.Controls
+            If (obj.GetType.Name <> "Label" And obj.GetType.Name <> "DataGridView") Then
+                obj.Enabled = False
+            End If
+        Next
+
+        For Each obj As Windows.Forms.Control In Me.panel_producto.Controls
+            If (obj.GetType.Name <> "Label") Then
+                obj.Enabled = False
+            End If
+        Next
+
+        For Each obj As Windows.Forms.Control In Me.panel_especificaciones.Controls
+            If (obj.GetType.Name <> "Label") Then
+                obj.Enabled = False
+            End If
+        Next
     End Sub
 
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
-        cmd_nuevo.Enabled = False
-        cmd_guardar.Enabled = True
-        cmd_nuevo_cliente.Enabled = True
-        cmd_nueva_marca.Enabled = True
-        cmd_nuevo_producto.Enabled = True
-        cmd_agregar_detalle.Enabled = True
         Me.cargar_combos()
+        Me.habilitar_campos()
+        Me.tabla_detalles.RowCount = 0
         accion = tipo_accion.nuevo
     End Sub
 
-    Private Sub salir(sender As Object, e As EventArgs) Handles cmd_salir2.Click, cmd_salir.Click
+    Private Sub salir(sender As Object, e As EventArgs) Handles cmd_salir.Click
         Me.Close()
     End Sub
 
@@ -146,9 +140,51 @@
         txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
         conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
         conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
-
-        'conexion.cargar_combo_generico_filtrado(cmb_categoria, " CATEGORIAS ", " ID_CATEGORIA ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        fecha_entrega.CustomFormat = "DD/MM/YYYY"
+        Me.fecha_entrega.Value = (CDate(tabla_pedidos.SelectedRows.Item(0).Cells(3).Value))
         TabControl1.SelectedTab = tab_nuevo
+    End Sub
+
+    Private Sub tabla_detalles_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_detalles.CellClick
+        conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
+        conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        Dim tabla_auxiliar As DataTable = conexion.leer_tabla_filtrada_generica(" DETALLES_PEDIDOS ", "ID_DETALLE_PEDIDO", tabla_detalles.SelectedRows.Item(0).Cells(0).Value, " CANTIDAD")
+        txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
+        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
+        conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
+    End Sub
+
+    Private Sub cmb_area_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedIndexChanged
+        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "AREAS", "ID_AREA", cmb_area.Text)
+        conexion.carga_combo_generico_dos_tablas(cmb_categoria, "CATEGORIAS", "ID_CATEGORIA", "NOMBRE", "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", cmb_tipo_producto.Text)
+        If (cmb_area.Text <> "Escape") Then
+            cmb_marca.Enabled = False
+            cmb_marca.SelectedIndex = -1
+            cmb_modelo.Enabled = False
+            cmb_modelo.SelectedIndex = -1
+        End If
+
+        If (cmb_area.Text = "Escape") Then
+            cmb_marca.Enabled = True
+            cmb_marca.SelectedIndex = -1
+            cmb_modelo.Enabled = True
+            cmb_modelo.SelectedIndex = -1
+        End If
+    End Sub
+
+    Private Sub cmb_tipo_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_tipo_producto.SelectedIndexChanged
+        conexion.carga_combo_generico_dos_tablas(cmb_categoria, "CATEGORIAS", "ID_CATEGORIA", "NOMBRE", "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", cmb_tipo_producto.Text)
+    End Sub
+
+    Private Sub cmb_marca_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_marca.SelectedIndexChanged
+        conexion.carga_combo_generico_dos_tablas(cmb_modelo, "MODELOS", "ID_MODELO", "NOMBRE", "MARCAS", "ID_MARCA", cmb_marca.Text)
+    End Sub
+
+
+    Private Sub cmd_agregar_detalle_Click(sender As Object, e As EventArgs) Handles cmd_agregar_detalle.Click
+        
+        tabla_detalles.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text)
     End Sub
 End Class
 
