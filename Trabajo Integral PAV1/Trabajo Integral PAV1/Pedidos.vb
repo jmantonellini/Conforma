@@ -43,17 +43,24 @@
 
 
     Private Sub deshabilitar_campos()
-        For Each obj As Windows.Forms.Control In Me.Controls
-            Select Case obj.GetType.Name
-                Case "ComboBox"
+        For Each obj As Windows.Forms.Control In Me.tab_nuevo.Controls
+            If obj.GetType().Name = "TextBox" Then
+                obj.Text = ""
+            End If
+            If obj.GetType().Name = "ComboBox" Then
+                Dim local As ComboBox = obj
+                local.SelectedIndex = -1
+                local.Enabled = False
+            End If
+            If obj.GetType().Name = "MaskedTextBox" Then
+                obj.Text = ""
+            End If
+            If (obj.GetType().Name = "Button") Then
+                If (obj.Name = "cmd_agregar_detalle" Or obj.Name = "cmd_nueva_marca" Or obj.Name = "cmd_nuevo_cliente" Or obj.Name = "cmd_nuevo_producto") Then
                     obj.Enabled = False
-                    Dim aux As ComboBox = obj
-                    aux.SelectedIndex = -1
-                    obj = aux
-                Case "TextBox" Or "MaskedTextBox"
-                    obj.Enabled = False
-                    obj.Text = ""
-            End Select
+                End If
+            End If
+
         Next
     End Sub
 
@@ -70,6 +77,18 @@
         cmd_nuevo_cliente.Enabled = False
         cmd_agregar_detalle.Enabled = False
         tabla_pedidos.DataSource = conexion.cargar_grilla("pedidos")
+        cmd_agregar_detalle.Enabled = False
+        cmd_nueva_marca.Enabled = False
+        cmd_nuevo_cliente.Enabled = False
+        cmd_nuevo_producto.Enabled = False
+        txt_observaciones.Enabled = False
+        txt_cantidad.Enabled = False
+        cmb_area.Enabled = False
+        cmb_categoria.Enabled = False
+        cmb_cliente.Enabled = False
+        cmb_marca.Enabled = False
+        cmb_modelo.Enabled = False
+        cmb_tipo_producto.Enabled = False
     End Sub
 
     Private Sub txt_perder_foco() Handles txt_observaciones.LostFocus
@@ -120,9 +139,14 @@
                                                                           & " C.NOMBRE AS 'Categoría' ," _
                                                                           & " M.NOMBRE AS 'Modelo' ")
         'cargar todos los combos desde la tabla detalle ACA TIRA ERROR; DESPUES DE ESTO
-        conexion.cargar_combo_generico_filtrado(cmb_area, "AREAS", "ID_AREA", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
-        conexion.cargar_combo_generico_filtrado(cmb_categoria, " CATEGORIAS ", " ID_CATEGORIA ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
-        conexion.cargar_combo_generico_filtrado(cmb_categoria, " MODELOS ", " ID_MODELO ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
+        conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        Dim tabla_auxiliar As DataTable = conexion.leer_tabla_filtrada_generica(" DETALLES_PEDIDOS ", "ID_DETALLE_PEDIDO", tabla_detalles.SelectedRows.Item(0).Cells(0).Value, " CANTIDAD")
+        txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
+        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
+        conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
+
         'conexion.cargar_combo_generico_filtrado(cmb_categoria, " CATEGORIAS ", " ID_CATEGORIA ", " NOMBRE ", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
         TabControl1.SelectedTab = tab_nuevo
     End Sub

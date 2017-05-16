@@ -37,7 +37,7 @@ Partial Class gestor_pedidos
         Me.cmd_nuevo_producto = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.cmd_nueva_marca = New System.Windows.Forms.Button()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_cantidad = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmb_modelo = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -198,7 +198,7 @@ Partial Class gestor_pedidos
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.cmd_nueva_marca)
-        Me.Panel2.Controls.Add(Me.MaskedTextBox1)
+        Me.Panel2.Controls.Add(Me.txt_cantidad)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.cmb_modelo)
         Me.Panel2.Controls.Add(Me.Label8)
@@ -219,14 +219,14 @@ Partial Class gestor_pedidos
         Me.cmd_nueva_marca.TabIndex = 46
         Me.cmd_nueva_marca.UseVisualStyleBackColor = True
         '
-        'MaskedTextBox1
+        'txt_cantidad
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(148, 104)
-        Me.MaskedTextBox1.Mask = "99999"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(36, 20)
-        Me.MaskedTextBox1.TabIndex = 2
-        Me.MaskedTextBox1.ValidatingType = GetType(Integer)
+        Me.txt_cantidad.Location = New System.Drawing.Point(148, 104)
+        Me.txt_cantidad.Mask = "99999"
+        Me.txt_cantidad.Name = "txt_cantidad"
+        Me.txt_cantidad.Size = New System.Drawing.Size(36, 20)
+        Me.txt_cantidad.TabIndex = 2
+        Me.txt_cantidad.ValidatingType = GetType(Integer)
         '
         'Label9
         '
@@ -502,7 +502,7 @@ Partial Class gestor_pedidos
     Friend WithEvents cmb_categoria As System.Windows.Forms.ComboBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txt_cantidad As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents cmb_modelo As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
