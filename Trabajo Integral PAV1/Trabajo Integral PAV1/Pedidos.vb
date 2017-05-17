@@ -127,7 +127,7 @@
         Dim cadena_busqueda As String = " DETALLES_PEDIDOS DP JOIN PRODUCTOS P ON P.ID_PRODUCTO = DP.ID_PRODUCTO " _
                                        & " JOIN AREAS A ON A.ID_AREA = P.ID_AREA " _
                                        & " JOIN CATEGORIAS C ON C.ID_CATEGORIA = P.ID_CATEGORIA " _
-                                       & " JOIN MODELOS M ON M.ID_MODELO = P.ID_MODELO " _
+                                       & " LEFT JOIN MODELOS M ON M.ID_MODELO = P.ID_MODELO " _
                                        & " JOIN TIPOS_PRODUCTOS TP ON TP.ID_TIPO_PRODUCTO = P.ID_TIPO_PRODUCTO "
 
         tabla_detalles.DataSource = conexion.leer_tabla_filtrada_generica(cadena_busqueda, _
@@ -142,11 +142,18 @@
 
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
         conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
-        conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(3).Value) = False) Then
+            conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+            conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
+        Else : cmb_modelo.SelectedIndex = -1
+            cmb_marca.SelectedIndex = -1
+        End If
+
+
         Dim tabla_auxiliar As DataTable = conexion.leer_tabla_filtrada_generica(" DETALLES_PEDIDOS ", "ID_DETALLE_PEDIDO", tabla_detalles.SelectedRows.Item(0).Cells(0).Value, " CANTIDAD")
         txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
         conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
-        conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
+
         fecha_entrega.CustomFormat = "DD/MM/YYYY"
         Me.fecha_entrega.Value = (CDate(tabla_pedidos.SelectedRows.Item(0).Cells(3).Value))
     End Sub
@@ -199,19 +206,36 @@
             data_table.Columns.Add("Observaciones", GetType(String))
             data_table.Columns.Add("Cantidad", GetType(Int16))
         End If
+        If (txt_cantidad.Text <> "" And txt_cantidad.Text <> "0") Then
+            If ((cmb_area.Text = "Escape" And cmb_marca.Text <> "" And cmb_modelo.Text <> "") Or cmb_area.Text <> "Escape") Then
+                data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text, CInt(txt_cantidad.Text))
+                tabla_detalles.DataSource = data_table
+            Else : MsgBox("La marca o el modelo no puede ser nula si el producto es un escape")
+            End If
+        Else : MsgBox("La cantidad de productos no puede ser nula o cero")
+        End If
 
-        data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text, CInt(txt_cantidad.Text))
-        tabla_detalles.DataSource = data_table
     End Sub
 
    
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
-        If (accion = tipo_accion.modificacion) Then
-           
+        If (txt_cantidad.Text <> "" Or txt_cantidad.Text <> "0") Then
+            If ((cmb_area.Text = "Escape" And cmb_marca.Text <> "" And cmb_modelo.Text <> "") Or cmb_area.Text <> "Escape") Then
+                If (accion = tipo_accion.modificacion) Then
 
-        ElseIf accion = tipo_accion.nuevo Then
-            conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table)
+
+                ElseIf accion = tipo_accion.nuevo Then
+                    If (conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table)) Then
+                        tabla_pedidos.DataSource = conexion.cargar_grilla("pedidos")
+                        Me.deshabilitar_campos()
+                        accion = tipo_accion.nulo
+                    End If
+                End If
+            Else : MsgBox("La marca o el modelo no puede ser nula si el producto es un escape")
+            End If
+        Else : MsgBox("La cantidad de productos no puede ser nula o cero")
         End If
+
 
     End Sub
 

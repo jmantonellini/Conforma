@@ -566,10 +566,14 @@
                 Dim modelo As String = tabla_detalle.Rows.Item(i).Item(3).ToString
                 Dim observaciones As String = tabla_detalle.Rows.Item(i).Item(4).ToString
                 Dim cantidad As Int16 = tabla_detalle.Rows.Item(i).Item(5)
+                Dim modelos As String = "NULL "
+                If (CInt(Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows.Count) > 0) Then
+                    modelos = Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString
+                End If
                 non_query = "INSERT INTO PRODUCTOS VALUES(" _
                     & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
                     & CInt(Me.leer_tabla_filtrada_dos_tablas("TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "CATEGORIAS", "ID_TIPO_PRODUCTO", categoria).Rows(0)(0).ToString) & ", " _
-                    & CInt(Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString) & ", " _
+                    & modelos & ", " _
                     & CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString) & ", " _
                     & "'" & observaciones & "')"
                 cmd.CommandText = non_query
@@ -582,17 +586,12 @@
             Next
             MsgBox("TERMINARON LOS DETALLES")
             transaccion.Commit()
+            transaccion_completa = True
         Catch ex As Exception
-
-            'cmd.Transaction.Rollback()
             conexion.Close()
-            MsgBox("FALLO LA TRANSACCION" & ex.Message & " EN " & ex.StackTrace)
-
+            MsgBox("FALLO LA TRANSACCION " & ex.Message & " EN " & ex.StackTrace)
         End Try
-        'cmd.Transaction.Commit()
         conexion.Close()
-
-
         Return transaccion_completa
     End Function
 
