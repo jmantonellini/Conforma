@@ -530,7 +530,7 @@
 
     Public Function buscar_id_pedido(ByVal nro_doc As Int64, ByVal fecha_actual As Date) As Int16
         Dim id_cliente As Int16 = buscar_id_client(nro_doc)
-        Dim id_pedido As Int16 = CInt(Me.ejecuto_sql("SELECT NRO_PEDIDO FROM PEDIDOS WHERE ID_CLIENTE = " & id_cliente & " AND DATEDIFF(day,convert(date,GETDATE()), convert(date,FECHA_PEDIDO))<2 ").Rows.Item(0).Item(0).ToString)
+        Dim id_pedido As Int16 = CInt(Me.ejecuto_sql("SELECT NRO_PEDIDO FROM PEDIDOS WHERE ID_CLIENTE = 1 AND DATEDIFF(day,convert(date,GETDATE()), convert(date,FECHA_PEDIDO))<2").Rows.Item(0).Item(0).ToString)
         Return id_pedido
     End Function
 
@@ -573,8 +573,11 @@
             MsgBox("TERMINARON LOS DETALLES")
             transaccion.Commit()
         Catch ex As Exception
+
             transaccion.Rollback()
+            conexion.Close()
             MsgBox("FALLO LA TRANSACCION" & ex.Message & " EN " & ex.StackTrace)
+
         End Try
 
         conexion.Close()
