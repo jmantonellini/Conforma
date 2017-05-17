@@ -133,17 +133,23 @@ Partial Class gestor_empresas
         '
         'tablaEmpresas
         '
+        Me.tablaEmpresas.AllowUserToAddRows = False
+        Me.tablaEmpresas.AllowUserToDeleteRows = False
+        Me.tablaEmpresas.AllowUserToResizeColumns = False
+        Me.tablaEmpresas.AllowUserToResizeRows = False
         Me.tablaEmpresas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tablaEmpresas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.tablaEmpresas.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.tablaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.tablaEmpresas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.tablaEmpresas.GridColor = System.Drawing.Color.Gainsboro
         Me.tablaEmpresas.Location = New System.Drawing.Point(24, 309)
         Me.tablaEmpresas.MultiSelect = False
         Me.tablaEmpresas.Name = "tablaEmpresas"
         Me.tablaEmpresas.ReadOnly = True
         Me.tablaEmpresas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tablaEmpresas.Size = New System.Drawing.Size(468, 182)
-        Me.tablaEmpresas.TabIndex = 18
+        Me.tablaEmpresas.TabIndex = 1
         '
         'txt_razon_social
         '
