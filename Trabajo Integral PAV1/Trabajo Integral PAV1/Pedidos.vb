@@ -109,7 +109,8 @@
     Private Sub cmd_nuevo_Click_1(sender As Object, e As EventArgs) Handles cmd_nuevo.Click
         Me.cargar_combos()
         Me.habilitar_campos()
-        Me.tabla_detalles.RowCount = 0
+        tabla_detalles.Columns.Clear()
+        cmd_guardar.Enabled = True
         accion = tipo_accion.nuevo
     End Sub
 
@@ -118,12 +119,16 @@
     End Sub
 
     Private Sub tabla_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_pedidos.CellDoubleClick
-        'cargar todos los detalles pedidos
+        Me.cargar_combos_desde_pedido()
+        TabControl1.SelectedTab = tab_nuevo
+    End Sub
+
+    Private Sub cargar_combos_desde_pedido()
         Dim cadena_busqueda As String = " DETALLES_PEDIDOS DP JOIN PRODUCTOS P ON P.ID_PRODUCTO = DP.ID_PRODUCTO " _
-                                        & " JOIN AREAS A ON A.ID_AREA = P.ID_AREA " _
-                                        & " JOIN CATEGORIAS C ON C.ID_CATEGORIA = P.ID_CATEGORIA " _
-                                        & " JOIN MODELOS M ON M.ID_MODELO = P.ID_MODELO " _
-                                        & " JOIN TIPOS_PRODUCTOS TP ON TP.ID_TIPO_PRODUCTO = P.ID_TIPO_PRODUCTO "
+                                       & " JOIN AREAS A ON A.ID_AREA = P.ID_AREA " _
+                                       & " JOIN CATEGORIAS C ON C.ID_CATEGORIA = P.ID_CATEGORIA " _
+                                       & " JOIN MODELOS M ON M.ID_MODELO = P.ID_MODELO " _
+                                       & " JOIN TIPOS_PRODUCTOS TP ON TP.ID_TIPO_PRODUCTO = P.ID_TIPO_PRODUCTO "
 
         tabla_detalles.DataSource = conexion.leer_tabla_filtrada_generica(cadena_busqueda, _
                                                                           "NRO_PEDIDO", _
@@ -132,7 +137,7 @@
                                                                           & " A.NOMBRE AS 'Área' ," _
                                                                           & " C.NOMBRE AS 'Categoría' ," _
                                                                           & " M.NOMBRE AS 'Modelo' ")
-        'cargar todos los combos desde la tabla detalle ACA TIRA ERROR; DESPUES DE ESTO
+
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
         conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
         conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
@@ -142,17 +147,16 @@
         conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
         fecha_entrega.CustomFormat = "DD/MM/YYYY"
         Me.fecha_entrega.Value = (CDate(tabla_pedidos.SelectedRows.Item(0).Cells(3).Value))
-        TabControl1.SelectedTab = tab_nuevo
     End Sub
 
     Private Sub tabla_detalles_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_detalles.CellClick
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
+        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
         conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
         conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
         Dim tabla_auxiliar As DataTable = conexion.leer_tabla_filtrada_generica(" DETALLES_PEDIDOS ", "ID_DETALLE_PEDIDO", tabla_detalles.SelectedRows.Item(0).Cells(0).Value, " CANTIDAD")
         txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
-        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
-        conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
     End Sub
 
     Private Sub cmb_area_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedIndexChanged
@@ -183,8 +187,57 @@
 
 
     Private Sub cmd_agregar_detalle_Click(sender As Object, e As EventArgs) Handles cmd_agregar_detalle.Click
-        
-        tabla_detalles.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text)
+       
+        If (tabla_detalles.Columns.Count = 0) Then
+            Dim col As New DataGridViewTextBoxColumn
+            col.DataPropertyName = "Número"
+            col.HeaderText = "Nro Detalle"
+            col.Name = "Número"
+            tabla_detalles.Columns.Add(col)
+            col = New DataGridViewTextBoxColumn
+            col.DataPropertyName = "Área"
+            col.HeaderText = "Área"
+            col.Name = "Área"
+            tabla_detalles.Columns.Add(col)
+            col = New DataGridViewTextBoxColumn
+            col.DataPropertyName = "Categoría"
+            col.HeaderText = "Categoría"
+            col.Name = "Categoría"
+            tabla_detalles.Columns.Add(col)
+            col = New DataGridViewTextBoxColumn
+            col.DataPropertyName = "Modelo"
+            col.HeaderText = "Modelo"
+            col.Name = "Modelo"
+            tabla_detalles.Columns.Add(col)
+            col = New DataGridViewTextBoxColumn
+            col.DataPropertyName = "Observaciones"
+            col.HeaderText = "Observaciones"
+            col.Name = "Observaciones"
+            tabla_detalles.Columns.Add(col)
+        End If
+
+        tabla_detalles.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text)
+    End Sub
+
+   
+    Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
+        If (accion = tipo_accion.modificacion) Then
+           
+
+        ElseIf accion = tipo_accion.nuevo Then
+            conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), tabla_detalles.DataSource, CInt(txt_cantidad.Text))
+        End If
+
+        For i = 0 To tabla_detalles.Rows.Count - 1
+
+        Next
+    End Sub
+
+    Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
+        accion = tipo_accion.modificacion
+        Me.cargar_combos_desde_pedido()
+        Me.habilitar_campos()
+
     End Sub
 End Class
 

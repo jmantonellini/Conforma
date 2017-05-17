@@ -127,7 +127,7 @@
     End Function
 
     Public Function leer_tabla_filtrada_nombre(ByVal tabla As String, pk As String, atributo_id As String _
-                                                 , nombre As String)
+                                                 , nombre As String) As DataTable
         Dim tabla_fuente As DataTable = Me.ejecuto_sql("SELECT " & nombre & " FROM " & tabla & " WHERE " & pk & " like '" & atributo_id & "'")
         Return tabla_fuente
     End Function
@@ -518,9 +518,69 @@
         End If
         Return False
     End Function
+
     Public Sub insertar_localidad(ByVal localidad As String, filtro As String, cp As Int16)
         Dim id_provincia As Int16 = CInt(ejecuto_sql("SELECT ID_PROVINCIA FROM PROVINCIAS WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
         Me.ejecuto_sql("INSERT INTO CIUDADES VALUES('" & localidad & "'," & id_provincia & ", " & cp & ")")
     End Sub
+
+    Public Function buscar_id_client(ByVal nro_doc As Int64) As Int16
+        Return CInt(Me.leer_tabla_filtrada_generica("CLIENTES", "NRO_DOC", nro_doc, "ID_CLIENTE").Rows.Item(0).Item(0).ToString)
+    End Function
+
+    Public Function buscar_id_pedido(ByVal nro_doc As Int64, ByVal fecha_actual As Date) As Int16
+        Dim id_cliente As Int16 = buscar_id_client(nro_doc)
+        Dim id_pedido As Int16 = CInt(Me.ejecuto_sql("SELECT NRO_PEDIDO FROM PEDIDOS WHERE ID_CLIENTE = " & id_cliente & " AND DATEDIFF(day,convert(date,GETDATE()), convert(date,FECHA_PEDIDO))<2 ").Rows.Item(0).Item(0).ToString)
+        Return id_pedido
+    End Function
+
+    Public Function transaccion_pedidos(ByVal doc_cliente As Int64, ByVal fecha_entrega As Date, ByVal tabla_detalle As DataTable, cantidad As Int16) As Boolean
+        Dim transaccion_completa = False
+        Dim conexion As New OleDb.OleDbConnection
+        Dim cmd As New OleDb.OleDbCommand
+        Dim transaccion As OleDb.OleDbTransaction
+
+        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.Open()
+        transaccion = conexion.BeginTransaction
+        cmd.Connection = conexion
+        cmd.CommandType = CommandType.Text
+        cmd.Transaction = transaccion
+        Dim non_query As String = ""
+
+        Try
+
+            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", GETDATE(), '" & CDate(fecha_entrega) & "')"
+            cmd.CommandText = non_query
+            cmd.ExecuteNonQuery()
+            Dim id_pedido = buscar_id_pedido(doc_cliente, Date.Now.ToString("yyyy-MM-dd"))
+            For i = 0 To tabla_detalle.Rows.Count - 1
+                Dim area As String = tabla_detalle.Rows.Item(i).Item(1).ToString
+                Dim categoria As String = tabla_detalle.Rows.Item(i).Item(2).ToString
+                Dim modelo As String = tabla_detalle.Rows.Item(i).Item(3).ToString
+                Dim observaciones As String = tabla_detalle.Rows.Item(i).Item(4).ToString
+                non_query = "INSERT INTO PRODUCTOS VALUES(" _
+                    & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
+                    & CInt(Me.leer_tabla_filtrada_dos_tablas("TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "CATEGORIAS", "ID_TIPO_PRODUCTO", categoria).Rows(0)(0).ToString) & ", " _
+                    & CInt(Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString) & ", " _
+                    & CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString) & ", " _
+                    & "'" & observaciones & "')"
+                cmd.ExecuteNonQuery()
+                Dim id_producto As Int16 = CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT(DETALLES_PEDIDOS)").Rows(0)(0).ToString) - 1
+                non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & id_pedido & "," & id_producto & ", " & cantidad & ")"
+                cmd.ExecuteNonQuery()
+            Next
+            MsgBox("TERMINARON LOS DETALLES")
+            transaccion.Commit()
+        Catch ex As Exception
+            transaccion.Rollback()
+            MsgBox("FALLO LA TRANSACCION" & ex.Message & " EN " & ex.StackTrace)
+        End Try
+
+        conexion.Close()
+
+
+        Return transaccion_completa
+    End Function
 
 End Class
