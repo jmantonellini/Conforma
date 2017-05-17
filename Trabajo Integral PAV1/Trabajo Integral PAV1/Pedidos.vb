@@ -136,7 +136,9 @@
                                                                           " DP.ID_DETALLE_PEDIDO as 'Detalle Nº' , " _
                                                                           & " A.NOMBRE AS 'Área' ," _
                                                                           & " C.NOMBRE AS 'Categoría' ," _
-                                                                          & " M.NOMBRE AS 'Modelo' ")
+                                                                          & " M.NOMBRE AS 'Modelo', " _
+                                                                          & " DP.CANTIDAD AS 'Cantidad', " _
+                                                                          & " P.OBSERVACIONES AS 'Observaciones' ")
 
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
         conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
@@ -195,9 +197,10 @@
             data_table.Columns.Add("Categoría", GetType(String))
             data_table.Columns.Add("Modelo", GetType(String))
             data_table.Columns.Add("Observaciones", GetType(String))
+            data_table.Columns.Add("Cantidad", GetType(Int16))
         End If
 
-        data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text)
+        data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text, CInt(txt_cantidad.Text))
         tabla_detalles.DataSource = data_table
     End Sub
 
@@ -207,12 +210,9 @@
            
 
         ElseIf accion = tipo_accion.nuevo Then
-            conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table, CInt(txt_cantidad.Text))
+            conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table)
         End If
 
-        For i = 0 To tabla_detalles.Rows.Count - 1
-
-        Next
     End Sub
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
@@ -221,5 +221,7 @@
         Me.habilitar_campos()
 
     End Sub
+
+    
 End Class
 

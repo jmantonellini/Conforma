@@ -227,6 +227,7 @@ Partial Class gestor_pedidos
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(36, 20)
         Me.txt_cantidad.TabIndex = 2
+        Me.txt_cantidad.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.txt_cantidad.ValidatingType = GetType(Integer)
         '
         'Label9

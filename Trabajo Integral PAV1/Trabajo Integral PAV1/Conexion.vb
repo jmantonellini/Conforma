@@ -534,7 +534,11 @@
         Return id_pedido
     End Function
 
-    Public Function transaccion_pedidos(ByVal doc_cliente As Int64, ByVal fecha_entrega As Date, ByVal tabla_detalle As DataTable, cantidad As Int16) As Boolean
+    Public Function buscar_checkident(ByVal tabla As String) As Int16
+        Return CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT('" & tabla & "')").Rows(0)(0).ToString)
+    End Function
+
+    Public Function transaccion_pedidos(ByVal doc_cliente As Int64, ByVal fecha_entrega As Date, ByVal tabla_detalle As DataTable) As Boolean
         Dim transaccion_completa = False
         Dim conexion As New OleDb.OleDbConnection
         Dim cmd As New OleDb.OleDbCommand
@@ -546,7 +550,7 @@
 
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
-        Dim id_pedido As Int16 = Me.ejecuto_sql(" SELECT IDENT_CURRENT( 'PEDIDOS' )").Rows(0)(0) + 1
+        Dim id_pedido As Int16 = Me.buscar_checkident("PEDIDOS") + 1
         transaccion = conexion.BeginTransaction
         cmd.Transaction = transaccion
         Dim non_query As String = ""
@@ -561,27 +565,31 @@
                 Dim categoria As String = tabla_detalle.Rows.Item(i).Item(2).ToString
                 Dim modelo As String = tabla_detalle.Rows.Item(i).Item(3).ToString
                 Dim observaciones As String = tabla_detalle.Rows.Item(i).Item(4).ToString
+                Dim cantidad As Int16 = tabla_detalle.Rows.Item(i).Item(5)
                 non_query = "INSERT INTO PRODUCTOS VALUES(" _
                     & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
                     & CInt(Me.leer_tabla_filtrada_dos_tablas("TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "CATEGORIAS", "ID_TIPO_PRODUCTO", categoria).Rows(0)(0).ToString) & ", " _
                     & CInt(Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString) & ", " _
                     & CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString) & ", " _
                     & "'" & observaciones & "')"
+                cmd.CommandText = non_query
                 cmd.ExecuteNonQuery()
                 Dim id_producto As Int16 = CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT( 'PRODUCTOS' )").Rows(0)(0))
-                non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & i & ", " & id_pedido & "," & id_producto & ", " & cantidad & ")"
+                MsgBox("IDPEDIDO: " & id_pedido & " ID_PRODUCTO " & id_producto)
+                non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & i + 1 & ", " & id_pedido & "," & id_producto & ", " & cantidad & ")"
+                cmd.CommandText = non_query
                 cmd.ExecuteNonQuery()
             Next
             MsgBox("TERMINARON LOS DETALLES")
             transaccion.Commit()
         Catch ex As Exception
 
-            transaccion.Rollback()
+            'cmd.Transaction.Rollback()
             conexion.Close()
             MsgBox("FALLO LA TRANSACCION" & ex.Message & " EN " & ex.StackTrace)
 
         End Try
-
+        'cmd.Transaction.Commit()
         conexion.Close()
 
 
