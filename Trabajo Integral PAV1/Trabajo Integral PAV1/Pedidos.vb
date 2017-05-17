@@ -9,7 +9,7 @@
     Dim accion As tipo_accion = tipo_accion.nulo
     Dim contador As Int16 = 0
     Dim ventana_hija As Boolean = False
-
+    Dim data_table As New DataTable
 
     Private Sub txt_observaciones_TextChanged(sender As Object, e As EventArgs) Handles txt_observaciones.Click, txt_observaciones.GotFocus
         txt_observaciones.Text = ""
@@ -188,35 +188,17 @@
 
     Private Sub cmd_agregar_detalle_Click(sender As Object, e As EventArgs) Handles cmd_agregar_detalle.Click
        
-        If (tabla_detalles.Columns.Count = 0) Then
-            Dim col As New DataGridViewTextBoxColumn
-            col.DataPropertyName = "Número"
-            col.HeaderText = "Nro Detalle"
-            col.Name = "Número"
-            tabla_detalles.Columns.Add(col)
-            col = New DataGridViewTextBoxColumn
-            col.DataPropertyName = "Área"
-            col.HeaderText = "Área"
-            col.Name = "Área"
-            tabla_detalles.Columns.Add(col)
-            col = New DataGridViewTextBoxColumn
-            col.DataPropertyName = "Categoría"
-            col.HeaderText = "Categoría"
-            col.Name = "Categoría"
-            tabla_detalles.Columns.Add(col)
-            col = New DataGridViewTextBoxColumn
-            col.DataPropertyName = "Modelo"
-            col.HeaderText = "Modelo"
-            col.Name = "Modelo"
-            tabla_detalles.Columns.Add(col)
-            col = New DataGridViewTextBoxColumn
-            col.DataPropertyName = "Observaciones"
-            col.HeaderText = "Observaciones"
-            col.Name = "Observaciones"
-            tabla_detalles.Columns.Add(col)
+
+        If (data_table.Columns.Count = 0) Then
+            data_table.Columns.Add("Numero", GetType(String))
+            data_table.Columns.Add("Área", GetType(String))
+            data_table.Columns.Add("Categoría", GetType(String))
+            data_table.Columns.Add("Modelo", GetType(String))
+            data_table.Columns.Add("Observaciones", GetType(String))
         End If
 
-        tabla_detalles.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text)
+        data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text)
+        tabla_detalles.DataSource = data_table
     End Sub
 
    
@@ -225,7 +207,7 @@
            
 
         ElseIf accion = tipo_accion.nuevo Then
-            conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), tabla_detalles.DataSource, CInt(txt_cantidad.Text))
+            conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table, CInt(txt_cantidad.Text))
         End If
 
         For i = 0 To tabla_detalles.Rows.Count - 1

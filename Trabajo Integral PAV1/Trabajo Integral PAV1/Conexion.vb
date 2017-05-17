@@ -543,11 +543,11 @@
 
         conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
-        transaccion = conexion.BeginTransaction
+
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
-        cmd2.Connection = conexion
-        cmd2.CommandType = CommandType.Text
+        Dim id_pedido As Int16 = Me.ejecuto_sql(" SELECT IDENT_CURRENT( 'PEDIDOS' )").Rows(0)(0) + 1
+        transaccion = conexion.BeginTransaction
         cmd.Transaction = transaccion
         Dim non_query As String = ""
 
@@ -555,7 +555,7 @@
             non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", CAST( GETDATE() AS DATE), '" & CDate(fecha_entrega).ToString("yyyy-MM-dd") & "')"
             cmd.CommandText = non_query
             cmd.ExecuteNonQuery()
-            Dim id_pedido As Int16 = buscar_id_pedido(doc_cliente, Date.Now.ToString("yyyy-MM-dd"))
+            Dim i As Integer
             For i = 0 To tabla_detalle.Rows.Count - 1
                 Dim area As String = tabla_detalle.Rows.Item(i).Item(1).ToString
                 Dim categoria As String = tabla_detalle.Rows.Item(i).Item(2).ToString
@@ -568,8 +568,8 @@
                     & CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString) & ", " _
                     & "'" & observaciones & "')"
                 cmd.ExecuteNonQuery()
-                Dim id_producto As Int16 = CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT(DETALLES_PEDIDOS)").Rows(0)(0).ToString) - 1
-                non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & id_pedido & "," & id_producto & ", " & cantidad & ")"
+                Dim id_producto As Int16 = CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT( 'PRODUCTOS' )").Rows(0)(0))
+                non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & i & ", " & id_pedido & "," & id_producto & ", " & cantidad & ")"
                 cmd.ExecuteNonQuery()
             Next
             MsgBox("TERMINARON LOS DETALLES")
