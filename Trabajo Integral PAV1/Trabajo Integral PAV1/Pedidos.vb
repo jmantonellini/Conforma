@@ -148,12 +148,8 @@
         Else : cmb_modelo.SelectedIndex = -1
             cmb_marca.SelectedIndex = -1
         End If
-
-
-        Dim tabla_auxiliar As DataTable = conexion.leer_tabla_filtrada_generica(" DETALLES_PEDIDOS ", "ID_DETALLE_PEDIDO", tabla_detalles.SelectedRows.Item(0).Cells(0).Value, " CANTIDAD")
-        txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
+        txt_cantidad.Text = tabla_detalles.Item(4, 0).Value
         conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
-
         fecha_entrega.CustomFormat = "DD/MM/YYYY"
         Me.fecha_entrega.Value = (CDate(tabla_pedidos.SelectedRows.Item(0).Cells(3).Value))
     End Sub
@@ -162,10 +158,13 @@
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
         conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
         conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
-        conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
-        conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
-        Dim tabla_auxiliar As DataTable = conexion.leer_tabla_filtrada_generica(" DETALLES_PEDIDOS ", "ID_DETALLE_PEDIDO", tabla_detalles.SelectedRows.Item(0).Cells(0).Value, " CANTIDAD")
-        txt_cantidad.Text = tabla_auxiliar.Rows().Item(0).Item(0)
+        If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(3).Value) = False) Then
+            conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+            conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
+        Else : cmb_marca.SelectedIndex = -1
+            cmb_modelo.SelectedIndex = -1
+        End If
+        txt_cantidad.Text = tabla_detalles.SelectedRows.Item(0).Cells(4).Value
     End Sub
 
     Private Sub cmb_area_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedIndexChanged
@@ -228,6 +227,7 @@
                     If (conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table)) Then
                         tabla_pedidos.DataSource = conexion.cargar_grilla("pedidos")
                         Me.deshabilitar_campos()
+                        Me.tabla_detalles.Columns.Clear()
                         accion = tipo_accion.nulo
                     End If
                 End If
