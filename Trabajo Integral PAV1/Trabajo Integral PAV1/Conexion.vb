@@ -530,7 +530,7 @@
 
     Public Function buscar_id_pedido(ByVal nro_doc As Int64, ByVal fecha_actual As Date) As Int16
         Dim id_cliente As Int16 = buscar_id_client(nro_doc)
-        Dim id_pedido As Int16 = CInt(Me.ejecuto_sql("SELECT NRO_PEDIDO FROM PEDIDOS WHERE ID_CLIENTE = 1 AND DATEDIFF(day,convert(date,GETDATE()), convert(date,FECHA_PEDIDO))<2").Rows.Item(0).Item(0).ToString)
+        Dim id_pedido As Int16 = CInt(Me.ejecuto_sql("SELECT NRO_PEDIDO FROM PEDIDOS WHERE ID_CLIENTE = 1 AND DATEDIFF(day, FECHA_PEDIDO, CAST(GETDATE() AS DATE))<2").Rows.Item(0).Item(0).ToString)
         Return id_pedido
     End Function
 
@@ -539,21 +539,23 @@
         Dim conexion As New OleDb.OleDbConnection
         Dim cmd As New OleDb.OleDbCommand
         Dim transaccion As OleDb.OleDbTransaction
+        Dim cmd2 As New OleDb.OleDbCommand
 
         conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         transaccion = conexion.BeginTransaction
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
+        cmd2.Connection = conexion
+        cmd2.CommandType = CommandType.Text
         cmd.Transaction = transaccion
         Dim non_query As String = ""
 
         Try
-
-            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", GETDATE(), '" & CDate(fecha_entrega) & "')"
+            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", CAST( GETDATE() AS DATE), '" & CDate(fecha_entrega).ToString("yyyy-MM-dd") & "')"
             cmd.CommandText = non_query
             cmd.ExecuteNonQuery()
-            Dim id_pedido = buscar_id_pedido(doc_cliente, Date.Now.ToString("yyyy-MM-dd"))
+            Dim id_pedido As Int16 = buscar_id_pedido(doc_cliente, Date.Now.ToString("yyyy-MM-dd"))
             For i = 0 To tabla_detalle.Rows.Count - 1
                 Dim area As String = tabla_detalle.Rows.Item(i).Item(1).ToString
                 Dim categoria As String = tabla_detalle.Rows.Item(i).Item(2).ToString
