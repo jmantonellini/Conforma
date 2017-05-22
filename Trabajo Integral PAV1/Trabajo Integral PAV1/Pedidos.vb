@@ -41,9 +41,6 @@
         Me.ActivateMdiChild(nuevo)
     End Sub
 
-
-    
-
     Private Sub actualizar_combo_clientes()
         conexion.cargar_combo(cmb_cliente, " CLIENTES ", "ID_CLIENTE", "NOMBRE")
     End Sub
@@ -112,6 +109,7 @@
         tabla_detalles.Columns.Clear()
         cmd_guardar.Enabled = True
         accion = tipo_accion.nuevo
+        cmd_nuevo.Enabled = False
     End Sub
 
     Private Sub salir(sender As Object, e As EventArgs) Handles cmd_salir.Click
@@ -121,37 +119,46 @@
     Private Sub tabla_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_pedidos.CellDoubleClick
         Me.cargar_combos_desde_pedido()
         TabControl1.SelectedTab = tab_nuevo
+        cmd_modificar.Enabled = True
+
     End Sub
 
     Private Sub cargar_combos_desde_pedido()
         Dim cadena_busqueda As String = " DETALLES_PEDIDOS DP JOIN PRODUCTOS P ON P.ID_PRODUCTO = DP.ID_PRODUCTO " _
                                        & " JOIN AREAS A ON A.ID_AREA = P.ID_AREA " _
-                                       & " JOIN CATEGORIAS C ON C.ID_CATEGORIA = P.ID_CATEGORIA " _
+                                       & " LEFT JOIN CATEGORIAS C ON C.ID_CATEGORIA = P.ID_CATEGORIA " _
                                        & " LEFT JOIN MODELOS M ON M.ID_MODELO = P.ID_MODELO " _
-                                       & " JOIN TIPOS_PRODUCTOS TP ON TP.ID_TIPO_PRODUCTO = P.ID_TIPO_PRODUCTO "
+                                       & " LEFT JOIN TIPOS_PRODUCTOS TP ON TP.ID_TIPO_PRODUCTO = P.ID_TIPO_PRODUCTO "
 
         tabla_detalles.DataSource = conexion.leer_tabla_filtrada_generica(cadena_busqueda, _
                                                                           "NRO_PEDIDO", _
                                                                           tabla_pedidos.SelectedRows.Item(0).Cells(0).Value, _
                                                                           " DP.ID_DETALLE_PEDIDO as 'Detalle Nº' , " _
                                                                           & " A.NOMBRE AS 'Área' ," _
+                                                                          & " TP.NOMBRE AS 'Tipo de Producto' ," _
                                                                           & " C.NOMBRE AS 'Categoría' ," _
                                                                           & " M.NOMBRE AS 'Modelo', " _
                                                                           & " DP.CANTIDAD AS 'Cantidad', " _
                                                                           & " P.OBSERVACIONES AS 'Observaciones' ")
 
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
-        conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
         If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(3).Value) = False) Then
-            conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+            conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        End If
+        conexion.cargar_combo_generico_nombre(cmb_tipo_producto, "TIPOS_PRODUCTOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(4).Value) = False) Then
+            conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(4).Value)
             conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
         Else : cmb_modelo.SelectedIndex = -1
             cmb_marca.SelectedIndex = -1
         End If
         txt_cantidad.Text = tabla_detalles.Item(4, 0).Value
-        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
+        Dim id_cliente As Integer = conexion.leer_tabla_filtrada_generica("PEDIDOS", "NRO_PEDIDO", tabla_pedidos.SelectedRows.Item(0).Cells(0).Value, "ID_CLIENTE").Rows(0).Item(0)
+        conexion.cargar_combo_generico_filtrado(cmb_cliente, "CLIENTES", "ID_CLIENTE", "NRO_DOC", id_cliente)
+        'conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
         fecha_entrega.CustomFormat = "DD/MM/YYYY"
         Me.fecha_entrega.Value = (CDate(tabla_pedidos.SelectedRows.Item(0).Cells(3).Value))
+        data_table = tabla_detalles.DataSource
     End Sub
 
     Private Sub tabla_detalles_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_detalles.CellClick
@@ -165,6 +172,8 @@
             cmb_modelo.SelectedIndex = -1
         End If
         txt_cantidad.Text = tabla_detalles.SelectedRows.Item(0).Cells(4).Value
+        cmd_eliminar.Enabled = True
+        cmd_modificar.Enabled = True
     End Sub
 
     Private Sub cmb_area_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedIndexChanged
@@ -195,11 +204,27 @@
 
 
     Private Sub cmd_agregar_detalle_Click(sender As Object, e As EventArgs) Handles cmd_agregar_detalle.Click
-       
+        If (txt_observaciones.Text = "Observaciones...") Then
+            txt_observaciones.Text = ""
+        End If
+
+        If (accion = tipo_accion.modificacion) Then
+            Dim indice As Integer = tabla_detalles.SelectedRows.Item(0).Cells(0).Value
+            data_table.Rows.Item(indice - 1).Item(1) = cmb_area.Text
+            data_table.Rows.Item(indice - 1).Item(2) = cmb_categoria.Text
+            data_table.Rows.Item(indice - 1).Item(3) = cmb_modelo.Text
+            data_table.Rows.Item(indice - 1).Item(5) = txt_observaciones.Text
+            data_table.Rows.Item(indice - 1).Item(4) = CInt(txt_cantidad.Text)
+            tabla_detalles.DataSource = data_table
+            Me.deshabilitar_campos()
+            cmd_guardar.Enabled = True
+            Exit Sub
+        End If
 
         If (data_table.Columns.Count = 0) Then
-            data_table.Columns.Add("Numero", GetType(String))
+            data_table.Columns.Add("Numero", GetType(Int16))
             data_table.Columns.Add("Área", GetType(String))
+            data_table.Columns.Add("Tipo de Producto", GetType(String))
             data_table.Columns.Add("Categoría", GetType(String))
             data_table.Columns.Add("Modelo", GetType(String))
             data_table.Columns.Add("Observaciones", GetType(String))
@@ -207,8 +232,9 @@
         End If
         If (txt_cantidad.Text <> "" And txt_cantidad.Text <> "0") Then
             If ((cmb_area.Text = "Escape" And cmb_marca.Text <> "" And cmb_modelo.Text <> "") Or cmb_area.Text <> "Escape") Then
-                data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_modelo.Text, txt_observaciones.Text, CInt(txt_cantidad.Text))
+                data_table.Rows.Add(tabla_detalles.Rows.Count + 1, cmb_area.Text, cmb_categoria.Text, cmb_tipo_producto.Text, cmb_modelo.Text, txt_observaciones.Text, CInt(txt_cantidad.Text))
                 tabla_detalles.DataSource = data_table
+                cmb_cliente.Enabled = False
             Else : MsgBox("La marca o el modelo no puede ser nula si el producto es un escape")
             End If
         Else : MsgBox("La cantidad de productos no puede ser nula o cero")
@@ -221,7 +247,7 @@
         If (txt_cantidad.Text <> "" Or txt_cantidad.Text <> "0") Then
             If ((cmb_area.Text = "Escape" And cmb_marca.Text <> "" And cmb_modelo.Text <> "") Or cmb_area.Text <> "Escape") Then
                 If (accion = tipo_accion.modificacion) Then
-
+                    
 
                 ElseIf accion = tipo_accion.nuevo Then
                     If (conexion.transaccion_pedidos(CLng(cmb_cliente.Text), CDate(fecha_entrega.Value), data_table)) Then
@@ -240,10 +266,31 @@
     End Sub
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
+        Dim indice As Integer = tabla_detalles.SelectedRows.Item(0).Cells(0).Value
+        Dim area As String = cmb_area.Text
+        Dim categoria As String = cmb_categoria.Text
+        Dim tipo_prod As String = cmb_tipo_producto.Text
+        Dim marca As String = cmb_marca.Text
+        Dim modelo As String = cmb_modelo.Text
+        Dim cantidad As Integer = CInt(txt_cantidad.Text)
+        Dim obser As String = txt_observaciones.Text
+        Dim cliente As String = cmb_cliente.Text
         accion = tipo_accion.modificacion
-        Me.cargar_combos_desde_pedido()
+        tabla_detalles.Enabled = False 'Para que no se pueda elegir otro detalle si no se guardaron los cambios del anterior'
+        Me.cargar_combos()
+        cmb_area.Text = area
+        cmb_tipo_producto.Text = tipo_prod
+        cmb_categoria.Text = categoria
+        cmb_marca.Text = marca
+        cmb_modelo.Text = modelo
+        txt_cantidad.Text = cantidad
+        txt_observaciones.Text = obser
+        cmb_cliente.Text = cliente
+        'Me.cargar_combos_desde_pedido()
         Me.habilitar_campos()
-
+        cmd_agregar_detalle.Text = "Guardar cambios"
+        cmb_cliente.Enabled = False
+        tabla_detalles.Rows(indice - 1).Selected = True
     End Sub
 
     

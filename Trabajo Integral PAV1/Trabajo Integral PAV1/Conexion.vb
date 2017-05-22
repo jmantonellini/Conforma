@@ -106,9 +106,15 @@
                                                    , nombre As String, atributo_id As Integer)
         Dim tabla_fuente As DataTable = leer_tabla_filtrada_generica(tabla, pk, atributo_id, nombre)
         combo.DataSource = tabla_fuente
-        combo.ValueMember = pk
+        'combo.ValueMember = pk
         combo.DisplayMember = nombre
         Return combo
+    End Function
+
+    Public Function leer_tabla_filtrada_generica(ByVal tabla As String, pk As String, atributo_id As Integer _
+                                                 , nombre As String) As DataTable
+        Dim tabla_fuente As DataTable = Me.ejecuto_sql("SELECT " & nombre & " FROM " & tabla & " WHERE " & pk & " = " & atributo_id)
+        Return tabla_fuente
     End Function
 
     Public Function cargar_combo_generico_nombre(ByRef combo As ComboBox, tabla As String, pk As String _
@@ -120,11 +126,7 @@
         Return combo
     End Function
 
-    Public Function leer_tabla_filtrada_generica(ByVal tabla As String, pk As String, atributo_id As Integer _
-                                                 , nombre As String)
-        Dim tabla_fuente As DataTable = Me.ejecuto_sql("SELECT " & nombre & " FROM " & tabla & " WHERE " & pk & " = " & atributo_id)
-        Return tabla_fuente
-    End Function
+    
 
     Public Function leer_tabla_filtrada_nombre(ByVal tabla As String, pk As String, atributo_id As String _
                                                  , nombre As String) As DataTable
@@ -562,19 +564,32 @@
             Dim i As Integer
             For i = 0 To tabla_detalle.Rows.Count - 1
                 Dim area As String = tabla_detalle.Rows.Item(i).Item(1).ToString
-                Dim categoria As String = tabla_detalle.Rows.Item(i).Item(2).ToString
-                Dim modelo As String = tabla_detalle.Rows.Item(i).Item(3).ToString
-                Dim observaciones As String = tabla_detalle.Rows.Item(i).Item(4).ToString
-                Dim cantidad As Int16 = tabla_detalle.Rows.Item(i).Item(5)
-                Dim modelos As String = "NULL "
+                Dim tipo_producto As String = tabla_detalle.Rows.Item(i).Item(2).ToString
+                Dim categoria As String = tabla_detalle.Rows.Item(i).Item(3).ToString
+                Dim modelo As String = tabla_detalle.Rows.Item(i).Item(4).ToString
+                Dim observaciones As String = tabla_detalle.Rows.Item(i).Item(5).ToString
+                Dim cantidad As Int16 = tabla_detalle.Rows.Item(i).Item(6)
+
+                Dim modelos_tabla As String = "NULL "
+                Dim categorias_tabla As String = "NULL "
+                Dim tipo_tabla As String = "NULL "
+                'Verificaciones para categorias y modelos vacios'
                 If (CInt(Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows.Count) > 0) Then
-                    modelos = Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString
+                    modelos_tabla = Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString
+                End If
+
+                If (CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows.Count) > 0) Then
+                    categorias_tabla = CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString)
+                End If
+
+                If (categorias_tabla <> "NULL ") Then
+                    tipo_tabla = Me.leer_tabla_filtrada_nombre("TIPOS_PRODUCTOS", "NOMBRE", tipo_producto, "ID_TIPO_PRODUCTO").Rows(0)(0).ToString
                 End If
                 non_query = "INSERT INTO PRODUCTOS VALUES(" _
                     & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
-                    & CInt(Me.leer_tabla_filtrada_dos_tablas("TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "CATEGORIAS", "ID_TIPO_PRODUCTO", categoria).Rows(0)(0).ToString) & ", " _
-                    & modelos & ", " _
-                    & CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString) & ", " _
+                    & tipo_tabla & ", " _
+                    & modelos_tabla & ", " _
+                    & categorias_tabla & ", " _
                     & "'" & observaciones & "')"
                 cmd.CommandText = non_query
                 cmd.ExecuteNonQuery()
@@ -590,6 +605,7 @@
         Catch ex As Exception
             conexion.Close()
             MsgBox("FALLO LA TRANSACCION " & ex.Message & " EN " & ex.StackTrace)
+            Me.ejecuto_sql("DBCC CHECKIDENT ('PEDIDOS', RESEED, " & id_pedido - 1 & ")")
         End Try
         conexion.Close()
         Return transaccion_completa
