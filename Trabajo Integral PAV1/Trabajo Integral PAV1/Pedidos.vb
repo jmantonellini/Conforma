@@ -6,7 +6,8 @@
     End Enum
 
     Enum tipo_eliminacion
-        detalle
+        detalle_en_BD
+        detalle_no_en_BD
         pedido
     End Enum
 
@@ -163,7 +164,7 @@
         Else : cmb_modelo.SelectedIndex = -1
             cmb_marca.SelectedIndex = -1
         End If
-        txt_cantidad.Text = tabla_detalles.Item(4, 0).Value
+        txt_cantidad.Text = tabla_detalles.Item(5, 0).Value
         Dim id_cliente As Integer = conexion.leer_tabla_filtrada_generica("PEDIDOS", "NRO_PEDIDO", tabla_pedidos.SelectedRows.Item(0).Cells(0).Value, "ID_CLIENTE").Rows(0).Item(0)
         conexion.cargar_combo_generico_filtrado(cmb_cliente, "CLIENTES", "ID_CLIENTE", "NRO_DOC", id_cliente)
         'conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
@@ -174,18 +175,18 @@
 
     Private Sub tabla_detalles_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_detalles.CellClick
         conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
-        conexion.carga_combo_generico_dos_tablas(cmb_tipo_producto, "TIPOS_PRODUCTOS", "ID_TIPO_PRODUCTO", "NOMBRE", "CATEGORIAS", "ID_TIPO_PRODUCTO", cmb_categoria.Text)
-        conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
-        If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(3).Value) = False) Then
-            conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        conexion.cargar_combo_generico_nombre(cmb_categoria, "TIPOS_PRODUCTOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+        conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
+        If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(4).Value) = False) Then
+            conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(4).Value)
             conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
         Else : cmb_marca.SelectedIndex = -1
             cmb_modelo.SelectedIndex = -1
         End If
-        txt_cantidad.Text = tabla_detalles.SelectedRows.Item(0).Cells(4).Value
+        txt_cantidad.Text = tabla_detalles.SelectedRows.Item(0).Cells(5).Value
         cmd_eliminar.Enabled = True
         cmd_modificar.Enabled = True
-        Me.eliminacion = tipo_eliminacion.detalle 'Setea la variable eliminacion para cuando se quiera eliminar un detalle
+        Me.eliminacion = tipo_eliminacion.detalle_en_BD 'Setea la variable eliminacion para cuando se quiera eliminar un detalle
     End Sub
 
     Private Sub cmb_area_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedIndexChanged
@@ -278,38 +279,39 @@
     End Sub
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
-        Dim indice As Integer = tabla_detalles.SelectedRows.Item(0).Cells(0).Value
-        Dim area As String = cmb_area.Text
-        Dim categoria As String = cmb_categoria.Text
-        Dim tipo_prod As String = cmb_tipo_producto.Text
-        Dim marca As String = cmb_marca.Text
-        Dim modelo As String = cmb_modelo.Text
-        Dim cantidad As Integer = CInt(txt_cantidad.Text)
-        Dim obser As String = txt_observaciones.Text
-        Dim cliente As String = cmb_cliente.Text
-        accion = tipo_accion.modificacion
-        tabla_detalles.Enabled = False 'Para que no se pueda elegir otro detalle si no se guardaron los cambios del anterior'
-        Me.cargar_combos()
-        cmb_area.Text = area
-        cmb_tipo_producto.Text = tipo_prod
-        cmb_categoria.Text = categoria
-        cmb_marca.Text = marca
-        cmb_modelo.Text = modelo
-        txt_cantidad.Text = cantidad
-        txt_observaciones.Text = obser
-        cmb_cliente.Text = cliente
-        'Me.cargar_combos_desde_pedido()
-        Me.habilitar_campos()
-        cmd_agregar_detalle.Text = "Guardar cambios"
-        cmb_cliente.Enabled = False
-        tabla_detalles.Rows(indice - 1).Selected = True
+        If Me.TabControl1.SelectedTab Then
+            Dim indice As Integer = tabla_detalles.SelectedRows.Item(0).Cells(0).Value
+            Dim area As String = cmb_area.Text
+            Dim categoria As String = cmb_categoria.Text
+            Dim tipo_prod As String = cmb_tipo_producto.Text
+            Dim marca As String = cmb_marca.Text
+            Dim modelo As String = cmb_modelo.Text
+            Dim cantidad As Integer = CInt(txt_cantidad.Text)
+            Dim obser As String = txt_observaciones.Text
+            Dim cliente As String = cmb_cliente.Text
+            accion = tipo_accion.modificacion
+            tabla_detalles.Enabled = False 'Para que no se pueda elegir otro detalle si no se guardaron los cambios del anterior'
+            Me.cargar_combos()
+            cmb_area.Text = area
+            cmb_tipo_producto.Text = tipo_prod
+            cmb_categoria.Text = categoria
+            cmb_marca.Text = marca
+            cmb_modelo.Text = modelo
+            txt_cantidad.Text = cantidad
+            txt_observaciones.Text = obser
+            cmb_cliente.Text = cliente
+            'Me.cargar_combos_desde_pedido()
+            Me.habilitar_campos()
+            cmd_agregar_detalle.Text = "Guardar cambios"
+            cmb_cliente.Enabled = False
+            tabla_detalles.Rows(indice - 1).Selected = True
     End Sub
 
     ''' <summary>
     ''' Subrutina que se ejecuta en el momento de hacer click en el botón eliminar, dependiendo del contexto puede cancelar pedido o eliminar detalles de pedido
     ''' </summary>
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
-        If Me.eliminacion = tipo_eliminacion.pedido Then
+        If Me.eliminacion = tipo_eliminacion.pedido And MessageBox.Show("Seguro desea cancelar un pedido", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.OK Then
             If conexion.cancelar_pedido(Me.tabla_pedidos.CurrentRow.Cells(0).Value) = True Then 'Verificar que la transacción se ejecute correctamente mostrando los mensajes correpondientes
                 MessageBox.Show("Pedido cancelado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
 

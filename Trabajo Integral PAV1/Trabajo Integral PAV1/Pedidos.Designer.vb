@@ -324,6 +324,7 @@ Partial Class gestor_pedidos
         '
         'panel_nuevo
         '
+        Me.panel_nuevo.Controls.Add(Me.cmd_modificar)
         Me.panel_nuevo.Controls.Add(Me.Label11)
         Me.panel_nuevo.Controls.Add(Me.fecha_entrega)
         Me.panel_nuevo.Controls.Add(Me.panel_producto)
@@ -464,7 +465,7 @@ Partial Class gestor_pedidos
         Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_modificar.Enabled = False
         Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_modificar.Location = New System.Drawing.Point(24, 489)
+        Me.cmd_modificar.Location = New System.Drawing.Point(18, 461)
         Me.cmd_modificar.Name = "cmd_modificar"
         Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_modificar.TabIndex = 25
@@ -476,7 +477,6 @@ Partial Class gestor_pedidos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(812, 574)
-        Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_nuevo)
         Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.cmd_eliminar)
