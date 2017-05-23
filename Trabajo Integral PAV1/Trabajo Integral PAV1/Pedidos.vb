@@ -336,12 +336,12 @@
     Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
         If Me.eliminacion = tipo_eliminacion.pedido Then
             If Me.tabla_pedidos.CurrentRow.Cells(5).Value = False Then
-                If MessageBox.Show("Seguro desea cancelar un pedido", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show("¿Seguro que desea cancelar un pedido?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
                     If conexion.cancelar_pedido(Me.tabla_pedidos.CurrentRow.Cells(0).Value) = True Then 'Verificar que la transacción se ejecute correctamente mostrando los mensajes correpondientes
                         MessageBox.Show("Pedido cancelado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     Else
-                        MessageBox.Show("El pedido no se puedo cancelar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("El pedido no se pudo cancelar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                     Me.tabla_pedidos.DataSource = Me.conexion.cargar_grilla("pedidos") 'Carga nuevamente la grilla luego de cambiar el estado
                 End If
@@ -352,7 +352,7 @@
 
         ElseIf Me.eliminacion = tipo_eliminacion.detalle_en_BD Then 'Para eliminar detalle que estan en la base de datos
             If Me.tabla_pedidos.CurrentRow.Cells(5).Value = False Then
-                If MessageBox.Show("Seguro que desea eliminar un detalle", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show("¿Seguro que desea eliminar un detalle?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
                     If Me.conexion.eliminar_detalle(Me.tabla_pedidos.CurrentRow.Cells(0).Value, Me.tabla_detalles.CurrentRow.Cells(0).Value) = True Then
                         MessageBox.Show("Detalle de pedido eliminado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Me.cargar_combos_desde_pedido()
@@ -366,12 +366,12 @@
             
 
         Else
-            If MessageBox.Show("Seguro desea eliminar un detalle de pedido", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If MessageBox.Show("¿Seguro que desea eliminar un detalle de pedido?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
                 Dim tabla_auxiliar As DataTable = Me.tabla_detalles.DataSource
                 Dim indice As Integer = Me.tabla_detalles.CurrentRow.Index
                 tabla_auxiliar.Rows.RemoveAt(indice)
                 tabla_detalles.DataSource = tabla_auxiliar
-            End If          
+            End If
         End If
 
     End Sub

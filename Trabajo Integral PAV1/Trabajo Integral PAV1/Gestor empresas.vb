@@ -109,7 +109,7 @@
 
 
         If b Then
-            MsgBox("Debes completar todos los campos para aceptar", MsgBoxStyle.OkOnly, "Advertencia")
+            MsgBox("Debes completar todos los campos para aceptar", MsgBoxStyle.Exclamation, "Advertencia")
             For Each obj As Windows.Forms.Control In Me.Controls
                 If obj.Text = "" And (obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox") Then
                     obj.Focus()
