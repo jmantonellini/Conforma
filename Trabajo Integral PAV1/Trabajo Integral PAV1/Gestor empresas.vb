@@ -188,4 +188,6 @@
             Me.blanquear_campos()
         End If
     End Sub
+
+    
 End Class

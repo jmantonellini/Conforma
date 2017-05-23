@@ -52,6 +52,8 @@ Partial Class gestor_clientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tab_contacto = New System.Windows.Forms.TabPage()
+        Me.txt_celular = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_fijo = New System.Windows.Forms.MaskedTextBox()
         Me.cmd_anterior = New System.Windows.Forms.Button()
         Me.cmd_siguiente2 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -78,8 +80,6 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.txt_fijo = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_celular = New System.Windows.Forms.MaskedTextBox()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -394,6 +394,23 @@ Partial Class gestor_clientes
         Me.tab_contacto.TabIndex = 1
         Me.tab_contacto.Text = "Contacto"
         '
+        'txt_celular
+        '
+        Me.txt_celular.Location = New System.Drawing.Point(158, 72)
+        Me.txt_celular.Mask = "999999999"
+        Me.txt_celular.Name = "txt_celular"
+        Me.txt_celular.Size = New System.Drawing.Size(248, 26)
+        Me.txt_celular.TabIndex = 38
+        '
+        'txt_fijo
+        '
+        Me.txt_fijo.Enabled = False
+        Me.txt_fijo.Location = New System.Drawing.Point(158, 39)
+        Me.txt_fijo.Mask = "9999999999"
+        Me.txt_fijo.Name = "txt_fijo"
+        Me.txt_fijo.Size = New System.Drawing.Size(248, 26)
+        Me.txt_fijo.TabIndex = 37
+        '
         'cmd_anterior
         '
         Me.cmd_anterior.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.izquierda
@@ -660,23 +677,6 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
-        '
-        'txt_fijo
-        '
-        Me.txt_fijo.Enabled = False
-        Me.txt_fijo.Location = New System.Drawing.Point(158, 39)
-        Me.txt_fijo.Mask = "9999999999"
-        Me.txt_fijo.Name = "txt_fijo"
-        Me.txt_fijo.Size = New System.Drawing.Size(248, 26)
-        Me.txt_fijo.TabIndex = 37
-        '
-        'txt_celular
-        '
-        Me.txt_celular.Location = New System.Drawing.Point(158, 72)
-        Me.txt_celular.Mask = "999999999"
-        Me.txt_celular.Name = "txt_celular"
-        Me.txt_celular.Size = New System.Drawing.Size(248, 26)
-        Me.txt_celular.TabIndex = 38
         '
         'gestor_clientes
         '

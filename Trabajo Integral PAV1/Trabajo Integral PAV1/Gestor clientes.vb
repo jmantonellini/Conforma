@@ -165,9 +165,9 @@
     End Sub
 
     Private Sub cmd_guardar_Click(sender As Object, e As EventArgs) Handles cmd_guardar.Click
-        If validar_datos() = respuesta_validacion._ok Then
-            If accion = tipo_grabacion.insertar Then
-                If validar_cliente_insertar() = respuesta_validacion._error Then
+        If validar_datos() = respuesta_validacion._ok Then                              'para la carga/modificacion de un cliente con domicilio
+            If accion = tipo_grabacion.insertar Then                                    'osea que previamente presioné NUEVO
+                If validar_cliente() = respuesta_validacion._error Then                 'el cliente no existe, se puede crear
                     Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
                     Dim documento As Int64 = CLng(Me.txt_documento.Text)
                     Dim fijo As Nullable(Of Int64)
@@ -205,18 +205,18 @@
                     c.insertar_domicilio(idee, txt_calle.Text, numero, CLng(cmb_ciudad.SelectedValue))
                     MsgBox("Se guardó correctamente")
                     deshabilitar_campos()
-                Else : MsgBox("Cliente cargado ya existe", MsgBoxStyle.OkOnly, "Error")
+                Else : MsgBox("Cliente cargado ya existe", MsgBoxStyle.OkOnly, "Error")    'el cliente ya existe, probar otro documento
                 End If
             End If
 
-            If accion = tipo_grabacion.modificar Then
-                If validar_cliente_modificar() = respuesta_validacion._ok Then
+            If accion = tipo_grabacion.modificar Then                                       'osea que presioné el botón MODIFICAR
+                If validar_cliente() = respuesta_validacion._error Then                     'el cliente existe, se puede modificar
                     Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
                     Dim documento As Int64 = CLng(Me.txt_documento.Text)
                     Dim fijo As Nullable(Of Int64)
                     Dim celular As Nullable(Of Int64)
                     Dim cuit As Nullable(Of Int64)
-                   
+
                     If txt_fijo.Text = "" Then
                         fijo = Nothing
                     Else : fijo = CLng(txt_fijo.Text)
@@ -241,9 +241,9 @@
                 End If
             End If
         Else
-            If validar_datos() = respuesta_validacion._ok_sin_domicilio Then
-                If accion = tipo_grabacion.insertar Then
-                    If validar_cliente_insertar() = respuesta_validacion._error Then
+            If validar_datos() = respuesta_validacion._ok_sin_domicilio Then                    'para la carga/modificacion de cliente sin domicilio
+                If accion = tipo_grabacion.insertar Then                                        'osea que presioné el botón NUEVO
+                    If validar_cliente() = respuesta_validacion._error Then                     'el cliente no existe, puedo crear uno
                         Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
                         Dim documento As Int64 = CLng(Me.txt_documento.Text)
                         Dim fijo As Nullable(Of Int64)
@@ -272,12 +272,13 @@
                         aidi_cli = c.dame_id_cliente(cmb_tipo_documento.SelectedValue, CLng(txt_documento.Text))
                         idee = CLng(aidi_cli.Rows(0).Item(0).ToString)
                         MsgBox("Se guardó correctamente")
+                        cmd_guardar.Enabled = False
                         deshabilitar_campos()
-                    Else : MsgBox("Cliente cargado ya existe", MsgBoxStyle.OkOnly, "Error")
+                    Else : MsgBox("Cliente cargado ya existe", MsgBoxStyle.OkOnly, "Error")         'el cliente ya existe, probar otro doc
                     End If
                 End If
-                If accion = tipo_grabacion.modificar Then
-                    If validar_cliente_modificar() = respuesta_validacion._ok Then
+                If accion = tipo_grabacion.modificar Then                                           'osea que presioné el botóm MODIFICAR
+                    If validar_cliente() = respuesta_validacion._ok Then                            'el cliente existe, se puede modificar
                         Dim id_tipodoc As Int64 = CLng(Me.cmb_tipo_documento.SelectedValue)
                         Dim documento As Int64 = CLng(Me.txt_documento.Text)
                         Dim fijo As Nullable(Of Int64)
@@ -310,78 +311,113 @@
                         c.eliminar_domicilio(tabla_clientes.CurrentRow.Cells(4).Value)
                         MsgBox("Se modificó el cliente correctamente")
                         deshabilitar_campos()
+                        cmd_guardar.Enabled = False
                     End If
                 End If
-                    End If
+            End If
 
-                End If
-                cargar_grilla()
+        End If
+        cargar_grilla()
     End Sub
 
     Private Function validar_datos()
+
         For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls()
+
             If (obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox") And obj.Name <> "txt_cuit" Then
+
                 If obj.Text = "" Then
                     MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
+                    obj.BackColor = Color.LightCoral
                     obj.Focus()
                     Return respuesta_validacion._error
                 End If
+
             End If
+
             If obj.GetType().Name = "ComboBox" And obj.Name <> "cmb_empresa" Then
                 Dim o As ComboBox = obj
+
                 If o.SelectedIndex = -1 Then
                     MsgBox("El campo " + obj.Name + " está sin selección", MsgBoxStyle.OkOnly, "Error")
                     obj.Focus()
                     Return respuesta_validacion._error
+
                 End If
+
             End If
+
         Next
+
         If txt_fijo.Text = "" And txt_celular.Text = "" And txt_mail.Text = "" Then
             control_tab.SelectedTab = tab_contacto
             txt_fijo.Focus()
             MsgBox("Debe cargar al menos un dato de contacto", MsgBoxStyle.OkOnly, "Faltan datos")
 
             Return respuesta_validacion._error
+
         End If
 
-
         If cmb_pais.Text = "" Then
+
+            For Each obj As Windows.Forms.Control In Me.tab_datos_personales.Controls
+
+                If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
+                    obj.BackColor = SystemColors.Window
+                End If
+
+            Next
+
             Return respuesta_validacion._ok_sin_domicilio
+
         Else : For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls()
+
                 If obj.GetType().Name = "TextBox" Or obj.GetType().Name = "MaskedTextBox" Then
                     If obj.Text = "" Then
                         MsgBox("El campo " + obj.Name + " está vacío", MsgBoxStyle.OkOnly, "Error")
+                        obj.BackColor = Color.LightCoral
                         obj.Focus()
                         Return respuesta_validacion._error
                     End If
                 End If
+
                 If obj.GetType().Name = "ComboBox" Then
                     Dim o As ComboBox = obj
+
                     If o.SelectedIndex = -1 Then
                         MsgBox("El campo " + obj.Name + " está sin selección", MsgBoxStyle.OkOnly, "Error")
+                        obj.BackColor = Color.LightCoral
                         obj.Focus()
                         Return respuesta_validacion._error
                     End If
+
                 End If
+
             Next
+
+            For Each obj As Windows.Forms.Control In Me.control_tab.Controls
+
+                If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
+                    obj.BackColor = SystemColors.Window
+
+                End If
+
+            Next
+
+
+            For Each obj As Windows.Forms.Control In Me.tab_domicilios.Controls
+
+                obj.BackColor = SystemColors.Window
+
+            Next
+
             Return respuesta_validacion._ok
+
         End If
 
     End Function
 
-
-    Private Function validar_cliente_modificar() As respuesta_validacion
-        Dim tabla As New DataTable
-        tabla = c.buscar_datos_cliente_id(tabla_clientes.CurrentRow.Cells(4).Value)
-
-        If tabla.Rows.Count = 0 Then
-            Return respuesta_validacion._error
-        Else
-            Return respuesta_validacion._ok
-        End If
-    End Function
-
-    Private Function validar_cliente_insertar() As respuesta_validacion
+    Private Function validar_cliente() As respuesta_validacion
         Dim tabla As New DataTable
         tabla = c.buscar_datos_cliente_doc(cmb_tipo_documento.SelectedValue, CLng(txt_documento.Text))
 
@@ -450,28 +486,12 @@
         txt_nombre.Focus()
     End Sub
 
-    Private Sub cmb_pais_TextChanged(sender As Object, e As EventArgs) Handles cmb_pais.TextChanged
-        
-    End Sub
-
-    Private Sub cmb_provincia_TextChanged(sender As Object, e As EventArgs) Handles cmb_provincia.TextChanged
-
-
-    End Sub
-
     Private Sub cmd_agregar_empresa_Click(sender As Object, e As EventArgs) Handles cmd_agregar_empresa.Click
         agrear_business = New gestor_empresas
         agrear_business.Show()
     End Sub
 
 
-    Private Sub cmb_ciudad_TextChanged(sender As Object, e As EventArgs) Handles cmb_ciudad.TextChanged
 
-
-    End Sub
-    Private Sub txt_calle_TextChanged(sender As Object, e As EventArgs) Handles txt_calle.TextChanged
-
-
-    End Sub
 
 End Class
