@@ -22,6 +22,7 @@ Partial Class Gestor_localidades
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Gestor_localidades))
         Me.tabla_localidades = New System.Windows.Forms.DataGridView()
         Me.cmb_pais = New System.Windows.Forms.ComboBox()
         Me.lbl_gestor_localidades = New System.Windows.Forms.Label()
@@ -152,6 +153,7 @@ Partial Class Gestor_localidades
         Me.Controls.Add(Me.cmb_provincia)
         Me.Controls.Add(Me.cmb_pais)
         Me.Controls.Add(Me.lbl_gestor_localidades)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Gestor_localidades"
         Me.Text = "Gestor_localidades"
         CType(Me.tabla_localidades, System.ComponentModel.ISupportInitialize).EndInit()

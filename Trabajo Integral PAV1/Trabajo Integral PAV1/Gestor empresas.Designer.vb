@@ -149,7 +149,7 @@ Partial Class gestor_empresas
         Me.tablaEmpresas.ReadOnly = True
         Me.tablaEmpresas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.tablaEmpresas.Size = New System.Drawing.Size(468, 182)
-        Me.tablaEmpresas.TabIndex = 1
+        Me.tablaEmpresas.TabIndex = 6
         '
         'txt_razon_social
         '
@@ -157,7 +157,7 @@ Partial Class gestor_empresas
         Me.txt_razon_social.Location = New System.Drawing.Point(200, 167)
         Me.txt_razon_social.Name = "txt_razon_social"
         Me.txt_razon_social.Size = New System.Drawing.Size(232, 20)
-        Me.txt_razon_social.TabIndex = 17
+        Me.txt_razon_social.TabIndex = 3
         '
         'txt_nombre
         '
@@ -166,7 +166,7 @@ Partial Class gestor_empresas
         Me.txt_nombre.Location = New System.Drawing.Point(200, 96)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(232, 20)
-        Me.txt_nombre.TabIndex = 15
+        Me.txt_nombre.TabIndex = 1
         '
         'lbl_nombre
         '
@@ -302,7 +302,7 @@ Partial Class gestor_empresas
         Me.txt_telefono_fijo.Mask = "9999999999"
         Me.txt_telefono_fijo.Name = "txt_telefono_fijo"
         Me.txt_telefono_fijo.Size = New System.Drawing.Size(232, 20)
-        Me.txt_telefono_fijo.TabIndex = 44
+        Me.txt_telefono_fijo.TabIndex = 4
         '
         'txt_email
         '
@@ -310,7 +310,7 @@ Partial Class gestor_empresas
         Me.txt_email.Location = New System.Drawing.Point(200, 245)
         Me.txt_email.Name = "txt_email"
         Me.txt_email.Size = New System.Drawing.Size(232, 20)
-        Me.txt_email.TabIndex = 45
+        Me.txt_email.TabIndex = 5
         '
         'txt_cuit
         '
@@ -319,7 +319,7 @@ Partial Class gestor_empresas
         Me.txt_cuit.Mask = "99999999999"
         Me.txt_cuit.Name = "txt_cuit"
         Me.txt_cuit.Size = New System.Drawing.Size(232, 20)
-        Me.txt_cuit.TabIndex = 46
+        Me.txt_cuit.TabIndex = 2
         '
         'gestor_empresas
         '

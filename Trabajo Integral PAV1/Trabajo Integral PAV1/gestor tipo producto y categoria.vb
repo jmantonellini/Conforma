@@ -42,7 +42,7 @@
             Case "cmd_nuevo_producto"
                 cadena1 = "Ingrese el nombre del nuevo tipo de producto"
                 cadena2 = "Nuevo Tipo de Producto"
-                tabla_buscada = " TIPOS_PRODUCTOS"
+                tabla_buscada = " TIPOS_PRODUCTOS "
             Case "cmd_nueva_categoria"
                 cadena1 = "Ingrese el nombre de la nueva categoría"
                 cadena2 = "Nueva Categroría"

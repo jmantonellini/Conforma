@@ -140,20 +140,20 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_guardar_modelo.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar_modelo.Enabled = False
-        Me.cmd_guardar_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar_modelo.Location = New System.Drawing.Point(115, 396)
+        Me.cmd_guardar_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._149111
+        Me.cmd_guardar_modelo.Location = New System.Drawing.Point(141, 417)
         Me.cmd_guardar_modelo.Name = "cmd_guardar_modelo"
-        Me.cmd_guardar_modelo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar_modelo.Size = New System.Drawing.Size(38, 38)
         Me.cmd_guardar_modelo.TabIndex = 25
         Me.cmd_guardar_modelo.UseVisualStyleBackColor = False
         '
         'cmd_nuevo_modelo
         '
         Me.cmd_nuevo_modelo.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_nuevo_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(16, 396)
+        Me.cmd_nuevo_modelo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
+        Me.cmd_nuevo_modelo.Location = New System.Drawing.Point(91, 417)
         Me.cmd_nuevo_modelo.Name = "cmd_nuevo_modelo"
-        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nuevo_modelo.Size = New System.Drawing.Size(38, 38)
         Me.cmd_nuevo_modelo.TabIndex = 24
         Me.cmd_nuevo_modelo.UseVisualStyleBackColor = False
         '
@@ -211,20 +211,20 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_guardar_marca.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar_marca.Enabled = False
-        Me.cmd_guardar_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar_marca.Location = New System.Drawing.Point(115, 396)
+        Me.cmd_guardar_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._149111
+        Me.cmd_guardar_marca.Location = New System.Drawing.Point(133, 417)
         Me.cmd_guardar_marca.Name = "cmd_guardar_marca"
-        Me.cmd_guardar_marca.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_guardar_marca.Size = New System.Drawing.Size(38, 38)
         Me.cmd_guardar_marca.TabIndex = 23
         Me.cmd_guardar_marca.UseVisualStyleBackColor = False
         '
         'cmd_nueva_marca
         '
         Me.cmd_nueva_marca.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_nueva_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nueva_marca.Location = New System.Drawing.Point(14, 396)
+        Me.cmd_nueva_marca.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._16909
+        Me.cmd_nueva_marca.Location = New System.Drawing.Point(81, 417)
         Me.cmd_nueva_marca.Name = "cmd_nueva_marca"
-        Me.cmd_nueva_marca.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_nueva_marca.Size = New System.Drawing.Size(38, 38)
         Me.cmd_nueva_marca.TabIndex = 22
         Me.cmd_nueva_marca.UseVisualStyleBackColor = False
         '
