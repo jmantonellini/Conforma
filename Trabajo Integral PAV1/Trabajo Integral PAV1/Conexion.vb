@@ -37,7 +37,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -629,7 +629,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
 
         cmd.Connection = conexion
@@ -650,5 +650,93 @@
         conexion.Close()
 
         Return transaccion_completa
+    End Function
+
+    ''' <summary>
+    ''' Función que elimina un detalle de pedido
+    ''' </summary>
+    ''' <param name="nro_pedido">
+    ''' El número de pedido a eliminar su detalle
+    ''' </param>
+    ''' <param name="id_detalle">
+    ''' El número identificador del detalle de pedido a eliminar
+    ''' </param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function eliminar_detalle(ByVal nro_pedido, ByVal id_detalle) As Boolean
+        Dim transaccion_completa As Boolean = True
+
+        Dim conexion As New OleDb.OleDbConnection
+        Dim cmd As New OleDb.OleDbCommand
+        Dim transaccion As OleDb.OleDbTransaction
+        Dim cmd2 As New OleDb.OleDbCommand
+
+        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.Open()
+
+        cmd.Connection = conexion
+        cmd.CommandType = CommandType.Text
+        transaccion = conexion.BeginTransaction
+        cmd.Transaction = transaccion
+        Dim non_query As String = "DELETE FROM DETALLES_PEDIDOS WHERE NRO_PEDIDO = " & nro_pedido & "AND ID_DETALLE_PEDIDO = " & id_detalle  'Consulta para eliminar el detalle de un pedido"
+
+        Try
+            cmd.CommandText = non_query
+            cmd.ExecuteNonQuery()
+            transaccion.Commit()
+            conexion.Close()
+            transaccion_completa = True
+
+        Catch ex As Exception
+            conexion.Close()
+            MsgBox("FALLO LA TRANSACCION " & ex.Message & " EN " & ex.StackTrace)
+        End Try
+
+        conexion.Close()
+
+        Return transaccion_completa
+    End Function
+
+    ''' <summary>
+    ''' Función que permite habilitar un pedido
+    ''' </summary>
+    ''' <param name="nro_pedido">
+    ''' Número de pedido a habilitar
+    ''' </param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function habilitar_pedido(ByVal nro_pedido As Integer) As Boolean
+        Dim transaccion_completa As Boolean = True
+
+        Dim conexion As New OleDb.OleDbConnection
+        Dim cmd As New OleDb.OleDbCommand
+        Dim transaccion As OleDb.OleDbTransaction
+        Dim cmd2 As New OleDb.OleDbCommand
+
+        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.Open()
+
+        cmd.Connection = conexion
+        cmd.CommandType = CommandType.Text
+        transaccion = conexion.BeginTransaction
+        cmd.Transaction = transaccion
+        Dim non_query As String = "UPDATE PEDIDOS SET CANCELADO = " & 0 & " WHERE NRO_PEDIDO = " & nro_pedido 'Consulta para eliminar el detalle de un pedido"
+
+        Try
+            cmd.CommandText = non_query
+            cmd.ExecuteNonQuery()
+            transaccion.Commit()
+            conexion.Close()
+            transaccion_completa = True
+
+        Catch ex As Exception
+            conexion.Close()
+            MsgBox("FALLO LA TRANSACCION " & ex.Message & " EN " & ex.StackTrace)
+        End Try
+
+        conexion.Close()
+
+        Return transaccion_completa
+
     End Function
 End Class
