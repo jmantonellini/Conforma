@@ -22,6 +22,7 @@ Partial Class gestor_pedidos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gestor_pedidos))
         Me.cmb_cliente = New System.Windows.Forms.ComboBox()
         Me.cmb_area = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -481,6 +482,7 @@ Partial Class gestor_pedidos
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.TabControl1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Name = "gestor_pedidos"
         Me.Text = "Pedidos"
