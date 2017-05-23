@@ -5,6 +5,12 @@
         nulo
     End Enum
 
+    Enum tipo_eliminacion
+        detalle
+        pedido
+    End Enum
+
+    Dim eliminacion As tipo_eliminacion = tipo_eliminacion.pedido
     Dim conexion As New Conexion
     Dim accion As tipo_accion = tipo_accion.nulo
     Dim contador As Int16 = 0
@@ -116,6 +122,11 @@
         Me.Close()
     End Sub
 
+    Private Sub tabla_pedidos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_pedidos.CellClick
+        Me.cmd_eliminar.Enabled = True
+        Me.eliminacion = tipo_eliminacion.pedido
+    End Sub
+
     Private Sub tabla_pedidos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabla_pedidos.CellDoubleClick
         Me.cargar_combos_desde_pedido()
         TabControl1.SelectedTab = tab_nuevo
@@ -174,6 +185,7 @@
         txt_cantidad.Text = tabla_detalles.SelectedRows.Item(0).Cells(4).Value
         cmd_eliminar.Enabled = True
         cmd_modificar.Enabled = True
+        Me.eliminacion = tipo_eliminacion.detalle 'Setea la variable eliminacion para cuando se quiera eliminar un detalle
     End Sub
 
     Private Sub cmb_area_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_area.SelectedIndexChanged
@@ -293,6 +305,20 @@
         tabla_detalles.Rows(indice - 1).Selected = True
     End Sub
 
-    
+    ''' <summary>
+    ''' Subrutina que se ejecuta en el momento de hacer click en el botón eliminar, dependiendo del contexto puede cancelar pedido o eliminar detalles de pedido
+    ''' </summary>
+    Private Sub cmd_eliminar_Click(sender As Object, e As EventArgs) Handles cmd_eliminar.Click
+        If Me.eliminacion = tipo_eliminacion.pedido Then
+            If conexion.cancelar_pedido(Me.tabla_pedidos.CurrentRow.Cells(0).Value) = True Then 'Verificar que la transacción se ejecute correctamente mostrando los mensajes correpondientes
+                MessageBox.Show("Pedido cancelado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Else
+                MessageBox.Show("El pedido no se puedo cancelar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            Me.tabla_pedidos.DataSource = Me.conexion.cargar_grilla("pedidos") 'Carga nuevamente la grilla luego de cambiar el estado
+        End If
+
+    End Sub
 End Class
 

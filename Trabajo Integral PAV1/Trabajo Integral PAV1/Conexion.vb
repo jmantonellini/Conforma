@@ -22,10 +22,10 @@
                 tabla = Me.ejecuto_sql("SELECT NOMBRE FROM CATEGORIAS")
             Case "pedidos"
                 tabla = Me.ejecuto_sql("SELECT P.NRO_PEDIDO AS 'Nro.',C.NOMBRE AS 'Nombre',C.APELLIDO AS 'Apellido', " _
-                                       & "P.FECHA_ENTREGA AS 'Fecha de entrega', COUNT(DP.ID_DETALLE_PEDIDO) AS 'Items' FROM CLIENTES C" _
+                                       & "P.FECHA_ENTREGA AS 'Fecha de entrega', COUNT(DP.ID_DETALLE_PEDIDO) AS 'Items', P.CANCELADO AS 'Cancelado' FROM CLIENTES C" _
                                        & " JOIN PEDIDOS P ON P.ID_CLIENTE = C.ID_CLIENTE" _
                                        & " JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO" _
-                                       & " GROUP BY P.NRO_PEDIDO,C.NOMBRE,C.APELLIDO,P.FECHA_ENTREGA")
+                                       & " GROUP BY P.NRO_PEDIDO,C.NOMBRE,C.APELLIDO,P.FECHA_ENTREGA, P.CANCELADO") 'Se ha modificado la consulta para que muestre la columna cancelado
         End Select
 
 
@@ -37,7 +37,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = cadena_conexion_gaston
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -611,4 +611,44 @@
         Return transaccion_completa
     End Function
 
+    ''' <summary>
+    ''' Función que cancela un pedido, cambia el valor de la columna cancelado a 1 que significa que esta cancelado y 0 que no lo está
+    ''' </summary>
+    ''' <param name="nro_pedido">
+    ''' El id del pedido a cancelar
+    ''' </param>
+    ''' <returns>
+    ''' Retorna true si se logro cancelar con éxito, retorna false en caso contrario
+    ''' </returns>
+    Public Function cancelar_pedido(ByVal nro_pedido As Integer) As Boolean
+        Dim transaccion_completa As Boolean = False 'Variable de retorno de la función
+
+        'Conexión con la base de datos y el inicio de la transacción
+        Dim conexion As New OleDb.OleDbConnection
+        Dim cmd As New OleDb.OleDbCommand
+        Dim transaccion As OleDb.OleDbTransaction
+        Dim cmd2 As New OleDb.OleDbCommand
+
+        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.Open()
+
+        cmd.Connection = conexion
+        cmd.CommandType = CommandType.Text
+        transaccion = conexion.BeginTransaction
+        cmd.Transaction = transaccion
+        Dim non_query As String = "UPDATE PEDIDOS SET CANCELADO = " & 1 & " WHERE NRO_PEDIDO = " & nro_pedido 'Consulta para cancelar un pedido
+
+        Try
+            cmd.CommandText = non_query
+            cmd.ExecuteNonQuery()
+            transaccion.Commit()
+            transaccion_completa = True
+        Catch ex As Exception
+            conexion.Close()
+            MsgBox("FALLO LA TRANSACCION " & ex.Message & " EN " & ex.StackTrace)
+        End Try
+        conexion.Close()
+
+        Return transaccion_completa
+    End Function
 End Class
