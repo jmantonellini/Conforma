@@ -200,7 +200,7 @@ Partial Class gestor_empresas
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(385, 587)
+        Me.lbl_hora.Location = New System.Drawing.Point(381, 593)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
@@ -256,11 +256,11 @@ Partial Class gestor_empresas
         '
         Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_salir.Location = New System.Drawing.Point(407, 511)
+        Me.cmd_salir.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
+        Me.cmd_salir.Location = New System.Drawing.Point(412, 500)
         Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(84, 55)
+        Me.cmd_salir.Size = New System.Drawing.Size(80, 80)
         Me.cmd_salir.TabIndex = 40
-        Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'Label22

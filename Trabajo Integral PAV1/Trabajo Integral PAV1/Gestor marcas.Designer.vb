@@ -244,11 +244,11 @@ Partial Class gestor_marcas_modelos
         '
         Me.cmd_salir.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_salir.Location = New System.Drawing.Point(251, 576)
+        Me.cmd_salir.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon2
+        Me.cmd_salir.Location = New System.Drawing.Point(270, 581)
         Me.cmd_salir.Name = "cmd_salir"
-        Me.cmd_salir.Size = New System.Drawing.Size(84, 55)
+        Me.cmd_salir.Size = New System.Drawing.Size(47, 55)
         Me.cmd_salir.TabIndex = 36
-        Me.cmd_salir.Text = "Salir"
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
         'Label22
