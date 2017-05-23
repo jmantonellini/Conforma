@@ -671,7 +671,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
 
         cmd.Connection = conexion
@@ -703,9 +703,7 @@
     ''' <param name="nro_pedido">
     ''' Número de pedido a habilitar
     ''' </param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Private Function habilitar_pedido(ByVal nro_pedido As Integer) As Boolean
+    Public Function habilitar_pedido(ByVal nro_pedido As Integer) As Boolean
         Dim transaccion_completa As Boolean = True
 
         Dim conexion As New OleDb.OleDbConnection
@@ -713,7 +711,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_gaston
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
 
         cmd.Connection = conexion

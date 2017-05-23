@@ -50,6 +50,7 @@ Partial Class gestor_pedidos
         Me.panel_nuevo = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.fecha_entrega = New System.Windows.Forms.DateTimePicker()
+        Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_guardar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -59,7 +60,6 @@ Partial Class gestor_pedidos
         Me.tabla_pedidos = New System.Windows.Forms.DataGridView()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.panel_producto.SuspendLayout()
         Me.panel_especificaciones.SuspendLayout()
         CType(Me.tabla_detalles, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -287,7 +287,6 @@ Partial Class gestor_pedidos
         'tabla_detalles
         '
         Me.tabla_detalles.AllowUserToAddRows = False
-        Me.tabla_detalles.AllowUserToDeleteRows = False
         Me.tabla_detalles.AllowUserToResizeColumns = False
         Me.tabla_detalles.AllowUserToResizeRows = False
         Me.tabla_detalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
@@ -323,7 +322,6 @@ Partial Class gestor_pedidos
         '
         'panel_nuevo
         '
-        Me.panel_nuevo.Controls.Add(Me.cmd_modificar)
         Me.panel_nuevo.Controls.Add(Me.Label11)
         Me.panel_nuevo.Controls.Add(Me.fecha_entrega)
         Me.panel_nuevo.Controls.Add(Me.panel_producto)
@@ -335,9 +333,9 @@ Partial Class gestor_pedidos
         Me.panel_nuevo.Controls.Add(Me.Label1)
         Me.panel_nuevo.Controls.Add(Me.panel_especificaciones)
         Me.panel_nuevo.Controls.Add(Me.cmd_nuevo_cliente)
-        Me.panel_nuevo.Location = New System.Drawing.Point(-4, 3)
+        Me.panel_nuevo.Location = New System.Drawing.Point(3, 3)
         Me.panel_nuevo.Name = "panel_nuevo"
-        Me.panel_nuevo.Size = New System.Drawing.Size(814, 556)
+        Me.panel_nuevo.Size = New System.Drawing.Size(807, 456)
         Me.panel_nuevo.TabIndex = 0
         '
         'Label11
@@ -357,12 +355,23 @@ Partial Class gestor_pedidos
         Me.fecha_entrega.Size = New System.Drawing.Size(200, 20)
         Me.fecha_entrega.TabIndex = 43
         '
+        'cmd_modificar
+        '
+        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmd_modificar.Enabled = False
+        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
+        Me.cmd_modificar.Location = New System.Drawing.Point(26, 489)
+        Me.cmd_modificar.Name = "cmd_modificar"
+        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
+        Me.cmd_modificar.TabIndex = 25
+        Me.cmd_modificar.UseVisualStyleBackColor = False
+        '
         'cmd_guardar
         '
         Me.cmd_guardar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_guardar.Enabled = False
         Me.cmd_guardar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.f02a629827a6_4542
-        Me.cmd_guardar.Location = New System.Drawing.Point(278, 487)
+        Me.cmd_guardar.Location = New System.Drawing.Point(294, 487)
         Me.cmd_guardar.Name = "cmd_guardar"
         Me.cmd_guardar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_guardar.TabIndex = 42
@@ -372,7 +381,7 @@ Partial Class gestor_pedidos
         '
         Me.cmd_nuevo.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_nuevo.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._554545
-        Me.cmd_nuevo.Location = New System.Drawing.Point(192, 487)
+        Me.cmd_nuevo.Location = New System.Drawing.Point(198, 487)
         Me.cmd_nuevo.Name = "cmd_nuevo"
         Me.cmd_nuevo.Size = New System.Drawing.Size(80, 80)
         Me.cmd_nuevo.TabIndex = 40
@@ -382,10 +391,10 @@ Partial Class gestor_pedidos
         '
         Me.TabControl1.Controls.Add(Me.tab_nuevo)
         Me.TabControl1.Controls.Add(Me.tab_listado)
-        Me.TabControl1.Location = New System.Drawing.Point(2, 1)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 1)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(814, 577)
+        Me.TabControl1.Size = New System.Drawing.Size(820, 577)
         Me.TabControl1.TabIndex = 0
         '
         'tab_nuevo
@@ -394,7 +403,7 @@ Partial Class gestor_pedidos
         Me.tab_nuevo.Location = New System.Drawing.Point(4, 22)
         Me.tab_nuevo.Name = "tab_nuevo"
         Me.tab_nuevo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_nuevo.Size = New System.Drawing.Size(806, 551)
+        Me.tab_nuevo.Size = New System.Drawing.Size(812, 551)
         Me.tab_nuevo.TabIndex = 0
         Me.tab_nuevo.Text = "Nuevo "
         Me.tab_nuevo.UseVisualStyleBackColor = True
@@ -406,7 +415,7 @@ Partial Class gestor_pedidos
         Me.tab_listado.Location = New System.Drawing.Point(4, 22)
         Me.tab_listado.Name = "tab_listado"
         Me.tab_listado.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_listado.Size = New System.Drawing.Size(806, 551)
+        Me.tab_listado.Size = New System.Drawing.Size(812, 551)
         Me.tab_listado.TabIndex = 1
         Me.tab_listado.Text = "Listado"
         Me.tab_listado.UseVisualStyleBackColor = True
@@ -442,7 +451,7 @@ Partial Class gestor_pedidos
         Me.cmd_eliminar.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_eliminar.Enabled = False
         Me.cmd_eliminar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._61848_deltton
-        Me.cmd_eliminar.Location = New System.Drawing.Point(106, 487)
+        Me.cmd_eliminar.Location = New System.Drawing.Point(112, 488)
         Me.cmd_eliminar.Name = "cmd_eliminar"
         Me.cmd_eliminar.Size = New System.Drawing.Size(80, 80)
         Me.cmd_eliminar.TabIndex = 27
@@ -453,22 +462,11 @@ Partial Class gestor_pedidos
         Me.cmd_salir.BackColor = System.Drawing.Color.Gainsboro
         Me.cmd_salir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_salir.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.exit_icon
-        Me.cmd_salir.Location = New System.Drawing.Point(706, 487)
+        Me.cmd_salir.Location = New System.Drawing.Point(695, 486)
         Me.cmd_salir.Name = "cmd_salir"
         Me.cmd_salir.Size = New System.Drawing.Size(80, 80)
         Me.cmd_salir.TabIndex = 26
         Me.cmd_salir.UseVisualStyleBackColor = False
-        '
-        'cmd_modificar
-        '
-        Me.cmd_modificar.BackColor = System.Drawing.Color.Gainsboro
-        Me.cmd_modificar.Enabled = False
-        Me.cmd_modificar.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources._84380_edit_button545
-        Me.cmd_modificar.Location = New System.Drawing.Point(18, 461)
-        Me.cmd_modificar.Name = "cmd_modificar"
-        Me.cmd_modificar.Size = New System.Drawing.Size(80, 80)
-        Me.cmd_modificar.TabIndex = 25
-        Me.cmd_modificar.UseVisualStyleBackColor = False
         '
         'gestor_pedidos
         '
@@ -476,10 +474,11 @@ Partial Class gestor_pedidos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(812, 574)
-        Me.Controls.Add(Me.cmd_nuevo)
-        Me.Controls.Add(Me.cmd_guardar)
+        Me.Controls.Add(Me.cmd_modificar)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_salir)
+        Me.Controls.Add(Me.cmd_nuevo)
+        Me.Controls.Add(Me.cmd_guardar)
         Me.Controls.Add(Me.TabControl1)
         Me.IsMdiContainer = True
         Me.Name = "gestor_pedidos"
