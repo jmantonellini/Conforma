@@ -147,19 +147,22 @@
         tabla_detalles.DataSource = conexion.leer_tabla_filtrada_generica(cadena_busqueda, _
                                                                           "NRO_PEDIDO", _
                                                                           tabla_pedidos.SelectedRows.Item(0).Cells(0).Value, _
-                                                                          " DP.ID_DETALLE_PEDIDO as 'Detalle Nº' , " _
-                                                                          & " A.NOMBRE AS 'Área' ," _
-                                                                          & " TP.NOMBRE AS 'Tipo de Producto' ," _
-                                                                          & " C.NOMBRE AS 'Categoría' ," _
-                                                                          & " M.NOMBRE AS 'Modelo', " _
-                                                                          & " DP.CANTIDAD AS 'Cantidad', " _
-                                                                          & " P.OBSERVACIONES AS 'Observaciones' ")
+                                                                              " DP.ID_DETALLE_PEDIDO as 'Detalle Nº' , " _
+                                                                              & " A.NOMBRE AS 'Área' ," _
+                                                                              & " TP.NOMBRE AS 'Tipo de Producto' ," _
+                                                                              & " C.NOMBRE AS 'Categoría' ," _
+                                                                              & " M.NOMBRE AS 'Modelo', " _
+                                                                              & " DP.CANTIDAD AS 'Cantidad', " _
+                                                                              & " P.OBSERVACIONES AS 'Observaciones' ")
         If (tabla_detalles.Rows.Count > 0) Then
             conexion.cargar_combo_generico_nombre(cmb_area, "AREAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(1).Value)
+            
+            If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(2).Value) = False) Then
+                conexion.cargar_combo_generico_nombre(cmb_tipo_producto, "TIPOS_PRODUCTOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
+            End If
             If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(3).Value) = False) Then
                 conexion.cargar_combo_generico_nombre(cmb_categoria, "CATEGORIAS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(3).Value)
             End If
-            conexion.cargar_combo_generico_nombre(cmb_tipo_producto, "TIPOS_PRODUCTOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(2).Value)
             If (IsDBNull(tabla_detalles.SelectedRows.Item(0).Cells(4).Value) = False) Then
                 conexion.cargar_combo_generico_nombre(cmb_modelo, "MODELOS", "NOMBRE", "NOMBRE", tabla_detalles.SelectedRows.Item(0).Cells(4).Value)
                 conexion.carga_combo_generico_dos_tablas(cmb_marca, "MARCAS", "ID_MARCA", "NOMBRE", "MODELOS", "ID_MARCA", cmb_modelo.Text)
@@ -285,31 +288,34 @@
 
     Private Sub cmd_modificar_Click(sender As Object, e As EventArgs) Handles cmd_modificar.Click
         If Me.TabControl1.SelectedTab.Name = "tab_nuevo" Then
-            Dim indice As Integer = tabla_detalles.SelectedRows.Item(0).Cells(0).Value
-            Dim area As String = cmb_area.Text
-            Dim categoria As String = cmb_categoria.Text
-            Dim tipo_prod As String = cmb_tipo_producto.Text
-            Dim marca As String = cmb_marca.Text
-            Dim modelo As String = cmb_modelo.Text
-            Dim cantidad As Integer = CInt(txt_cantidad.Text)
-            Dim obser As String = txt_observaciones.Text
-            Dim cliente As String = cmb_cliente.Text
-            accion = tipo_accion.modificacion
-            tabla_detalles.Enabled = False 'Para que no se pueda elegir otro detalle si no se guardaron los cambios del anterior'
-            Me.cargar_combos()
-            cmb_area.Text = area
-            cmb_tipo_producto.Text = tipo_prod
-            cmb_categoria.Text = categoria
-            cmb_marca.Text = marca
-            cmb_modelo.Text = modelo
-            txt_cantidad.Text = cantidad
-            txt_observaciones.Text = obser
-            cmb_cliente.Text = cliente
+            If (tabla_detalles.Rows.Count > 0) Then
+                Dim indice As Integer = tabla_detalles.SelectedRows.Item(0).Cells(0).Value
+                Dim area As String = cmb_area.Text
+                Dim categoria As String = cmb_categoria.Text
+                Dim tipo_prod As String = cmb_tipo_producto.Text
+                Dim marca As String = cmb_marca.Text
+                Dim modelo As String = cmb_modelo.Text
+                Dim cantidad As Integer = CInt(txt_cantidad.Text)
+                Dim obser As String = txt_observaciones.Text
+                Dim cliente As String = cmb_cliente.Text
+                accion = tipo_accion.modificacion
+                tabla_detalles.Enabled = False 'Para que no se pueda elegir otro detalle si no se guardaron los cambios del anterior'
+                Me.cargar_combos()
+                cmb_area.Text = area
+                cmb_tipo_producto.Text = tipo_prod
+                cmb_categoria.Text = categoria
+                cmb_marca.Text = marca
+                cmb_modelo.Text = modelo
+                txt_cantidad.Text = cantidad
+                txt_observaciones.Text = obser
+                cmb_cliente.Text = cliente
+                tabla_detalles.Rows(indice - 1).Selected = True
+            End If
             'Me.cargar_combos_desde_pedido()
             Me.habilitar_campos()
             cmd_agregar_detalle.Text = "Guardar cambios"
             cmb_cliente.Enabled = False
-            tabla_detalles.Rows(indice - 1).Selected = True
+
 
         Else
             If Me.tabla_pedidos.CurrentRow.Cells(5).Value = True Then 'Si ya está habilitado muestra el mensaje correspondiente
@@ -378,5 +384,8 @@
 
 
    
+    Private Sub panel_nuevo_Paint(sender As Object, e As PaintEventArgs) Handles panel_nuevo.Paint
+
+    End Sub
 End Class
 

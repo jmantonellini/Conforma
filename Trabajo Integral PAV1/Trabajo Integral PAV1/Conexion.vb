@@ -24,7 +24,7 @@
                 tabla = Me.ejecuto_sql("SELECT P.NRO_PEDIDO AS 'Nro.',C.NOMBRE AS 'Nombre',C.APELLIDO AS 'Apellido', " _
                                        & "P.FECHA_ENTREGA AS 'Fecha de entrega', COUNT(DP.ID_DETALLE_PEDIDO) AS 'Items', P.CANCELADO AS 'Cancelado' FROM CLIENTES C" _
                                        & " JOIN PEDIDOS P ON P.ID_CLIENTE = C.ID_CLIENTE" _
-                                       & " JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO" _
+                                       & " LEFT JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO" _
                                        & " GROUP BY P.NRO_PEDIDO,C.NOMBRE,C.APELLIDO,P.FECHA_ENTREGA, P.CANCELADO") 'Se ha modificado la consulta para que muestre la columna cancelado
         End Select
 
@@ -37,7 +37,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_juanma1
+        conexion.ConnectionString = cadena_conexion_mateo
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -558,7 +558,7 @@
         Dim non_query As String = ""
 
         Try
-            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", CAST( GETDATE() AS DATE), '" & CDate(fecha_entrega).ToString("yyyy-MM-dd") & "')"
+            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", CAST( GETDATE() AS DATE), '" & CDate(fecha_entrega).ToString("yyyy-MM-dd") & "', 0)"
             cmd.CommandText = non_query
             cmd.ExecuteNonQuery()
             Dim i As Integer
