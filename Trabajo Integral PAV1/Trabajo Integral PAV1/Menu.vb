@@ -28,7 +28,7 @@
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
+        lbl_hora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss ")
     End Sub
 
 

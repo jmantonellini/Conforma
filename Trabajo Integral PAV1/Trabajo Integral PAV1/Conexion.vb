@@ -24,7 +24,7 @@
                 tabla = Me.ejecuto_sql("SELECT P.NRO_PEDIDO AS 'Nro.',C.NOMBRE AS 'Nombre',C.APELLIDO AS 'Apellido', " _
                                        & "P.FECHA_ENTREGA AS 'Fecha de entrega', COUNT(DP.ID_DETALLE_PEDIDO) AS 'Items', P.CANCELADO AS 'Cancelado' FROM CLIENTES C" _
                                        & " JOIN PEDIDOS P ON P.ID_CLIENTE = C.ID_CLIENTE" _
-                                       & " LEFT JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO" _
+                                       & " JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO" _
                                        & " GROUP BY P.NRO_PEDIDO,C.NOMBRE,C.APELLIDO,P.FECHA_ENTREGA, P.CANCELADO") 'Se ha modificado la consulta para que muestre la columna cancelado
         End Select
 
@@ -511,14 +511,11 @@
         Return Me.ejecuto_sql("SELECT NOMBRE AS 'Nombre', CODIGO_POSTAL AS 'Codigo Postal',ID_CIUDAD AS 'ID' FROM CIUDADES C  WHERE C.ID_PROVINCIA =" & id_provincia)
     End Function
 
-    Public Function buscar_localidad(ByVal tabla As String, filtro As String)
+    Public Function buscar_localidad(ByVal tabla As String, filtro As String, codigo_postal As Int16)
         Dim id_cadena As String = ""
         Dim id_provincia As Int16 = CInt(ejecuto_sql("SELECT ID_PROVINCIA FROM PROVINCIAS WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
-
-        If (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE ID_PROVINCIA = " & id_provincia).Rows.Count = 0) Then
-            Return True
-        End If
-        Return False
+        Return (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE  ID_PROVINCIA = " & id_provincia & " AND CODIGO_POSTAL = " & codigo_postal).Rows.Count = 0)
+        
     End Function
 
     Public Sub insertar_localidad(ByVal localidad As String, filtro As String, cp As Int16)
@@ -558,7 +555,7 @@
         Dim non_query As String = ""
 
         Try
-            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", CAST( GETDATE() AS DATE), '" & CDate(fecha_entrega).ToString("yyyy-MM-dd") & "', 0)"
+            non_query = "INSERT INTO PEDIDOS VALUES(" & Me.buscar_id_client(doc_cliente) & ", CAST( GETDATE() AS DATE), '" & CDate(fecha_entrega).ToString("yyyy-MM-dd") & "',0)"
             cmd.CommandText = non_query
             cmd.ExecuteNonQuery()
             Dim i As Integer
@@ -578,13 +575,15 @@
                     modelos_tabla = Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString
                 End If
 
+                If (Me.leer_tabla_filtrada_nombre("TIPOS_PRODUCTOS", "NOMBRE", tipo_producto, "ID_TIPO_PRODUCTO").Rows.Count > 0) Then
+                    tipo_tabla = Me.leer_tabla_filtrada_nombre("TIPOS_PRODUCTOS", "NOMBRE", tipo_producto, "ID_TIPO_PRODUCTO").Rows(0)(0).ToString
+                End If
+
                 If (CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows.Count) > 0) Then
                     categorias_tabla = CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString)
                 End If
 
-                If (categorias_tabla <> "NULL ") Then
-                    tipo_tabla = Me.leer_tabla_filtrada_nombre("TIPOS_PRODUCTOS", "NOMBRE", tipo_producto, "ID_TIPO_PRODUCTO").Rows(0)(0).ToString
-                End If
+                
                 non_query = "INSERT INTO PRODUCTOS VALUES(" _
                     & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
                     & tipo_tabla & ", " _
@@ -594,12 +593,10 @@
                 cmd.CommandText = non_query
                 cmd.ExecuteNonQuery()
                 Dim id_producto As Int16 = CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT( 'PRODUCTOS' )").Rows(0)(0))
-                MsgBox("IDPEDIDO: " & id_pedido & " ID_PRODUCTO " & id_producto)
                 non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & i + 1 & ", " & id_pedido & "," & id_producto & ", " & cantidad & ")"
                 cmd.CommandText = non_query
                 cmd.ExecuteNonQuery()
             Next
-            MsgBox("TERMINARON LOS DETALLES")
             transaccion.Commit()
             transaccion_completa = True
         Catch ex As Exception
@@ -611,6 +608,74 @@
         Return transaccion_completa
     End Function
 
+    Public Function modificar_detalles(ByVal doc_cliente As Int64, ByVal fecha_entrega As Date, ByVal tabla_detalle As DataTable) As Boolean
+        Dim transaccion_completa = False
+        Dim conexion As New OleDb.OleDbConnection
+        Dim cmd As New OleDb.OleDbCommand
+        Dim transaccion As OleDb.OleDbTransaction
+        Dim cmd2 As New OleDb.OleDbCommand
+
+        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.Open()
+
+        cmd.Connection = conexion
+        cmd.CommandType = CommandType.Text
+        Dim id_pedido As Int16 = Me.buscar_checkident("PEDIDOS")
+        transaccion = conexion.BeginTransaction
+        cmd.Transaction = transaccion
+        Dim non_query As String = ""
+
+        Try
+
+            Me.ejecuto_sql("DELETE FROM DETALLES_PEDIDOS WHERE NRO_PEDIDO = " & id_pedido)
+            Dim i As Integer
+            For i = 0 To tabla_detalle.Rows.Count - 1
+                Dim area As String = tabla_detalle.Rows.Item(i).Item(1).ToString
+                Dim tipo_producto As String = tabla_detalle.Rows.Item(i).Item(2).ToString
+                Dim categoria As String = tabla_detalle.Rows.Item(i).Item(3).ToString
+                Dim modelo As String = tabla_detalle.Rows.Item(i).Item(4).ToString
+                Dim observaciones As String = tabla_detalle.Rows.Item(i).Item(6).ToString
+                Dim cantidad As Int16 = tabla_detalle.Rows.Item(i).Item(5)
+
+                Dim modelos_tabla As String = "NULL "
+                Dim categorias_tabla As String = "NULL "
+                Dim tipo_tabla As String = "NULL "
+                'Verificaciones para categorias y modelos vacios'
+                If (CInt(Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows.Count) > 0) Then
+                    modelos_tabla = Me.leer_tabla_filtrada_nombre("MODELOS", "NOMBRE", modelo, "ID_MODELO").Rows(0)(0).ToString
+                End If
+
+                If (Me.leer_tabla_filtrada_nombre("TIPOS_PRODUCTOS", "NOMBRE", tipo_producto, "ID_TIPO_PRODUCTO").Rows.Count > 0) Then
+                    tipo_tabla = Me.leer_tabla_filtrada_nombre("TIPOS_PRODUCTOS", "NOMBRE", tipo_producto, "ID_TIPO_PRODUCTO").Rows(0)(0).ToString
+                End If
+
+                If (CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows.Count) > 0) Then
+                    categorias_tabla = CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString)
+                End If
+
+
+                non_query = "INSERT INTO PRODUCTOS VALUES(" _
+                    & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
+                    & tipo_tabla & ", " _
+                    & modelos_tabla & ", " _
+                    & categorias_tabla & ", " _
+                    & "'" & observaciones & "')"
+                cmd.CommandText = non_query
+                cmd.ExecuteNonQuery()
+                Dim id_producto As Int16 = CInt(Me.ejecuto_sql("SELECT IDENT_CURRENT( 'PRODUCTOS' )").Rows(0)(0))
+                non_query = "INSERT INTO DETALLES_PEDIDOS VALUES( " & i + 1 & ", " & id_pedido & "," & id_producto & ", " & cantidad & ")"
+                cmd.CommandText = non_query
+                cmd.ExecuteNonQuery()
+            Next
+            transaccion.Commit()
+            transaccion_completa = True
+        Catch ex As Exception
+            conexion.Close()
+            MsgBox("FALLO LA TRANSACCION " & ex.Message & " EN " & ex.StackTrace)
+        End Try
+        conexion.Close()
+        Return transaccion_completa
+    End Function
     ''' <summary>
     ''' Función que cancela un pedido, cambia el valor de la columna cancelado a 1 que significa que esta cancelado y 0 que no lo está
     ''' </summary>

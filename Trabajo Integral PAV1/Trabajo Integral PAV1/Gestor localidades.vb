@@ -37,14 +37,13 @@
         Dim localidad_nueva As String = InputBox("Ingrese el nombre de la nueva localidad", "Nueva Localidad")
         Dim codigo_posta As String = InputBox("Ingrese el Codigo Postal", "Nueva Localidad")
 
-        If (localidad_nueva <> "" And conexion.buscar_localidad(" CIUDADES ", cmb_provincia.Text) = True And comprobar_linea(localidad_nueva)) Then
+        If (codigo_posta <> "" And localidad_nueva <> "" And conexion.buscar_localidad(" CIUDADES ", cmb_provincia.Text, CInt(codigo_posta)) = True And comprobar_linea(localidad_nueva)) Then
             Try
-
                 conexion.insertar_localidad(localidad_nueva, cmb_provincia.Text, CInt(codigo_posta))
                 MsgBox("Se ha añadido el elemento satisfactoriamente", MsgBoxStyle.Information, "Aviso")
                 cargar_grilla()
             Catch ex As Exception
-                MsgBox("No se pudo añadir" & ex.ToString)
+                MsgBox("No se pudo añadir " & ex.ToString)
             End Try
         Else : MsgBox("No se pueden ingresar campos vacíos o numerales", MsgBoxStyle.Critical, "AVISO")
         End If
@@ -57,7 +56,6 @@
             If (b = False And Char.IsWhiteSpace(cadena, index) = False) Then
                 Return b
             End If
-
         Next
         Return b
     End Function
