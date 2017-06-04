@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.31479cm</Width>
+              <Width>2.405cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.39958cm</Width>
+              <Width>3.48979cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.6275cm</Width>
+              <Width>6.71771cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.60104cm</Width>
+              <Width>6.69125cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.38396cm</Width>
+              <Width>5.47417cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -386,7 +386,7 @@
         <Top>0.17639cm</Top>
         <Left>0.3937cm</Left>
         <Height>1.2cm</Height>
-        <Width>24.32687cm</Width>
+        <Width>24.77792cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -397,7 +397,7 @@
     <Height>0.625in</Height>
     <Style />
   </Body>
-  <Width>10.24826in</Width>
+  <Width>10.07118in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -438,6 +438,36 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.42016cm</Top>
+          <Left>22.67161cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -449,6 +479,37 @@
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.55787cm</Top>
+          <Left>22.67162cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

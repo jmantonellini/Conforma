@@ -6,31 +6,23 @@
     Dim cadena_conexion_gaston_note = "Provider=SQLNCLI11;Data Source=GASTONGARCIA\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
 
 
-    Public Function getIP() As String
-        Dim nombrePC As String
-        Dim entradasIP As Net.IPHostEntry
+    Public Function getNombreEquipo() As String
 
-        nombrePC = Net.Dns.GetHostName
-
-        entradasIP = Net.Dns.GetHostEntry(nombrePC)
-
-        Dim direccion_Ip As String = entradasIP.AddressList(2).ToString
-
-        Return direccion_Ip
+        Return My.Computer.Name.ToString()
 
     End Function
 
     ''' <summary>
-    ''' Función que retorna la cadena de conexión correspondiente a su dirección ip
+    ''' Función que retorna la cadena de conexión correspondiente al nombre del equipo
     ''' </summary>
     ''' <returns>
     ''' Retorna la cadena de conexión
     ''' </returns>
-    Public Function verificar_ip()
+    Public Function get_cadena_conexion()
         Dim cadena_conexion As String = ""
 
-        Select Case getIP() 'Creen sus cases con sus respectivas direcciones ip de sus máquinas
-            Case "192.168.1.9"
+        Select Case getNombreEquipo() 'Creen sus cases con sus respectivos nombres de sus máquinas
+            Case "GASTONGARCIA"
                 cadena_conexion = cadena_conexion_gaston_note
         End Select
 
@@ -70,7 +62,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = Me.verificar_ip()
+        conexion.ConnectionString = Me.get_cadena_conexion()
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -648,7 +640,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = verificar_ip()
+        conexion.ConnectionString = get_cadena_conexion()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -727,7 +719,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = Me.verificar_ip()
+        conexion.ConnectionString = Me.get_cadena_conexion()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -769,7 +761,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = Me.verificar_ip()
+        conexion.ConnectionString = Me.get_cadena_conexion()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -809,7 +801,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = Me.verificar_ip()
+        conexion.ConnectionString = Me.get_cadena_conexion()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -835,4 +827,12 @@
         Return transaccion_completa
 
     End Function
+
+    Public Function tabla_listado_clientes() As Data.DataTable
+        Dim sql As String = ""
+        sql = "SELECT * FROM CLIENTES"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
+
 End Class

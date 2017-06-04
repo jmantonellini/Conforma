@@ -27,7 +27,6 @@
 
 
     Private Sub gestor_clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Me.cargar_grilla()
         cmb_empresa = c.cargar_combo(cmb_empresa, "EMPRESAS", "CUIT", "NOMBRE")
         cmb_pais = c.cargar_combo(cmb_pais, "PAISES", "ID_PAIS", "NOMBRE")
@@ -490,8 +489,5 @@
         agrear_business = New gestor_empresas
         agrear_business.Show()
     End Sub
-
-
-
 
 End Class
