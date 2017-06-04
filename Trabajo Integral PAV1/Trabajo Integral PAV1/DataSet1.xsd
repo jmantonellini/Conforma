@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="t_clientes" msprop:Generator_TableClassName="t_clientesDataTable" msprop:Generator_TableVarName="tablet_clientes" msprop:Generator_TablePropName="t_clientes" msprop:Generator_RowDeletingName="t_clientesRowDeleting" msprop:Generator_RowChangingName="t_clientesRowChanging" msprop:Generator_RowEvHandlerName="t_clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="t_clientesRowDeleted" msprop:Generator_UserTableName="t_clientes" msprop:Generator_RowChangedName="t_clientesRowChanged" msprop:Generator_RowEvArgName="t_clientesRowChangeEvent" msprop:Generator_RowClassName="t_clientesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_CLIENTE" msprop:Generator_ColumnVarNameInTable="columnID_CLIENTE" msprop:Generator_ColumnPropNameInRow="ID_CLIENTE" msprop:Generator_ColumnPropNameInTable="ID_CLIENTEColumn" msprop:Generator_UserColumnName="ID_CLIENTE" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_TIPO_DOCUMENTO" msprop:Generator_ColumnVarNameInTable="columnID_TIPO_DOCUMENTO" msprop:Generator_ColumnPropNameInRow="ID_TIPO_DOCUMENTO" msprop:Generator_ColumnPropNameInTable="ID_TIPO_DOCUMENTOColumn" msprop:Generator_UserColumnName="ID_TIPO_DOCUMENTO" type="xs:int" minOccurs="0" />
+              <xs:element name="NRO_DOC" msprop:Generator_ColumnVarNameInTable="columnNRO_DOC" msprop:Generator_ColumnPropNameInRow="NRO_DOC" msprop:Generator_ColumnPropNameInTable="NRO_DOCColumn" msprop:Generator_UserColumnName="NRO_DOC" type="xs:long" minOccurs="0" />
+              <xs:element name="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE" type="xs:string" minOccurs="0" />
+              <xs:element name="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" msprop:Generator_UserColumnName="APELLIDO" type="xs:string" minOccurs="0" />
+              <xs:element name="EMAIL" msprop:Generator_ColumnVarNameInTable="columnEMAIL" msprop:Generator_ColumnPropNameInRow="EMAIL" msprop:Generator_ColumnPropNameInTable="EMAILColumn" msprop:Generator_UserColumnName="EMAIL" type="xs:string" minOccurs="0" />
+              <xs:element name="TEL_CEL" msprop:Generator_ColumnVarNameInTable="columnTEL_CEL" msprop:Generator_ColumnPropNameInRow="TEL_CEL" msprop:Generator_ColumnPropNameInTable="TEL_CELColumn" msprop:Generator_UserColumnName="TEL_CEL" type="xs:long" minOccurs="0" />
+              <xs:element name="TEL_FIJO" msprop:Generator_ColumnVarNameInTable="columnTEL_FIJO" msprop:Generator_ColumnPropNameInRow="TEL_FIJO" msprop:Generator_ColumnPropNameInTable="TEL_FIJOColumn" msprop:Generator_UserColumnName="TEL_FIJO" type="xs:int" minOccurs="0" />
+              <xs:element name="CUIT" msprop:Generator_ColumnVarNameInTable="columnCUIT" msprop:Generator_ColumnPropNameInRow="CUIT" msprop:Generator_ColumnPropNameInTable="CUITColumn" msprop:Generator_UserColumnName="CUIT" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

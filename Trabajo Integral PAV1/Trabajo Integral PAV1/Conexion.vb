@@ -159,7 +159,7 @@
         Return combo
     End Function
 
-    
+
 
     Public Function leer_tabla_filtrada_nombre(ByVal tabla As String, pk As String, atributo_id As String _
                                                  , nombre As String) As DataTable
@@ -548,7 +548,7 @@
         Dim id_cadena As String = ""
         Dim id_provincia As Int16 = CInt(ejecuto_sql("SELECT ID_PROVINCIA FROM PROVINCIAS WHERE NOMBRE LIKE '" & filtro & "'").Rows(0).Item(0).ToString)
         Return (Me.ejecuto_sql("SELECT * FROM " & tabla & " WHERE  ID_PROVINCIA = " & id_provincia & " AND CODIGO_POSTAL = " & codigo_postal).Rows.Count = 0)
-        
+
     End Function
 
     Public Sub insertar_localidad(ByVal localidad As String, filtro As String, cp As Int16)
@@ -616,7 +616,7 @@
                     categorias_tabla = CInt(Me.leer_tabla_filtrada_nombre("CATEGORIAS", "NOMBRE", categoria, "ID_CATEGORIA").Rows(0)(0).ToString)
                 End If
 
-                
+
                 non_query = "INSERT INTO PRODUCTOS VALUES(" _
                     & CInt(Me.leer_tabla_filtrada_nombre("AREAS", "NOMBRE", area, "ID_AREA").Rows(0)(0).ToString) & ", " _
                     & tipo_tabla & ", " _
