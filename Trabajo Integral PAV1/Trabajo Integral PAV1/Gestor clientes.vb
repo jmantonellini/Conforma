@@ -18,6 +18,7 @@
     Dim c As Conexion = New Conexion
     Dim accion As tipo_grabacion = tipo_grabacion.insertar
     Dim agrear_business As gestor_empresas
+    Dim listar_clientes As Listado_clientes
 
     Private Sub gestor_clientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If MessageBox.Show("¿Seguro que desea salir? Los datos que no hayan sido guardados se perderan", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then
@@ -490,4 +491,8 @@
         agrear_business.Show()
     End Sub
 
+    Private Sub cmd_listar_Click(sender As Object, e As EventArgs) Handles cmd_listar.Click
+        Me.listar_clientes = New Listado_clientes
+        Me.listar_clientes.Show()
+    End Sub
 End Class

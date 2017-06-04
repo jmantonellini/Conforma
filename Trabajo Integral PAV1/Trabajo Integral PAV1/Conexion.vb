@@ -7,9 +7,7 @@
 
 
     Public Function getNombreEquipo() As String
-
         Return My.Computer.Name.ToString()
-
     End Function
 
     ''' <summary>
@@ -23,7 +21,15 @@
 
         Select Case getNombreEquipo() 'Creen sus cases con sus respectivos nombres de sus máquinas
             Case "GASTONGARCIA"
-                cadena_conexion = cadena_conexion_gaston_note
+                cadena_conexion = Me.cadena_conexion_gaston_note
+            Case "POWERSTATION-PC"
+                cadena_conexion = Me.cadena_conexion_gaston
+            Case "JUANMA-PC"
+                cadena_conexion = Me.cadena_conexion_juanma1
+            Case "POWERSTATION"
+                cadena_conexion = Me.cadena_conexion_juanma2
+            Case "OCHANPC"
+                cadena_conexion = Me.cadena_conexion_mateo
         End Select
 
         Return cadena_conexion
@@ -828,9 +834,9 @@
 
     End Function
 
-    Public Function tabla_listado_clientes() As Data.DataTable
+    Public Function tabla_listado_clientes(ByVal filtro As String) As Data.DataTable
         Dim sql As String = ""
-        sql = "SELECT * FROM CLIENTES"
+        sql = "SELECT * FROM CLIENTES WHERE CLIENTES.NOMBRE LIKE '" & filtro & "%'"
 
         Return Me.ejecuto_sql(sql)
     End Function

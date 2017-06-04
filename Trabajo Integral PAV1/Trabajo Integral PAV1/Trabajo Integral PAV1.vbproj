@@ -46,6 +46,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -79,6 +81,12 @@
     </Compile>
     <Compile Include="DataSet1.vb">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_clientes.Designer.vb">
+      <DependentUpon>Listado_clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_clientes.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pedidos.Designer.vb">
       <DependentUpon>Pedidos.vb</DependentUpon>
@@ -158,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="listado_clientes.rdlc" />
+    <EmbeddedResource Include="Listado_clientes.resx">
+      <DependentUpon>Listado_clientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pedidos.resx">
       <DependentUpon>Pedidos.vb</DependentUpon>
     </EmbeddedResource>

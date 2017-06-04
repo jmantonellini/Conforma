@@ -80,7 +80,7 @@ Partial Class gestor_clientes
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.cmd_modificar = New System.Windows.Forms.Button()
         Me.cmd_nuevo = New System.Windows.Forms.Button()
-        Me.tab_listado_clientes = New System.Windows.Forms.TabPage()
+        Me.cmd_listar = New System.Windows.Forms.Button()
         CType(Me.tabla_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.control_tab.SuspendLayout()
         Me.tab_datos_personales.SuspendLayout()
@@ -138,7 +138,6 @@ Partial Class gestor_clientes
         Me.control_tab.Controls.Add(Me.tab_datos_personales)
         Me.control_tab.Controls.Add(Me.tab_contacto)
         Me.control_tab.Controls.Add(Me.tab_domicilios)
-        Me.control_tab.Controls.Add(Me.tab_listado_clientes)
         Me.control_tab.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.control_tab.Location = New System.Drawing.Point(1, 65)
         Me.control_tab.Margin = New System.Windows.Forms.Padding(0)
@@ -680,14 +679,14 @@ Partial Class gestor_clientes
         Me.cmd_nuevo.TabIndex = 20
         Me.cmd_nuevo.UseVisualStyleBackColor = False
         '
-        'tab_listado_clientes
+        'cmd_listar
         '
-        Me.tab_listado_clientes.Location = New System.Drawing.Point(4, 29)
-        Me.tab_listado_clientes.Name = "tab_listado_clientes"
-        Me.tab_listado_clientes.Size = New System.Drawing.Size(438, 293)
-        Me.tab_listado_clientes.TabIndex = 3
-        Me.tab_listado_clientes.Text = "Listado"
-        Me.tab_listado_clientes.UseVisualStyleBackColor = True
+        Me.cmd_listar.Location = New System.Drawing.Point(631, 406)
+        Me.cmd_listar.Name = "cmd_listar"
+        Me.cmd_listar.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_listar.TabIndex = 36
+        Me.cmd_listar.Text = "Listar"
+        Me.cmd_listar.UseVisualStyleBackColor = True
         '
         'gestor_clientes
         '
@@ -695,6 +694,7 @@ Partial Class gestor_clientes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.ClientSize = New System.Drawing.Size(894, 498)
+        Me.Controls.Add(Me.cmd_listar)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.cmd_eliminar)
         Me.Controls.Add(Me.cmd_guardar)
@@ -778,4 +778,5 @@ Partial Class gestor_clientes
     Friend WithEvents txt_celular As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txt_fijo As System.Windows.Forms.MaskedTextBox
     Friend WithEvents tab_listado_clientes As System.Windows.Forms.TabPage
+    Friend WithEvents cmd_listar As System.Windows.Forms.Button
 End Class
