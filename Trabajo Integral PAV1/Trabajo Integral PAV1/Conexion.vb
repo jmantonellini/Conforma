@@ -3,6 +3,39 @@
     Dim cadena_conexion_gaston = "Provider=SQLNCLI11;Data Source=POWERSTATION-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
     Dim cadena_conexion_juanma1 = "Provider=SQLNCLI11;Data Source=JUANMA-PC\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
     Dim cadena_conexion_juanma2 = "Provider=SQLNCLI11;Data Source=POWERSTATION\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
+    Dim cadena_conexion_gaston_note = "Provider=SQLNCLI11;Data Source=GASTONGARCIA\SQLEXPRESS2014;Integrated Security=SSPI;Initial Catalog=Conforma"
+
+
+    Public Function getIP() As String
+        Dim nombrePC As String
+        Dim entradasIP As Net.IPHostEntry
+
+        nombrePC = Net.Dns.GetHostName
+
+        entradasIP = Net.Dns.GetHostEntry(nombrePC)
+
+        Dim direccion_Ip As String = entradasIP.AddressList(2).ToString
+
+        Return direccion_Ip
+
+    End Function
+
+    ''' <summary>
+    ''' Función que retorna la cadena de conexión correspondiente a su dirección ip
+    ''' </summary>
+    ''' <returns>
+    ''' Retorna la cadena de conexión
+    ''' </returns>
+    Public Function verificar_ip()
+        Dim cadena_conexion As String = ""
+
+        Select Case getIP() 'Creen sus cases con sus respectivas direcciones ip de sus máquinas
+            Case "192.168.1.9"
+                cadena_conexion = cadena_conexion_gaston_note
+        End Select
+
+        Return cadena_conexion
+    End Function
 
     Public Function cargar_grilla(ByVal ventana As String) As Data.DataTable
         Dim tabla As New Data.DataTable
@@ -37,7 +70,7 @@
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = Me.verificar_ip()
         conexion.Open()
         cmd.Connection = conexion
         cmd.CommandType = CommandType.Text
@@ -615,7 +648,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = verificar_ip()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -694,7 +727,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = Me.verificar_ip()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -736,7 +769,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = Me.verificar_ip()
         conexion.Open()
 
         cmd.Connection = conexion
@@ -776,7 +809,7 @@
         Dim transaccion As OleDb.OleDbTransaction
         Dim cmd2 As New OleDb.OleDbCommand
 
-        conexion.ConnectionString = cadena_conexion_mateo
+        conexion.ConnectionString = Me.verificar_ip()
         conexion.Open()
 
         cmd.Connection = conexion
