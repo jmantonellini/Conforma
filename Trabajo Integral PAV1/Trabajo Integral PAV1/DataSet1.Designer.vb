@@ -676,9 +676,11 @@ Partial Public Class DataSet1
         
         Private columnNRO_PEDIDO As Global.System.Data.DataColumn
 
-        Private columnNOMBRE_CLIENTE As Global.System.Data.DataColumn
+        Private columnID_DETALLE_PEDIDO As Global.System.Data.DataColumn
 
-        Private columnAPELLIDO_CLIENTE As Global.System.Data.DataColumn
+        Private columnNOMBRE_AREA As Global.System.Data.DataColumn
+
+        Private columnNOMBRE_PRODUCTO As Global.System.Data.DataColumn
 
         Private columnFECHA_PEDIDO As Global.System.Data.DataColumn
 
@@ -731,17 +733,25 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property NOMBRE_CLIENTEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ID_DETALLE_PEDIDOColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNOMBRE_CLIENTE
+                Return Me.columnID_DETALLE_PEDIDO
             End Get
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property APELLIDO_CLIENTEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NOMBRE_AREAColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnAPELLIDO_CLIENTE
+                Return Me.columnNOMBRE_AREA
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property NOMBRE_PRODUCTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_PRODUCTO
             End Get
         End Property
 
@@ -806,9 +816,9 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function Addt_pedidosRow(ByVal NRO_PEDIDO As Long, ByVal NOMBRE_CLIENTE As String, ByVal APELLIDO_CLIENTE As String, ByVal FECHA_PEDIDO As Date, ByVal FECHA_ENTREGA As Date, ByVal CANCELADO As Boolean) As t_pedidosRow
+        Public Overloads Function Addt_pedidosRow(ByVal NRO_PEDIDO As Long, ByVal ID_DETALLE_PEDIDO As String, ByVal NOMBRE_AREA As Long, ByVal NOMBRE_PRODUCTO As Date, ByVal FECHA_PEDIDO As Date, ByVal FECHA_ENTREGA As Boolean, ByVal CANCELADO As String) As t_pedidosRow
             Dim rowt_pedidosRow As t_pedidosRow = CType(Me.NewRow, t_pedidosRow)
-            Dim columnValuesArray() As Object = New Object() {NRO_PEDIDO, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHA_PEDIDO, FECHA_ENTREGA, CANCELADO}
+            Dim columnValuesArray() As Object = New Object() {NRO_PEDIDO, ID_DETALLE_PEDIDO, NOMBRE_AREA, NOMBRE_PRODUCTO, FECHA_PEDIDO, FECHA_ENTREGA, CANCELADO}
             rowt_pedidosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowt_pedidosRow)
             Return rowt_pedidosRow
@@ -832,8 +842,9 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Sub InitVars()
             Me.columnNRO_PEDIDO = MyBase.Columns("NRO_PEDIDO")
-            Me.columnNOMBRE_CLIENTE = MyBase.Columns("NOMBRE_CLIENTE")
-            Me.columnAPELLIDO_CLIENTE = MyBase.Columns("APELLIDO_CLIENTE")
+            Me.columnID_DETALLE_PEDIDO = MyBase.Columns("ID_DETALLE_PEDIDO")
+            Me.columnNOMBRE_AREA = MyBase.Columns("NOMBRE_AREA")
+            Me.columnNOMBRE_PRODUCTO = MyBase.Columns("NOMBRE_PRODUCTO")
             Me.columnFECHA_PEDIDO = MyBase.Columns("FECHA_PEDIDO")
             Me.columnFECHA_ENTREGA = MyBase.Columns("FECHA_ENTREGA")
             Me.columnCANCELADO = MyBase.Columns("CANCELADO")
@@ -844,15 +855,17 @@ Partial Public Class DataSet1
         Private Sub InitClass()
             Me.columnNRO_PEDIDO = New Global.System.Data.DataColumn("NRO_PEDIDO", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNRO_PEDIDO)
-            Me.columnNOMBRE_CLIENTE = New Global.System.Data.DataColumn("NOMBRE_CLIENTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNOMBRE_CLIENTE)
-            Me.columnAPELLIDO_CLIENTE = New Global.System.Data.DataColumn("APELLIDO_CLIENTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAPELLIDO_CLIENTE)
+            Me.columnID_DETALLE_PEDIDO = New Global.System.Data.DataColumn("ID_DETALLE_PEDIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_DETALLE_PEDIDO)
+            Me.columnNOMBRE_AREA = New Global.System.Data.DataColumn("NOMBRE_AREA", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_AREA)
+            Me.columnNOMBRE_PRODUCTO = New Global.System.Data.DataColumn("NOMBRE_PRODUCTO", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_PRODUCTO)
             Me.columnFECHA_PEDIDO = New Global.System.Data.DataColumn("FECHA_PEDIDO", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_PEDIDO)
-            Me.columnFECHA_ENTREGA = New Global.System.Data.DataColumn("FECHA_ENTREGA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnFECHA_ENTREGA = New Global.System.Data.DataColumn("FECHA_ENTREGA", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_ENTREGA)
-            Me.columnCANCELADO = New Global.System.Data.DataColumn("CANCELADO", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCANCELADO = New Global.System.Data.DataColumn("CANCELADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCANCELADO)
         End Sub
 
@@ -1274,31 +1287,46 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property NOMBRE_CLIENTE() As String
+        Public Property ID_DETALLE_PEDIDO() As String
             Get
                 Try
-                    Return CType(Me(Me.tablet_pedidos.NOMBRE_CLIENTEColumn), String)
+                    Return CType(Me(Me.tablet_pedidos.ID_DETALLE_PEDIDOColumn), String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NOMBRE_CLIENTE' de la tabla 't_pedidos' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ID_DETALLE_PEDIDO' de la tabla 't_pedidos' es DBNull.", e)
                 End Try
             End Get
             Set(value As String)
-                Me(Me.tablet_pedidos.NOMBRE_CLIENTEColumn) = value
+                Me(Me.tablet_pedidos.ID_DETALLE_PEDIDOColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property APELLIDO_CLIENTE() As String
+        Public Property NOMBRE_AREA() As Long
             Get
                 Try
-                    Return CType(Me(Me.tablet_pedidos.APELLIDO_CLIENTEColumn), String)
+                    Return CType(Me(Me.tablet_pedidos.NOMBRE_AREAColumn), Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'APELLIDO_CLIENTE' de la tabla 't_pedidos' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NOMBRE_AREA' de la tabla 't_pedidos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As String)
-                Me(Me.tablet_pedidos.APELLIDO_CLIENTEColumn) = value
+            Set(value As Long)
+                Me(Me.tablet_pedidos.NOMBRE_AREAColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property NOMBRE_PRODUCTO() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tablet_pedidos.NOMBRE_PRODUCTOColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NOMBRE_PRODUCTO' de la tabla 't_pedidos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tablet_pedidos.NOMBRE_PRODUCTOColumn) = value
             End Set
         End Property
 
@@ -1319,30 +1347,30 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property FECHA_ENTREGA() As Date
+        Public Property FECHA_ENTREGA() As Boolean
             Get
                 Try
-                    Return CType(Me(Me.tablet_pedidos.FECHA_ENTREGAColumn), Date)
+                    Return CType(Me(Me.tablet_pedidos.FECHA_ENTREGAColumn), Boolean)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'FECHA_ENTREGA' de la tabla 't_pedidos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Date)
+            Set(value As Boolean)
                 Me(Me.tablet_pedidos.FECHA_ENTREGAColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property CANCELADO() As Boolean
+        Public Property CANCELADO() As String
             Get
                 Try
-                    Return CType(Me(Me.tablet_pedidos.CANCELADOColumn), Boolean)
+                    Return CType(Me(Me.tablet_pedidos.CANCELADOColumn), String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CANCELADO' de la tabla 't_pedidos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Boolean)
+            Set(value As String)
                 Me(Me.tablet_pedidos.CANCELADOColumn) = value
             End Set
         End Property
@@ -1361,26 +1389,38 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsNOMBRE_CLIENTENull() As Boolean
-            Return Me.IsNull(Me.tablet_pedidos.NOMBRE_CLIENTEColumn)
+        Public Function IsID_DETALLE_PEDIDONull() As Boolean
+            Return Me.IsNull(Me.tablet_pedidos.ID_DETALLE_PEDIDOColumn)
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetNOMBRE_CLIENTENull()
-            Me(Me.tablet_pedidos.NOMBRE_CLIENTEColumn) = Global.System.Convert.DBNull
+        Public Sub SetID_DETALLE_PEDIDONull()
+            Me(Me.tablet_pedidos.ID_DETALLE_PEDIDOColumn) = Global.System.Convert.DBNull
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsAPELLIDO_CLIENTENull() As Boolean
-            Return Me.IsNull(Me.tablet_pedidos.APELLIDO_CLIENTEColumn)
+        Public Function IsNOMBRE_AREANull() As Boolean
+            Return Me.IsNull(Me.tablet_pedidos.NOMBRE_AREAColumn)
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetAPELLIDO_CLIENTENull()
-            Me(Me.tablet_pedidos.APELLIDO_CLIENTEColumn) = Global.System.Convert.DBNull
+        Public Sub SetNOMBRE_AREANull()
+            Me(Me.tablet_pedidos.NOMBRE_AREAColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsNOMBRE_PRODUCTONull() As Boolean
+            Return Me.IsNull(Me.tablet_pedidos.NOMBRE_PRODUCTOColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetNOMBRE_PRODUCTONull()
+            Me(Me.tablet_pedidos.NOMBRE_PRODUCTOColumn) = Global.System.Convert.DBNull
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
