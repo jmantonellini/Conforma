@@ -841,4 +841,12 @@
         Return Me.ejecuto_sql(sql)
     End Function
 
+    Public Function tabla_listado_pedidos(ByVal filtro As String) As Data.DataTable
+        Dim sql As String = ""
+        sql = "SELECT P.NRO_PEDIDO, C.NOMBRE AS 'NOMBRE_CLIENTE', C.APELLIDO AS 'APELLIDO_CLIENTE', P.FECHA_PEDIDO, P.FECHA_ENTREGA, P.CANCELADO"
+        sql &= " FROM PEDIDOS P JOIN CLIENTES C ON P.ID_CLIENTE = C.ID_CLIENTE"
+        sql &= " WHERE NRO_PEDIDO LIKE '" & filtro & "%'"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
 End Class

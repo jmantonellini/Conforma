@@ -61,6 +61,7 @@ Partial Class gestor_pedidos
         Me.tabla_pedidos = New System.Windows.Forms.DataGridView()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
+        Me.cmd_reporte = New System.Windows.Forms.Button()
         Me.panel_producto.SuspendLayout()
         Me.panel_especificaciones.SuspendLayout()
         CType(Me.tabla_detalles, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -411,6 +412,7 @@ Partial Class gestor_pedidos
         '
         'tab_listado
         '
+        Me.tab_listado.Controls.Add(Me.cmd_reporte)
         Me.tab_listado.Controls.Add(Me.Label10)
         Me.tab_listado.Controls.Add(Me.tabla_pedidos)
         Me.tab_listado.Location = New System.Drawing.Point(4, 22)
@@ -468,6 +470,15 @@ Partial Class gestor_pedidos
         Me.cmd_salir.Size = New System.Drawing.Size(80, 80)
         Me.cmd_salir.TabIndex = 26
         Me.cmd_salir.UseVisualStyleBackColor = False
+        '
+        'cmd_reporte
+        '
+        Me.cmd_reporte.Location = New System.Drawing.Point(708, 408)
+        Me.cmd_reporte.Name = "cmd_reporte"
+        Me.cmd_reporte.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_reporte.TabIndex = 39
+        Me.cmd_reporte.Text = "Reporte"
+        Me.cmd_reporte.UseVisualStyleBackColor = True
         '
         'gestor_pedidos
         '
@@ -538,4 +549,5 @@ Partial Class gestor_pedidos
     Friend WithEvents cmd_nueva_marca As System.Windows.Forms.Button
     Friend WithEvents fecha_entrega As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents cmd_reporte As System.Windows.Forms.Button
 End Class

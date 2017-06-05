@@ -17,6 +17,7 @@
     Dim contador As Int16 = 0
     Dim ventana_hija As Boolean = False
     Dim data_table As New DataTable
+    Dim listado_pedidos As Listado_pedidos
 
     Private Sub txt_observaciones_TextChanged(sender As Object, e As EventArgs) Handles txt_observaciones.Click, txt_observaciones.GotFocus
         txt_observaciones.Text = ""
@@ -396,5 +397,9 @@
 
     End Sub
 
+    Private Sub cmd_reporte_Click(sender As Object, e As EventArgs) Handles cmd_reporte.Click
+        Me.listado_pedidos = New Listado_pedidos
+        Me.listado_pedidos.Show()
+    End Sub
 End Class
 

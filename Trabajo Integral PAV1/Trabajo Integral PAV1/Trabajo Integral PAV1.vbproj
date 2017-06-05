@@ -88,6 +88,12 @@
     <Compile Include="Listado_clientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listado_pedidos.Designer.vb">
+      <DependentUpon>Listado_pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_pedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pedidos.Designer.vb">
       <DependentUpon>Pedidos.vb</DependentUpon>
     </Compile>
@@ -168,6 +174,10 @@
     <EmbeddedResource Include="listado_clientes.rdlc" />
     <EmbeddedResource Include="Listado_clientes.resx">
       <DependentUpon>Listado_clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listado_pedidos.rdlc" />
+    <EmbeddedResource Include="Listado_pedidos.resx">
+      <DependentUpon>Listado_pedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos.resx">
       <DependentUpon>Pedidos.vb</DependentUpon>
