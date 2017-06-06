@@ -853,4 +853,28 @@
 
         Return Me.ejecuto_sql(sql)
     End Function
+
+    Public Function tabla_listado_productos(ByVal filtro As String) As Data.DataTable
+        Dim sql As String = ""
+
+        sql &= "select distinct A.NOMBRE as 'Area',TP.NOMBRE as 'Tipo',C.NOMBRE as 'Categoria',MA.NOMBRE as 'Marca' from TIPOS_PRODUCTOS TP join AREAS A ON TP.ID_AREA = A.ID_AREA"
+        sql &= " join PRODUCTOS P on P.ID_TIPO_PRODUCTO=TP.ID_TIPO_PRODUCTO"
+        sql &= " left join MODELOS M ON M.ID_MODELO = P.ID_MODELO"
+        sql &= " left join MARCAS MA ON MA.ID_MARCA = M.ID_MARCA"
+        sql &= " left join CATEGORIAS C on C.ID_CATEGORIA=P.ID_CATEGORIA"
+        sql &= " where A.NOMBRE like '" & filtro & "%'"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
+
+    Public Function tabla_listado_paises_provincias() As Data.DataTable
+        Dim sql As String = ""
+
+        sql &= "SELECT P.NOMBRE AS 'NOMBRE_PAIS', PR.NOMBRE AS 'NOMBRE_PROVINCIA', COUNT(C.NOMBRE) AS 'CANT_LOCALIDADES'"
+        sql &= " FROM PAISES P JOIN PROVINCIAS PR ON P.ID_PAIS = PR.ID_PAIS LEFT JOIN CIUDADES C ON C.ID_PROVINCIA = PR.ID_PROVINCIA"
+        sql &= " GROUP BY P.NOMBRE, PR.NOMBRE"
+        sql &= " ORDER BY P.NOMBRE,3 DESC"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
 End Class

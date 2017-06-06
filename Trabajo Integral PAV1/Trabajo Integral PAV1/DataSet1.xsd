@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="t_clientes" msprop:Generator_TableClassName="t_clientesDataTable" msprop:Generator_TableVarName="tablet_clientes" msprop:Generator_TablePropName="t_clientes" msprop:Generator_RowDeletingName="t_clientesRowDeleting" msprop:Generator_RowChangingName="t_clientesRowChanging" msprop:Generator_RowEvHandlerName="t_clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="t_clientesRowDeleted" msprop:Generator_UserTableName="t_clientes" msprop:Generator_RowChangedName="t_clientesRowChanged" msprop:Generator_RowEvArgName="t_clientesRowChangeEvent" msprop:Generator_RowClassName="t_clientesRow">
+        <xs:element name="t_clientes" msprop:Generator_TableClassName="t_clientesDataTable" msprop:Generator_TableVarName="tablet_clientes" msprop:Generator_RowChangedName="t_clientesRowChanged" msprop:Generator_TablePropName="t_clientes" msprop:Generator_RowDeletingName="t_clientesRowDeleting" msprop:Generator_RowChangingName="t_clientesRowChanging" msprop:Generator_RowEvHandlerName="t_clientesRowChangeEventHandler" msprop:Generator_RowDeletedName="t_clientesRowDeleted" msprop:Generator_RowClassName="t_clientesRow" msprop:Generator_UserTableName="t_clientes" msprop:Generator_RowEvArgName="t_clientesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_CLIENTE" msprop:Generator_ColumnVarNameInTable="columnID_CLIENTE" msprop:Generator_ColumnPropNameInRow="ID_CLIENTE" msprop:Generator_ColumnPropNameInTable="ID_CLIENTEColumn" msprop:Generator_UserColumnName="ID_CLIENTE" type="xs:int" minOccurs="0" />
@@ -27,7 +27,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="t_pedidos" msprop:Generator_TableClassName="t_pedidosDataTable" msprop:Generator_TableVarName="tablet_pedidos" msprop:Generator_RowChangedName="t_pedidosRowChanged" msprop:Generator_TablePropName="t_pedidos" msprop:Generator_RowDeletingName="t_pedidosRowDeleting" msprop:Generator_RowChangingName="t_pedidosRowChanging" msprop:Generator_RowEvHandlerName="t_pedidosRowChangeEventHandler" msprop:Generator_RowDeletedName="t_pedidosRowDeleted" msprop:Generator_RowClassName="t_pedidosRow" msprop:Generator_UserTableName="t_pedidos" msprop:Generator_RowEvArgName="t_pedidosRowChangeEvent">
+        <xs:element name="t_pedidos" msprop:Generator_TableClassName="t_pedidosDataTable" msprop:Generator_TableVarName="tablet_pedidos" msprop:Generator_TablePropName="t_pedidos" msprop:Generator_RowDeletingName="t_pedidosRowDeleting" msprop:Generator_RowChangingName="t_pedidosRowChanging" msprop:Generator_RowEvHandlerName="t_pedidosRowChangeEventHandler" msprop:Generator_RowDeletedName="t_pedidosRowDeleted" msprop:Generator_UserTableName="t_pedidos" msprop:Generator_RowChangedName="t_pedidosRowChanged" msprop:Generator_RowEvArgName="t_pedidosRowChangeEvent" msprop:Generator_RowClassName="t_pedidosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NRO_PEDIDO" msprop:Generator_ColumnVarNameInTable="columnNRO_PEDIDO" msprop:Generator_ColumnPropNameInRow="NRO_PEDIDO" msprop:Generator_ColumnPropNameInTable="NRO_PEDIDOColumn" msprop:Generator_UserColumnName="NRO_PEDIDO" type="xs:long" minOccurs="0" />
@@ -37,6 +37,25 @@
               <xs:element name="FECHA_PEDIDO" msprop:Generator_ColumnVarNameInTable="columnFECHA_PEDIDO" msprop:Generator_ColumnPropNameInRow="FECHA_PEDIDO" msprop:Generator_ColumnPropNameInTable="FECHA_PEDIDOColumn" msprop:Generator_UserColumnName="FECHA_PEDIDO" type="xs:dateTime" minOccurs="0" />
               <xs:element name="FECHA_ENTREGA" msprop:Generator_ColumnVarNameInTable="columnFECHA_ENTREGA" msprop:Generator_ColumnPropNameInRow="FECHA_ENTREGA" msprop:Generator_ColumnPropNameInTable="FECHA_ENTREGAColumn" msprop:Generator_UserColumnName="FECHA_ENTREGA" type="xs:boolean" minOccurs="0" />
               <xs:element name="CANCELADO" msprop:Generator_ColumnVarNameInTable="columnCANCELADO" msprop:Generator_ColumnPropNameInRow="CANCELADO" msprop:Generator_ColumnPropNameInTable="CANCELADOColumn" msprop:Generator_UserColumnName="CANCELADO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_productos" msprop:Generator_TableClassName="t_productosDataTable" msprop:Generator_TableVarName="tablet_productos" msprop:Generator_TablePropName="t_productos" msprop:Generator_RowDeletingName="t_productosRowDeleting" msprop:Generator_RowChangingName="t_productosRowChanging" msprop:Generator_RowEvHandlerName="t_productosRowChangeEventHandler" msprop:Generator_RowDeletedName="t_productosRowDeleted" msprop:Generator_UserTableName="t_productos" msprop:Generator_RowChangedName="t_productosRowChanged" msprop:Generator_RowEvArgName="t_productosRowChangeEvent" msprop:Generator_RowClassName="t_productosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Area" msprop:Generator_ColumnVarNameInTable="columnArea" msprop:Generator_ColumnPropNameInRow="Area" msprop:Generator_ColumnPropNameInTable="AreaColumn" msprop:Generator_UserColumnName="Area" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="Categoria" msprop:Generator_ColumnVarNameInTable="columnCategoria" msprop:Generator_ColumnPropNameInRow="Categoria" msprop:Generator_ColumnPropNameInTable="CategoriaColumn" msprop:Generator_UserColumnName="Categoria" type="xs:string" minOccurs="0" />
+              <xs:element name="Marca" msprop:Generator_ColumnVarNameInTable="columnMarca" msprop:Generator_ColumnPropNameInRow="Marca" msprop:Generator_ColumnPropNameInTable="MarcaColumn" msprop:Generator_UserColumnName="Marca" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_paises_y_provincias" msprop:Generator_TableClassName="t_paises_y_provinciasDataTable" msprop:Generator_TableVarName="tablet_paises_y_provincias" msprop:Generator_TablePropName="t_paises_y_provincias" msprop:Generator_RowDeletingName="t_paises_y_provinciasRowDeleting" msprop:Generator_RowChangingName="t_paises_y_provinciasRowChanging" msprop:Generator_RowEvHandlerName="t_paises_y_provinciasRowChangeEventHandler" msprop:Generator_RowDeletedName="t_paises_y_provinciasRowDeleted" msprop:Generator_UserTableName="t_paises_y_provincias" msprop:Generator_RowChangedName="t_paises_y_provinciasRowChanged" msprop:Generator_RowEvArgName="t_paises_y_provinciasRowChangeEvent" msprop:Generator_RowClassName="t_paises_y_provinciasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOMBRE_PAIS" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PAIS" msprop:Generator_ColumnPropNameInRow="NOMBRE_PAIS" msprop:Generator_ColumnPropNameInTable="NOMBRE_PAISColumn" msprop:Generator_UserColumnName="NOMBRE_PAIS" type="xs:string" minOccurs="0" />
+              <xs:element name="NOMBRE_PROVINCIA" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PROVINCIA" msprop:Generator_ColumnPropNameInRow="NOMBRE_PROVINCIA" msprop:Generator_ColumnPropNameInTable="NOMBRE_PROVINCIAColumn" msprop:Generator_UserColumnName="NOMBRE_PROVINCIA" type="xs:string" minOccurs="0" />
+              <xs:element name="CANT_LOCALIDADES" msprop:Generator_ColumnVarNameInTable="columnCANT_LOCALIDADES" msprop:Generator_ColumnPropNameInRow="CANT_LOCALIDADES" msprop:Generator_ColumnPropNameInTable="CANT_LOCALIDADESColumn" msprop:Generator_UserColumnName="CANT_LOCALIDADES" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

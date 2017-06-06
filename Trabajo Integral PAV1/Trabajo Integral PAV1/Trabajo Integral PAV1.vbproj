@@ -82,10 +82,22 @@
     <Compile Include="DataSet1.vb">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Listado productos.Designer.vb">
+      <DependentUpon>Listado productos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado productos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listado_clientes.Designer.vb">
       <DependentUpon>Listado_clientes.vb</DependentUpon>
     </Compile>
     <Compile Include="Listado_clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado_paises_provincias.Designer.vb">
+      <DependentUpon>Listado_paises_provincias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_paises_provincias.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listado_pedidos.Designer.vb">
@@ -171,14 +183,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Listado productos.resx">
+      <DependentUpon>Listado productos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listado_paises_provincias.rdlc" />
     <EmbeddedResource Include="listado_clientes.rdlc" />
     <EmbeddedResource Include="Listado_clientes.resx">
       <DependentUpon>Listado_clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado_paises_provincias.resx">
+      <DependentUpon>Listado_paises_provincias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listado_pedidos.rdlc" />
     <EmbeddedResource Include="Listado_pedidos.resx">
       <DependentUpon>Listado_pedidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="listado_productos.rdlc" />
     <EmbeddedResource Include="Pedidos.resx">
       <DependentUpon>Pedidos.vb</DependentUpon>
     </EmbeddedResource>

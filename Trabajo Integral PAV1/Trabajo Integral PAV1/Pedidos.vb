@@ -401,5 +401,10 @@
         Me.listado_pedidos = New Listado_pedidos
         Me.listado_pedidos.Show()
     End Sub
+
+    Private Sub cmd_reporte_productos_Click(sender As Object, e As EventArgs) Handles cmd_reporte_productos.Click
+        Dim listado_productos As New Listado_productos
+        listado_productos.Show()
+    End Sub
 End Class
 

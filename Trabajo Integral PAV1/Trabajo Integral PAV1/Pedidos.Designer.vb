@@ -57,11 +57,12 @@ Partial Class gestor_pedidos
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tab_nuevo = New System.Windows.Forms.TabPage()
         Me.tab_listado = New System.Windows.Forms.TabPage()
+        Me.cmd_reporte = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tabla_pedidos = New System.Windows.Forms.DataGridView()
         Me.cmd_eliminar = New System.Windows.Forms.Button()
         Me.cmd_salir = New System.Windows.Forms.Button()
-        Me.cmd_reporte = New System.Windows.Forms.Button()
+        Me.cmd_reporte_productos = New System.Windows.Forms.Button()
         Me.panel_producto.SuspendLayout()
         Me.panel_especificaciones.SuspendLayout()
         CType(Me.tabla_detalles, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -401,6 +402,7 @@ Partial Class gestor_pedidos
         '
         'tab_nuevo
         '
+        Me.tab_nuevo.Controls.Add(Me.cmd_reporte_productos)
         Me.tab_nuevo.Controls.Add(Me.panel_nuevo)
         Me.tab_nuevo.Location = New System.Drawing.Point(4, 22)
         Me.tab_nuevo.Name = "tab_nuevo"
@@ -422,6 +424,15 @@ Partial Class gestor_pedidos
         Me.tab_listado.TabIndex = 1
         Me.tab_listado.Text = "Listado"
         Me.tab_listado.UseVisualStyleBackColor = True
+        '
+        'cmd_reporte
+        '
+        Me.cmd_reporte.Location = New System.Drawing.Point(708, 408)
+        Me.cmd_reporte.Name = "cmd_reporte"
+        Me.cmd_reporte.Size = New System.Drawing.Size(75, 23)
+        Me.cmd_reporte.TabIndex = 39
+        Me.cmd_reporte.Text = "Reporte"
+        Me.cmd_reporte.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -471,14 +482,14 @@ Partial Class gestor_pedidos
         Me.cmd_salir.TabIndex = 26
         Me.cmd_salir.UseVisualStyleBackColor = False
         '
-        'cmd_reporte
+        'cmd_reporte_productos
         '
-        Me.cmd_reporte.Location = New System.Drawing.Point(708, 408)
-        Me.cmd_reporte.Name = "cmd_reporte"
-        Me.cmd_reporte.Size = New System.Drawing.Size(75, 23)
-        Me.cmd_reporte.TabIndex = 39
-        Me.cmd_reporte.Text = "Reporte"
-        Me.cmd_reporte.UseVisualStyleBackColor = True
+        Me.cmd_reporte_productos.Location = New System.Drawing.Point(451, 466)
+        Me.cmd_reporte_productos.Name = "cmd_reporte_productos"
+        Me.cmd_reporte_productos.Size = New System.Drawing.Size(89, 73)
+        Me.cmd_reporte_productos.TabIndex = 1
+        Me.cmd_reporte_productos.Text = "Reporte"
+        Me.cmd_reporte_productos.UseVisualStyleBackColor = True
         '
         'gestor_pedidos
         '
@@ -550,4 +561,5 @@ Partial Class gestor_pedidos
     Friend WithEvents fecha_entrega As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents cmd_reporte As System.Windows.Forms.Button
+    Friend WithEvents cmd_reporte_productos As System.Windows.Forms.Button
 End Class
