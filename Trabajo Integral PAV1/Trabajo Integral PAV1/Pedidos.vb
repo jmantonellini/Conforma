@@ -291,13 +291,13 @@
                         End If
                     Else : MessageBox.Show("La fecha de entrega debe ser posterior a la fecha de hoy", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
-                    End If
+                End If
             Else : MsgBox("La marca o el modelo no puede ser nula si el producto es un escape")
                 Exit Sub
-                End If
-            Else : MsgBox("La cantidad de productos no puede ser nula o cero")
-                Exit Sub
             End If
+        Else : MsgBox("La cantidad de productos no puede ser nula o cero")
+            Exit Sub
+        End If
 
         Me.cmd_nuevo.Enabled = True
         Me.cmd_guardar.Enabled = False
@@ -384,7 +384,7 @@
             Else
                 MessageBox.Show("No se puede eliminar un detalle que está cancelado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-            
+
 
         Else
             If MessageBox.Show("¿Seguro que desea eliminar un detalle de pedido?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
