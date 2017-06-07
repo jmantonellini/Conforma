@@ -27,7 +27,7 @@
     End Sub
 
   
-    Private Sub cmd_provincias_Click(sender As Object, e As EventArgs) Handles cmd_provincias.Click, cmd_productos.Click, cmd_pedidos_cliente.Click, cmd_empresas.Click, cmd_detalles.Click, cmd_clientes.Click
+    Private Sub cmd_provincias_Click(sender As Object, e As EventArgs) Handles cmd_provincias.Click, cmd_productos.Click, cmd_pedidos_cliente.Click, cmd_empresas.Click, cmd_detalles.Click, cmd_clientes.Click, cmd_clientes_por_empresa.Click
 
     End Sub
 End Class

@@ -836,7 +836,7 @@
 
     Public Function tabla_listado_clientes(ByVal filtro As String) As Data.DataTable
         Dim sql As String = ""
-        sql = "SELECT * FROM CLIENTES WHERE CLIENTES.NOMBRE LIKE '" & filtro & "%'"
+        sql = "SELECT * FROM CLIENTES WHERE CLIENTES.APELLIDO LIKE '" & filtro & "%'"
 
         Return Me.ejecuto_sql(sql)
     End Function
@@ -848,7 +848,7 @@
         sql &= " JOIN PRODUCTOS ON DETALLES_PEDIDOS.ID_PRODUCTO = PRODUCTOS.ID_PRODUCTO"
         sql &= " JOIN AREAS A ON PRODUCTOS.ID_AREA = A.ID_AREA"
         sql &= " JOIN TIPOS_PRODUCTOS TIPO ON PRODUCTOS.ID_TIPO_PRODUCTO = TIPO.ID_TIPO_PRODUCTO"
-        sql &= " WHERE P.NRO_PEDIDO LIKE '" & filtro & "%'"
+        sql &= " WHERE P.NRO_PEDIDO LIKE '%" & filtro & "%'"
         sql &= " ORDER BY 2"
 
         Return Me.ejecuto_sql(sql)

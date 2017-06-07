@@ -47,7 +47,7 @@ Partial Class Listado_empresas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(28, 33)
+        Me.Label1.Location = New System.Drawing.Point(29, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 0
@@ -55,14 +55,14 @@ Partial Class Listado_empresas
         '
         'txt_buscar
         '
-        Me.txt_buscar.Location = New System.Drawing.Point(79, 33)
+        Me.txt_buscar.Location = New System.Drawing.Point(79, 21)
         Me.txt_buscar.Name = "txt_buscar"
         Me.txt_buscar.Size = New System.Drawing.Size(100, 20)
         Me.txt_buscar.TabIndex = 1
         '
         'cmd_buscar
         '
-        Me.cmd_buscar.Location = New System.Drawing.Point(215, 29)
+        Me.cmd_buscar.Location = New System.Drawing.Point(196, 19)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(75, 23)
         Me.cmd_buscar.TabIndex = 2

@@ -55,9 +55,9 @@ Partial Class Reportes
         'cmd_detalles
         '
         Me.cmd_detalles.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_detalles.Location = New System.Drawing.Point(62, 190)
+        Me.cmd_detalles.Location = New System.Drawing.Point(62, 183)
         Me.cmd_detalles.Name = "cmd_detalles"
-        Me.cmd_detalles.Size = New System.Drawing.Size(132, 64)
+        Me.cmd_detalles.Size = New System.Drawing.Size(132, 56)
         Me.cmd_detalles.TabIndex = 43
         Me.cmd_detalles.Text = "Pedidos Detallados"
         Me.cmd_detalles.UseVisualStyleBackColor = True
@@ -75,7 +75,7 @@ Partial Class Reportes
         'cmd_pedidos_cliente
         '
         Me.cmd_pedidos_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_pedidos_cliente.Location = New System.Drawing.Point(232, 78)
+        Me.cmd_pedidos_cliente.Location = New System.Drawing.Point(240, 78)
         Me.cmd_pedidos_cliente.Name = "cmd_pedidos_cliente"
         Me.cmd_pedidos_cliente.Size = New System.Drawing.Size(132, 56)
         Me.cmd_pedidos_cliente.TabIndex = 45
@@ -85,9 +85,9 @@ Partial Class Reportes
         'cmd_productos
         '
         Me.cmd_productos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_productos.Location = New System.Drawing.Point(232, 198)
+        Me.cmd_productos.Location = New System.Drawing.Point(240, 183)
         Me.cmd_productos.Name = "cmd_productos"
-        Me.cmd_productos.Size = New System.Drawing.Size(132, 64)
+        Me.cmd_productos.Size = New System.Drawing.Size(132, 56)
         Me.cmd_productos.TabIndex = 46
         Me.cmd_productos.Text = "Productos Pedidos"
         Me.cmd_productos.UseVisualStyleBackColor = True
@@ -95,7 +95,7 @@ Partial Class Reportes
         'cmd_empresas
         '
         Me.cmd_empresas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_empresas.Location = New System.Drawing.Point(418, 198)
+        Me.cmd_empresas.Location = New System.Drawing.Point(418, 183)
         Me.cmd_empresas.Name = "cmd_empresas"
         Me.cmd_empresas.Size = New System.Drawing.Size(132, 56)
         Me.cmd_empresas.TabIndex = 47
@@ -105,7 +105,7 @@ Partial Class Reportes
         'cmd_clientes_por_empresa
         '
         Me.cmd_clientes_por_empresa.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd_clientes_por_empresa.Location = New System.Drawing.Point(232, 296)
+        Me.cmd_clientes_por_empresa.Location = New System.Drawing.Point(240, 296)
         Me.cmd_clientes_por_empresa.Name = "cmd_clientes_por_empresa"
         Me.cmd_clientes_por_empresa.Size = New System.Drawing.Size(132, 56)
         Me.cmd_clientes_por_empresa.TabIndex = 48
