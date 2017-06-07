@@ -491,7 +491,7 @@
         agrear_business.Show()
     End Sub
 
-    Private Sub cmd_listar_Click(sender As Object, e As EventArgs) Handles cmd_reporte.Click
+    Private Sub cmd_listar_Click(sender As Object, e As EventArgs)
         Me.listar_clientes = New Listado_clientes
         Me.listar_clientes.Show()
     End Sub

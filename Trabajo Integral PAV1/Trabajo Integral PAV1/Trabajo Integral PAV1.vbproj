@@ -94,6 +94,18 @@
     <Compile Include="Listado_clientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listado_clientes_por_empresa.Designer.vb">
+      <DependentUpon>Listado_clientes_por_empresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_clientes_por_empresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado_empresas.Designer.vb">
+      <DependentUpon>Listado_empresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_empresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listado_paises_provincias.Designer.vb">
       <DependentUpon>Listado_paises_provincias.vb</DependentUpon>
     </Compile>
@@ -104,6 +116,12 @@
       <DependentUpon>Listado_pedidos.vb</DependentUpon>
     </Compile>
     <Compile Include="Listado_pedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado_pedidos_por_cliente.Designer.vb">
+      <DependentUpon>Listado_pedidos_por_cliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_pedidos_por_cliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pedidos.Designer.vb">
@@ -181,10 +199,24 @@
     <Compile Include="Gestor empresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes.Designer.vb">
+      <DependentUpon>Reportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Listado productos.resx">
       <DependentUpon>Listado productos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listado_clientes_empresa.rdlc" />
+    <EmbeddedResource Include="Listado_clientes_por_empresa.resx">
+      <DependentUpon>Listado_clientes_por_empresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listado_empresas.rdlc" />
+    <EmbeddedResource Include="Listado_empresas.resx">
+      <DependentUpon>Listado_empresas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listado_paises_provincias.rdlc" />
     <EmbeddedResource Include="listado_clientes.rdlc" />
@@ -198,7 +230,11 @@
     <EmbeddedResource Include="Listado_pedidos.resx">
       <DependentUpon>Listado_pedidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listado_pedidos_por_cliente.resx">
+      <DependentUpon>Listado_pedidos_por_cliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="listado_productos.rdlc" />
+    <EmbeddedResource Include="llistado_pedidos_cliente.rdlc" />
     <EmbeddedResource Include="Pedidos.resx">
       <DependentUpon>Pedidos.vb</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestor empresas.resx">
       <DependentUpon>Gestor empresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

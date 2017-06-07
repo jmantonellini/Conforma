@@ -290,6 +290,7 @@
                             MessageBox.Show("El pedido se ha agregado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End If
                     Else : MessageBox.Show("La fecha de entrega debe ser posterior a la fecha de hoy", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Exit Sub
                     End If
                 End If
             Else : MsgBox("La marca o el modelo no puede ser nula si el producto es un escape")
@@ -397,12 +398,12 @@
 
     End Sub
 
-    Private Sub cmd_reporte_Click(sender As Object, e As EventArgs) Handles cmd_reporte.Click
+    Private Sub cmd_reporte_Click(sender As Object, e As EventArgs)
         Me.listado_pedidos = New Listado_pedidos
         Me.listado_pedidos.Show()
     End Sub
 
-    Private Sub cmd_reporte_productos_Click(sender As Object, e As EventArgs) Handles cmd_reporte_productos.Click
+    Private Sub cmd_reporte_productos_Click(sender As Object, e As EventArgs)
         Dim listado_productos As New Listado_productos
         listado_productos.Show()
     End Sub

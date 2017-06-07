@@ -35,7 +35,6 @@ Partial Class gestor_paises
         Me.cmd_salir = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lbl_hora = New System.Windows.Forms.Label()
-        Me.cmd_reporte = New System.Windows.Forms.Button()
         CType(Me.tabla_paises, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -147,21 +146,11 @@ Partial Class gestor_paises
         Me.lbl_hora.TabIndex = 45
         Me.lbl_hora.Text = "Label22"
         '
-        'cmd_reporte
-        '
-        Me.cmd_reporte.Location = New System.Drawing.Point(380, 122)
-        Me.cmd_reporte.Name = "cmd_reporte"
-        Me.cmd_reporte.Size = New System.Drawing.Size(75, 23)
-        Me.cmd_reporte.TabIndex = 46
-        Me.cmd_reporte.Text = "Reporte"
-        Me.cmd_reporte.UseVisualStyleBackColor = True
-        '
         'gestor_paises
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(476, 456)
-        Me.Controls.Add(Me.cmd_reporte)
         Me.Controls.Add(Me.lbl_hora)
         Me.Controls.Add(Me.cmd_salir)
         Me.Controls.Add(Me.cmd_eliminar)
@@ -190,5 +179,4 @@ Partial Class gestor_paises
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents lbl_hora As System.Windows.Forms.Label
-    Friend WithEvents cmd_reporte As System.Windows.Forms.Button
 End Class

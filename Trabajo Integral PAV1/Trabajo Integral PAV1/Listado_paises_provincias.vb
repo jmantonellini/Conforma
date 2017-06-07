@@ -1,4 +1,4 @@
-﻿Public Class Listado_paises_provincias
+Public Class Listado_paises_provincias
 
     Dim conexion As New Conexion
 
@@ -7,6 +7,8 @@
     End Sub
 
     Private Sub cargar_reporte()
+
+        Me.t_paises_y_provinciasBindingSource.DataSource = conexion.tabla_listado_paises_provincias()
         Me.t_paises_y_provinciasBindingSource.DataSource = Me.conexion.tabla_listado_paises_provincias()
         Me.ReportViewer1.RefreshReport()
     End Sub

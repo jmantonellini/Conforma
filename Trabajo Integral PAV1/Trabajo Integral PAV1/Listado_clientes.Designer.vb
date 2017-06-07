@@ -29,6 +29,7 @@ Partial Class Listado_clientes
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.txt_buscar = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.t_clientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,16 +74,27 @@ Partial Class Listado_clientes
         Me.txt_buscar.Size = New System.Drawing.Size(100, 20)
         Me.txt_buscar.TabIndex = 2
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(31, 17)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Apellido:"
+        '
         'Listado_clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(976, 474)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.cmd_buscar)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Listado_clientes"
         Me.Text = "Listado de clientes"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_clientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -94,4 +106,5 @@ Partial Class Listado_clientes
     Friend WithEvents DataSet1 As Trabajo_Integral_PAV1.DataSet1
     Friend WithEvents cmd_buscar As System.Windows.Forms.Button
     Friend WithEvents txt_buscar As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
