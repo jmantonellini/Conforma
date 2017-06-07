@@ -173,7 +173,7 @@
         Me.lbl_hora.Text = DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss ")
     End Sub
 
-    Private Sub cmd_reporte_Click(sender As Object, e As EventArgs) Handles cmd_reporte.Click
+    Private Sub cmd_reporte_Click(sender As Object, e As EventArgs)
         Dim listado_paises As New Listado_paises_provincias
         listado_paises.Show()
     End Sub
