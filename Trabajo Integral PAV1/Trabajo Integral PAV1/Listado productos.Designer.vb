@@ -83,6 +83,7 @@ Partial Class Listado_productos
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Listado_productos"
         Me.Text = "Listado_productos"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_productosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

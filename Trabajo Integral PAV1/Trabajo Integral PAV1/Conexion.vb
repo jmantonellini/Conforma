@@ -843,13 +843,13 @@
 
     Public Function tabla_listado_pedidos(ByVal filtro As String) As Data.DataTable
         Dim sql As String = ""
-        sql = "SELECT P.NRO_PEDIDO, DETALLES_PEDIDOS.ID_DETALLE_PEDIDO, A.NOMBRE as 'NOMBRE_AREA', TIPO.NOMBRE AS 'NOMBRE_PRODUCTO', P.FECHA_PEDIDO, P.FECHA_ENTREGA, P.CANCELADO"
+        sql = "SELECT P.NRO_PEDIDO, DETALLES_PEDIDOS.ID_DETALLE_PEDIDO, A.NOMBRE as 'NOMBRE_AREA', TIPO.NOMBRE AS 'NOMBRE_PRODUCTO', P.FECHA_PEDIDO, P.FECHA_ENTREGA, DETALLES_PEDIDOS.CANTIDAD,PRODUCTOS.OBSERVACIONES"
         sql &= " FROM PEDIDOS P JOIN DETALLES_PEDIDOS ON DETALLES_PEDIDOS.NRO_PEDIDO = P.NRO_PEDIDO"
         sql &= " JOIN PRODUCTOS ON DETALLES_PEDIDOS.ID_PRODUCTO = PRODUCTOS.ID_PRODUCTO"
         sql &= " JOIN AREAS A ON PRODUCTOS.ID_AREA = A.ID_AREA"
         sql &= " JOIN TIPOS_PRODUCTOS TIPO ON PRODUCTOS.ID_TIPO_PRODUCTO = TIPO.ID_TIPO_PRODUCTO"
         sql &= " WHERE P.NRO_PEDIDO LIKE '" & filtro & "%'"
-        sql &= " ORDER BY 1"
+        sql &= " ORDER BY 2"
 
         Return Me.ejecuto_sql(sql)
     End Function
@@ -874,6 +874,16 @@
         sql &= " FROM PAISES P JOIN PROVINCIAS PR ON P.ID_PAIS = PR.ID_PAIS LEFT JOIN CIUDADES C ON C.ID_PROVINCIA = PR.ID_PROVINCIA"
         sql &= " GROUP BY P.NOMBRE, PR.NOMBRE"
         sql &= " ORDER BY P.NOMBRE,3 DESC"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
+
+    Public Function tabla_pedidos_por_cliente(ByVal filtro As String) As Data.DataTable
+        Dim sql As String = "SELECT C.ID_CLIENTE AS 'CLIENTE',C.NOMBRE as 'NOMBRE',C.APELLIDO AS 'APELLIDO',P.NRO_PEDIDO AS 'NRO_PEDIDO',P.FECHA_ENTREGA AS 'FECHA_ENTREGA',COUNT(DP.ID_DETALLE_PEDIDO) AS 'CANTIDAD_ITEMS' FROM PEDIDOS P" _
+                            & " RIGHT JOIN CLIENTES C ON C.ID_CLIENTE = P.ID_CLIENTE " _
+                            & " LEFT JOIN DETALLES_PEDIDOS DP ON DP.NRO_PEDIDO = P.NRO_PEDIDO " _
+                            & " WHERE C.APELLIDO LIKE '" & filtro & "%'" _
+                            & " GROUP BY C.ID_CLIENTE,C.NOMBRE,C.APELLIDO,P.NRO_PEDIDO,P.FECHA_ENTREGA"
 
         Return Me.ejecuto_sql(sql)
     End Function

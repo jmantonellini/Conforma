@@ -290,6 +290,7 @@
                             MessageBox.Show("El pedido se ha agregado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         End If
                     Else : MessageBox.Show("La fecha de entrega debe ser posterior a la fecha de hoy", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Exit Sub
                     End If
                     End If
             Else : MsgBox("La marca o el modelo no puede ser nula si el producto es un escape")

@@ -29,12 +29,13 @@ Partial Class Menu
         Me.cmd_gestor_marcas = New System.Windows.Forms.Button()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.lbl_hora = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmd_gestor_paises = New System.Windows.Forms.Button()
         Me.cmd_gestor_categoria = New System.Windows.Forms.Button()
         Me.cmd_provincias = New System.Windows.Forms.Button()
         Me.cmd_gestor_localidades = New System.Windows.Forms.Button()
         Me.cmd_pedidos = New System.Windows.Forms.Button()
+        Me.cmd_reportes = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -80,21 +81,11 @@ Partial Class Menu
         '
         'lbl_hora
         '
-        Me.lbl_hora.Location = New System.Drawing.Point(238, 470)
+        Me.lbl_hora.Location = New System.Drawing.Point(324, 473)
         Me.lbl_hora.Name = "lbl_hora"
         Me.lbl_hora.Size = New System.Drawing.Size(124, 14)
         Me.lbl_hora.TabIndex = 35
         Me.lbl_hora.Text = "Label22"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
-        Me.PictureBox1.Location = New System.Drawing.Point(154, 392)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(183, 63)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 36
-        Me.PictureBox1.TabStop = False
         '
         'cmd_gestor_paises
         '
@@ -137,7 +128,7 @@ Partial Class Menu
         Me.cmd_gestor_localidades.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_gestor_localidades.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_gestor_localidades.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_gestor_localidades.Location = New System.Drawing.Point(79, 316)
+        Me.cmd_gestor_localidades.Location = New System.Drawing.Point(452, 56)
         Me.cmd_gestor_localidades.Name = "cmd_gestor_localidades"
         Me.cmd_gestor_localidades.Size = New System.Drawing.Size(171, 58)
         Me.cmd_gestor_localidades.TabIndex = 6
@@ -149,19 +140,42 @@ Partial Class Menu
         Me.cmd_pedidos.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.cmd_pedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmd_pedidos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.cmd_pedidos.Location = New System.Drawing.Point(266, 316)
+        Me.cmd_pedidos.Location = New System.Drawing.Point(452, 146)
         Me.cmd_pedidos.Name = "cmd_pedidos"
         Me.cmd_pedidos.Size = New System.Drawing.Size(171, 58)
         Me.cmd_pedidos.TabIndex = 7
         Me.cmd_pedidos.Text = "Pedidos"
         Me.cmd_pedidos.UseVisualStyleBackColor = False
         '
+        'cmd_reportes
+        '
+        Me.cmd_reportes.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_reportes.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_reportes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.cmd_reportes.Location = New System.Drawing.Point(452, 238)
+        Me.cmd_reportes.Name = "cmd_reportes"
+        Me.cmd_reportes.Size = New System.Drawing.Size(171, 58)
+        Me.cmd_reportes.TabIndex = 37
+        Me.cmd_reportes.Text = "Reportes"
+        Me.cmd_reportes.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Trabajo_Integral_PAV1.My.Resources.Resources.LogoConforma_Mesc_e1484836503615
+        Me.PictureBox1.Location = New System.Drawing.Point(265, 392)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(183, 63)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 36
+        Me.PictureBox1.TabStop = False
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(516, 516)
+        Me.ClientSize = New System.Drawing.Size(713, 516)
+        Me.Controls.Add(Me.cmd_reportes)
         Me.Controls.Add(Me.cmd_pedidos)
         Me.Controls.Add(Me.cmd_provincias)
         Me.Controls.Add(Me.cmd_gestor_localidades)
@@ -192,4 +206,5 @@ Partial Class Menu
     Friend WithEvents cmd_provincias As System.Windows.Forms.Button
     Friend WithEvents cmd_gestor_localidades As System.Windows.Forms.Button
     Friend WithEvents cmd_pedidos As System.Windows.Forms.Button
+    Friend WithEvents cmd_reportes As System.Windows.Forms.Button
 End Class

@@ -6,12 +6,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>28.74194cm</Width>
+              <Width>31.24194cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>2.63229cm</Height>
+              <Height>4.70076cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -24,19 +24,16 @@
                                 <Width>2.5cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>6.01014cm</Width>
+                                <Width>5.38396cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>5.90431cm</Width>
+                                <Width>5.84934cm</Width>
                               </TablixColumn>
                               <TablixColumn>
                                 <Width>4.66201cm</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>5.03118cm</Width>
-                              </TablixColumn>
-                              <TablixColumn>
-                                <Width>4.05222cm</Width>
+                                <Width>6.53663cm</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -82,7 +79,7 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox10">
+                                      <Textbox Name="Textbox15">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -102,7 +99,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox10</rd:DefaultName>
+                                        <rd:DefaultName>Textbox15</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -163,7 +160,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Fecha Pedido</Value>
+                                                <Value>Cantidad</Value>
                                                 <Style>
                                                   <FontSize>12pt</FontSize>
                                                   <FontWeight>Bold</FontWeight>
@@ -200,7 +197,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Fecha Entrega</Value>
+                                                <Value>Observaciones</Value>
                                                 <Style>
                                                   <FontSize>12pt</FontSize>
                                                   <FontWeight>Bold</FontWeight>
@@ -214,43 +211,6 @@
                                           </Paragraph>
                                         </Paragraphs>
                                         <rd:DefaultName>Textbox16</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <BackgroundColor>Black</BackgroundColor>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="Textbox18">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>Cancelado</Value>
-                                                <Style>
-                                                  <FontSize>12pt</FontSize>
-                                                  <FontWeight>Bold</FontWeight>
-                                                  <Color>White</Color>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <TextAlign>Center</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>Textbox18</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -304,7 +264,7 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="NOMBRE_AREA">
+                                      <Textbox Name="NOMBRE_AREA1">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -318,7 +278,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>NOMBRE_AREA</rd:DefaultName>
+                                        <rd:DefaultName>NOMBRE_AREA1</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -364,21 +324,21 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="FECHA_PEDIDO">
+                                      <Textbox Name="CANTIDAD">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!FECHA_PEDIDO.Value</Value>
+                                                <Value>=Fields!CANTIDAD.Value</Value>
                                                 <Style />
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>FECHA_PEDIDO</rd:DefaultName>
+                                        <rd:DefaultName>CANTIDAD</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -394,53 +354,21 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="FECHA_ENTREGA">
+                                      <Textbox Name="OBSERVACIONES">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!FECHA_ENTREGA.Value</Value>
+                                                <Value>=Fields!OBSERVACIONES.Value</Value>
                                                 <Style />
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>FECHA_ENTREGA</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixCell>
-                                  <TablixCell>
-                                    <CellContents>
-                                      <Textbox Name="CANCELADO">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>=Fields!CANCELADO.Value</Value>
-                                                <Style />
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style>
-                                              <TextAlign>Center</TextAlign>
-                                            </Style>
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>CANCELADO</rd:DefaultName>
+                                        <rd:DefaultName>OBSERVACIONES</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -465,7 +393,6 @@
                               <TablixMember />
                               <TablixMember />
                               <TablixMember />
-                              <TablixMember />
                             </TablixMembers>
                           </TablixColumnHierarchy>
                           <TablixRowHierarchy>
@@ -483,10 +410,10 @@
                             </TablixMembers>
                           </TablixRowHierarchy>
                           <DataSetName>DataSet1</DataSetName>
-                          <Top>1.11125cm</Top>
+                          <Top>1.905cm</Top>
                           <Left>0.58208cm</Left>
                           <Height>1.2cm</Height>
-                          <Width>28.15986cm</Width>
+                          <Width>24.93194cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -510,6 +437,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.58208cm</Top>
                           <Left>0.58208cm</Left>
                           <Height>0.6cm</Height>
                           <Width>3.47896cm</Width>
@@ -524,7 +452,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="Textbox3">
+                        <Textbox Name="NRO_PEDIDO1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -538,7 +466,8 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <rd:DefaultName>NRO_PEDIDO1</rd:DefaultName>
+                          <Top>0.58208cm</Top>
                           <Left>4.52847cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -553,6 +482,142 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Fecha de Pedido:</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.58208cm</Top>
+                          <Left>10.12472cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>3.47896cm</Width>
+                          <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="FECHA_PEDIDO1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FECHA_PEDIDO.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FECHA_PEDIDO1</rd:DefaultName>
+                          <Top>0.58208cm</Top>
+                          <Left>13.64368cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>3.32021cm</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Fecha de Entrega:</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.58208cm</Top>
+                          <Left>19.64971cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>3.47896cm</Width>
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="FECHA_ENTREGA1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FECHA_ENTREGA.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FECHA_ENTREGA1</rd:DefaultName>
+                          <Top>0.58208cm</Top>
+                          <Left>23.30506cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>3.77cm</Width>
+                          <ZIndex>6</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line2">
+                          <Top>4.10076cm</Top>
+                          <Left>0.58208cm</Left>
+                          <Height>0cm</Height>
+                          <Width>26.81521cm</Width>
+                          <ZIndex>7</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -625,10 +690,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.56099cm</Top>
-        <Left>0.72002cm</Left>
-        <Height>2.63229cm</Height>
-        <Width>28.82132cm</Width>
+        <Top>0.49043cm</Top>
+        <Left>0.7553cm</Left>
+        <Height>4.70076cm</Height>
+        <Width>31.32132cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -636,10 +701,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.69134in</Height>
+    <Height>2.05767in</Height>
     <Style />
   </Body>
-  <Width>12.58345in</Width>
+  <Width>12.62859in</Width>
   <Page>
     <PageHeader>
       <Height>3.06973cm</Height>
@@ -808,14 +873,18 @@
           <DataField>FECHA_ENTREGA</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="CANCELADO">
-          <DataField>CANCELADO</DataField>
+        <Field Name="CANTIDAD">
+          <DataField>CANTIDAD</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="OBSERVACIONES">
+          <DataField>OBSERVACIONES</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\gasto\Source\Conforma\Trabajo Integral PAV1\Trabajo Integral PAV1\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Mateo\Facu\PAV\Conforma\Trabajo Integral PAV1\Trabajo Integral PAV1\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>t_pedidos</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

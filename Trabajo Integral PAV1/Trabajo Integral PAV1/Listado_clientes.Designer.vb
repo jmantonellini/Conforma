@@ -83,6 +83,7 @@ Partial Class Listado_clientes
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Listado_clientes"
         Me.Text = "Listado de clientes"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_clientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

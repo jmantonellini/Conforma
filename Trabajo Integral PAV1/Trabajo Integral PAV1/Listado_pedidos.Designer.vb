@@ -54,7 +54,7 @@ Partial Class Listado_pedidos
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.listado_pedidos.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(2, 67)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(805, 326)
+        Me.ReportViewer1.Size = New System.Drawing.Size(982, 398)
         Me.ReportViewer1.TabIndex = 0
         '
         'txt_buscar
@@ -77,12 +77,13 @@ Partial Class Listado_pedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(809, 393)
+        Me.ClientSize = New System.Drawing.Size(986, 465)
         Me.Controls.Add(Me.cmd_buscar)
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Listado_pedidos"
         Me.Text = "Listado_pedidos"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_pedidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
