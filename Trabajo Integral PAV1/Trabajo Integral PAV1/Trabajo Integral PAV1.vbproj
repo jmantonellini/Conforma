@@ -94,6 +94,18 @@
     <Compile Include="Listado_clientes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Listado_clientes_por_empresa.Designer.vb">
+      <DependentUpon>Listado_clientes_por_empresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_clientes_por_empresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado_empresas.Designer.vb">
+      <DependentUpon>Listado_empresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_empresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listado_paises_provincias.Designer.vb">
       <DependentUpon>Listado_paises_provincias.vb</DependentUpon>
     </Compile>
@@ -197,6 +209,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Listado productos.resx">
       <DependentUpon>Listado productos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listado_clientes_empresa.rdlc" />
+    <EmbeddedResource Include="Listado_clientes_por_empresa.resx">
+      <DependentUpon>Listado_clientes_por_empresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listado_empresas.rdlc" />
+    <EmbeddedResource Include="Listado_empresas.resx">
+      <DependentUpon>Listado_empresas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listado_paises_provincias.rdlc" />
     <EmbeddedResource Include="listado_clientes.rdlc" />

@@ -23,7 +23,7 @@ Partial Class Listado_pedidos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.t_pedidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -48,9 +48,9 @@ Partial Class Listado_pedidos
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.t_pedidosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.t_pedidosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.listado_pedidos.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(2, 67)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -82,7 +82,7 @@ Partial Class Listado_pedidos
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Listado_pedidos"
-        Me.Text = "Listado_pedidos"
+        Me.Text = "Pedidos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_pedidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()

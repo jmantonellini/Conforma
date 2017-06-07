@@ -373,7 +373,6 @@
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -453,7 +452,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Listda de Pedidos por Cliente</Value>
+                  <Value>Listado de Pedidos por Cliente</Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -466,10 +465,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>0.63182cm</Top>
-          <Left>6.20099cm</Left>
-          <Height>1.73179cm</Height>
-          <Width>7.07729cm</Width>
+          <Top>1.42543cm</Top>
+          <Left>4.9974cm</Left>
+          <Height>0.93818cm</Height>
+          <Width>9.98771cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>

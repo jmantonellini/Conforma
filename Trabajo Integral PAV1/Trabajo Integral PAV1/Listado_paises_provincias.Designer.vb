@@ -60,7 +60,7 @@ Partial Class Listado_paises_provincias
         Me.ClientSize = New System.Drawing.Size(913, 454)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Listado_paises_provincias"
-        Me.Text = "Listado_paises_provincias"
+        Me.Text = "Paises"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_paises_y_provinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
