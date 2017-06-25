@@ -901,4 +901,21 @@
                             & " ORDER BY 2"
         Return Me.ejecuto_sql(sql)
     End Function
+
+    Public Function grafico_pedidos_cancelados() As Data.DataTable
+        Dim sql As String = "SELECT COUNT(*) AS 'CANTIDAD' FROM PEDIDOS WHERE CANCELADO = 0"
+        sql &= " UNION"
+        sql &= " SELECT COUNT(*) AS 'CANT_CANCELADOS' FROM PEDIDOS WHERE CANCELADO = 1"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
+
+    Public Function grafico_pedidos_productos() As Data.DataTable
+        Dim sql As String = "SELECT TP.NOMBRE AS 'TIPO_PRODUCTO', COUNT(*) AS 'CANTIDAD' FROM PEDIDOS JOIN DETALLES_PEDIDOS ON PEDIDOS.NRO_PEDIDO ="
+        sql &= " DETALLES_PEDIDOS.NRO_PEDIDO JOIN PRODUCTOS ON DETALLES_PEDIDOS.ID_PRODUCTO = PRODUCTOS.ID_PRODUCTO"
+        sql &= " JOIN TIPOS_PRODUCTOS TP ON PRODUCTOS.ID_TIPO_PRODUCTO = TP.ID_TIPO_PRODUCTO"
+        sql &= " GROUP BY TP.NOMBRE"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
 End Class

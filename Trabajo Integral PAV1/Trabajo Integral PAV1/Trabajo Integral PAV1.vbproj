@@ -82,6 +82,24 @@
     <Compile Include="DataSet1.vb">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Estadisticas.Designer.vb">
+      <DependentUpon>Estadisticas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grafico pedidos cancelados.Designer.vb">
+      <DependentUpon>Grafico pedidos cancelados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico pedidos cancelados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grafico productos pedidos.Designer.vb">
+      <DependentUpon>Grafico productos pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico productos pedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Listado productos.Designer.vb">
       <DependentUpon>Listado productos.vb</DependentUpon>
     </Compile>
@@ -207,6 +225,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Estadisticas.resx">
+      <DependentUpon>Estadisticas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grafico pedidos cancelados.resx">
+      <DependentUpon>Grafico pedidos cancelados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grafico productos pedidos.resx">
+      <DependentUpon>Grafico productos pedidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="grafico_pedidos_cancelados.rdlc" />
+    <EmbeddedResource Include="grafico_productos_pedidos.rdlc" />
     <EmbeddedResource Include="Listado productos.resx">
       <DependentUpon>Listado productos.vb</DependentUpon>
     </EmbeddedResource>

@@ -95,6 +95,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="t_pedidos_cancelados" msprop:Generator_TableClassName="t_pedidos_canceladosDataTable" msprop:Generator_TableVarName="tablet_pedidos_cancelados" msprop:Generator_RowChangedName="t_pedidos_canceladosRowChanged" msprop:Generator_TablePropName="t_pedidos_cancelados" msprop:Generator_RowDeletingName="t_pedidos_canceladosRowDeleting" msprop:Generator_RowChangingName="t_pedidos_canceladosRowChanging" msprop:Generator_RowEvHandlerName="t_pedidos_canceladosRowChangeEventHandler" msprop:Generator_RowDeletedName="t_pedidos_canceladosRowDeleted" msprop:Generator_RowClassName="t_pedidos_canceladosRow" msprop:Generator_UserTableName="t_pedidos_cancelados" msprop:Generator_RowEvArgName="t_pedidos_canceladosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_UserColumnName="CANTIDAD" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_productos_pedidos" msprop:Generator_TableClassName="t_productos_pedidosDataTable" msprop:Generator_TableVarName="tablet_productos_pedidos" msprop:Generator_TablePropName="t_productos_pedidos" msprop:Generator_RowDeletingName="t_productos_pedidosRowDeleting" msprop:Generator_RowChangingName="t_productos_pedidosRowChanging" msprop:Generator_RowEvHandlerName="t_productos_pedidosRowChangeEventHandler" msprop:Generator_RowDeletedName="t_productos_pedidosRowDeleted" msprop:Generator_UserTableName="t_productos_pedidos" msprop:Generator_RowChangedName="t_productos_pedidosRowChanged" msprop:Generator_RowEvArgName="t_productos_pedidosRowChangeEvent" msprop:Generator_RowClassName="t_productos_pedidosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TIPO_PRODUCTO" msprop:Generator_ColumnVarNameInTable="columnTIPO_PRODUCTO" msprop:Generator_ColumnPropNameInRow="TIPO_PRODUCTO" msprop:Generator_ColumnPropNameInTable="TIPO_PRODUCTOColumn" msprop:Generator_UserColumnName="TIPO_PRODUCTO" type="xs:string" minOccurs="0" />
+              <xs:element name="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_UserColumnName="CANTIDAD" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

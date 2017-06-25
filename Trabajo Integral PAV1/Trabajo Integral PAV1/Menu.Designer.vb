@@ -36,6 +36,7 @@ Partial Class Menu
         Me.cmd_pedidos = New System.Windows.Forms.Button()
         Me.cmd_reportes = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cmd_estadisticas = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -169,6 +170,18 @@ Partial Class Menu
         Me.PictureBox1.TabIndex = 36
         Me.PictureBox1.TabStop = False
         '
+        'cmd_estadisticas
+        '
+        Me.cmd_estadisticas.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cmd_estadisticas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_estadisticas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.cmd_estadisticas.Location = New System.Drawing.Point(79, 322)
+        Me.cmd_estadisticas.Name = "cmd_estadisticas"
+        Me.cmd_estadisticas.Size = New System.Drawing.Size(171, 58)
+        Me.cmd_estadisticas.TabIndex = 4
+        Me.cmd_estadisticas.Text = "Estadisticas"
+        Me.cmd_estadisticas.UseVisualStyleBackColor = False
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -179,6 +192,7 @@ Partial Class Menu
         Me.Controls.Add(Me.cmd_pedidos)
         Me.Controls.Add(Me.cmd_provincias)
         Me.Controls.Add(Me.cmd_gestor_localidades)
+        Me.Controls.Add(Me.cmd_estadisticas)
         Me.Controls.Add(Me.cmd_gestor_categoria)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lbl_hora)
@@ -207,4 +221,5 @@ Partial Class Menu
     Friend WithEvents cmd_gestor_localidades As System.Windows.Forms.Button
     Friend WithEvents cmd_pedidos As System.Windows.Forms.Button
     Friend WithEvents cmd_reportes As System.Windows.Forms.Button
+    Friend WithEvents cmd_estadisticas As System.Windows.Forms.Button
 End Class
