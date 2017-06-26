@@ -24,20 +24,30 @@ Partial Class Reporte_ventas_por_mes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txt_año = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.t_pedidos_por_mesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txt_año = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        CType(Me.t_pedidos_por_mesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        CType(Me.t_pedidos_por_mesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        't_pedidos_por_mesBindingSource
+        '
+        Me.t_pedidos_por_mesBindingSource.DataMember = "t_pedidos_por_mes"
+        Me.t_pedidos_por_mesBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'SplitContainer1
         '
@@ -59,14 +69,14 @@ Partial Class Reporte_ventas_por_mes
         Me.SplitContainer1.SplitterDistance = 68
         Me.SplitContainer1.TabIndex = 0
         '
-        'Label1
+        'Button1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 27)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Año:"
+        Me.Button1.Location = New System.Drawing.Point(212, 22)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Actualizar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'txt_año
         '
@@ -76,14 +86,14 @@ Partial Class Reporte_ventas_por_mes
         Me.txt_año.TabIndex = 1
         Me.txt_año.Text = "2017"
         '
-        'Button1
+        'Label1
         '
-        Me.Button1.Location = New System.Drawing.Point(212, 22)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Actualizar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(30, 27)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Año:"
         '
         'ReportViewer1
         '
@@ -97,16 +107,6 @@ Partial Class Reporte_ventas_por_mes
         Me.ReportViewer1.Size = New System.Drawing.Size(942, 450)
         Me.ReportViewer1.TabIndex = 0
         '
-        't_pedidos_por_mesBindingSource
-        '
-        Me.t_pedidos_por_mesBindingSource.DataMember = "t_pedidos_por_mes"
-        Me.t_pedidos_por_mesBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Reporte_ventas_por_mes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -115,13 +115,13 @@ Partial Class Reporte_ventas_por_mes
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Reporte_ventas_por_mes"
         Me.Text = "Ventas mensuales"
+        CType(Me.t_pedidos_por_mesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        CType(Me.t_pedidos_por_mesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

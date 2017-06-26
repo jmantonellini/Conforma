@@ -931,8 +931,8 @@
     End Function
 
     Public Function grafico_ventas_por_mes(ByVal año As String) As DataTable
-        Dim sql As String = "SELECT COUNT(*) AS 'VALOR', MONTH(FECHA_PEDIDO) FROM PEDIDOS  " _
-                            & " WHERE YEAR(FECHA_PEDIDO) = " & año _
+        Dim sql As String = "SELECT COUNT(*) AS 'VALOR', DateName( month , DateAdd( month , MONTH(FECHA_PEDIDO) , -1 ) ) AS'DESCRIPCION' FROM PEDIDOS " _
+                            & "WHERE Year(FECHA_PEDIDO) =  " & año _
                             & " GROUP BY MONTH(FECHA_PEDIDO),YEAR(FECHA_PEDIDO)"
 
         Return Me.ejecuto_sql(sql)
