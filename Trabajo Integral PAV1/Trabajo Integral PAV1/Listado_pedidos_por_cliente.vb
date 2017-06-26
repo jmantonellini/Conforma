@@ -14,7 +14,7 @@
     End Sub
 
     Private Sub cargar_reporte()
-        Me.t_pedidos_clienteBindingSource.DataSource = conexion.tabla_pedidos_por_cliente(txt_filtro.Text)
+        Me.t_pedidos_clienteBindingSource.DataSource = conexion.tabla_pedidos_por_cliente(txt_filtro.Text, fecha_inicio.Value, fecha_fin.Value)
         Me.ReportViewer1.RefreshReport()
     End Sub
 End Class

@@ -23,7 +23,7 @@ Partial Class Listado_pedidos_por_cliente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.t_pedidos_clienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -32,6 +32,10 @@ Partial Class Listado_pedidos_por_cliente
         Me.cmd_buscar = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.fecha_fin = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.fecha_inicio = New System.Windows.Forms.DateTimePicker()
         CType(Me.t_pedidos_clienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -53,13 +57,13 @@ Partial Class Listado_pedidos_por_cliente
         Me.ReportViewer1.AutoSize = True
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReportViewer1.DocumentMapWidth = 1
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.t_pedidos_clienteBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.t_pedidos_clienteBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.llistado_pedidos_cliente.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(863, 531)
+        Me.ReportViewer1.Size = New System.Drawing.Size(863, 479)
         Me.ReportViewer1.TabIndex = 0
         '
         'Label1
@@ -80,7 +84,7 @@ Partial Class Listado_pedidos_por_cliente
         '
         'cmd_buscar
         '
-        Me.cmd_buscar.Location = New System.Drawing.Point(191, 15)
+        Me.cmd_buscar.Location = New System.Drawing.Point(699, 14)
         Me.cmd_buscar.Name = "cmd_buscar"
         Me.cmd_buscar.Size = New System.Drawing.Size(75, 23)
         Me.cmd_buscar.TabIndex = 3
@@ -92,21 +96,60 @@ Partial Class Listado_pedidos_por_cliente
         Me.Panel1.AllowDrop = True
         Me.Panel1.AutoSize = True
         Me.Panel1.Controls.Add(Me.ReportViewer1)
-        Me.Panel1.Location = New System.Drawing.Point(1, 55)
+        Me.Panel1.Location = New System.Drawing.Point(1, 107)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(863, 531)
+        Me.Panel1.Size = New System.Drawing.Size(863, 479)
         Me.Panel1.TabIndex = 4
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.fecha_fin)
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.fecha_inicio)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.txt_filtro)
         Me.Panel2.Controls.Add(Me.cmd_buscar)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(862, 49)
+        Me.Panel2.Size = New System.Drawing.Size(862, 57)
         Me.Panel2.TabIndex = 5
+        '
+        'fecha_fin
+        '
+        Me.fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.fecha_fin.Location = New System.Drawing.Point(483, 17)
+        Me.fecha_fin.Name = "fecha_fin"
+        Me.fecha_fin.Size = New System.Drawing.Size(106, 20)
+        Me.fecha_fin.TabIndex = 13
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(465, 23)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(12, 13)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "y"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(264, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(92, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Fecha de Entrega"
+        '
+        'fecha_inicio
+        '
+        Me.fecha_inicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.fecha_inicio.Location = New System.Drawing.Point(358, 17)
+        Me.fecha_inicio.Name = "fecha_inicio"
+        Me.fecha_inicio.Size = New System.Drawing.Size(101, 20)
+        Me.fecha_inicio.TabIndex = 9
+        Me.fecha_inicio.Value = New Date(2017, 1, 1, 0, 0, 0, 0)
         '
         'Listado_pedidos_por_cliente
         '
@@ -137,4 +180,8 @@ Partial Class Listado_pedidos_por_cliente
     Friend WithEvents cmd_buscar As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents fecha_fin As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents fecha_inicio As System.Windows.Forms.DateTimePicker
 End Class

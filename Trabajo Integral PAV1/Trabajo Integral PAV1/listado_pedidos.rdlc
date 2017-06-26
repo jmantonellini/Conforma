@@ -522,7 +522,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!FECHA_PEDIDO.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>d</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -584,7 +586,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!FECHA_ENTREGA.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>dd/MM/yyyy</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -894,11 +898,11 @@
         </Field>
         <Field Name="FECHA_PEDIDO">
           <DataField>FECHA_PEDIDO</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="FECHA_ENTREGA">
           <DataField>FECHA_ENTREGA</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CANTIDAD">
           <DataField>CANTIDAD</DataField>

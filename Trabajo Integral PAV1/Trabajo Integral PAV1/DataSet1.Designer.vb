@@ -1141,7 +1141,7 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function Addt_pedidosRow(ByVal NRO_PEDIDO As Long, ByVal ID_DETALLE_PEDIDO As String, ByVal NOMBRE_AREA As Long, ByVal NOMBRE_PRODUCTO As Date, ByVal FECHA_PEDIDO As Date, ByVal FECHA_ENTREGA As Boolean, ByVal CANTIDAD As Integer, ByVal OBSERVACIONES As String) As t_pedidosRow
+        Public Overloads Function Addt_pedidosRow(ByVal NRO_PEDIDO As Long, ByVal ID_DETALLE_PEDIDO As String, ByVal NOMBRE_AREA As Long, ByVal NOMBRE_PRODUCTO As Date, ByVal FECHA_PEDIDO As String, ByVal FECHA_ENTREGA As String, ByVal CANTIDAD As Integer, ByVal OBSERVACIONES As String) As t_pedidosRow
             Dim rowt_pedidosRow As t_pedidosRow = CType(Me.NewRow, t_pedidosRow)
             Dim columnValuesArray() As Object = New Object() {NRO_PEDIDO, ID_DETALLE_PEDIDO, NOMBRE_AREA, NOMBRE_PRODUCTO, FECHA_PEDIDO, FECHA_ENTREGA, CANTIDAD, OBSERVACIONES}
             rowt_pedidosRow.ItemArray = columnValuesArray
@@ -1187,9 +1187,9 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnNOMBRE_AREA)
             Me.columnNOMBRE_PRODUCTO = New Global.System.Data.DataColumn("NOMBRE_PRODUCTO", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE_PRODUCTO)
-            Me.columnFECHA_PEDIDO = New Global.System.Data.DataColumn("FECHA_PEDIDO", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnFECHA_PEDIDO = New Global.System.Data.DataColumn("FECHA_PEDIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_PEDIDO)
-            Me.columnFECHA_ENTREGA = New Global.System.Data.DataColumn("FECHA_ENTREGA", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnFECHA_ENTREGA = New Global.System.Data.DataColumn("FECHA_ENTREGA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_ENTREGA)
             Me.columnCANTIDAD = New Global.System.Data.DataColumn("CANTIDAD", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCANTIDAD)
@@ -4240,30 +4240,30 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property FECHA_PEDIDO() As Date
+        Public Property FECHA_PEDIDO() As String
             Get
                 Try
-                    Return CType(Me(Me.tablet_pedidos.FECHA_PEDIDOColumn), Date)
+                    Return CType(Me(Me.tablet_pedidos.FECHA_PEDIDOColumn), String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_PEDIDO' in table 't_pedidos' is DBNull.", e)
                 End Try
             End Get
-            Set(value As Date)
+            Set(value As String)
                 Me(Me.tablet_pedidos.FECHA_PEDIDOColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property FECHA_ENTREGA() As Boolean
+        Public Property FECHA_ENTREGA() As String
             Get
                 Try
-                    Return CType(Me(Me.tablet_pedidos.FECHA_ENTREGAColumn), Boolean)
+                    Return CType(Me(Me.tablet_pedidos.FECHA_ENTREGAColumn), String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ENTREGA' in table 't_pedidos' is DBNull.", e)
                 End Try
             End Get
-            Set(value As Boolean)
+            Set(value As String)
                 Me(Me.tablet_pedidos.FECHA_ENTREGAColumn) = value
             End Set
         End Property

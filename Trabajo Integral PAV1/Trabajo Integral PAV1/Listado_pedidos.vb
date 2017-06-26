@@ -8,7 +8,7 @@
 
     Private Sub cargar_reporte()
 
-        Me.t_pedidosBindingSource.DataSource = conexion.tabla_listado_pedidos(Me.txt_buscar.Text.Trim())
+        Me.t_pedidosBindingSource.DataSource = conexion.tabla_listado_pedidos(fecha_inicio.Value, fecha_fin.Value)
         Me.ReportViewer1.RefreshReport()
     End Sub
 
