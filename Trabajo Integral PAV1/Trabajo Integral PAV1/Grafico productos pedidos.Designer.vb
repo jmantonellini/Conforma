@@ -24,12 +24,22 @@ Partial Class Grafico_productos_pedidos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.t_productos_pedidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.t_productos_pedidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        't_productos_pedidosBindingSource
+        '
+        Me.t_productos_pedidosBindingSource.DataMember = "t_productos_pedidos"
+        Me.t_productos_pedidosBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -43,16 +53,6 @@ Partial Class Grafico_productos_pedidos
         Me.ReportViewer1.Size = New System.Drawing.Size(928, 471)
         Me.ReportViewer1.TabIndex = 0
         '
-        't_productos_pedidosBindingSource
-        '
-        Me.t_productos_pedidosBindingSource.DataMember = "t_productos_pedidos"
-        Me.t_productos_pedidosBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Grafico_productos_pedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -61,6 +61,7 @@ Partial Class Grafico_productos_pedidos
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Grafico_productos_pedidos"
         Me.Text = "Grafico_productos_pedidos"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_productos_pedidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

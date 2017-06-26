@@ -99,6 +99,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_UserColumnName="CANTIDAD" type="xs:int" minOccurs="0" />
+              <xs:element name="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" msprop:Generator_UserColumnName="DESCRIPCION" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -115,6 +116,7 @@
             <xs:sequence>
               <xs:element name="NOMBRE_CLIENTE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_CLIENTE" msprop:Generator_ColumnPropNameInRow="NOMBRE_CLIENTE" msprop:Generator_ColumnPropNameInTable="NOMBRE_CLIENTEColumn" msprop:Generator_UserColumnName="NOMBRE_CLIENTE" type="xs:string" minOccurs="0" />
               <xs:element name="CANT_PEDIDOS" msprop:Generator_ColumnVarNameInTable="columnCANT_PEDIDOS" msprop:Generator_ColumnPropNameInRow="CANT_PEDIDOS" msprop:Generator_ColumnPropNameInTable="CANT_PEDIDOSColumn" msprop:Generator_UserColumnName="CANT_PEDIDOS" type="xs:int" minOccurs="0" />
+              <xs:element name="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" msprop:Generator_UserColumnName="APELLIDO" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

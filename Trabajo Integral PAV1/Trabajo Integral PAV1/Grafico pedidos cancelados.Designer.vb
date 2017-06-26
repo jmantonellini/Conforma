@@ -24,12 +24,22 @@ Partial Class Grafico_pedidos_cancelados
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
         Me.t_pedidos_canceladosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.t_pedidos_canceladosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        't_pedidos_canceladosBindingSource
+        '
+        Me.t_pedidos_canceladosBindingSource.DataMember = "t_pedidos_cancelados"
+        Me.t_pedidos_canceladosBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -40,29 +50,19 @@ Partial Class Grafico_pedidos_cancelados
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.grafico_pedidos_cancelados.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(714, 405)
+        Me.ReportViewer1.Size = New System.Drawing.Size(877, 475)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        't_pedidos_canceladosBindingSource
-        '
-        Me.t_pedidos_canceladosBindingSource.DataMember = "t_pedidos_cancelados"
-        Me.t_pedidos_canceladosBindingSource.DataSource = Me.DataSet1
         '
         'Grafico_pedidos_cancelados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(714, 405)
+        Me.ClientSize = New System.Drawing.Size(877, 475)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Grafico_pedidos_cancelados"
         Me.Text = "Grafico_pedidos_cancelados"
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.t_pedidos_canceladosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -23,37 +23,37 @@ Partial Class Listado_clientes_por_empresa
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.t_clientes_empresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1 = New Trabajo_Integral_PAV1.DataSet1()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_empresa = New System.Windows.Forms.TextBox()
         Me.cmd_buscar = New System.Windows.Forms.Button()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.t_clientes_empresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ReportViewer1
+        't_clientes_empresaBindingSource
         '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.t_clientes_empresaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.listado_clientes_empresa.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(13, 56)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(930, 493)
-        Me.ReportViewer1.TabIndex = 0
+        Me.t_clientes_empresaBindingSource.DataMember = "t_clientes_empresa"
+        Me.t_clientes_empresaBindingSource.DataSource = Me.DataSet1
         '
         'DataSet1
         '
         Me.DataSet1.DataSetName = "DataSet1"
         Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        't_clientes_empresaBindingSource
+        'ReportViewer1
         '
-        Me.t_clientes_empresaBindingSource.DataMember = "t_clientes_empresa"
-        Me.t_clientes_empresaBindingSource.DataSource = Me.DataSet1
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.t_clientes_empresaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.listado_clientes_empresa.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 46)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(1004, 547)
+        Me.ReportViewer1.TabIndex = 0
         '
         'Label1
         '
@@ -84,7 +84,7 @@ Partial Class Listado_clientes_por_empresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(955, 558)
+        Me.ClientSize = New System.Drawing.Size(1003, 589)
         Me.Controls.Add(Me.cmd_buscar)
         Me.Controls.Add(Me.txt_empresa)
         Me.Controls.Add(Me.Label1)
@@ -92,8 +92,8 @@ Partial Class Listado_clientes_por_empresa
         Me.Name = "Listado_clientes_por_empresa"
         Me.Text = "Clientes por Empresa"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.t_clientes_empresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

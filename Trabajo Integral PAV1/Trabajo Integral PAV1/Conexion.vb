@@ -903,9 +903,10 @@
     End Function
 
     Public Function grafico_pedidos_cancelados() As Data.DataTable
-        Dim sql As String = "SELECT COUNT(*) AS 'CANTIDAD' FROM PEDIDOS WHERE CANCELADO = 0"
-        sql &= " UNION"
-        sql &= " SELECT COUNT(*) AS 'CANT_CANCELADOS' FROM PEDIDOS WHERE CANCELADO = 1"
+        Dim sql As String = "SELECT CASE WHEN CANCELADO = 'TRUE' THEN 'CANCELADOS' ELSE 'HABILITADOS' END AS 'DESCRIPCION' " _
+                            & " ,COUNT(*) AS 'CANTIDAD' FROM PEDIDOS" _
+                            & " GROUP BY CANCELADO"
+   
 
         Return Me.ejecuto_sql(sql)
     End Function
@@ -919,10 +920,12 @@
         Return Me.ejecuto_sql(sql)
     End Function
 
-    Public Function grafico_ventas_x_cliente() As Data.DataTable
-        Dim sql As String = "SELECT CLIENTES.NOMBRE AS 'NOMBRE_CLIENTE', COUNT(*) AS 'CANT_PEDIDOS' FROM PEDIDOS JOIN CLIENTES"
+    Public Function grafico_ventas_x_cliente(ByVal minimo As String) As Data.DataTable
+        Dim sql As String = "SELECT CLIENTES.NOMBRE AS 'NOMBRE_CLIENTE',CLIENTES.APELLIDO AS 'APELLIDO', COUNT(*) AS 'CANT_PEDIDOS' FROM PEDIDOS JOIN CLIENTES"
         sql &= " ON PEDIDOS.ID_CLIENTE = CLIENTES.ID_CLIENTE"
-        sql &= " GROUP BY CLIENTES.NOMBRE"
+        sql &= " GROUP BY CLIENTES.NOMBRE,APELLIDO" _
+            & " HAVING COUNT(*) >= " & minimo
+
 
         Return Me.ejecuto_sql(sql)
     End Function
