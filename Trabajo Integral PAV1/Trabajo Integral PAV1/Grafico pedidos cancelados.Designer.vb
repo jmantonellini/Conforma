@@ -50,14 +50,14 @@ Partial Class Grafico_pedidos_cancelados
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Trabajo_Integral_PAV1.grafico_pedidos_cancelados.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(877, 475)
+        Me.ReportViewer1.Size = New System.Drawing.Size(877, 541)
         Me.ReportViewer1.TabIndex = 0
         '
         'Grafico_pedidos_cancelados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(877, 475)
+        Me.ClientSize = New System.Drawing.Size(877, 541)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Grafico_pedidos_cancelados"
         Me.Text = "Grafico_pedidos_cancelados"

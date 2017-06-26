@@ -20,4 +20,10 @@
         Dim pedidos_cancelados As New Grafico_pedidos_cancelados
         pedidos_cancelados.Show()
     End Sub
+
+    Private Sub cmd_ventas_por_mes_Click(sender As Object, e As EventArgs) Handles cmd_ventas_por_mes.Click
+        Dim ventas_por_mes As New Reporte_ventas_por_mes
+        ventas_por_mes.Show()
+
+    End Sub
 End Class

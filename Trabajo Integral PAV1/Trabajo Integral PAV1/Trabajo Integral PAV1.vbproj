@@ -223,6 +223,12 @@
     <Compile Include="Gestor empresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reporte ventas por mes.Designer.vb">
+      <DependentUpon>Reporte ventas por mes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte ventas por mes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes.Designer.vb">
       <DependentUpon>Reportes.vb</DependentUpon>
     </Compile>
@@ -245,6 +251,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="grafico_pedidos_cancelados.rdlc" />
     <EmbeddedResource Include="grafico_productos_pedidos.rdlc" />
+    <EmbeddedResource Include="grafico_ventas_mes.rdlc" />
     <EmbeddedResource Include="grafico_ventas_x_cliente.rdlc" />
     <EmbeddedResource Include="Listado productos.resx">
       <DependentUpon>Listado productos.vb</DependentUpon>
@@ -308,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestor empresas.resx">
       <DependentUpon>Gestor empresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte ventas por mes.resx">
+      <DependentUpon>Reporte ventas por mes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.vb</DependentUpon>

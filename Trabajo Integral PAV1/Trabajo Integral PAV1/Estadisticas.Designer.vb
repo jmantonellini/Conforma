@@ -28,6 +28,7 @@ Partial Class Estadisticas
         Me.cmd_ventas_x_cliente = New System.Windows.Forms.Button()
         Me.cmd_productos_pedidos = New System.Windows.Forms.Button()
         Me.cmd_pedidos_cancelados = New System.Windows.Forms.Button()
+        Me.cmd_ventas_por_mes = New System.Windows.Forms.Button()
         CType(Me.t_ventas_x_clienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -72,11 +73,22 @@ Partial Class Estadisticas
         Me.cmd_pedidos_cancelados.Text = "Pedidos cancelados"
         Me.cmd_pedidos_cancelados.UseVisualStyleBackColor = True
         '
+        'cmd_ventas_por_mes
+        '
+        Me.cmd_ventas_por_mes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd_ventas_por_mes.Location = New System.Drawing.Point(250, 108)
+        Me.cmd_ventas_por_mes.Name = "cmd_ventas_por_mes"
+        Me.cmd_ventas_por_mes.Size = New System.Drawing.Size(173, 48)
+        Me.cmd_ventas_por_mes.TabIndex = 1
+        Me.cmd_ventas_por_mes.Text = "Ventas por mes"
+        Me.cmd_ventas_por_mes.UseVisualStyleBackColor = True
+        '
         'Estadisticas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(748, 472)
+        Me.Controls.Add(Me.cmd_ventas_por_mes)
         Me.Controls.Add(Me.cmd_pedidos_cancelados)
         Me.Controls.Add(Me.cmd_productos_pedidos)
         Me.Controls.Add(Me.cmd_ventas_x_cliente)
@@ -92,4 +104,5 @@ Partial Class Estadisticas
     Friend WithEvents cmd_ventas_x_cliente As System.Windows.Forms.Button
     Friend WithEvents cmd_productos_pedidos As System.Windows.Forms.Button
     Friend WithEvents cmd_pedidos_cancelados As System.Windows.Forms.Button
+    Friend WithEvents cmd_ventas_por_mes As System.Windows.Forms.Button
 End Class
