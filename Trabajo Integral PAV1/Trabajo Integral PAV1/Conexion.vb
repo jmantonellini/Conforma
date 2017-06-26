@@ -918,4 +918,12 @@
 
         Return Me.ejecuto_sql(sql)
     End Function
+
+    Public Function grafico_ventas_x_cliente() As Data.DataTable
+        Dim sql As String = "SELECT CLIENTES.NOMBRE AS 'NOMBRE_CLIENTE', COUNT(*) AS 'CANT_PEDIDOS' FROM PEDIDOS JOIN CLIENTES"
+        sql &= " ON PEDIDOS.ID_CLIENTE = CLIENTES.ID_CLIENTE"
+        sql &= " GROUP BY CLIENTES.NOMBRE"
+
+        Return Me.ejecuto_sql(sql)
+    End Function
 End Class
