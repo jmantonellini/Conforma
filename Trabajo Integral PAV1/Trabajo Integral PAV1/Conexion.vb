@@ -889,14 +889,14 @@
     End Function
 
     Public Function tabla_empresas(ByVal filtro As String) As Data.DataTable
-        Dim sql As String = "SELECT NOMBRE,CUIT,RAZON_SOCIAL,TELEFONO,EMAIL FROM EMPRESAS WHERE NOMBRE LIKE '" & filtro & "%'"
+        Dim sql As String = "SELECT NOMBRE,CUIT,RAZON_SOCIAL,TELEFONO,EMAIL FROM EMPRESAS WHERE NOMBRE LIKE '%" & filtro & "%'"
         Return Me.ejecuto_sql(sql)
     End Function
 
     Public Function tabla_clientes_por_empresa(ByVal filtro As String) As Data.DataTable
         Dim sql As String = "SELECT E.CUIT,E.NOMBRE AS 'NOMBRE_EMPRESA',C.NOMBRE AS 'NOMBRE_CLIENTE',C.APELLIDO AS 'APELLIDO_CLIENTE',C.EMAIL AS 'EMAIL_CLIENTE',C.TEL_CEL as 'TEL_CEL' " _
                             & " FROM EMPRESAS E JOIN CLIENTES C ON E.CUIT = C.CUIT " _
-                            & " WHERE E.NOMBRE LIKE '" & filtro & "%' " _
+                            & " WHERE E.NOMBRE LIKE '%" & filtro & "%' " _
                             & " GROUP BY E.CUIT,E.NOMBRE,C.NOMBRE,C.APELLIDO,C.EMAIL,C.TEL_CEL " _
                             & " ORDER BY 2"
         Return Me.ejecuto_sql(sql)
