@@ -11,11 +11,6 @@
                   <GroupExpression>=Fields!DESCRIPCION.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!DESCRIPCION.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <Label>=Fields!DESCRIPCION.Value</Label>
             </ChartMember>
           </ChartMembers>
@@ -71,6 +66,7 @@
           <ChartArea Name="Default">
             <ChartCategoryAxes>
               <ChartAxis Name="Primary">
+                <Visible>True</Visible>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -102,6 +98,8 @@
                 <CrossAt>NaN</CrossAt>
                 <Minimum>NaN</Minimum>
                 <Maximum>NaN</Maximum>
+                <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
+                <OffsetLabels>true</OffsetLabels>
                 <ChartAxisScaleBreak>
                   <Style />
                 </ChartAxisScaleBreak>
@@ -242,7 +240,7 @@
         <Top>1.82245cm</Top>
         <Left>1.79599cm</Left>
         <Height>5cm</Height>
-        <Width>19.43271cm</Width>
+        <Width>20.60068cm</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>

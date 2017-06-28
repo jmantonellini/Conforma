@@ -60,7 +60,7 @@ Partial Class Grafico_productos_pedidos
         Me.ClientSize = New System.Drawing.Size(928, 471)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Grafico_productos_pedidos"
-        Me.Text = "Grafico_productos_pedidos"
+        Me.Text = "Productos Pedidos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.t_productos_pedidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
