@@ -8,19 +8,19 @@
         Dim ventana As String = sender.Text
 
         Select Case ventana
-            Case "Gestor Empresas"
+            Case "Empresas"
                 nuevo = New gestor_empresas
-            Case "Gestor Marcas"
+            Case "Marcas"
                 nuevo = New gestor_marcas_modelos
-            Case "Gestor Clientes"
+            Case "Clientes"
                 nuevo = New gestor_clientes
-            Case "Gestor Paises"
+            Case "Paises"
                 nuevo = New gestor_paises
-            Case "Gestor Categorias"
+            Case "Categorias"
                 nuevo = New gestor_tipo_producto_y_categorias
-            Case "Gestor Provincias"
+            Case "Provincias"
                 nuevo = New Gestor_Provincias
-            Case "Gestor Localidades"
+            Case "Localidades"
                 nuevo = New Gestor_localidades
             Case "Pedidos"
                 nuevo = New gestor_pedidos
@@ -35,4 +35,6 @@
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         lbl_hora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss ")
     End Sub
+
+
 End Class
